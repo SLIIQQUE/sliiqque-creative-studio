@@ -1,0 +1,193 @@
+/* ==========================================================================
+   SLIIQQUE Brand Book light theme (section 13) layered over the template CSS.
+   Design tweak: delete the import in layout.tsx (or check out main) to revert.
+   Fonts: Syne (display, uppercase) + DM Sans (body, UI). Page background #FFFFFF.
+   ========================================================================== */
+:root {
+  /* Brand Book light palette */
+  --ink: #050505; --ink-pure: #050505; --ink-2: #050505;
+  --text: #6B7280;          /* secondary text */
+  --text-2: #050505;        /* body copy */
+  --muted: #9CA3AF;
+  --surface: #ffffff; --white: #ffffff;
+  --footer-bg: #F0F0F0;
+  --line: rgba(0, 0, 0, .10);
+  --line-soft: rgba(0, 0, 0, .06);
+  --nav-bg: rgba(255, 255, 255, .95);
+  --orange: #f97316; --orange-hover: #ea580c; --blue: #3b82f6; --purple: #8b5cf6; --indigo: #6366f1;
+  --accent: #f97316;
+  --grad: linear-gradient(90deg, #f97316 0%, #3b82f6 50%, #8b5cf6 100%);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, .04); --shadow-md: 0 4px 16px rgba(0, 0, 0, .06); --shadow-lg: 0 8px 32px rgba(0, 0, 0, .10);
+  --font: var(--font-dm-sans), system-ui, -apple-system, sans-serif;
+  --font-display: var(--font-syne), system-ui, sans-serif;
+  --r-card: 16px;
+
+  /* Syne is a wide display face: scale the template's type tokens down so headings fit */
+  --fs-hero: 124px; --lh-hero: 118px; --ls-hero: -4px;
+  --fs-display: 84px; --lh-display: 84px; --ls-display: -2.5px;
+  --fs-title: 68px; --lh-title: 70px; --ls-title: -2px;
+  --fs-h3: 30px; --lh-h3: 36px; --ls-h3: -.6px;
+  --fs-h4: 22px; --lh-h4: 28px; --ls-h4: -.3px;
+  --fs-h5: 17px; --lh-h5: 22px; --ls-h5: -.2px;
+  --fs-tm: 18px; --lh-tm: 20px;
+  --fs-body: 16px; --lh-body: 1.6;
+}
+@media (max-width: 1319.98px) {
+  :root {
+    --fs-hero: 82px; --lh-hero: 80px; --ls-hero: -3px;
+    --fs-display: 60px; --lh-display: 62px; --ls-display: -2px;
+    --fs-title: 52px; --lh-title: 54px; --ls-title: -1.6px;
+    --fs-h3: 26px; --lh-h3: 32px;
+    --fs-h4: 20px; --lh-h4: 26px;
+    --fs-h5: 16px; --lh-h5: 21px;
+  }
+  .hero__title { font-size: var(--fs-hero); line-height: var(--lh-hero); letter-spacing: var(--ls-hero); }
+}
+@media (max-width: 767.98px) {
+  :root {
+    --fs-hero: 46px; --lh-hero: 48px; --ls-hero: -1.8px;
+    --fs-display: 40px; --lh-display: 42px; --ls-display: -1.4px;
+    --fs-title: 36px; --lh-title: 40px; --ls-title: -1.2px;
+    --fs-h3: 22px; --lh-h3: 28px;
+    --fs-h4: 18px; --lh-h4: 24px;
+    --fs-h5: 15px; --lh-h5: 20px;
+  }
+}
+
+html { background: #fff; }
+body { background: #fff; color: var(--ink); font-family: var(--font); font-weight: 400; -webkit-font-smoothing: antialiased; }
+::selection { background: rgba(99, 102, 241, .25); }
+
+/* ---- Display type: Syne, uppercase, tight tracking ---- */
+.t-hero, .t-display, .t-title, .t-h3, .t-h4, .t-h5, .hero__title, .case__title, .nf h1,
+h1, h2, h3, h4, h5, .stat__num, .plan__price h3, .acc__title, .post-card h3, .contact__grp a, .contact__grp span, .award h5, .work__row h5 {
+  font-family: var(--font-display); text-transform: uppercase;
+}
+.t-hero, .t-display, .t-title, .hero__title, .case__title, .nf h1 { font-weight: 800; }
+.t-h3, .t-h4, .t-h5, .acc__title, .work__row h5, .award h5 { font-weight: 700; }
+.stat__num { font-weight: 800; letter-spacing: -2px; line-height: 1; }
+.stat__num .sign { line-height: 1; }
+.post-card h3 { font-size: 18px; line-height: 1.3; font-weight: 700; letter-spacing: -.2px; }
+.hero__title { color: var(--ink); }
+.hero__title .line { white-space: nowrap; }
+.sec-head h2, .page-hero h1 { position: relative; }
+/* gradient underline under section headings (brand: light-theme section headers) */
+.sec-head .t-title::after, .page-hero .sec-head h1::after { content: ""; display: block; width: 88px; height: 4px; margin-top: 22px; background: var(--grad); }
+
+/* ---- Micro / UI text: DM Sans 700 uppercase, wide tracking ---- */
+.link-u, .nav-cta, .nav-toggle, .btn, .tag, .scroll, .post-meta, .cur-toggle button, .field label, .footer__cols h6, .award__year, .work__row span, .acc__tags .tag, .hero__tag, .about__label, .age-gate .btn {
+  font-family: var(--font); text-transform: uppercase; letter-spacing: .2em; font-weight: 700;
+}
+.link-u { font-size: 11px; line-height: 20px; }
+.btn, .nav-cta, .nav-toggle { font-size: 11px; line-height: 20px; padding: 16px 32px; border-radius: 0; }
+.nav-cta, .nav-toggle { padding: 10px 22px; }
+.tag { font-size: 10px; line-height: 14px; padding: 6px 12px; border-radius: 9999px; background: rgba(0, 0, 0, .05); color: var(--ink); }
+.post-meta { font-size: 11px; color: var(--text); }
+.work__row span, .award__year { font-size: 11px; color: var(--text); }
+.hero__tag, .about__label { font-size: 11px; line-height: 18px; }
+.scroll { font-size: 11px; }
+
+/* ---- Buttons: orange fill in light theme, 0 radius ---- */
+.btn { background: var(--orange); color: #fff; }
+.btn:hover { background: var(--orange-hover); }
+.btn--accent { background: var(--ink); color: #fff; }
+.btn--accent:hover { background: var(--orange); }
+.nav-cta { background: var(--orange); }
+.nav-cta[aria-current="page"] { background: var(--orange-hover); }
+.nav-toggle { background: var(--orange); }
+.footer__news .btn, .footer__news .btn:hover { color: #fff; }
+
+/* ---- Navigation ---- */
+.nav { background: var(--nav-bg); border-bottom: 1px solid var(--line-soft); }
+.link-u::after { height: 2px; background: var(--grad); }
+.link-u[aria-current="page"]::after { width: calc(100% + 1px); }
+.nav-panel { background: #fff; color: var(--ink); border-top: 1px solid var(--line-soft); box-shadow: var(--shadow-lg); }
+.nav-panel li a { font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: 20px; border-bottom-color: var(--line-soft); color: var(--ink); }
+.nav-panel li a[aria-current="page"] { color: var(--orange); }
+.skip-link { background: var(--ink); }
+a:focus-visible, button:focus-visible, .btn:focus-visible { outline: 2px solid var(--indigo); outline-offset: 3px; }
+
+/* ---- Hero: soft brand orbs at very low opacity ---- */
+.hero { position: relative; overflow: hidden; }
+.hero::before { content: ""; position: absolute; z-index: -1; right: -8%; top: 4%; width: 46vw; height: 46vw; max-width: 720px; max-height: 720px; border-radius: 50%; background: radial-gradient(circle at 30% 30%, rgba(249, 115, 22, .08), rgba(59, 130, 246, .06) 55%, rgba(139, 92, 246, .05) 80%, transparent 100%); filter: blur(60px); }
+.hero__aside h4 { color: var(--ink); }
+
+/* ---- Images and cards: gentle rounding (rounded-2xl), subtle borders ---- */
+.ticker__track img, .about__row2 img, .work__img, .post-card__img, .story__img img, .case__hero img, .case__duo img, .case__wide img, .post__hero img, .post__gallery img, .acc__thumb img, .member img { border-radius: var(--r-card); }
+.work__img, .post-card__img { border-radius: var(--r-card); }
+.work, .post-card { gap: 14px; }
+.work__row h5 { font-size: 18px; letter-spacing: -.2px; }
+.plan, .process__card, .service-card { background: #fff; border: 1px solid var(--line-soft); border-radius: var(--r-card); box-shadow: var(--shadow-sm); position: relative; overflow: hidden; }
+.plan::after, .process__card::after, .service-card::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 4px; background: var(--grad); }
+.plan { padding: 44px 32px 48px; }
+.plan--dark { background: #fff; color: var(--ink); box-shadow: var(--shadow-md); border-color: var(--line); }
+.plan--dark p.desc, .plan--dark li { color: var(--text); }
+.plan--dark .btn--accent { background: var(--orange); }
+.plan--dark .btn--accent:hover { background: var(--orange-hover); }
+.plan p.desc, .plan li { color: var(--text); }
+.plan li::before { background: var(--indigo); }
+.plan .btn, .plan .btn--block { background: var(--orange); }
+.plan__price h3 { font-weight: 800; letter-spacing: -1.5px; }
+.plan__price span { font-family: var(--font); font-size: 11px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--text); }
+.process__card h4, .service-card h2 { color: var(--ink); }
+.process__card p, .service-card p { color: var(--text); }
+.service-card:hover { background: #fff; color: var(--ink); box-shadow: var(--shadow-md); }
+.service-card:hover p { color: var(--text); }
+.service-card__meta { font-family: var(--font); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; color: var(--ink); }
+
+/* ---- Accordions, awards-style lists ---- */
+.acc, .acc__item, .faq__item, .awards, .award { border-color: var(--line-soft); }
+.acc__title { font-size: var(--fs-h4); }
+.icon-ring { color: var(--ink); transition: color .3s; }
+.acc__item:hover .icon-ring, .faq__item:hover .icon-ring, .is-open .icon-ring { color: var(--indigo); }
+.faq__q h3, .faq__q h5 { font-size: var(--fs-h5); }
+.faq__a p, .acc__body p { color: var(--text); }
+.award::before { background: linear-gradient(90deg, rgba(249, 115, 22, .06), rgba(59, 130, 246, .06), rgba(139, 92, 246, .06)); }
+.award:hover { color: var(--ink); }
+.award:hover p { color: var(--text); }
+.award .award__year { color: var(--ink); }
+.award:hover .award__year { color: var(--ink); }
+
+/* ---- Text colours per light scheme ---- */
+.sec-aside p, .about__copy p, .stat p, .split p, .legal .split p, .legal .split li, .legal__intro p, .services-note, .post-meta { color: var(--text); }
+.split h4, .split h2 { color: var(--ink); }
+.work__row span, .hero__tag { color: var(--text); }
+a { color: inherit; }
+.legal .split p a, .services-note a { color: var(--blue); }
+
+/* ---- Forms: bordered inputs, 0 radius, orange focus ---- */
+.field label { font-size: 11px; line-height: 16px; }
+.field input, .field select, .field textarea { border: 1px solid var(--line); border-radius: 0; padding: 14px 16px; margin-top: 12px; background: #fff; color: var(--ink); font-family: var(--font); font-size: 15px; line-height: 1.4; }
+.field select { padding-right: 36px; background-position: right 14px center; }
+.field input:focus, .field select:focus, .field textarea:focus { outline: 0; border-color: var(--orange); box-shadow: 0 0 0 3px rgba(249, 115, 22, .2); }
+.field input::placeholder, .field textarea::placeholder { color: var(--muted); }
+.field, .field--msg { min-height: 0; }
+.field--msg textarea { margin-top: 12px; height: 140px; }
+.form { row-gap: 28px; }
+.contact__grp a, .contact__grp span { font-size: 17px; line-height: 24px; }
+.contact__grp p { color: var(--text); }
+
+/* ---- Currency toggle, status elements ---- */
+.cur-toggle { border-color: var(--line); }
+.cur-toggle button { font-size: 11px; letter-spacing: .2em; color: var(--ink); }
+.cur-toggle button.is-on { background: var(--indigo); color: #fff; }
+.cur-toggle button:not(.is-on):hover { color: var(--indigo); }
+
+/* ---- Footer: light (#F0F0F0), near-black text ---- */
+.footer { background: var(--footer-bg); color: var(--ink); border-top: 1px solid var(--line-soft); }
+.footer__logo { color: var(--ink); }
+.footer__about p, .footer__news p, .footer__bottom p, .footer__cols .copy p { color: var(--text); }
+.footer__about .mail, .footer__about .tel, .footer__cols a, .footer__bottom a { color: var(--ink); }
+.footer__cols h6 { color: var(--text); font-size: 10px; }
+.footer__cols .link-u { font-size: 14px; letter-spacing: 0; text-transform: none; font-weight: 500; }
+.footer__bottom { border-top-color: var(--line); }
+.field-dark { background: #fff; border: 1px solid var(--line); color: var(--ink); border-radius: 0; }
+.field-dark::placeholder { color: var(--muted); opacity: 1; }
+
+/* ---- Age gate, pager, 404 ---- */
+.age-gate { background: rgba(255, 255, 255, .97); }
+.age-gate__box h2 { font-family: var(--font-display); }
+.nf h1 { color: var(--orange); }
+
+.hero__aside .scroll { font-size: 11px; line-height: 20px; letter-spacing: .2em; font-weight: 700; }
+.hero__aside h4 { font-size: 18px; line-height: 26px; letter-spacing: -.2px; }

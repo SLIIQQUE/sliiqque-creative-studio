@@ -11,7 +11,7 @@ export function LogoNav() {
 export function LogoFooter() {
   return (
     <svg viewBox="0 0 1320 130" role="img" aria-label="SLIIQQUE Studio" xmlns="http://www.w3.org/2000/svg">
-      <text x="0" y="118" style={font} fontSize="158" letterSpacing="0.05em" fill="#fff">SLIIQQUE</text>
+      <text x="0" y="118" style={font} fontSize="158" letterSpacing="0.05em" fill="currentColor">SLIIQQUE</text>
     </svg>
   );
 }

@@ -1,15 +1,16 @@
 import type { Metadata, Viewport } from "next";
-import { Syne } from "next/font/google";
+import { DM_Sans, Syne } from "next/font/google";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
 import { BRAND_DESC, KEYWORDS, ORG_ID, SITE_NAME, SITE_URL, organizationSchema, websiteSchema } from "@/lib/seo";
-import "./fonts.css";
 import "./site.css";
+import "./brand-light.css";
 
-const syne = Syne({ subsets: ["latin"], weight: "800", variable: "--font-syne", display: "swap" });
+const syne = Syne({ subsets: ["latin"], weight: ["500", "600", "700", "800"], variable: "--font-syne", display: "swap" });
+const dmSans = DM_Sans({ subsets: ["latin"], weight: ["300", "400", "500", "600", "700"], variable: "--font-dm-sans", display: "swap" });
 
-export const viewport: Viewport = { themeColor: "#030303", width: "device-width", initialScale: 1 };
+export const viewport: Viewport = { themeColor: "#ffffff", width: "device-width", initialScale: 1 };
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -31,7 +32,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en-NG" className={syne.variable}>
+    <html lang="en-NG" className={`${syne.variable} ${dmSans.variable}`}>
       <body>
         <JsonLd data={[organizationSchema(), websiteSchema()]} />
         <Nav />
