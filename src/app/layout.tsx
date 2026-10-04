@@ -1,15 +1,15 @@
 import type { Metadata, Viewport } from "next";
-import { Syne } from "next/font/google";
+import { DM_Sans, Syne } from "next/font/google";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
 import { BRAND_DESC, KEYWORDS, ORG_ID, SITE_NAME, SITE_URL, organizationSchema, websiteSchema } from "@/lib/seo";
-import "./fonts.css";
 import "./site.css";
 import "./brand-light.css";
 
-// Syne is kept only for the SLIIQQUE wordmark in the footer logo.
+// Variable fonts (no explicit weights): one request each, works in both dev (Turbopack) and build.
 const syne = Syne({ subsets: ["latin"], variable: "--font-syne", display: "swap" });
+const dmSans = DM_Sans({ subsets: ["latin"], variable: "--font-dm-sans", display: "swap" });
 
 export const viewport: Viewport = { themeColor: "#ffffff", width: "device-width", initialScale: 1 };
 
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en-NG" className={syne.variable}>
+    <html lang="en-NG" className={`${syne.variable} ${dmSans.variable}`}>
       <body>
         <JsonLd data={[organizationSchema(), websiteSchema()]} />
         <Nav />
