@@ -13,7 +13,7 @@
   --footer-bg: #F0F0F0;
   --line: rgba(0, 0, 0, .10);
   --line-soft: rgba(0, 0, 0, .06);
-  --nav-bg: rgba(255, 255, 255, .95);
+  --nav-bg: rgba(240, 240, 240, .96);  /* same grey as the footer (#F0F0F0) */
   --orange: #f97316; --orange-hover: #ea580c; --blue: #3b82f6; --purple: #8b5cf6; --indigo: #6366f1;
   --accent: #f97316;
   --grad: linear-gradient(90deg, #f97316 0%, #3b82f6 50%, #8b5cf6 100%);
@@ -101,7 +101,7 @@ h1, h2, h3, h4, h5, .stat__num, .plan__price h3, .acc__title, .post-card h3, .co
 .nav { background: var(--nav-bg); border-bottom: 1px solid var(--line-soft); }
 .link-u::after { height: 2px; background: var(--grad); }
 .link-u[aria-current="page"]::after { width: calc(100% + 1px); }
-.nav-panel { background: #fff; color: var(--ink); border-top: 1px solid var(--line-soft); box-shadow: var(--shadow-lg); }
+.nav-panel { background: var(--footer-bg); color: var(--ink); border-top: 1px solid var(--line-soft); box-shadow: var(--shadow-lg); }
 .nav-panel li a { font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: 20px; border-bottom-color: var(--line-soft); color: var(--ink); }
 .nav-panel li a[aria-current="page"] { color: var(--orange); }
 .skip-link { background: var(--ink); }
