@@ -24,11 +24,11 @@
 
   /* Syne is a wide display face: scale the template's type tokens down so headings fit */
   --fs-hero: 124px; --lh-hero: 118px; --ls-hero: -4px;
-  --fs-display: 92px; --lh-display: 90px; --ls-display: -2.5px;
-  --fs-title: 76px; --lh-title: 76px; --ls-title: -2px;
-  --fs-h3: 34px; --lh-h3: 40px; --ls-h3: -.6px;
-  --fs-h4: 25px; --lh-h4: 31px; --ls-h4: -.3px;
-  --fs-h5: 19px; --lh-h5: 24px; --ls-h5: -.2px;
+  --fs-display: 84px; --lh-display: 84px; --ls-display: -2.5px;
+  --fs-title: 68px; --lh-title: 70px; --ls-title: -2px;
+  --fs-h3: 30px; --lh-h3: 36px; --ls-h3: -.6px;
+  --fs-h4: 22px; --lh-h4: 28px; --ls-h4: -.3px;
+  --fs-h5: 17px; --lh-h5: 22px; --ls-h5: -.2px;
   --fs-tm: 18px; --lh-tm: 20px;
   --fs-body: 16px; --lh-body: 1.6;
 }
@@ -67,7 +67,7 @@ h1, h2, h3, h4, h5, .stat__num, .plan__price h3, .acc__title, .post-card h3, .co
 .t-h3, .t-h4, .t-h5, .acc__title, .work__row h5, .award h5 { font-weight: 700; }
 .stat__num { font-weight: 800; letter-spacing: -2px; line-height: 1; }
 .stat__num .sign { line-height: 1; }
-.post-card h3 { font-size: 20px; line-height: 1.3; font-weight: 700; letter-spacing: -.2px; }
+.post-card h3 { font-size: 18px; line-height: 1.3; font-weight: 700; letter-spacing: -.2px; }
 .hero__title { color: var(--ink); }
 .hero__title .line { white-space: nowrap; }
 .sec-head h2, .page-hero h1 { position: relative; }
@@ -191,4 +191,4 @@ a { color: inherit; }
 
 .hero__aside .scroll { font-size: 15px; line-height: 24px; letter-spacing: .08em; font-weight: 700; }
 
-.hero__aside h4 { font-size: 21px; line-height: 29px; letter-spacing: -.2px; }
+.hero__aside h4 { font-size: 19px; line-height: 27px; letter-spacing: -.2px; }
