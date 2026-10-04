@@ -1,0 +1,661 @@
+{
+ "terms": {
+  "slug": "terms",
+  "title": "terms & conditions",
+  "sub": "The terms that apply when you use this website or engage SLIIQQUE Studio for creative work.",
+  "effective": "4 October 2026",
+  "version": "1.0",
+  "intro": [
+   "These Terms & Conditions (the “Terms”) govern your use of the SLIIQQUE Studio website and every engagement for creative services with SLIIQQUE. Please read them together with our Studio Policies and Privacy Policy, which form part of these Terms."
+  ],
+  "sections": [
+   {
+    "h": "1. Who we are",
+    "blocks": [
+     "SLIIQQUE is a creative studio based in Lagos, Nigeria, founded on 22 December 2025 by Gabriel Njoabozia. The SLIIQQUE Creative Studio produces AI commercials, AI UGC, AI photography, brand launches, product cinematography, visual campaigns and digital humans.",
+     "Contact: hello@sliiqque.space · +234 704 100 0085 (call or WhatsApp) · Lagos, Nigeria.",
+     "These Terms cover our Creative Studio services and this website. Product & Engineering engagements are governed by their own Statement of Work and Master Services Agreement."
+    ]
+   },
+   {
+    "h": "2. Acceptance and eligibility",
+    "blocks": [
+     "By using this website, requesting a quote or engaging our services, you agree to these Terms. If you act for an organisation, you confirm you have authority to bind it, and “you” includes that organisation.",
+     "Our services are for business use. You must be at least 18 years old to engage us or to view age-restricted content on this website."
+    ]
+   },
+   {
+    "h": "3. Our services",
+    "blocks": [
+     "We offer these Creative Studio services:",
+     [
+      "AI commercials",
+      "AI UGC and digital-human content",
+      "AI photography (product and lifestyle)",
+      "AI fashion imagery (photorealistic AI models wearing your clothing)",
+      "Brand launches and visual campaigns",
+      "Product cinematography",
+      "Digital humans (custom, identity-locked AI people)"
+     ],
+     "We do not offer logo design or logo creation. We work with your existing brand assets, or from a creative direction agreed in writing.",
+     "The scope, deliverables, price and timeline of each engagement are set out in a written quote, order form or Statement of Work (an “Order”)."
+    ]
+   },
+   {
+    "h": "4. Quotes, orders and agreements",
+    "blocks": [
+     [
+      "Quotes are valid for 14 days from the date issued unless the quote says otherwise.",
+      "An Order becomes binding when you accept it in writing (email or WhatsApp is sufficient) and we receive the deposit or first payment due.",
+      "If an Order conflicts with these Terms, the Order prevails for that engagement. If it conflicts with the Studio Policies, the Order prevails, then these Terms, then the Policies.",
+      "Anything outside the Order is out of scope and handled as a change order (see the Studio Policies)."
+     ]
+    ]
+   },
+   {
+    "h": "5. Fees, currency and taxes",
+    "blocks": [
+     [
+      "Prices are published in Nigerian naira (NGN) and US dollars (USD). Nigerian clients are invoiced in NGN. International clients are invoiced in USD. The currency and amount on your accepted quote are fixed for that Order.",
+      "All fees exclude taxes, duties, withholding and bank charges. You are responsible for any taxes that apply to you, and for transfer fees so that we receive the full invoiced amount.",
+      "Published prices are launch prices and may change for new Orders. Changes to an active retainer need 30 days’ written notice."
+     ]
+    ]
+   },
+   {
+    "h": "6. Payment",
+    "blocks": [
+     [
+      "One-off projects: a 50% deposit starts the work and the remaining 50% is due when the final deliverables are delivered.",
+      "Retainers: billed monthly in advance. The fee is due before each monthly cycle begins.",
+      "We invoice by bank transfer (NGN for Nigerian clients, USD for international clients). Other methods may be offered on request.",
+      "Invoices are due within 7 days of the invoice date unless the Order says otherwise.",
+      "If a payment is more than 7 days overdue we may pause work until it is paid, and overdue amounts may carry interest at 1.5% per month or the maximum rate permitted by law, whichever is lower.",
+      "Final files are released only after payment has cleared."
+     ]
+    ]
+   },
+   {
+    "h": "7. Your responsibilities",
+    "blocks": [
+     "To let us deliver on time and to the standard agreed, you agree to:",
+     [
+      "give us accurate briefs, references, product details and brand assets, and answer questions promptly",
+      "name one decision-maker who can approve work for you",
+      "give feedback in consolidated form within the review windows in the Studio Policies",
+      "only supply materials, images, names and likenesses you own or have permission to use",
+      "make sure your products, claims, offers and advertising comply with the law, advertising codes and the rules of the platforms where you publish",
+      "tell us promptly if your needs, deadlines or legal circumstances change"
+     ]
+    ]
+   },
+   {
+    "h": "8. Revisions, approvals and acceptance",
+    "blocks": [
+     "Each deliverable includes two revision rounds unless the Order says otherwise. Work is deemed accepted when you approve it in writing, when you use it publicly, or when you give no feedback within 7 days of delivery. Full rules are in the Studio Policies."
+    ]
+   },
+   {
+    "h": "9. Delivery and timelines",
+    "blocks": [
+     [
+      "Timelines in the Order are estimates that start when we have received your deposit or first payment and everything we need from you.",
+      "The clock pauses while we wait for your materials, feedback or approvals, and may be extended if a third-party AI tool or platform is unavailable or changes in a way that affects the work.",
+      "Rush delivery is available at +50% of the affected fee where our schedule allows."
+     ]
+    ]
+   },
+   {
+    "h": "10. AI-generated content",
+    "blocks": [
+     "Our work is produced with AI tools and human direction. By engaging us you understand and accept that:",
+     [
+      "outputs are generated by third-party AI models and are subject to those providers’ terms",
+      "we take reasonable care to avoid reproducing protected works, brands or real people, but we cannot guarantee that an output is unique or free of similarity to existing material",
+      "copyright protection for AI-generated material is uncertain and differs between countries; we assign or license the rights we have, without warranty that every element is protectable",
+      "you are responsible for any disclosure or labelling of synthetic or AI-generated media that the law or a platform requires, and we will supply disclosure wording on request",
+      "digital humans are synthetic. We do not create fabricated customer reviews or testimonials presented as real, and we do not create content that impersonates a real person without that person’s written consent"
+     ]
+    ]
+   },
+   {
+    "h": "11. Ownership and licences",
+    "blocks": [
+     [
+      "One-off projects: on full payment we assign to you the final deliverables created for you under the Order, including commercial and paid-media use, worldwide and without time limit.",
+      "Retainers: on payment of each month’s fee you receive a perpetual, worldwide licence to use that month’s delivered content on your own channels (organic use). Paid-advertising use is included on the Scale retainer and available on other retainers as an add-on of +30% of that month’s fee.",
+      "Custom digital humans created for you are exclusive to you: we will not reuse them for another client.",
+      "We keep all rights in our pre-existing tools, AI workflows, prompts, identity-lock methods, templates and know-how, and in general techniques developed during the work. We license to you what is embedded in your deliverables for their intended use.",
+      "Source, prompt, project and working files are not part of the deliverables unless the Order says so.",
+      "You keep ownership of everything you supply to us."
+     ]
+    ]
+   },
+   {
+    "h": "12. Portfolio and promotion",
+    "blocks": [
+     "We show client work in our portfolio, case studies and social channels only with your written permission, which you may give by email and withdraw at any time for future use. Concept work we create for our own fictional brands is always labelled as concept work."
+    ]
+   },
+   {
+    "h": "13. Confidentiality",
+    "blocks": [
+     "Each party will keep the other’s non-public information confidential, use it only for the engagement and protect it with reasonable care. This does not apply to information that is public, already known, independently developed or lawfully obtained from a third party. A mutual NDA is available on request. These duties last three years after the engagement ends, and indefinitely for trade secrets."
+    ]
+   },
+   {
+    "h": "14. Content we will not make",
+    "blocks": [
+     "We may decline or stop work that is unlawful, deceptive, defamatory, hateful, sexually explicit, infringing, or that targets or exploits minors, impersonates real people, spreads political or electoral disinformation, or promotes gambling, tobacco or vaping to minors, weapons or counterfeit goods. We also do not make unsubstantiated health, financial or earnings claims. Details are in the Studio Policies. Where we stop work for these reasons, you pay for work done to that point."
+    ]
+   },
+   {
+    "h": "15. Age-restricted content",
+    "blocks": [
+     "Some content, such as alcohol-related brand work, is only for adults. Pages that show it are age-gated and you must be 18 or older to view them. We take on alcohol-related campaigns only for audiences of legal drinking age, and you are responsible for platform and regulatory compliance when you publish."
+    ]
+   },
+   {
+    "h": "16. Warranty and disclaimers",
+    "blocks": [
+     [
+      "For 30 days after delivery we will correct, at no charge, any deliverable that does not conform to the agreed Order, provided you tell us in writing within that period. This does not cover changes made by you or others, use outside the Order, or third-party platforms.",
+      "We do not guarantee commercial results such as sales, reach, engagement, ad performance or approval by an ad platform.",
+      "Except as stated, our services and this website are provided “as is” and, to the extent the law allows, we exclude all other warranties."
+     ]
+    ]
+   },
+   {
+    "h": "17. Limitation of liability",
+    "blocks": [
+     [
+      "To the extent the law allows, we are not liable for indirect, incidental, special, consequential or punitive loss, including lost profit, revenue, goodwill or data.",
+      "Our total liability for any claim arising from an engagement is limited to the fees you paid for the Order that gave rise to the claim (for a retainer, the fees paid in the 12 months before the claim).",
+      "Nothing limits liability for fraud, wilful misconduct, or anything that cannot be limited by law."
+     ]
+    ]
+   },
+   {
+    "h": "18. Indemnity",
+    "blocks": [
+     "You will defend and compensate us against third-party claims arising from materials, instructions, products, claims or likenesses you supply, or from your breach of these Terms or unlawful use of deliverables. We will do the same for claims that deliverables we create, used as agreed, infringe a third party’s intellectual property rights because of our own act, subject to the limits above."
+    ]
+   },
+   {
+    "h": "19. Cancellation, termination and refunds",
+    "blocks": [
+     [
+      "Deposits are non-refundable because they secure scheduling and start the work.",
+      "If you cancel a one-off project after work has started, you pay for the work completed to the date of cancellation, and the deposit is applied to that amount.",
+      "Retainers run month to month. Either party may end a retainer with 30 days’ written notice, effective at the end of a monthly cycle. The fee for a cycle already begun is not refunded, and unused allocation does not carry over unless agreed.",
+      "If we cancel or cannot deliver, we refund fees for work not performed.",
+      "We may terminate immediately if you breach these Terms and do not fix it within 15 days of notice, or at once for unlawful conduct."
+     ]
+    ]
+   },
+   {
+    "h": "20. Events beyond our control",
+    "blocks": [
+     "Neither party is liable for delay or failure caused by events beyond its reasonable control, including power or internet failure, outages of AI tools or platforms, natural events, strikes, government action or war. Timelines extend for the duration of the event."
+    ]
+   },
+   {
+    "h": "21. Using this website",
+    "blocks": [
+     [
+      "Do not misuse the site, attempt unauthorised access, scrape it at scale, or introduce malicious code.",
+      "The site’s text, design, images and code belong to SLIIQQUE or its licensors. Do not copy or reuse them without permission.",
+      "Images on this site may include placeholder or illustrative material and concept work for fictional brands. Fictional brands and their products, prices and claims are not real offers.",
+      "Links to third-party sites are provided for convenience; we are not responsible for them."
+     ]
+    ]
+   },
+   {
+    "h": "22. Privacy",
+    "blocks": [
+     "How we collect and use personal data is described in our Privacy Policy."
+    ]
+   },
+   {
+    "h": "23. Notices",
+    "blocks": [
+     "Formal notices must be in writing and sent by email to hello@sliiqque.space (to us) or the email address on your Order (to you). Day-to-day project messages may use email or WhatsApp but are not formal notices."
+    ]
+   },
+   {
+    "h": "24. Governing law and disputes",
+    "blocks": [
+     [
+      "These Terms are governed by the laws of the Federal Republic of Nigeria.",
+      "If a dispute arises, the parties will first try to resolve it by good-faith discussion for 14 days after written notice, then by mediation if either party asks.",
+      "Failing that, the courts of Lagos State, Nigeria have exclusive jurisdiction, and international clients agree to this. Either party may seek urgent relief from any competent court to protect confidential information or intellectual property."
+     ]
+    ]
+   },
+   {
+    "h": "25. Changes to these Terms",
+    "blocks": [
+     "We may update these Terms. The version published on this page, with its effective date, applies to new Orders and to your use of the website. Active Orders continue on the version agreed when they began, unless you accept the update in writing or the change is required by law."
+    ]
+   },
+   {
+    "h": "26. General",
+    "blocks": [
+     [
+      "These Terms, your Order, the Studio Policies and the Privacy Policy are the whole agreement between us on their subject.",
+      "If a provision is invalid, the rest continues in effect. Not enforcing a right is not a waiver of it.",
+      "You may not assign your rights without our written consent. We may assign to a successor to our business.",
+      "Acceptance by email, WhatsApp message or electronic signature is valid.",
+      "These Terms are in English; if translated, the English version prevails."
+     ]
+    ]
+   },
+   {
+    "h": "27. Contact",
+    "blocks": [
+     "SLIIQQUE · Attn: Gabriel Njoabozia · Lagos, Nigeria · hello@sliiqque.space · +234 704 100 0085."
+    ]
+   }
+  ]
+ },
+ "policies": {
+  "slug": "policies",
+  "title": "studio policies",
+  "sub": "How SLIIQQUE scopes, revises, delivers, bills and protects the work, and what it will and will not make.",
+  "effective": "4 October 2026",
+  "version": "1.0",
+  "intro": [
+   "These Studio Policies explain how SLIIQQUE Studio works day to day. They form part of our Terms & Conditions and apply to every engagement unless your Order says otherwise."
+  ],
+  "sections": [
+   {
+    "h": "1. Scope and change orders",
+    "blocks": [
+     [
+      "Every engagement has a written scope: what we deliver, how many, in what formats, by when and for what price.",
+      "Anything outside that scope, including a new concept, a changed storyboard, new deliverables or a new platform, is a change order. We state the effect on price and timeline, and work on it starts once you approve it in writing.",
+      "A change to an approved concept or storyboard is a change order, not a revision."
+     ]
+    ]
+   },
+   {
+    "h": "2. Briefing and onboarding",
+    "blocks": [
+     [
+      "Work starts after the deposit or first retainer payment and a short brief covering the brand, product, audience, platforms, references and deadlines.",
+      "For retainers we agree a monthly content plan at the start of each cycle.",
+      "We do not design logos. Please send your existing logos, brand colours, fonts and product images; we will use them as supplied."
+     ]
+    ]
+   },
+   {
+    "h": "3. Revisions",
+    "blocks": [
+     [
+      "Each deliverable, or each batch of deliverables delivered together, includes two revision rounds.",
+      "A revision round is one consolidated set of written feedback on the work as delivered. Please send all comments together.",
+      "Revisions cover corrections and refinements within the approved concept: edits, colour and tone adjustments, cut changes, re-sequencing and fixes to details.",
+      "These are not revisions: a new concept or storyboard, changing the subject, product or talent, new scenes, or re-doing approved work. These are handled as change orders.",
+      "Further revision rounds are charged at ₦15,000 / US$30 per round per deliverable batch."
+     ]
+    ]
+   },
+   {
+    "h": "4. Review windows and approval",
+    "blocks": [
+     [
+      "Please give feedback within 5 working days of delivery.",
+      "Work is deemed accepted when you approve it in writing, publish or use it, or give no feedback within 7 days of delivery.",
+      "If feedback is late, timelines move to the next available slot in our schedule."
+     ]
+    ]
+   },
+   {
+    "h": "5. Turnaround and delivery",
+    "blocks": [
+     "Our standard timelines, counted from receipt of the deposit and all required materials:",
+     [
+      "AI commercial (30–60 seconds): 7 days",
+      "Product photo pack (5 SKUs): 5 working days",
+      "Custom digital human: 7 days",
+      "Brand launch campaign: 21 days",
+      "Retainers: first batch within 7 days of the cycle starting, then in batches agreed in the monthly content plan"
+     ],
+     "Timelines pause while we wait for your materials, feedback or approvals. They may extend if a third-party AI tool or platform is unavailable or changes. We tell you early if a date is at risk. Rush delivery is +50% of the affected fee, where our schedule allows."
+    ]
+   },
+   {
+    "h": "6. Retainers",
+    "blocks": [
+     [
+      "Retainers are billed monthly in advance and run month to month.",
+      "Either side can end a retainer with 30 days’ written notice, effective at the end of a monthly cycle.",
+      "Each plan lists the monthly allocation (videos, stills and extras). Unused allocation does not carry over unless agreed in writing.",
+      "You can move between plans at the start of a cycle. Upgrades take effect immediately for the new cycle; downgrades need 30 days’ notice.",
+      "If a payment is overdue, we may pause deliveries until it is paid. Paused days are not credited.",
+      "Extra videos, stills and other add-ons are quoted and billed in the same cycle."
+     ]
+    ]
+   },
+   {
+    "h": "7. One-off projects and deposits",
+    "blocks": [
+     [
+      "One-off projects are fixed-scope and fixed-price. A 50% deposit starts the work and 50% is due on delivery.",
+      "Deposits are non-refundable: they reserve our schedule and fund the start of production.",
+      "Final files are released after final payment clears."
+     ]
+    ]
+   },
+   {
+    "h": "8. Invoicing and late payment",
+    "blocks": [
+     [
+      "We invoice by bank transfer: NGN for Nigerian clients, USD for international clients.",
+      "Invoices are due within 7 days. Retainer invoices are due before the cycle begins.",
+      "You cover bank and transfer fees so that we receive the full invoiced amount.",
+      "Overdue accounts may be paused after 7 days and may carry interest at 1.5% per month or the legal maximum, whichever is lower."
+     ]
+    ]
+   },
+   {
+    "h": "9. Currency, international clients and taxes",
+    "blocks": [
+     [
+      "Nigerian clients are priced in NGN. International clients are priced in US dollars (USD), using the USD price list.",
+      "The currency and amount on your accepted quote are fixed for that Order and are not adjusted for exchange-rate movement.",
+      "Prices exclude taxes, duties and withholding. You are responsible for taxes that apply to you.",
+      "We may decline an engagement where doing so would breach law, sanctions or export rules."
+     ]
+    ]
+   },
+   {
+    "h": "10. Add-ons and rush",
+    "blocks": [
+     "Add-ons are available on any plan or project, priced in NGN / USD:",
+     [
+      "Extra video: ₦40,000 / US$75",
+      "Extra still: ₦5,000 / US$10",
+      "Extra revision round: ₦15,000 / US$30",
+      "Paid-advertising licence for retainer content: +30% of that month’s fee (included on Scale)",
+      "Rush delivery: +50% of the affected fee"
+     ]
+    ]
+   },
+   {
+    "h": "11. Cancellation and refunds",
+    "blocks": [
+     [
+      "Projects: cancel in writing at any time. You pay for work completed up to the date of cancellation and the deposit is applied to that amount. The deposit itself is not refundable.",
+      "Retainers: 30 days’ written notice. The cycle already begun is not refunded.",
+      "If we cancel or cannot deliver what was agreed, we refund fees for work not performed.",
+      "If you are unhappy with a deliverable, tell us in writing. We will first rework it within the revision and warranty terms before any refund is considered.",
+      "Refunds approved by us are paid within 14 days to the original payment method."
+     ]
+    ]
+   },
+   {
+    "h": "12. Ownership and usage rights",
+    "blocks": [
+     [
+      "One-off projects: the final deliverables are assigned to you on full payment, including commercial and paid-media use, worldwide and without time limit.",
+      "Retainers: you receive a perpetual, worldwide licence to use delivered content on your own channels. Paid-advertising use is included on the Scale retainer and available as an add-on on other plans.",
+      "Custom digital humans are exclusive to you and will not be reused for another client.",
+      "We keep our tools, workflows, prompts, identity-lock methods and templates. Source, prompt and working files are not delivered unless the Order says so.",
+      "You keep the rights in everything you supply."
+     ]
+    ]
+   },
+   {
+    "h": "13. AI-generated content and disclosure",
+    "blocks": [
+     [
+      "We work with AI tools and human direction, and we do not hide that. We will tell you which parts of a deliverable are AI-generated.",
+      "AI-generated material may be similar to existing works; we take reasonable care to avoid copying protected works, brands and real people, but cannot guarantee uniqueness.",
+      "Copyright protection for AI-generated material varies by country. We transfer or license the rights we hold, without warranty of protectability.",
+      "You are responsible for any AI or synthetic-media labels required by law or by the platform where you publish. We supply suggested disclosure wording on request.",
+      "Outputs are subject to the terms of the AI tools used to create them."
+     ]
+    ]
+   },
+   {
+    "h": "14. Digital humans, likeness and consent",
+    "blocks": [
+     [
+      "Our digital humans are synthetic people. They are not presented as real customers, and we do not produce fabricated reviews or testimonials presented as genuine.",
+      "We do not create a likeness of a real person, living or dead, without that person’s (or their estate’s) written consent. Reference photos of a real person are used only with their written consent and only for the agreed project.",
+      "We do not make deepfakes of public figures, or content that could mislead people about what a real person said or did.",
+      "A custom digital human’s identity profile belongs to the client on full payment and can be reused across the client’s own campaigns."
+     ]
+    ]
+   },
+   {
+    "h": "15. Client materials and brand assets",
+    "blocks": [
+     [
+      "You confirm that you own or have permission to use everything you give us: logos, product images, music, names, likenesses and text.",
+      "We do not design or alter logos. We use your supplied brand assets as they are, and may remove backgrounds or place them in scenes.",
+      "We may refuse materials that raise legal or safety concerns."
+     ]
+    ]
+   },
+   {
+    "h": "16. Content standards: what we will not make",
+    "blocks": [
+     "We decline or stop work that:",
+     [
+      "is unlawful, deceptive, defamatory or hateful, or infringes anyone’s rights",
+      "is sexually explicit or exploits or sexualises minors",
+      "impersonates a real person, or spreads political, electoral or health disinformation",
+      "makes unsubstantiated claims about health, medical results, income, investment returns or financial products",
+      "promotes gambling, tobacco or vaping to minors, weapons, counterfeit or illegal goods",
+      "uses fake before-and-after results, fake reviews or fake endorsements"
+     ],
+     "If we stop work for these reasons, you pay for the work done to that point."
+    ]
+   },
+   {
+    "h": "17. Age-restricted and regulated content",
+    "blocks": [
+     [
+      "Alcohol-related work is accepted only for audiences of legal drinking age, with age-gating on the pages we publish and responsible-drinking messaging where required.",
+      "Pages on our own site that show alcohol-related concept work are age-gated, and you must confirm you are 18 or older to view them.",
+      "Health, supplement, financial and other regulated categories need claims you can substantiate. You are responsible for regulatory approvals and for the rules of the advertising platform you use."
+     ]
+    ]
+   },
+   {
+    "h": "18. Concept and portfolio work",
+    "blocks": [
+     [
+      "Some work on our site is self-initiated concept work for fictional brands (for example ÀLÀ, ODÈ, ÀSE and ILÉ). It is labelled as concept work, is not client work, and shows no real sales, audience or results.",
+      "We show client work only with your written permission, which you can give by email and withdraw for future use.",
+      "We do not use client confidential information in our portfolio."
+     ]
+    ]
+   },
+   {
+    "h": "19. Confidentiality and data handling",
+    "blocks": [
+     [
+      "We treat what you share as confidential and use it only for your engagement. A mutual NDA is available on request.",
+      "We use third-party AI and cloud tools to produce your work. We avoid uploading sensitive personal data and, where a tool allows, choose settings that keep your material out of public model training.",
+      "Face images of real people are treated as sensitive personal data and used only with consent.",
+      "Our Privacy Policy sets out how we handle personal data and your rights."
+     ]
+    ]
+   },
+   {
+    "h": "20. File delivery, storage and archive",
+    "blocks": [
+     [
+      "We deliver through a private download link. Please download and back up your files promptly.",
+      "We keep project files for 12 months after delivery. After that we may archive or delete them, and we do not guarantee that they can be recovered.",
+      "You can ask us to delete your supplied materials at any time after delivery, subject to our legal record-keeping."
+     ]
+    ]
+   },
+   {
+    "h": "21. Warranty and fixes",
+    "blocks": [
+     [
+      "For 30 days after delivery we correct, at no charge, anything that does not match the agreed scope, if you tell us in writing within that period.",
+      "This does not cover changes by you or others, use outside the scope, or problems on third-party platforms.",
+      "We do not guarantee commercial results such as sales, reach, engagement or ad approval."
+     ]
+    ]
+   },
+   {
+    "h": "22. Communication and support hours",
+    "blocks": [
+     [
+      "We work Monday to Friday, 9am to 6pm West Africa Time (WAT), and Saturday by appointment.",
+      "We aim to reply within one working day by email (hello@sliiqque.space) or phone/WhatsApp (+234 704 100 0085).",
+      "Formal notices go by email. Day-to-day messages may use WhatsApp."
+     ]
+    ]
+   },
+   {
+    "h": "23. Complaints and dispute resolution",
+    "blocks": [
+     [
+      "Tell us what went wrong, in writing, to hello@sliiqque.space.",
+      "We acknowledge within 2 working days and aim to resolve within 14 days.",
+      "If we cannot agree, the parties will try mediation, then the courts of Lagos State, Nigeria, under Nigerian law, as set out in our Terms & Conditions."
+     ]
+    ]
+   },
+   {
+    "h": "24. Changes to these policies",
+    "blocks": [
+     "We may update these policies. The version on this page applies to new Orders. Active Orders continue on the version agreed when they began, unless you accept the update in writing or the law requires the change."
+    ]
+   }
+  ]
+ },
+ "privacy": {
+  "slug": "privacy",
+  "title": "privacy policy",
+  "sub": "What personal data we collect, why we collect it, and the rights you have over it.",
+  "effective": "4 October 2026",
+  "version": "1.0",
+  "intro": [
+   "SLIIQQUE respects your privacy. This policy explains how SLIIQQUE handles personal data when you use the SLIIQQUE website or engage its creative services. We process personal data under the Nigeria Data Protection Act 2023 (NDPA) and, where it applies, the EU and UK GDPR."
+  ],
+  "sections": [
+   {
+    "h": "1. Who is responsible",
+    "blocks": [
+     "SLIIQQUE, Lagos, Nigeria, is the controller of the personal data described here. Our data protection contact is Gabriel Njoabozia: hello@sliiqque.space."
+    ]
+   },
+   {
+    "h": "2. Data we collect",
+    "blocks": [
+     [
+      "Contact and enquiry data: name, email, phone/WhatsApp number, company and the details you share about your project.",
+      "Project data: briefs, references, product images, brand assets and feedback you send us.",
+      "Face and likeness images: only if you or a person you represent gives them to us for a digital human or likeness-based project, and only with consent.",
+      "Billing data: invoice details and payment confirmations. We do not store card numbers.",
+      "Technical data: basic device and browser information and pages visited, if analytics are enabled.",
+      "Communications: emails and messages with us."
+     ]
+    ]
+   },
+   {
+    "h": "3. How we collect it",
+    "blocks": [
+     "Directly from you (email, WhatsApp, forms, calls, onboarding), from your team and from tools you use to send us files, and automatically through the website."
+    ]
+   },
+   {
+    "h": "4. Why we use it and our legal basis",
+    "blocks": [
+     [
+      "To answer enquiries and prepare quotes (consent and steps before a contract).",
+      "To deliver and bill the services you order (contract).",
+      "To keep records and meet tax and legal duties (legal obligation).",
+      "To improve our website and services, and keep them secure (legitimate interests).",
+      "To send news and updates only if you opted in (consent, which you can withdraw at any time).",
+      "To process face images of real people (explicit consent)."
+     ]
+    ]
+   },
+   {
+    "h": "5. Who we share it with",
+    "blocks": [
+     "We share personal data only with providers that help us run the studio, under appropriate safeguards: website hosting, email and communication tools, cloud storage, AI generation and editing tools, accounting and payment tools, and professional advisers. We do not sell personal data.",
+     "We may disclose data where the law requires it or to protect legal rights."
+    ]
+   },
+   {
+    "h": "6. AI tools and your materials",
+    "blocks": [
+     "We use third-party AI tools to produce work. We upload only what is needed, avoid sensitive personal data where we can and, where a tool allows it, choose settings that keep your material out of public model training. Face images of real people are used only with consent and only for the agreed project."
+    ]
+   },
+   {
+    "h": "7. International transfers",
+    "blocks": [
+     "Our providers may process data outside Nigeria, including in the United States and Europe. Where we transfer personal data internationally, we use safeguards required by law, such as contractual protections."
+    ]
+   },
+   {
+    "h": "8. How long we keep it",
+    "blocks": [
+     [
+      "Enquiry data: up to 2 years after our last contact.",
+      "Project files: 12 months after delivery, then archived or deleted.",
+      "Client records, contracts and invoices: up to 5 years, or as the law requires.",
+      "Supplied face and likeness images: deleted on request after delivery, and in any case when project files are deleted, unless the law requires otherwise."
+     ]
+    ]
+   },
+   {
+    "h": "9. Your rights",
+    "blocks": [
+     "Depending on where you live, you can ask us to:",
+     [
+      "give you access to your personal data",
+      "correct inaccurate data",
+      "delete your data",
+      "restrict or object to our processing",
+      "give you your data in a portable format",
+      "withdraw consent at any time"
+     ],
+     "Contact hello@sliiqque.space. We reply within 30 days. You may also complain to the Nigeria Data Protection Commission, or to the data protection authority where you live."
+    ]
+   },
+   {
+    "h": "10. Security",
+    "blocks": [
+     "We use access controls, strong authentication, encryption in transit and reasonable organisational measures. No online system is completely secure. If a breach affects your personal data we will notify you and the authorities as the law requires, including within the time limits in the NDPA where they apply."
+    ]
+   },
+   {
+    "h": "11. Cookies and similar technologies",
+    "blocks": [
+     "This website uses only what it needs to work. For example, it remembers in your browser session that you confirmed you are 18 or older on age-gated pages. If we add analytics or marketing cookies, we will update this policy and ask for consent where the law requires."
+    ]
+   },
+   {
+    "h": "12. Children",
+    "blocks": [
+     "Our services and age-gated pages are for adults. We do not knowingly collect data from anyone under 18. If you think we have, contact us and we will delete it."
+    ]
+   },
+   {
+    "h": "13. Changes",
+    "blocks": [
+     "We may update this policy and will post the new version with its effective date on this page."
+    ]
+   },
+   {
+    "h": "14. Contact",
+    "blocks": [
+     "SLIIQQUE · Attn: Gabriel Njoabozia · Lagos, Nigeria · hello@sliiqque.space · +234 704 100 0085."
+    ]
+   }
+  ]
+ }
+}

@@ -1,0 +1,831 @@
+{
+ "SITE": {
+  "name": "SLIIQQUE Studio",
+  "title": "SLIIQQUE Studio – Premium Creative Studio Powered by AI",
+  "email": "hello@sliiqque.space",
+  "phone": "+234 704 100 0085",
+  "footer_blurb": "SLIIQQUE Studio is a creative studio producing AI commercials, UGC, photography and brand campaigns.",
+  "news_blurb": "Notes on identity lock, storyboarding, grading and fashion imagery, sent occasionally, never spam.",
+  "copyright": "©2026 SLIIQQUE Studio. All Rights Reserved.",
+  "social": [
+   [
+    "X",
+    "https://x.com/sliiqque"
+   ],
+   [
+    "LinkedIn",
+    "https://www.linkedin.com/company/sliiqque"
+   ],
+   [
+    "Instagram",
+    "https://www.instagram.com/sliiqque"
+   ]
+  ],
+  "hours": "Mon – Fri, 9am – 6pm WAT"
+ },
+ "HERO": {
+  "tag": "Premium creative studio powered by AI",
+  "sub": "AI commercials, UGC, photography and fashion imagery, built as systems, not one-off assets.",
+  "ticker": [
+   "eavXyWwInhfF9l4CAQcNG2N11XE.png",
+   "45eE47viBu3ajyWpFXsiwVcUI.png",
+   "4kR1eEqrcM3cSJMaEraSMrWqrY.png",
+   "TkwjXnShtHQyU61DEoKRaEOedw.png",
+   "YtQroU1RfusBB5vtXlkPHyLaSA.png"
+  ]
+ },
+ "ABOUT": {
+  "heading": "SLIIQQUE Studio is a Lagos creative studio producing AI commercials, UGC and photography for modern brands.",
+  "body": "AI is how we produce, not what we sell. We build creative systems, concept, art direction, production, motion and campaign assets, with photorealistic digital humans whose identity holds from the first frame to the last.",
+  "img": "XlOMXPfQsRxpYlsfrmzGMRhFahw.png",
+  "stats": [
+   [
+    8,
+    "",
+    "Creative services under one studio, run as retainers and content systems."
+   ],
+   [
+    3,
+    "",
+    "Complete concept brand worlds built end to end: ÀLÀ, ODÈ and ÀSE."
+   ]
+  ]
+ },
+ "WORKS": [
+  [
+   "ala-skin",
+   "ÀLÀ",
+   "Skincare · Concept",
+   "Brand system · AI photography",
+   "2026",
+   "kU6MExMpWb3xkZfMnNjynWA0tMM.png",
+   ""
+  ],
+  [
+   "ode",
+   "ODÈ",
+   "Grooming · Concept",
+   "AI commercial · Digital humans",
+   "2026",
+   "sYjv0x8mKiRH0sfGO97c2jZMDo.png",
+   ""
+  ],
+  [
+   "ase",
+   "ÀSE",
+   "Spirits · Concept · 18+",
+   "AI product photography",
+   "2026",
+   "lvLCrUN351Wuv8frp3Qq7Fkz77M.png",
+   ""
+  ],
+  [
+   "ile",
+   "ILÉ",
+   "Hospitality · Concept",
+   "Creative direction",
+   "2026",
+   "vPHmrAel3q5GtKmpPuZSN68TZU.png",
+   ""
+  ]
+ ],
+ "WORKS_LISTED": 4,
+ "HOME_WORKS": 4,
+ "CASES": {
+  "ala-skin": {
+   "overview": "ÀLÀ is a fictional clinical skincare brand for melanin-rich skin, built by SLIIQQUE as a self-initiated concept project. “Àlà” is Yoruba for clean or pure. The brief we set ourselves: launch a premium skincare brand without launching a product.",
+   "duo": [
+    "TkwjXnShtHQyU61DEoKRaEOedw.png",
+    "YtQroU1RfusBB5vtXlkPHyLaSA.png"
+   ],
+   "challenge": "Imported clinical brands are formulated for temperate climates, and local “natural” brands lean on story over evidence. We positioned ÀLÀ between them, clinical warmth, a chemist who also understands skin, and held every image to a standard that makes a potential client ask who shot it.",
+   "results": "A brand concept and strategy, mood board and brand guidelines; a five-product line; 12 product stills, 3 lifestyle images and 6 ad creatives; 4 posters, 14 mockups, two vertical-video storyboards and a landing page. Every image was written as a production brief, lens, light, film stock, composition, grade.",
+   "wide": "xdQ40YtLODpgfF4nGvP4XAQmdoE.jpg",
+   "conclusion": "The art direction is the deliverable; the images are its proof. ÀLÀ is concept work with no sales or audience figures, and we present it as exactly that."
+  },
+  "ode": {
+   "overview": "ODÈ is a fictional men’s grooming brand rooted in West African heritage, Yoruba for “hunter”, with the line “Discipline. Inherited.” We built it as a self-initiated concept project to show range beyond a single aesthetic lane.",
+   "duo": [
+    "Jiy1SBt5OqzLEk3Moup3m1nn8.jpg",
+    "bNVxmFdXXVRRM1mE7sHAo6akn0.jpg"
+   ],
+   "challenge": "Prove that photorealistic AI people can stay recognisably the same person from shot to shot. We wrote the production system before generating a frame: a verbatim identity lock pasted into every prompt, continuity tracked across nine domains and a 15-point quality checklist.",
+   "results": "Brand strategy and a 90-day plan; five campaign concepts; six locked digital-human subjects with identity anchors; a prompt library; 25 AI-generated images; and a full production bible for a 60-second commercial, “The Man Before The Morning”, 38 planned shots across 11 scenes, with 11 shot modules specified. The film itself is not yet rendered.",
+   "wide": "gVtp8dB2Wd7KBNSDVkb6vBv140w.jpg",
+   "conclusion": "The system was built before the images. A single campaign tells one story; five campaigns tell a world. ODÈ is concept work with no commercial metrics, and we present it as exactly that."
+  },
+  "ase": {
+   "overview": "ÀSE is a fictional premium African-origin spirits brand, Yoruba for the power that makes things happen, built as a self-initiated concept project. Its line: “The liquid is the argument.”",
+   "duo": [
+    "eavS9OWR5napIXyZe9rmMxtJ3iI.png",
+    "x01NxoibGHVlLubmh3WGKX4EM.jpg"
+   ],
+   "challenge": "Luxury spirits is the most technically demanding category in AI product photography: glass refraction, liquid caustics, smoke and amber light, with the bottle staying continuous in every frame. The brand also had to sit between imported prestige labels and local labels that carry culture without perceived quality.",
+   "results": "A brand system with strategy and research across eight competitors; 33 prompt templates; 25 AI-generated images (14 product stills, 8 lifestyle and 3 ad creatives); three video storyboards, a poster set, 18 mockup specs and a website.",
+   "wide": "8zXOC9YNAJIQvCSZNSx5VoWXgs.jpg",
+   "conclusion": "Prompt engineering is brand engineering. ÀSE is concept work with no sales or distribution, and we present it as exactly that."
+  },
+  "ile": {
+   "overview": "ILÉ is a fictional Nigerian restaurant and hospitality brand, a creative direction we developed to explore warmth, threshold and homecoming. It exists as a visual world, not as produced work.",
+   "duo": [
+    "kZzg2vOCOqk9JashLQ1mh9cdGpw.jpeg",
+    "a795qi2LAKXCEnwrwK9N6Sk5Q.jpg"
+   ],
+   "challenge": "Make hospitality feel like arriving home. The world is Lagos blue hour, hands rather than faces, cinematic environmental storytelling and UGC-style content, in a palette of Charred Umber, Terracotta, Brass and Bone.",
+   "results": "A creative direction only: a colour palette and a visual world. There are no finished campaign assets for ILÉ yet.",
+   "wide": "9hrovGCF8uFCnQ65NK36m60BOH4.jpeg",
+   "conclusion": "ILÉ shows how we start, palette and world before production. We list it as a concept direction, not as shipped work."
+  }
+ },
+ "SERVICES": [
+  [
+   "AI Commercials",
+   "Short-form cinematic advertising produced with an AI-native workflow, storyboarded, graded and cut for the platforms you run on.",
+   [
+    "Short-form",
+    "Cinematic",
+    "Storyboard-led",
+    "Platform cuts"
+   ],
+   "pgfva58lzcfswEXW2JWh197fGE.png",
+   "Service Image"
+  ],
+  [
+   "AI UGC & Digital Humans",
+   "Photorealistic AI-generated people with a consistent identity, shown in UGC-style content built for commercial use.",
+   [
+    "Identity lock",
+    "UGC-style",
+    "Talking video",
+    "Commercial use"
+   ],
+   "zejjPIawUpsqLXCr9QWSMdMbo0.png",
+   "A cell phone sitting on top of a wooden table"
+  ],
+  [
+   "AI Photography",
+   "Commercial product and lifestyle photography without conventional production overhead, with the product held consistent in every frame.",
+   [
+    "Product stills",
+    "Lifestyle",
+    "Clean masters",
+    "Consistent product"
+   ],
+   "AWdy7hN2hKwIre3V7xrnqilM9YI.png",
+   "A cell phone sitting on top of a wooden table"
+  ],
+  [
+   "AI Fashion Imagery",
+   "Photorealistic AI models wearing your clothes: lookbooks, campaign and e-commerce imagery without a studio, a model booking or a wardrobe shoot.",
+   [
+    "AI models",
+    "Lookbooks",
+    "E-commerce images",
+    "Campaign imagery"
+   ],
+   "pgfva58lzcfswEXW2JWh197fGE.png",
+   "Service Image"
+  ],
+  [
+   "Brand Launches & Campaigns",
+   "Creative systems around a product or brand launch: concept, art direction, visual development, production and campaign assets, with premium cinematic product storytelling.",
+   [
+    "Brand launches",
+    "Product cinematography",
+    "Visual campaigns",
+    "Campaign assets"
+   ],
+   "YvMvx8L2sjrKc702UhznarfwW3I.png",
+   "Service Image"
+  ]
+ ],
+ "SECTION_SUB": "Eight creative services, run as monthly retainers and content systems, never per-asset deliverables.",
+ "AWARDS_INTRO": "The same four stages sit under every commercial, UGC series and photography set we produce.",
+ "PLANS_INTRO": "Three monthly retainers for ongoing content, plus one-off projects below. Switch between naira and US dollars with the toggle; international clients are invoiced in USD. Prices exclude taxes. Organic usage is included; paid-ad licensing is included on Scale and available as an add-on on the other plans.",
+ "PLANS": [
+  [
+   "starter retainer",
+   "A steady stream of AI UGC and product visuals for one platform.",
+   "₦150,000",
+   [
+    "4 vertical videos, 15–30 seconds",
+    "8 high-resolution AI product or lifestyle stills",
+    "1 platform, captions included",
+    "2 revision rounds per batch",
+    "Billed monthly"
+   ],
+   false,
+   "$280"
+  ],
+  [
+   "growth retainer",
+   "A content system for brands running organic and paid on two platforms.",
+   "₦350,000",
+   [
+    "8 vertical videos, 15–30 seconds",
+    "16 high-resolution AI stills",
+    "1 identity-locked digital human included",
+    "2 platforms, monthly creative review",
+    "2 revision rounds per batch"
+   ],
+   true,
+   "$650"
+  ],
+  [
+   "scale retainer",
+   "The full creative system: a monthly commercial plus always-on content.",
+   "₦750,000",
+   [
+    "1 AI commercial (30s) with cutdowns every month",
+    "12 vertical videos, 15–30 seconds",
+    "24 high-resolution AI stills",
+    "Paid-ad usage rights included",
+    "3 platforms, dedicated creative lead"
+   ],
+   false,
+   "$1,400"
+  ]
+ ],
+ "BLOGS": [
+  [
+   "why-every-digital-human-needs-a-character-lock",
+   "Oct 2, 2026",
+   "Digital Humans",
+   "Why every digital human needs a character lock.",
+   "vQrr3TnWPhJ9dAuuUQscatqJQQ.png"
+  ],
+  [
+   "from-one-reference-image-to-a-nine-panel-storyboard",
+   "Sep 28, 2026",
+   "Process",
+   "From one reference image to a nine-panel storyboard.",
+   "iAa680Ic6vhiW3EBZUV7AHiDFI.png"
+  ],
+  [
+   "upscale-once-grade-once",
+   "Sep 24, 2026",
+   "Post-production",
+   "Upscale once, grade once: keeping AI frames consistent.",
+   "Ds5WVvfqyi8Wlzws4iEGrzpHIU.png"
+  ],
+  [
+   "ten-seconds-at-a-time",
+   "Sep 18, 2026",
+   "Commercials",
+   "Ten seconds at a time: building animated sequences in blocks.",
+   "iPDWOnc90iD01gdnLG4HSp5gW8.png"
+  ],
+  [
+   "ai-fashion-imagery-photorealistic-models",
+   "Sep 12, 2026",
+   "Fashion",
+   "AI fashion imagery: photorealistic models wearing your clothes.",
+   "gGIO3f2wnqha2nu4z1Rb2KsI6dQ.png"
+  ],
+  [
+   "creative-systems-not-one-off-assets",
+   "Sep 5, 2026",
+   "Studio",
+   "Creative systems, not one-off assets.",
+   "3ZgRUMOV3PXwKNKh7gLshb39XU0.png"
+  ]
+ ],
+ "BLOGS_LISTED": 4,
+ "POSTS": {
+  "why-every-digital-human-needs-a-character-lock": {
+   "groups": [
+    [
+     "Overview",
+     [
+      [
+       "Consistency is the product",
+       [
+        "A digital human is only useful to a brand if the audience meets the same person every time. Left alone, image models drift between generations: the jaw softens, the skin tone shifts, a scar moves. A campaign of ten images quietly becomes ten different people.",
+        "A character lock is how we stop that. It is a written, permanent description of the person, reused word for word in every prompt."
+       ]
+      ],
+      [
+       "Start with a profile, not a prompt",
+       [
+        "Before anything is generated, we study reference images and write an identity profile: face shape, skin and undertone, hair, brows, eyes, nose, lips, ears, age and proportions. The profile is written once and never paraphrased."
+       ]
+      ]
+     ]
+    ],
+    [
+     "The lock in practice",
+     [
+      [
+       "One description, copied verbatim",
+       [
+        "In our ODÈ concept work, each of six digital-human subjects has an identity anchor, a fixed description pasted into every prompt for that person. Paraphrasing is where drift begins, so nothing is reworded."
+       ]
+      ],
+      [
+       "Never beautify",
+       [
+        "One rule sits above the rest: do not change, beautify, reshape or replace the face. When a result drifts, we re-attach the reference and treat the face as a locked asset instead of rewording the prompt."
+       ]
+      ]
+     ]
+    ],
+    [
+     "Final Thoughts",
+     [
+      [
+       "Why it matters",
+       [
+        "Identity lock is what makes AI UGC and digital-human spokespeople viable for brands: the same person across every ad, cut and format. It is the part of the process we are least willing to rush."
+       ]
+      ],
+      [
+       "What we do not claim",
+       [
+        "Our digital-human work to date is concept work. We use it to prove the method, not to imply client results."
+       ]
+      ]
+     ]
+    ]
+   ],
+   "gallery": [
+    "Of3bHbAkm4eo3ha280vFGvDmOUg.png",
+    "ZbOVl5hW4IVsSOxbkxMb4z1MtA.png"
+   ]
+  },
+  "from-one-reference-image-to-a-nine-panel-storyboard": {
+   "groups": [
+    [
+     "Overview",
+     [
+      [
+       "Plan the sequence before making motion",
+       [
+        "Our storyboard step starts with a single reference image and ends with a single image: a 3×3 grid of nine equal panels, no text. It lets us judge a whole sequence at a glance before any animation is made."
+       ]
+      ],
+      [
+       "Nine beats",
+       [
+        "The grid follows a nine-beat story map: setup, setup, rising, rising, turning, turning, climax, resolution, and a closing image that echoes the first panel."
+       ]
+      ]
+     ]
+    ],
+    [
+     "Continuity and camera",
+     [
+      [
+       "Same person, same place",
+       [
+        "Across all nine panels the face, age, skin tone, body, hair and clothing stay identical, and so do the location and lighting direction. Nothing unrelated is allowed into the frame."
+       ]
+      ],
+      [
+       "A different viewpoint every panel",
+       [
+        "Each panel uses a different camera position (wide establishing, medium, close-up, extreme close-up, point of view, over the shoulder, top-down, low angle and Dutch tilt) so the sequence has rhythm instead of nine versions of one shot."
+       ]
+      ]
+     ]
+    ],
+    [
+     "Final Thoughts",
+     [
+      [
+       "When faces drift",
+       [
+        "If a face drifts, we re-attach the reference and treat it as a locked asset, or add a closer face crop as a second reference. If detail is low, we upscale the sheet or generate it in two passes."
+       ]
+      ]
+     ]
+    ]
+   ],
+   "gallery": [
+    "0PezkOon65ROZnQ8oFng1DCOFy4.jpg",
+    "MrYIMKb0bbKdizPtCi2R8c8ll9A.jpg"
+   ]
+  },
+  "upscale-once-grade-once": {
+   "groups": [
+    [
+     "Overview",
+     [
+      [
+       "Two decisions, each made once",
+       [
+        "Consistency breaks when every stage tries to improve the picture. So we split the job: upscaling makes the source bigger and cleaner, and grading makes the colour decisions, and each happens exactly once."
+       ]
+      ],
+      [
+       "Upscale without inventing",
+       [
+        "Our upscale target is a clean, high-resolution frame, flat and neutral with no grade applied. The rule is simple: never hallucinate detail. Sharp without being oversharpened, clean without being plastic, detailed without being noisy."
+       ]
+      ]
+     ]
+    ],
+    [
+     "Checking the set",
+     [
+      [
+       "Neighbours, not just frames",
+       [
+        "Every frame is compared with the one beside it for sharpness, noise, brightness, colour temperature and face. A frame that fails is reprocessed with identical settings. Batch consistency outranks per-image perfection."
+       ]
+      ],
+      [
+       "Grade once, with a record",
+       [
+        "Colour is corrected and matched across the whole set, with skin and brand colours protected and every adjustment logged. Skin and identity outrank the look, and the sequence outranks the frame."
+       ]
+      ]
+     ]
+    ],
+    [
+     "Final Thoughts",
+     [
+      [
+       "The test",
+       [
+        "A viewer should be unable to point at any single frame and say ‘this one was graded harder’. That is the real test of a graded sequence."
+       ]
+      ]
+     ]
+    ]
+   ],
+   "gallery": [
+    "k0R4EnxnRp1ZntYQeVpv9SRTiE.jpg",
+    "gkW5zzua3D9R282TFleUbxOnA.jpg"
+   ]
+  },
+  "ten-seconds-at-a-time": {
+   "groups": [
+    [
+     "Overview",
+     [
+      [
+       "A hard limit, turned into a method",
+       [
+        "The animation tool we use renders a maximum of ten seconds per block. Instead of fighting that, we plan for it: every scene is broken into ten-second animation blocks before anything is rendered."
+       ]
+      ],
+      [
+       "One spec per block",
+       [
+        "Each block gets its own specification, the avatar or subject reference, expression, pose, gaze and camera movement, so identity and intent are fixed before the render."
+       ]
+      ]
+     ]
+    ],
+    [
+     "Assembly",
+     [
+      [
+       "Cuts do the joining",
+       [
+        "The tool does not handle transitions, so blocks are joined as editor cuts in post. Planning scenes in multiples of ten seconds keeps the timing clean."
+       ]
+      ],
+      [
+       "Short-form follows the same rule",
+       [
+        "Vertical cuts for short-form platforms are built in ten-second multiples too, so a long piece and its cutdowns come from the same blocks."
+       ]
+      ]
+     ]
+    ],
+    [
+     "Final Thoughts",
+     [
+      [
+       "Constraint as structure",
+       [
+        "The limit forces a storyboard-first habit that improves the work. The same discipline applies to AI commercials, UGC and any animated sequence we build."
+       ]
+      ]
+     ]
+    ]
+   ],
+   "gallery": [
+    "GLjVP9SlD1xhXR9kZK3BUNneDeA.jpg",
+    "PkSISQpT2A77XFmAhT5iohJpn0.jpg"
+   ]
+  },
+  "creative-systems-not-one-off-assets": {
+   "groups": [
+    [
+     "Overview",
+     [
+      [
+       "Why we do not sell single assets",
+       [
+        "A single image or a single video is easy to commission and hard to use. A brand needs a system: concept, art direction, identity, production, motion and campaign assets that all follow the same rules."
+       ]
+      ],
+      [
+       "How the work is packaged",
+       [
+        "Our creative services run as monthly retainers and content systems, so the identity lock, grade and prompt system built once keeps paying off in every asset that follows."
+       ]
+      ]
+     ]
+    ],
+    [
+     "Plans and projects",
+     [
+      [
+       "Retainers for ongoing content",
+       [
+        "Our monthly retainers start at ₦150,000 (US$280) for four vertical videos and eight high-resolution stills, move to ₦350,000 (US$650) for eight videos, sixteen stills and a locked digital human, and reach ₦750,000 (US$1,400) for a monthly commercial plus always-on content."
+       ]
+      ],
+      [
+       "Projects with a fixed scope",
+       [
+        "For one-off work we quote a fixed scope: an AI commercial from ₦350,000 (US$650), a product photo pack at ₦75,000 (US$140), a custom digital human at ₦150,000 (US$280), or a 21-day brand launch campaign at ₦900,000 (US$1,700). A 50% deposit starts the work and 50% is due on delivery."
+       ]
+      ]
+     ]
+    ],
+    [
+     "Final Thoughts",
+     [
+      [
+       "Start with the question",
+       [
+        "Every engagement begins with one question: how should this brand look, feel and communicate? The system follows from the answer."
+       ]
+      ]
+     ]
+    ]
+   ],
+   "gallery": [
+    "Of3bHbAkm4eo3ha280vFGvDmOUg.png",
+    "vv4eph7XQ6yxwSA8i4OMq5KScR0.jpg"
+   ]
+  },
+  "ai-fashion-imagery-photorealistic-models": {
+   "groups": [
+    [
+     "Overview",
+     [
+      [
+       "What AI fashion imagery is",
+       [
+        "AI fashion imagery is photorealistic imagery of AI-generated models wearing a brand’s clothes. It is produced from photos of the real garments, without a studio, a model booking or a wardrobe shoot, and it works for lookbooks, campaign visuals and e-commerce pages."
+       ]
+      ],
+      [
+       "Your garment, not a redesign",
+       [
+        "The garment is the product, so it is never redesigned. SLIIQQUE writes a permanent profile of each piece covering colour, cut, fabric, trim and any print or detail that must not drift, then uses it in every image."
+       ]
+      ]
+     ]
+    ],
+    [
+     "How it works",
+     [
+      [
+       "A consistent model",
+       [
+        "The model is an identity-locked digital human, described once and reused word for word, so the same person wears the whole collection across every image. A custom model is exclusive to the client."
+       ]
+      ],
+      [
+       "Many looks, one grade",
+       [
+        "One garment can be shown in different poses, settings and lighting while the colour and construction stay the same. Stills are upscaled without invented detail and graded once as a set so the collection looks like one shoot."
+       ]
+      ]
+     ]
+    ],
+    [
+     "Final Thoughts",
+     [
+      [
+       "Where it fits",
+       [
+        "AI fashion imagery suits lookbooks, product pages, ads and social content. Where exact fit or fabric behaviour must be documented, keep real garment photography alongside it. SLIIQQUE will say when a traditional shoot is the better choice."
+       ]
+      ],
+      [
+       "What SLIIQQUE will not do",
+       [
+        "Models are synthetic: no fabricated customer reviews, no deepfakes of public figures, and no likeness of a real person without their written consent."
+       ]
+      ]
+     ]
+    ]
+   ],
+   "gallery": [
+    "2Nv3d9x6MrZfOYY9HE4TxnUrZg.jpg",
+    "ZbOVl5hW4IVsSOxbkxMb4z1MtA.png"
+   ]
+  }
+ },
+ "ABOUT_PAGE": {
+  "hero_h1": "about<br>our studio",
+  "hero_sub": "A Lagos creative studio. Premium production, powered by AI.",
+  "story_img": "ieaLQvZp3V1lVTK5iPkShah0Kxc.png",
+  "story_label": "our story",
+  "story_h3": "SLIIQQUE treats AI as production infrastructure, not as the product.",
+  "story_p": "Founded in Lagos on 22 December 2025, we build creative systems for modern brands: AI commercials, UGC, photography, fashion imagery, brand launches and visual campaigns, with photorealistic digital humans whose identity holds from the first frame to the last. Our work to date is self-initiated concept work: three complete brand worlds, labelled as exactly that.",
+  "stats": [
+   [
+    8,
+    "",
+    "Creative services under one studio."
+   ],
+   [
+    3,
+    "",
+    "Concept brand worlds built end to end: ÀLÀ, ODÈ and ÀSE."
+   ],
+   [
+    38,
+    "",
+    "Shots planned in the ODÈ 60-second commercial."
+   ],
+   [
+    10,
+    "",
+    "Documents in that commercial’s production bible."
+   ]
+  ],
+  "how_intro": "From first brief to final file, in four stages.",
+  "steps": [
+   [
+    "1 brief & discovery",
+    "We start with one question: how should this brand look, feel and communicate? Scope, audience and constraints are agreed in writing before production begins."
+   ],
+   [
+    "2 concept & art direction",
+    "Concept, art direction and visual development come first. The art direction is the deliverable; the images are its proof."
+   ],
+   [
+    "3 production",
+    "We build the identity lock, storyboard and prompt system before generating frames, then upscale, grade and animate with a record of every decision."
+   ],
+   [
+    "4 delivery & handover",
+    "Final deliverables are assigned to you on full payment, with a 30-day window to fix anything that does not match the agreed scope."
+   ]
+  ],
+  "faq_intro": "Straight answers on scope, payment and ownership.",
+  "faq": [
+   [
+    "what services do you offer?",
+    "Eight creative services: AI commercials, AI UGC, AI photography, AI fashion imagery, brand launches, product cinematography, visual campaigns and digital humans."
+   ],
+   [
+    "do you design logos?",
+    "No. We do not offer logo design. Our work starts from your existing brand, or from a creative direction agreed with you in writing."
+   ],
+   [
+    "do you sell single assets?",
+    "Mostly no. Ongoing work runs as monthly retainers from ₦150,000 (US$280). One-off projects are fixed-scope: an AI commercial from ₦350,000 (US$650), a product photo pack at ₦75,000 (US$140), a custom digital human at ₦150,000 (US$280) and a brand launch campaign at ₦900,000 (US$1,700)."
+   ],
+   [
+    "how does payment work?",
+    "One-off projects take a 50% deposit to start and 50% on delivery of the final files. Retainers are billed monthly in advance. Nigerian clients pay in naira and international clients in US dollars, by bank transfer. Deposits are non-refundable; if you cancel mid-project you pay for the work done to date."
+   ],
+   [
+    "who owns the final work?",
+    "On full payment, the final deliverables created for you are assigned to you. We keep our pre-existing tools, models and workflows, and license them to you as they appear inside your deliverables."
+   ],
+   [
+    "what do add-ons cost?",
+    "Extra videos are ₦40,000 (US$75) each, extra stills ₦5,000 (US$10) and extra revision rounds ₦15,000 (US$30). Paid-ad licensing is +30% of the monthly fee where it is not already included, and rush delivery is +50%. Prices exclude taxes."
+   ],
+   [
+    "do you work with international clients?",
+    "Yes. We are based in Lagos and work with clients worldwide. International clients are quoted and invoiced in US dollars from our USD price list, paid by international bank transfer. Our Terms & Conditions and Studio Policies set out revisions, delivery, usage rights and cancellation."
+   ],
+   [
+    "what if the scope changes?",
+    "Changes are agreed in writing as a change order that states the impact on timeline and budget. After delivery, we fix anything that does not match the agreed scope for 30 days at no cost."
+   ]
+  ]
+ },
+ "CONTACT": {
+  "h2": "contact us",
+  "sub": "Tell us about the brand, the product and where the work will run. We will reply with how we would approach it.",
+  "groups": [
+   [
+    "hello@sliiqque.space",
+    "mailto:hello@sliiqque.space",
+    "For project enquiries and general questions"
+   ],
+   [
+    "+234 704 100 0085",
+    "https://wa.me/2347041000085",
+    "Call or WhatsApp. Monday to Friday, 9am – 6pm WAT; Saturday by appointment."
+   ],
+   [
+    "Lagos, Nigeria",
+    ""
+   ]
+  ],
+  "types": [
+   "AI Commercials",
+   "AI UGC & Digital Humans",
+   "AI Photography",
+   "Brand Launch or Visual Campaign",
+   "Something else"
+  ],
+  "budgets": [
+   "Starter retainer - ₦150,000 / $280 per month",
+   "Growth retainer - ₦350,000 / $650 per month",
+   "Scale retainer - ₦750,000 / $1,400 per month",
+   "A one-off project",
+   "Not sure yet, let’s talk"
+  ]
+ },
+ "NOT_FOUND": {
+  "p": "The page you’re looking for doesn’t exist or may have been moved. Let’s get you back to the studio."
+ },
+ "PROCESS_ROWS": [
+  [
+   "Know the subject",
+   "Identity profile",
+   "We study reference images of a person or product and write a permanent profile, features, materials, colours and the details that must never drift.",
+   "01"
+  ],
+  [
+   "Lock the look",
+   "Character and product lock",
+   "The profile drives every generation, so the same face, product or outfit appears identically in every shot.",
+   "02"
+  ],
+  [
+   "Storyboard, build, grade",
+   "Plan, upscale, one grade",
+   "One reference becomes a nine-panel story grid. Approved stills are upscaled without invented detail, then graded once with skin and brand colours protected.",
+   "03"
+  ],
+  [
+   "Animate and deliver",
+   "Motion, sound, platform cuts",
+   "Stills are animated in short blocks with identity locked, then cut with voice, music and captions into the formats each platform needs.",
+   "04"
+  ]
+ ],
+ "STANDARDS_ROWS": [
+  [
+   "Zero fabrication",
+   "Real work only",
+   "No invented clients, testimonials or metrics. Concept work is labelled as concept work.",
+   "01"
+  ],
+  [
+   "Identity over look",
+   "Skin and identity outrank the look",
+   "A grade never changes who a person is or what colour a product is.",
+   "02"
+  ],
+  [
+   "Sequence over frame",
+   "Batch consistency",
+   "Consistency across a set outranks perfection in any single frame.",
+   "03"
+  ],
+  [
+   "AI as infrastructure",
+   "Production, not product",
+   "AI is how we produce. What we sell is creative systems, from concept to campaign.",
+   "04"
+  ]
+ ],
+ "PROJECT_ROWS": [
+  [
+   "AI Commercial",
+   "30–60 second spot, 7 days",
+   "Storyboard, AI production, one grade, sound and platform cutdowns, delivered as a high-resolution master. Two revision rounds.",
+   "from ₦350,000",
+   "from $650"
+  ],
+  [
+   "Product Photo Pack",
+   "5 SKUs, 3 styled stills each",
+   "High-resolution product and lifestyle stills with the product held consistent across every frame. Delivered in 5 working days.",
+   "₦75,000",
+   "$140"
+  ],
+  [
+   "Custom Digital Human",
+   "Identity-locked, 7 days",
+   "A photorealistic AI person built from your brief, with a permanent identity profile you can reuse across every ad.",
+   "₦150,000",
+   "$280"
+  ],
+  [
+   "Brand Launch Campaign",
+   "21-day launch system",
+   "Concept and art direction, one 30-second AI commercial with cutdowns, six UGC-style videos and 20 launch stills.",
+   "₦900,000",
+   "$1,700"
+  ]
+ ],
+ "PROJECTS_INTRO": "Fixed scope, fixed price. Every project includes two revision rounds and full commercial usage rights."
+}
