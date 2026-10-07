@@ -288,9 +288,10 @@ section { position: relative; }
 .post-card h3 { margin-top: 8px; font-size: 20px; line-height: 28px; font-weight: 500; text-transform: none; letter-spacing: 0; }
 
 /* ---------- 16. Footer ---------- */
-.footer { background: var(--ink); color: #fff; padding: 60px var(--gutter) 40px; }
+.footer { background: var(--ink); color: #fff; padding: 0 var(--gutter) 40px; }
 .footer__in { max-width: var(--container); margin: 0 auto; }
-.footer__logo svg { display: block; width: 100%; height: auto; }
+/* Cap tops sit just above the footer edge so the white wordmark meets the white page with no dark strip; round letters overshoot onto the page. */
+.footer__logo svg { display: block; width: 100%; height: auto; overflow: visible; }
 .footer__mid { display: flex; justify-content: space-between; margin-top: 140px; }
 .footer__about { width: 430px; }
 .footer__about p { font-size: 18px; line-height: 27px; font-weight: 500; color: var(--surface); }
@@ -471,7 +472,7 @@ section { position: relative; }
   .blog-grid { row-gap: 40px; column-gap: 24px; }
   .post-card__img { height: auto; aspect-ratio: 363 / 250; }
   .sec--last { padding-bottom: 80px; }
-  .footer { padding-top: 60px; }
+  .footer { padding-top: 0; }
   .footer__mid { flex-direction: row; gap: 60px; margin-top: 140px; }
   .footer__news, .footer__about { width: 345px; max-width: none; }
   .footer__cols { grid-template-columns: repeat(4, 1fr); column-gap: 30px; row-gap: 25px; margin-top: 141px; }
@@ -575,7 +576,7 @@ section { position: relative; }
   .testi--rating { height: 338px; }
   .testi--quote { height: 421px; }
   .blog-grid { grid-template-columns: 1fr; row-gap: 33px; }
-  .footer { padding-top: 40px; }
+  .footer { padding-top: 0; }
   .footer__mid { flex-direction: column; gap: 25px; margin-top: 39px; }
   .footer__news, .footer__about { width: 100%; }
   .footer__cols { grid-template-columns: 1fr; row-gap: 25px; margin-top: 40px; }
