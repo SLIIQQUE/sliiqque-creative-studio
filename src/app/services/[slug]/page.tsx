@@ -2,10 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import FaqList from "@/components/FaqList";
+import Img from "@/components/Img";
 import JsonLd from "@/components/JsonLd";
 import Reveal from "@/components/Reveal";
 import { Btn, PageHero } from "@/components/ui";
-import { SERVICE_PAGES, serviceBySlug } from "@/data/services";
+import { SERVICE_PAGES, SERVICE_WORKS, serviceBySlug } from "@/data/services";
+import { WORKS } from "@/lib/data";
 import { abs, breadcrumbSchema, faqSchema, ORG_ID, pageMeta } from "@/lib/seo";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -26,6 +28,7 @@ export default async function ServicePage({ params }: Props) {
   const s = serviceBySlug(slug);
   if (!s) notFound();
   const related = SERVICE_PAGES.filter((x) => s.related.includes(x.slug));
+  const works = WORKS.filter((w) => SERVICE_WORKS[s.slug]?.includes(w[0]));
 
   return (
     <>
@@ -41,6 +44,7 @@ export default async function ServicePage({ params }: Props) {
             url: abs(`/services/${s.slug}`),
             provider: { "@id": ORG_ID },
             areaServed: ["Nigeria", "Africa", "Worldwide"],
+            ...(s.gallery ? { image: s.gallery.map((g) => abs(`/img/${g.id}`)) } : {}),
             offers: [
               { "@type": "Offer", name: `${s.priceLabel} (NGN)`, priceCurrency: "NGN", price: s.priceNgn.replace(/[^\d]/g, ""), url: abs("/#pricing") },
               { "@type": "Offer", name: `${s.priceLabel} (USD)`, priceCurrency: "USD", price: s.priceUsd.replace(/[^\d]/g, ""), url: abs("/#pricing") },
@@ -55,6 +59,11 @@ export default async function ServicePage({ params }: Props) {
           <h2 className="t-h4">The short answer</h2>
           <div><p>{s.answer}</p></div>
         </Reveal>
+        {s.gallery && (
+          <Reveal className="svc-gallery">
+            {s.gallery.map((g) => <div key={g.id}><Img id={g.id} w={427} h={640} alt={g.alt} /></div>)}
+          </Reveal>
+        )}
         <Reveal className="split">
           <h2 className="t-h4">Who it is for</h2>
           <div><ul>{s.forWho.map((x) => <li key={x}>{x}</li>)}</ul></div>
@@ -76,6 +85,15 @@ export default async function ServicePage({ params }: Props) {
             <p>Prices exclude taxes. Two revision rounds are included. See <Link href="/#pricing">all retainers and projects</Link>, the <Link href="/policies">Studio Policies</Link> and the <Link href="/terms">Terms &amp; Conditions</Link>.</p>
           </div>
         </Reveal>
+        {works.length > 0 && (
+          <Reveal className="split">
+            <h2 className="t-h4">See it in practice</h2>
+            <div>
+              <ul>{works.map((w) => <li key={w[0]}><Link href={`/works/${w[0]}`}>{w[1]}</Link>: {w[3]} ({w[2]})</li>)}</ul>
+              <p>These are self-initiated concept projects for fictional brands, not client work.</p>
+            </div>
+          </Reveal>
+        )}
       </section>
       <FaqList faqs={s.faqs} title="faq" id="faq" last={false} />
       <section className="sec sec--last">

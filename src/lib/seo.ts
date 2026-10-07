@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
-export const SITE_URL = "https://sliiqque.space";
+/** The Creative Studio site lives on its own subdomain; sliiqque.space is a separate site. */
+export const SITE_URL = "https://studio.sliiqque.space";
 export const SITE_NAME = "SLIIQQUE Studio";
 export const BRAND_DESC =
   "SLIIQQUE Studio is a premium creative studio in Lagos, Nigeria producing AI commercials, AI UGC and digital humans, AI product photography, AI fashion imagery, brand launches and visual campaigns for brands in Nigeria, Africa and worldwide.";
@@ -38,19 +39,29 @@ export const KEYWORDS = [
 
 export const abs = (path: string) => `${SITE_URL}${path === "/" ? "" : path}`;
 
-type Opts = { title: string; description: string; path: string; keywords?: string[]; type?: "website" | "article"; absoluteTitle?: boolean; published?: string; noindex?: boolean };
+/** Date the site content last changed (sitemap lastModified). Bump it when copy changes; a build alone is not a change. */
+export const CONTENT_UPDATED = "2026-10-07";
+
+/** Social preview for a public/img asset, resized by the image optimizer (1200px is one of its widths, 90 its only quality). */
+export const shareImg = (id: string) => `/_next/image?url=${encodeURIComponent(`/img/${id}`)}&w=1200&q=90`;
+
+const DEFAULT_SHARE = { url: "/opengraph-image", width: 1200, height: 630, alt: "SLIIQQUE Studio: premium creative studio powered by AI" };
+
+type Opts = { title: string; description: string; path: string; keywords?: string[]; type?: "website" | "article"; absoluteTitle?: boolean; published?: string; noindex?: boolean; image?: { url: string; alt: string } };
 
 /** One place that builds title, description, canonical, Open Graph and Twitter metadata for a page. */
-export function pageMeta({ title, description, path, keywords = [], type = "website", absoluteTitle = false, published, noindex = false }: Opts): Metadata {
+export function pageMeta({ title, description, path, keywords = [], type = "website", absoluteTitle = false, published, noindex = false, image }: Opts): Metadata {
   const fullTitle = absoluteTitle ? title : `${title} | ${SITE_NAME}`;
+  // A page-level openGraph replaces the root one, file-based opengraph-image included, so every page names its image.
+  const images = [image ?? DEFAULT_SHARE];
   return {
     title: absoluteTitle ? { absolute: title } : title,
     description,
     keywords: [...keywords, ...KEYWORDS.slice(0, 8)],
     alternates: { canonical: abs(path) },
     robots: noindex ? { index: false, follow: false } : { index: true, follow: true },
-    openGraph: { type, url: abs(path), siteName: SITE_NAME, title: fullTitle, description, locale: "en_NG", ...(published ? { publishedTime: published } : {}) },
-    twitter: { card: "summary_large_image", title: fullTitle, description, site: "@sliiqque", creator: "@sliiqque" },
+    openGraph: { type, url: abs(path), siteName: SITE_NAME, title: fullTitle, description, locale: "en_NG", images, ...(published ? { publishedTime: published } : {}) },
+    twitter: { card: "summary_large_image", title: fullTitle, description, site: "@sliiqque", creator: "@sliiqque", images },
   };
 }
 

@@ -27,10 +27,10 @@ export default function AboutPage() {
           breadcrumbSchema([{ name: "Home", path: "/" }, { name: "About", path: "/about" }]),
         ]}
       />
-      <PageHero h1={<>about<br />our studio</>} sub={A.hero_sub} h1Class="t-display nw" />
+      <PageHero h1={<>about <br />our studio</>} sub={A.hero_sub} h1Class="t-display nw" />
 
       <section className="story">
-        <Reveal className="story__img"><Img id={A.story_img} w={1320} h={800} alt="SLIIQQUE Studio creative work" eager /></Reveal>
+        <div className="story__img"><Img id={A.story_img} w={1320} h={800} alt="SLIIQQUE Studio creative work" eager /></div>
         <Reveal className="split story__row">
           <h4 className="t-h4">{A.story_label}</h4>
           <div><h3 className="t-h3">{A.story_h3}</h3><p>{A.story_p}</p></div>

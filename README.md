@@ -1,6 +1,8 @@
 # SLIIQQUE Studio: Next.js
 
 Next.js 16 (App Router) port of the Halo Studio template in `../halo-template`, rebranded as SLIIQQUE Studio.
+
+Live at **https://studio.sliiqque.space** (its own app and Vercel project; `sliiqque.space` is a separate site). The domain is set once in `SITE_URL` in `src/lib/seo.ts`, and `CONTENT_UPDATED` there feeds the sitemap: bump it when copy changes.
 `src/app/site.css` is the template's measured stylesheet, unchanged apart from a tablet hero tweak for the longer name.
 
 ```bash

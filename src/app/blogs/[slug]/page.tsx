@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import { Fragment } from "react";
 import Img from "@/components/Img";
 import Reveal from "@/components/Reveal";
 import { Pager } from "@/components/ui";
 import JsonLd from "@/components/JsonLd";
+import { serviceForCategory } from "@/data/services";
 import { BLOGS, POSTS } from "@/lib/data";
-import { abs, breadcrumbSchema, isoDate, ORG_ID, pageMeta } from "@/lib/seo";
+import { abs, breadcrumbSchema, isoDate, ORG_ID, pageMeta, SITE_NAME, shareImg } from "@/lib/seo";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -19,9 +21,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const b = BLOGS.find((x) => x[0] === slug);
   if (!b) return {};
   const first = POSTS[slug].groups[0][1][0][1][0];
+  const headline = b[3].replace(/\.$/, "");
+  const branded = `${headline} | ${SITE_NAME}`;
   return pageMeta({
-    title: `${b[3].replace(/\.$/, "")} | SLIIQQUE`,
+    // Same suffix as every other page, dropped when it would push the title past ~60 characters.
+    title: branded.length <= 60 ? branded : headline,
     absoluteTitle: true,
+    image: { url: shareImg(b[4]), alt: headline },
     description: first.length > 155 ? `${first.slice(0, 152).trimEnd()}...` : first,
     path: `/blogs/${slug}`,
     type: "article",
@@ -38,6 +44,7 @@ export default async function PostPage({ params }: Props) {
   if (i < 0) notFound();
   const [, date, cat, title, cardImg] = BLOGS[i];
   const P = POSTS[slug];
+  const service = serviceForCategory(cat);
 
   return (
     <section className="case post">
@@ -54,7 +61,8 @@ export default async function PostPage({ params }: Props) {
             inLanguage: "en-NG",
             url: abs(`/blogs/${slug}`),
             mainEntityOfPage: abs(`/blogs/${slug}`),
-            author: { "@type": "Person", name: "Gabriel Njoabozia" },
+            image: abs(`/img/${cardImg}`),
+            author: { "@type": "Person", name: "Gabriel Njoabozia", jobTitle: "Founder", worksFor: { "@id": ORG_ID } },
             publisher: { "@id": ORG_ID },
           },
           breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Journal", path: "/blogs" }, { name: title.replace(/\.$/, ""), path: `/blogs/${slug}` }]),
@@ -67,15 +75,15 @@ export default async function PostPage({ params }: Props) {
           <div><h5 className="t-h5">Category</h5><p>{cat}</p></div>
         </div>
       </div>
-      <Reveal className="post__hero"><Img id={cardImg} w={1188} h={754} alt={title.replace(/\.$/, "")} eager /></Reveal>
+      <div className="post__hero"><Img id={cardImg} w={1188} h={754} alt={title.replace(/\.$/, "")} eager /></div>
       {P.groups.map(([h4, subs], gi) => (
         <Fragment key={h4}>
           <Reveal className="split">
-            <h4 className="t-h4">{h4}</h4>
+            <h2 className="t-h4">{h4}</h2>
             <div>
               {subs.map(([h, ps]) => (
                 <Fragment key={h}>
-                  <h5 className="t-h5 sub">{h}</h5>
+                  <h3 className="t-h5 sub">{h}</h3>
                   {ps.map((x) => <Para key={x} p={x} />)}
                 </Fragment>
               ))}
@@ -89,6 +97,11 @@ export default async function PostPage({ params }: Props) {
           )}
         </Fragment>
       ))}
+      {service && (
+        <p className="services-note">
+          Related service: <Link href={`/services/${service.slug}`}>{service.name}</Link>. <Link href="/services">All services</Link> · <Link href="/works">Concept work</Link>.
+        </p>
+      )}
       <Pager prev={i > 0 ? `/blogs/${BLOGS[i - 1][0]}` : undefined} next={i < BLOGS.length - 1 ? `/blogs/${BLOGS[i + 1][0]}` : undefined} />
     </section>
   );

@@ -9,7 +9,7 @@ export function WorkCard({ w, className = "" }: { w: Work; className?: string })
   const [slug, name, cat, svc, yr, im, alt] = w;
   return (
     <Reveal as={Link} href={`/works/${slug}`} className={`work ${className}`.trim()}>
-      <div className="work__row"><h5>{name}</h5><span>{cat}</span></div>
+      <div className="work__row"><h3>{name}</h3><span>{cat}</span></div>
       <div className="work__img"><Img id={im} w={640} h={577} alt={`${name}: ${cat.split(" · ")[0].toLowerCase()} concept brand visual by SLIIQQUE`} /></div>
       <div className="work__row"><span>{svc}</span><span>{yr}</span></div>
     </Reveal>

@@ -13,7 +13,7 @@ export default function LegalPage({ doc }: { doc: LegalDoc }) {
         </div>
         {doc.sections.map((s) => (
           <Reveal className="split" key={s.h}>
-            <h4 className="t-h4">{s.h}</h4>
+            <h2 className="t-h4">{s.h}</h2>
             <div>
               {s.blocks.map((b, i) =>
                 Array.isArray(b) ? <ul key={i}>{b.map((x) => <li key={x}>{x}</li>)}</ul> : <p key={i}>{b}</p>,
