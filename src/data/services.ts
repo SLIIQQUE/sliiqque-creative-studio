@@ -19,6 +19,8 @@ export type ServicePage = {
   faqs: Faq[];
   keywords: string[];
   related: string[];
+  /** Example frames shown under the short answer (public/img ids, portrait 2:3). */
+  gallery?: { id: string; alt: string }[];
 };
 
 export const SERVICE_PAGES: ServicePage[] = [
@@ -102,6 +104,11 @@ export const SERVICE_PAGES: ServicePage[] = [
     ],
     keywords: ["AI UGC ads Nigeria", "AI UGC creator", "digital humans for advertising", "AI avatar spokesperson", "AI influencer content"],
     related: ["ai-commercials", "ai-photography"],
+    gallery: [
+      { id: "digital-human-face-macro.jpg", alt: "Digital human: identity-locked photorealistic AI man, extreme close-up of the face" },
+      { id: "digital-human-portrait.jpg", alt: "The same digital human in a head-and-shoulders portrait, identity held" },
+      { id: "digital-human-full-look.jpg", alt: "The same digital human in a full look, wearing an embroidered kaftan" },
+    ],
   },
   {
     slug: "ai-photography",
@@ -141,6 +148,11 @@ export const SERVICE_PAGES: ServicePage[] = [
     ],
     keywords: ["AI product photography Lagos", "AI product photos for e-commerce", "AI lifestyle photography", "AI photoshoot for brands", "product photography Nigeria"],
     related: ["ai-commercials", "brand-launches-campaigns"],
+    gallery: [
+      { id: "ode-beard-oil.jpg", alt: "AI product photography: ODÈ beard oil bottle in hand, concept work" },
+      { id: "digital-human-full-look.jpg", alt: "AI lifestyle photography: photorealistic portrait of a man in an embroidered kaftan" },
+      { id: "digital-human-fabric-detail.jpg", alt: "AI detail photography: macro of embroidered fabric texture" },
+    ],
   },
   {
     slug: "ai-fashion-imagery",
@@ -181,6 +193,11 @@ export const SERVICE_PAGES: ServicePage[] = [
     ],
     keywords: ["AI fashion imagery", "AI fashion photography Nigeria", "AI models for clothing brands", "AI lookbook", "virtual fashion models"],
     related: ["ai-photography", "ai-ugc-digital-humans"],
+    gallery: [
+      { id: "fashion-suit-full-length.jpg", alt: "AI fashion imagery: photorealistic AI model in a tailored textured suit, full length" },
+      { id: "fashion-suit-three-quarter.jpg", alt: "The same AI model and suit in a three-quarter shot, garment held consistent" },
+      { id: "fashion-suit-golden-hour.jpg", alt: "The same AI model and suit at golden hour, one grade across the set" },
+    ],
   },
   {
     slug: "brand-launches-campaigns",
@@ -224,6 +241,29 @@ export const SERVICE_PAGES: ServicePage[] = [
 ];
 
 export const serviceBySlug = (slug: string) => SERVICE_PAGES.find((s) => s.slug === slug);
+
+/** Which concept projects show each service (from each work's service line). A service with no honest match lists none. */
+export const SERVICE_WORKS: Record<string, string[]> = {
+  "ai-commercials": ["ode"],
+  "ai-ugc-digital-humans": ["ode"],
+  "ai-photography": ["ala-skin", "ase"],
+  "ai-fashion-imagery": [],
+  "brand-launches-campaigns": ["ala-skin", "ode", "ase", "ile"],
+};
+
+export const servicesForWork = (work: string) => SERVICE_PAGES.filter((s) => SERVICE_WORKS[s.slug]?.includes(work));
+
+/** Journal category -> the service page a reader of that post is most likely to need. */
+const CATEGORY_SERVICE: Record<string, string> = {
+  "Digital Humans": "ai-ugc-digital-humans",
+  Process: "ai-commercials",
+  "Post-production": "ai-photography",
+  Commercials: "ai-commercials",
+  Fashion: "ai-fashion-imagery",
+  Studio: "brand-launches-campaigns",
+};
+
+export const serviceForCategory = (cat: string) => serviceBySlug(CATEGORY_SERVICE[cat] ?? "");
 
 /** Site-wide FAQ (also the source for FAQPage schema and llms.txt). */
 export const SITE_FAQ: Faq[] = [

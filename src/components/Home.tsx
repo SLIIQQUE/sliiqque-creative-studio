@@ -14,13 +14,13 @@ export default function Home() {
     <>
       <section className="hero">
         <div className="hero__row">
-          <h1 className="hero__title t-hero">
+          <p className="hero__title t-hero">
             <span className="line">sliiqque</span>
             <span className="line">studio</span>
-          </h1>
+          </p>
           <div className="hero__aside">
             <p className="hero__tag">{HERO.tag}</p>
-            <h4 className="t-h4">{HERO.sub}</h4>
+            <h1 className="t-h4">{HERO.sub}</h1>
             <a className="scroll" href="#gallery">Scroll Down ↓</a>
           </div>
         </div>
@@ -29,7 +29,7 @@ export default function Home() {
             {[0, 1].map((copy) =>
               HERO.ticker.map((id, n) => (
                 <span key={`${copy}-${id}`} style={{ display: "contents" }} aria-hidden={copy ? true : undefined}>
-                  <Img id={id} w={450} h={550} alt={`SLIIQQUE AI-produced visual ${n + 1}`} eager />
+                  <Img id={id} w={450} h={550} alt={`SLIIQQUE AI-produced visual ${n + 1}`} eager={!copy && n === 0} />
                 </span>
               )),
             )}

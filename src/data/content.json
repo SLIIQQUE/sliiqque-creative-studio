@@ -25,9 +25,9 @@
  },
  "HERO": {
   "tag": "Premium creative studio powered by AI",
-  "sub": "AI commercials, UGC, photography and fashion imagery, built as systems, not one-off assets.",
+  "sub": "AI commercials, UGC, photography and fashion imagery from Lagos, built as systems, not one-off assets.",
   "ticker": [
-   "eavXyWwInhfF9l4CAQcNG2N11XE.png",
+   "digital-human-face-macro.jpg",
    "45eE47viBu3ajyWpFXsiwVcUI.png",
    "4kR1eEqrcM3cSJMaEraSMrWqrY.png",
    "TkwjXnShtHQyU61DEoKRaEOedw.png",
@@ -67,7 +67,7 @@
    "Grooming · Concept",
    "AI commercial · Digital humans",
    "2026",
-   "sYjv0x8mKiRH0sfGO97c2jZMDo.png",
+   "ode-portrait.jpg",
    ""
   ],
   [
@@ -106,12 +106,14 @@
   "ode": {
    "overview": "ODÈ is a fictional men’s grooming brand rooted in West African heritage, Yoruba for “hunter”, with the line “Discipline. Inherited.” We built it as a self-initiated concept project to show range beyond a single aesthetic lane.",
    "duo": [
-    "Jiy1SBt5OqzLEk3Moup3m1nn8.jpg",
-    "bNVxmFdXXVRRM1mE7sHAo6akn0.jpg"
+    "ode-dropper.jpg",
+    "ode-beard-oil.jpg",
+    "ode-profile.jpg",
+    "ode-beard-macro.jpg"
    ],
    "challenge": "Prove that photorealistic AI people can stay recognisably the same person from shot to shot. We wrote the production system before generating a frame: a verbatim identity lock pasted into every prompt, continuity tracked across nine domains and a 15-point quality checklist.",
    "results": "Brand strategy and a 90-day plan; five campaign concepts; six locked digital-human subjects with identity anchors; a prompt library; 25 AI-generated images; and a full production bible for a 60-second commercial, “The Man Before The Morning”, 38 planned shots across 11 scenes, with 11 shot modules specified. The film itself is not yet rendered.",
-   "wide": "gVtp8dB2Wd7KBNSDVkb6vBv140w.jpg",
+   "wide": "ode-wide.jpg",
    "conclusion": "The system was built before the images. A single campaign tells one story; five campaigns tell a world. ODÈ is concept work with no commercial metrics, and we present it as exactly that."
   },
   "ase": {
@@ -159,8 +161,8 @@
     "Talking video",
     "Commercial use"
    ],
-   "zejjPIawUpsqLXCr9QWSMdMbo0.png",
-   "A cell phone sitting on top of a wooden table"
+   "digital-human-portrait-wide.jpg",
+   "Digital human: identity-locked photorealistic AI man, head-and-shoulders portrait"
   ],
   [
    "AI Photography",
@@ -171,8 +173,8 @@
     "Clean masters",
     "Consistent product"
    ],
-   "AWdy7hN2hKwIre3V7xrnqilM9YI.png",
-   "A cell phone sitting on top of a wooden table"
+   "digital-human-full-look-wide.jpg",
+   "AI lifestyle photography: photorealistic portrait of a man in an embroidered kaftan"
   ],
   [
    "AI Fashion Imagery",
@@ -183,8 +185,8 @@
     "E-commerce images",
     "Campaign imagery"
    ],
-   "pgfva58lzcfswEXW2JWh197fGE.png",
-   "Service Image"
+   "fashion-suit-medium.jpg",
+   "AI fashion imagery: photorealistic AI model wearing a tailored textured suit"
   ],
   [
    "Brand Launches & Campaigns",
@@ -280,7 +282,7 @@
    "Sep 12, 2026",
    "Fashion",
    "AI fashion imagery: photorealistic models wearing your clothes.",
-   "gGIO3f2wnqha2nu4z1Rb2KsI6dQ.png"
+   "fashion-suit-full-look.jpg"
   ],
   [
    "creative-systems-not-one-off-assets",
@@ -619,8 +621,8 @@
     ]
    ],
    "gallery": [
-    "2Nv3d9x6MrZfOYY9HE4TxnUrZg.jpg",
-    "ZbOVl5hW4IVsSOxbkxMb4z1MtA.png"
+    "fashion-suit-portrait.jpg",
+    "fashion-suit-movement.jpg"
    ]
   }
  },
