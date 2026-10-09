@@ -7,7 +7,7 @@ import { WORKS, WORKS_LISTED } from "@/lib/data";
 export const metadata = pageMeta({
   title: "Work: AI Concept Brand Worlds",
   description:
-    "Concept work by SLIIQQUE: ÀLÀ skincare, ODÈ grooming, ÀSE spirits and ILÉ hospitality, with AI commercials, digital humans and AI photography. Not client work.",
+    "Concept work by SLIIQQUE: ÀLÀ skincare, ODÈ grooming and ÀSE spirits, with AI commercials, digital humans and AI photography. Not client work.",
   path: "/works",
   keywords: ["AI commercial portfolio", "AI product photography portfolio", "digital humans portfolio", "concept brand work"],
 });
