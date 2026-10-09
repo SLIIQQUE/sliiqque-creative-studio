@@ -5,7 +5,8 @@ import DemoForm from "./DemoForm";
 
 type Item = [label: string, href: string, external?: boolean];
 
-const STUDIO: Item[] = [["Home", "/"], ["Work", "/works"], ["About", "/about"], ["Journal", "/blogs"], ["FAQ", "/faq"], ["Contact", "/contact"]];
+// Journal is temporarily disabled; uncomment the ["Journal", "/blogs"] entry below to restore the footer link.
+const STUDIO: Item[] = [["Home", "/"], ["Work", "/works"], ["About", "/about"], /* ["Journal", "/blogs"], */ ["FAQ", "/faq"], ["Contact", "/contact"]];
 const SERVICES: Item[] = [
   ["AI Commercials", "/services/ai-commercials"],
   ["AI UGC & Digital Humans", "/services/ai-ugc-digital-humans"],

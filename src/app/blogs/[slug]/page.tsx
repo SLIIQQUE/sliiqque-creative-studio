@@ -1,3 +1,10 @@
+import { notFound } from "next/navigation";
+
+// Journal is temporarily disabled: route, nav/footer links and posts are commented out, not deleted.
+// To restore: uncomment the block below (and the matching blocks in NavLinks.tsx, Footer.tsx,
+// Home.tsx, sitemap.ts and lib/llms.ts), then remove the notFound() default export below it.
+
+/*
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
@@ -105,4 +112,13 @@ export default async function PostPage({ params }: Props) {
       <Pager prev={i > 0 ? `/blogs/${BLOGS[i - 1][0]}` : undefined} next={i < BLOGS.length - 1 ? `/blogs/${BLOGS[i + 1][0]}` : undefined} />
     </section>
   );
+}
+*/
+
+export function generateStaticParams() {
+  return [];
+}
+
+export default function PostPage(): never {
+  notFound();
 }
