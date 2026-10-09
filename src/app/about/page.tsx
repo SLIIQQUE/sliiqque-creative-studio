@@ -1,5 +1,5 @@
 import JsonLd from "@/components/JsonLd";
-import { abs, breadcrumbSchema, faqSchema, ORG_ID, pageMeta } from "@/lib/seo";
+import { abs, breadcrumbSchema, faqSchema, ORG_ID, pageMeta, shareImg } from "@/lib/seo";
 import Img from "@/components/Img";
 import Reveal from "@/components/Reveal";
 import Stats from "@/components/Stats";
@@ -15,6 +15,7 @@ export const metadata = pageMeta({
     "SLIIQQUE is a Lagos creative studio founded on 22 December 2025 by Gabriel Njoabozia. How it works, its standards, and its policies on AI, likeness and ownership.",
   path: "/about",
   keywords: ["about SLIIQQUE", "creative studio Lagos", "AI creative studio Nigeria", "Gabriel Njoabozia"],
+  image: { url: shareImg(A.story_img), alt: "SLIIQQUE Studio creative production" },
 });
 
 export default function AboutPage() {

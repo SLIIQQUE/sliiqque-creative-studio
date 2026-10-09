@@ -1,5 +1,5 @@
 import JsonLd from "@/components/JsonLd";
-import { abs, breadcrumbSchema, pageMeta } from "@/lib/seo";
+import { abs, breadcrumbSchema, pageMeta, shareImg } from "@/lib/seo";
 import LoadMore from "@/components/LoadMore";
 import { PageHero } from "@/components/ui";
 import { WORKS, WORKS_LISTED } from "@/lib/data";
@@ -10,6 +10,7 @@ export const metadata = pageMeta({
     "Concept work by SLIIQQUE: ÀLÀ skincare, ODÈ grooming and ÀSE spirits, with AI commercials, digital humans and AI photography. Not client work.",
   path: "/works",
   keywords: ["AI commercial portfolio", "AI product photography portfolio", "digital humans portfolio", "concept brand work"],
+  image: { url: shareImg(WORKS[0][5]), alt: `${WORKS[0][1]}: concept brand visual by SLIIQQUE` },
 });
 
 export default function WorksPage() {
