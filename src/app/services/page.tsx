@@ -6,7 +6,7 @@ import { SERVICE_PAGES } from "@/data/services";
 import { abs, breadcrumbSchema, ORG_ID, pageMeta } from "@/lib/seo";
 
 export const metadata = pageMeta({
-  title: "Creative Services: AI Ads, UGC & Photography",
+  title: "Creative Services: AI Ads & Photography",
   description:
     "AI commercials, AI UGC and digital humans, AI product photography and brand launches from SLIIQQUE in Lagos. From ₦150,000 / $280 a month.",
   path: "/services",

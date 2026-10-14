@@ -1,4 +1,5 @@
-import { pageMeta } from "@/lib/seo";
+import JsonLd from "@/components/JsonLd";
+import { breadcrumbSchema, pageMeta } from "@/lib/seo";
 import LegalPage from "@/components/LegalPage";
 import { LEGAL } from "@/lib/data";
 
@@ -10,5 +11,10 @@ export const metadata = pageMeta({
 });
 
 export default function Page() {
-  return <LegalPage doc={LEGAL.policies} />;
+  return (
+    <>
+      <JsonLd data={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Studio Policies", path: "/policies" }])} />
+      <LegalPage doc={LEGAL.policies} />
+    </>
+  );
 }

@@ -1,10 +1,3 @@
-import { notFound } from "next/navigation";
-
-// Journal is temporarily disabled: route, nav/footer links and posts are commented out, not deleted.
-// To restore: uncomment the block below (and the matching blocks in NavLinks.tsx, Footer.tsx,
-// Home.tsx, sitemap.ts and lib/llms.ts), then remove the notFound() default export below it.
-
-/*
 import JsonLd from "@/components/JsonLd";
 import { abs, breadcrumbSchema, pageMeta, shareImg } from "@/lib/seo";
 import LoadMore from "@/components/LoadMore";
@@ -36,9 +29,4 @@ export default function BlogsPage() {
       </section>
     </>
   );
-}
-*/
-
-export default function BlogsPage(): never {
-  notFound();
 }

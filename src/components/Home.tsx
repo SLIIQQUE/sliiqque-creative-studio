@@ -4,10 +4,10 @@ import Stats from "./Stats";
 import Accordion from "./Accordion";
 import Awards from "./Awards";
 import Pricing from "./Pricing";
-import { WorkCard } from "./cards"; // BlogCard is unused while the journal section below is commented out
+import { BlogCard, WorkCard } from "./cards";
 import { Btn, SecHead } from "./ui";
 import { IconPlus } from "./icons";
-import { ABOUT, HERO, HOME_WORKS, PLANS, PLANS_INTRO, PROCESS_ROWS, PROJECT_ROWS, PROJECTS_INTRO, AWARDS_INTRO, SECTION_SUB, SERVICES, WORKS } from "@/lib/data"; // BLOGS is unused while the journal section below is commented out
+import { ABOUT, BLOGS, HERO, HOME_WORKS, PLANS, PLANS_INTRO, PROCESS_ROWS, PROJECT_ROWS, PROJECTS_INTRO, AWARDS_INTRO, SECTION_SUB, SERVICES, WORKS } from "@/lib/data";
 
 export default function Home() {
   return (
@@ -47,7 +47,7 @@ export default function Home() {
           </div>
         </Reveal>
         <Reveal className="about__row2">
-          <Img id={ABOUT.img} w={290} h={197} alt="SLIIQQUE Studio creative production sample" />
+          <Img id={ABOUT.img} w={290} h={197} alt="SLIIQQUE Studio reviewing AI-generated production stills" />
           <Stats className="stats" stats={ABOUT.stats} />
         </Reveal>
       </section>
@@ -91,14 +91,12 @@ export default function Home() {
 
       <Pricing plans={PLANS} plansIntro={PLANS_INTRO} projects={PROJECT_ROWS} projectsIntro={PROJECTS_INTRO} />
 
-      {/* Journal is temporarily disabled; uncomment to restore the homepage preview section.
       <section className="sec sec--last" id="blogs">
         <Reveal className="container">
           <SecHead title="journal" aside={<><p>Notes on identity lock, storyboarding, grading and fashion imagery, written from our own production work.</p><Btn href="/blogs">All Articles</Btn></>} />
           <div className="blog-grid">{BLOGS.slice(0, 2).map((b) => <BlogCard key={b[0]} b={b} />)}</div>
         </Reveal>
       </section>
-      */}
     </>
   );
 }

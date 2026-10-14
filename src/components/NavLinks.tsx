@@ -9,8 +9,7 @@ export const NAV_LINKS = [
   { label: "Services", href: "/services" },
   { label: "Pricing", href: "/#pricing" },
   { label: "About", href: "/about" },
-  // Journal is temporarily disabled; uncomment to restore the nav link.
-  // { label: "Journal", href: "/blogs" },
+  { label: "Journal", href: "/blogs" },
 ] as const;
 
 /** Primary links, "Start a project" CTA and the small-screen menu. Marks the current section with aria-current. */

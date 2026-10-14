@@ -40,7 +40,7 @@ export const KEYWORDS = [
 export const abs = (path: string) => `${SITE_URL}${path === "/" ? "" : path}`;
 
 /** Date the site content last changed (sitemap lastModified). Bump it when copy changes; a build alone is not a change. */
-export const CONTENT_UPDATED = "2026-10-07";
+export const CONTENT_UPDATED = "2026-10-14";
 
 /** Social preview for a public/img asset, resized by the image optimizer (1200px is one of its widths, 90 its only quality). */
 export const shareImg = (id: string) => `/_next/image?url=${encodeURIComponent(`/img/${id}`)}&w=1200&q=90`;
@@ -61,7 +61,7 @@ export function pageMeta({ title, description, path, keywords = [], type = "webs
     alternates: { canonical: abs(path) },
     robots: noindex ? { index: false, follow: false } : { index: true, follow: true },
     openGraph: { type, url: abs(path), siteName: SITE_NAME, title: fullTitle, description, locale: "en_NG", images, ...(published ? { publishedTime: published } : {}) },
-    twitter: { card: "summary_large_image", title: fullTitle, description, site: "@sliiqque", creator: "@sliiqque", images },
+    twitter: { card: "summary_large_image", title: fullTitle, description, images },
   };
 }
 
@@ -97,7 +97,7 @@ export function organizationSchema() {
     ],
     openingHoursSpecification: [{ "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "09:00", closes: "18:00" }],
     contactPoint: [{ "@type": "ContactPoint", contactType: "customer service", email: "hello@sliiqque.space", telephone: "+2347041000085", areaServed: ["NG", "Worldwide"], availableLanguage: ["English"] }],
-    sameAs: ["https://x.com/sliiqque", "https://www.linkedin.com/company/sliiqque", "https://www.instagram.com/sliiqque"],
+    sameAs: ["https://www.instagram.com/sliiqque", "https://www.youtube.com/@sliiqque", "https://www.facebook.com/sliiqque"],
   };
 }
 

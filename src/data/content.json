@@ -9,16 +9,16 @@
   "copyright": "©2026 SLIIQQUE Studio. All Rights Reserved.",
   "social": [
    [
-    "X",
-    "https://x.com/sliiqque"
-   ],
-   [
-    "LinkedIn",
-    "https://www.linkedin.com/company/sliiqque"
-   ],
-   [
     "Instagram",
     "https://www.instagram.com/sliiqque"
+   ],
+   [
+    "YouTube",
+    "https://www.youtube.com/@sliiqque"
+   ],
+   [
+    "Facebook",
+    "https://www.facebook.com/sliiqque"
    ]
   ],
   "hours": "Mon – Fri, 9am – 6pm WAT"
@@ -37,7 +37,7 @@
  "ABOUT": {
   "heading": "SLIIQQUE Studio is a Lagos creative studio producing AI commercials, UGC and photography for modern brands.",
   "body": "AI is how we produce, not what we sell. We build creative systems, concept, art direction, production, motion and campaign assets, with photorealistic digital humans whose identity holds from the first frame to the last.",
-  "img": "XlOMXPfQsRxpYlsfrmzGMRhFahw.png",
+  "img": "studio-ai-review-monitor.webp",
   "stats": [
    [
     8,
@@ -129,8 +129,8 @@
     "Storyboard-led",
     "Platform cuts"
    ],
-   "pgfva58lzcfswEXW2JWh197fGE.png",
-   "Service Image"
+   "studio-ai-commercial-set.webp",
+   "AI Commercials: SLIIQQUE on set with a cinema camera, directing an AI commercial production"
   ],
   [
    "AI UGC & Digital Humans",
@@ -177,8 +177,8 @@
     "Visual campaigns",
     "Campaign assets"
    ],
-   "YvMvx8L2sjrKc702UhznarfwW3I.png",
-   "Service Image"
+   "studio-campaign-systems-moodboard.webp",
+   "Brand Launches & Campaigns: a campaign moodboard and art direction system, print and mobile"
   ]
  ],
  "SECTION_SUB": "Eight creative services, run as monthly retainers and content systems, never per-asset deliverables.",
@@ -237,27 +237,6 @@
    "digital-human-woman-portrait.jpg"
   ],
   [
-   "from-one-reference-image-to-a-nine-panel-storyboard",
-   "Sep 28, 2026",
-   "Process",
-   "From one reference image to a nine-panel storyboard.",
-   "iAa680Ic6vhiW3EBZUV7AHiDFI.png"
-  ],
-  [
-   "upscale-once-grade-once",
-   "Sep 24, 2026",
-   "Post-production",
-   "Upscale once, grade once: keeping AI frames consistent.",
-   "Ds5WVvfqyi8Wlzws4iEGrzpHIU.png"
-  ],
-  [
-   "ten-seconds-at-a-time",
-   "Sep 18, 2026",
-   "Commercials",
-   "Ten seconds at a time: building animated sequences in blocks.",
-   "iPDWOnc90iD01gdnLG4HSp5gW8.png"
-  ],
-  [
    "ai-fashion-imagery-photorealistic-models",
    "Sep 12, 2026",
    "Fashion",
@@ -269,10 +248,10 @@
    "Sep 5, 2026",
    "Studio",
    "Creative systems, not one-off assets.",
-   "3ZgRUMOV3PXwKNKh7gLshb39XU0.png"
+   "studio-campaign-systems-moodboard.webp"
   ]
  ],
- "BLOGS_LISTED": 4,
+ "BLOGS_LISTED": 3,
  "POSTS": {
   "why-every-digital-human-needs-a-character-lock": {
    "groups": [
@@ -383,8 +362,8 @@
     ]
    ],
    "gallery": [
-    "0PezkOon65ROZnQ8oFng1DCOFy4.jpg",
-    "MrYIMKb0bbKdizPtCi2R8c8ll9A.jpg"
+    "studio-storyboard-closeup-detail.webp",
+    "studio-process-flatlay-mosaic.webp"
    ]
   },
   "upscale-once-grade-once": {
@@ -436,8 +415,8 @@
     ]
    ],
    "gallery": [
-    "k0R4EnxnRp1ZntYQeVpv9SRTiE.jpg",
-    "gkW5zzua3D9R282TFleUbxOnA.jpg"
+    "studio-flat-reference-portrait.webp",
+    "studio-graded-portrait.webp"
    ]
   },
   "ten-seconds-at-a-time": {
@@ -489,8 +468,8 @@
     ]
    ],
    "gallery": [
-    "GLjVP9SlD1xhXR9kZK3BUNneDeA.jpg",
-    "PkSISQpT2A77XFmAhT5iohJpn0.jpg"
+    "studio-animation-keyframe-a.webp",
+    "studio-animation-keyframe-b.webp"
    ]
   },
   "creative-systems-not-one-off-assets": {
@@ -542,8 +521,8 @@
     ]
    ],
    "gallery": [
-    "Of3bHbAkm4eo3ha280vFGvDmOUg.png",
-    "vv4eph7XQ6yxwSA8i4OMq5KScR0.jpg"
+    "studio-campaign-systems-moodboard.webp",
+    "studio-content-calendar-moodboard.webp"
    ]
   },
   "ai-fashion-imagery-photorealistic-models": {
@@ -609,7 +588,7 @@
  "ABOUT_PAGE": {
   "hero_h1": "about<br>our studio",
   "hero_sub": "A Lagos creative studio. Premium production, powered by AI.",
-  "story_img": "ieaLQvZp3V1lVTK5iPkShah0Kxc.png",
+  "story_img": "studio-process-flatlay-mosaic.webp",
   "story_label": "our story",
   "story_h3": "SLIIQQUE treats AI as production infrastructure, not as the product.",
   "story_p": "Founded in Lagos on 22 December 2025, we build creative systems for modern brands: AI commercials, UGC, photography, fashion imagery, brand launches and visual campaigns, with photorealistic digital humans whose identity holds from the first frame to the last. Our work to date is self-initiated concept work: three complete brand worlds, labelled as exactly that.",

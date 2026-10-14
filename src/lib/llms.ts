@@ -1,5 +1,5 @@
 import { SERVICE_PAGES, SITE_FAQ } from "@/data/services";
-import { PLANS, PROJECT_ROWS, WORKS } from "@/lib/data"; // BLOGS is unused while the journal route is commented out
+import { BLOGS, PLANS, PROJECT_ROWS, WORKS } from "@/lib/data";
 import { BRAND_DESC, KEYWORDS, SITE_URL } from "@/lib/seo";
 
 const head = [
@@ -21,7 +21,7 @@ export function llmsTxt(): string {
     "- Location: Lagos, Nigeria. Works with clients in Nigeria, Africa and worldwide",
     "- Email: hello@sliiqque.space | Phone/WhatsApp: +234 704 100 0085 | Hours: Monday to Friday 9am to 6pm WAT",
     "- Currencies: NGN for Nigerian clients, USD for international clients",
-    "- Social: X, Instagram and LinkedIn at @sliiqque",
+    "- Social: Instagram, YouTube and Facebook at @sliiqque",
     "",
     "## Services",
     "",
@@ -39,9 +39,11 @@ export function llmsTxt(): string {
     "",
     `- [Work](${SITE_URL}/works): self-initiated concept projects for fictional brands, labelled as concept work`,
     ...WORKS.map((w) => `- [${w[1]}](${SITE_URL}/works/${w[0]}): ${w[2]}`),
-    // Journal is temporarily disabled; uncomment to restore it in the AI-assistant index.
-    // `- [Journal](${SITE_URL}/blogs)`,
-    // ...BLOGS.map((b) => `- [${b[3].replace(/\.$/, "")}](${SITE_URL}/blogs/${b[0]})`),
+    "",
+    "## Journal",
+    "",
+    `- [Journal](${SITE_URL}/blogs)`,
+    ...BLOGS.map((b) => `- [${b[3].replace(/\.$/, "")}](${SITE_URL}/blogs/${b[0]})`),
     "",
     "## Optional",
     "",
