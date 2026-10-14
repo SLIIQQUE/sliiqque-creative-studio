@@ -14,6 +14,9 @@ export default function Img({ id, w, h, alt = "", className, eager = false }: Pr
       quality={90}
       sizes={`(max-width: 767px) 100vw, ${w}px`}
       priority={eager}
+      // `priority` alone only adds the preload link; it does not set fetchPriority, so the LCP
+      // image competes with everything else at browser-default priority unless this is explicit.
+      fetchPriority={eager ? "high" : undefined}
       loading={eager ? undefined : "lazy"}
     />
   );

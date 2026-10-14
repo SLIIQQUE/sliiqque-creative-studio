@@ -50,8 +50,13 @@ export const abs = (path: string) => `${SITE_URL}${path === "/" ? "" : path}`;
 /** Date the site content last changed (sitemap lastModified). Bump it when copy changes; a build alone is not a change. */
 export const CONTENT_UPDATED = "2026-10-14";
 
-/** Social preview for a public/img asset, resized by the image optimizer (1200px is one of its widths, 90 its only quality). */
-export const shareImg = (id: string) => `/_next/image?url=${encodeURIComponent(`/img/${id}`)}&w=1200&q=90`;
+/**
+ * Social preview for a public/img asset. Points at a static, pre-cropped 1200x630 JPEG in
+ * public/og (generated with sharp, not resized on request) rather than the /_next/image proxy:
+ * some social/link-preview scrapers handle dynamic, query-string image URLs poorly. Regenerate
+ * the file in public/og when the source image changes — see the crop script in git history.
+ */
+export const shareImg = (id: string) => `/og/${id.replace(/\.[a-zA-Z0-9]+$/, "")}.jpg`;
 
 const DEFAULT_SHARE = { url: "/opengraph-image", width: 1200, height: 630, alt: "SLIIQQUE Studio: premium creative studio powered by AI" };
 
@@ -61,7 +66,8 @@ type Opts = { title: string; description: string; path: string; keywords?: strin
 export function pageMeta({ title, description, path, keywords = [], type = "website", absoluteTitle = false, published, noindex = false, image }: Opts): Metadata {
   const fullTitle = absoluteTitle ? title : `${title} | ${SITE_NAME}`;
   // A page-level openGraph replaces the root one, file-based opengraph-image included, so every page names its image.
-  const images = [image ?? DEFAULT_SHARE];
+  // Every image here, static or DEFAULT_SHARE, is exactly 1200x630.
+  const images = [{ width: 1200, height: 630, ...(image ?? DEFAULT_SHARE) }];
   return {
     title: absoluteTitle ? { absolute: title } : title,
     description,

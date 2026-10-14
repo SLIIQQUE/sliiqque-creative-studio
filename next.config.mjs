@@ -1,5 +1,27 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  images: { qualities: [90] },
+  // AVIF first, WebP fallback, for every image the optimizer serves through Img.tsx.
+  images: { qualities: [90], formats: ["image/avif", "image/webp"] },
+  // Vercel redirects HTTP to HTTPS at the edge; this tells browsers to skip that round
+  // trip on repeat visits and never downgrade to plain HTTP for this host.
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: [{ key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains; preload" }],
+      },
+      // Logo files never change in place (a redesign gets a new filename), so these can be cached hard.
+      {
+        source: "/brand/:path*",
+        headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }],
+      },
+      // Photography is occasionally replaced at the same filename, so a week-long cache (not
+      // immutable) balances repeat-visit speed against that history without baking in staleness.
+      {
+        source: "/(img|og)/:path*",
+        headers: [{ key: "Cache-Control", value: "public, max-age=604800, stale-while-revalidate=86400" }],
+      },
+    ];
+  },
 };
 export default nextConfig;

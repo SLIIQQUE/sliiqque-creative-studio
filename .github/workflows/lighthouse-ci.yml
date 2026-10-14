@@ -1,0 +1,31 @@
+name: Lighthouse CI
+
+# Performance budget gate: fails the build if Core Web Vitals regress past the
+# thresholds in lighthouserc.json (LCP, CLS, TTFB, performance score).
+#
+# Caveat: GitHub-hosted runners are in the US/EU, not Lagos or Johannesburg, so
+# this catches regressions but does not replace an occasional manual
+# WebPageTest run from a Lagos/Johannesburg test location on real mid-range
+# Android + 4G conditions — run that by hand periodically, this can't automate it.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+      - run: npm run build
+
+      - name: Run Lighthouse CI
+        run: npx @lhci/cli@0.15.x autorun
