@@ -83,8 +83,6 @@
     --sec-top: 0px;     --sec-bottom: 80px;
     --head-gap: 60px;
   }
-  /* "SLIIQQUE" is twice as long as "HALO": ease the tablet wordmark so the hero aside keeps its width */
-  .hero__title { font-size: 75px; line-height: 60px; letter-spacing: -3px; }
 }
 @media (max-width: 767.98px) {             /* PHONE */
   :root {
@@ -512,9 +510,11 @@ h1, h2, h3, h4, h5 { font-family: var(--font-display); }
 @media (max-width: 1319.98px) {
   .nav-links { gap: 20px; }
   .sec-head .t-title { max-width: 50%; }
-  /* home hero: still a row (title left, tag/sub/scroll right) */
+  /* home hero: still a row (title left, tag/sub/scroll right).
+     The wordmark at its base 105px (~798px wide) left no room for the aside; ease it to fit. */
   .hero { padding: 89px var(--gutter) 80px; }
   .hero__row { align-items: flex-end; }
+  .hero__title { font-size: 48px; line-height: 38px; letter-spacing: -2px; }
   .hero__aside { max-width: 341px; }
   .hero__aside h1 { max-width: 341px; }
   .ticker { margin-top: 60px; }
@@ -623,7 +623,10 @@ h1, h2, h3, h4, h5 { font-family: var(--font-display); }
   .btn { padding: 9.5px 30px; font-size: 16px; line-height: 27px; }
   .hero { padding: 50px var(--gutter) 54px; }
   .hero__row { flex-direction: column; align-items: flex-start; gap: 12px; }
-  .hero__title .line { white-space: normal; }
+  /* The hero__row is a column here, so the wordmark doesn't need to share width with the aside,
+     but the tablet size (48px) is still too wide for most phones; shrink it further. */
+  .hero__title { font-size: 42px; line-height: 34px; letter-spacing: -1.5px; }
+  .hero__title .line { white-space: normal; overflow-wrap: anywhere; }
   .hero__aside { align-items: flex-start; text-align: left; margin-bottom: 0; max-width: none; }
   .hero__aside h1 { max-width: 350px; }
   .ticker { margin-top: 43px; }
