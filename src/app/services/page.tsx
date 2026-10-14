@@ -3,14 +3,15 @@ import JsonLd from "@/components/JsonLd";
 import Reveal from "@/components/Reveal";
 import { Btn, PageHero } from "@/components/ui";
 import { SERVICE_PAGES } from "@/data/services";
-import { abs, breadcrumbSchema, ORG_ID, pageMeta } from "@/lib/seo";
+import { abs, breadcrumbSchema, ORG_ID, pageMeta, PRODUCT_ENGINEERING, shareImg } from "@/lib/seo";
 
 export const metadata = pageMeta({
-  title: "Creative Services: AI Ads, UGC, Photography",
+  title: "Creative Services: AI Ads & Photography",
   description:
     "AI commercials, AI UGC and digital humans, AI product photography and brand launches from SLIIQQUE in Lagos. From ₦150,000 / $280 a month.",
   path: "/services",
   keywords: ["AI creative studio Lagos", "AI advertising studio Africa", "creative studio Lagos", "AI video ads agency Lagos"],
+  image: { url: shareImg("digital-human-portrait-wide.jpg"), alt: "SLIIQQUE Studio: identity-locked photorealistic AI digital human portrait" },
 });
 
 export default function ServicesPage() {
@@ -45,6 +46,9 @@ export default function ServicesPage() {
           </div>
           <p className="services-note">
             SLIIQQUE does not offer logo design. See <Link href="/#pricing">pricing</Link>, the <Link href="/faq">FAQ</Link> or <Link href="/contact">start a project</Link>.
+          </p>
+          <p className="services-note">
+            Need a website, AI bot or software instead? Visit <a href={PRODUCT_ENGINEERING.url} target="_blank" rel="noopener noreferrer">{PRODUCT_ENGINEERING.name} ↗</a>.
           </p>
           <div className="center-btn"><Btn href="/contact">Start a project</Btn></div>
         </Reveal>

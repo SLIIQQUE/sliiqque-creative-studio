@@ -9,16 +9,16 @@
   "copyright": "©2026 SLIIQQUE Studio. All Rights Reserved.",
   "social": [
    [
-    "X",
-    "https://x.com/sliiqque"
-   ],
-   [
-    "LinkedIn",
-    "https://www.linkedin.com/company/sliiqque"
-   ],
-   [
     "Instagram",
     "https://www.instagram.com/sliiqque"
+   ],
+   [
+    "YouTube",
+    "https://www.youtube.com/@sliiqque"
+   ],
+   [
+    "Facebook",
+    "https://www.facebook.com/sliiqque"
    ]
   ],
   "hours": "Mon – Fri, 9am – 6pm WAT"
@@ -28,16 +28,16 @@
   "sub": "AI commercials, UGC, photography and fashion imagery from Lagos, built as systems, not one-off assets.",
   "ticker": [
    "digital-human-face-macro.jpg",
-   "45eE47viBu3ajyWpFXsiwVcUI.png",
-   "4kR1eEqrcM3cSJMaEraSMrWqrY.png",
-   "TkwjXnShtHQyU61DEoKRaEOedw.png",
-   "YtQroU1RfusBB5vtXlkPHyLaSA.png"
+   "ala-model-serum-portrait.png",
+   "digital-human-woman-lifestyle.jpg",
+   "ase-whiskey-bottle-closeup-01.png",
+   "ode-portrait.jpg"
   ]
  },
  "ABOUT": {
   "heading": "SLIIQQUE Studio is a Lagos creative studio producing AI commercials, UGC and photography for modern brands.",
   "body": "AI is how we produce, not what we sell. We build creative systems, concept, art direction, production, motion and campaign assets, with photorealistic digital humans whose identity holds from the first frame to the last.",
-  "img": "XlOMXPfQsRxpYlsfrmzGMRhFahw.png",
+  "img": "studio-ai-review-monitor.webp",
   "stats": [
    [
     8,
@@ -58,7 +58,7 @@
    "Skincare · Concept",
    "Brand system · AI photography",
    "2026",
-   "kU6MExMpWb3xkZfMnNjynWA0tMM.png",
+   "ala-serum-prismatic-hero.png",
    ""
   ],
   [
@@ -76,32 +76,23 @@
    "Spirits · Concept · 18+",
    "AI product photography",
    "2026",
-   "lvLCrUN351Wuv8frp3Qq7Fkz77M.png",
-   ""
-  ],
-  [
-   "ile",
-   "ILÉ",
-   "Hospitality · Concept",
-   "Creative direction",
-   "2026",
-   "vPHmrAel3q5GtKmpPuZSN68TZU.png",
+   "ase-whiskey-sunset-stone-01.png",
    ""
   ]
  ],
- "WORKS_LISTED": 4,
- "HOME_WORKS": 4,
+ "WORKS_LISTED": 3,
+ "HOME_WORKS": 3,
  "CASES": {
   "ala-skin": {
-   "overview": "ÀLÀ is a fictional clinical skincare brand for melanin-rich skin, built by SLIIQQUE as a self-initiated concept project. “Àlà” is Yoruba for clean or pure. The brief we set ourselves: launch a premium skincare brand without launching a product.",
+   "overview": "ÀLÀ is a fictional clinical skincare brand for melanin-rich skin, built by SLIIQQUE as a self-initiated concept project. “Àlà” is Yoruba for clean or pure. The brief we set ourselves: launch a premium skincare brand, led by a 10% niacinamide + 2% zinc serum, for the Lagos woman who already reads ingredient lists and shops The Ordinary, CeraVe or Paula's Choice, without launching a real product.",
    "duo": [
-    "TkwjXnShtHQyU61DEoKRaEOedw.png",
-    "YtQroU1RfusBB5vtXlkPHyLaSA.png"
+    "ala-model-serum-portrait.png",
+    "ala-serum-texture-detail.png"
    ],
-   "challenge": "Imported clinical brands are formulated for temperate climates, and local “natural” brands lean on story over evidence. We positioned ÀLÀ between them, clinical warmth, a chemist who also understands skin, and held every image to a standard that makes a potential client ask who shot it.",
+   "challenge": "Imported clinical brands like The Ordinary and CeraVe are formulated for temperate climates, and local “natural” brands lean on story over evidence. We positioned ÀLÀ between them, clinical warmth, a chemist who also understands Lagos humidity and melanin-rich skin, and held every image to a standard that makes a potential client ask who shot it.",
    "results": "A brand concept and strategy, mood board and brand guidelines; a five-product line; 12 product stills, 3 lifestyle images and 6 ad creatives; 4 posters, 14 mockups, two vertical-video storyboards and a landing page. Every image was written as a production brief, lens, light, film stock, composition, grade.",
-   "wide": "xdQ40YtLODpgfF4nGvP4XAQmdoE.jpg",
-   "conclusion": "The art direction is the deliverable; the images are its proof. ÀLÀ is concept work with no sales or audience figures, and we present it as exactly that."
+   "wide": "ala-serum-marble-vanity.png",
+   "conclusion": "ÀLÀ's own line is that skincare should be proven, not promised, and we held the art direction to the same standard: the art direction is the deliverable, the images are its proof. ÀLÀ is concept work with no sales or audience figures, and we present it as exactly that."
   },
   "ode": {
    "overview": "ODÈ is a fictional men’s grooming brand rooted in West African heritage, Yoruba for “hunter”, with the line “Discipline. Inherited.” We built it as a self-initiated concept project to show range beyond a single aesthetic lane.",
@@ -117,26 +108,15 @@
    "conclusion": "The system was built before the images. A single campaign tells one story; five campaigns tell a world. ODÈ is concept work with no commercial metrics, and we present it as exactly that."
   },
   "ase": {
-   "overview": "ÀSE is a fictional premium African-origin spirits brand, Yoruba for the power that makes things happen, built as a self-initiated concept project. Its line: “The liquid is the argument.”",
+   "overview": "ÀSE is a fictional African-origin luxury spirits brand, Yoruba for the power that makes things happen, built as a self-initiated concept project for the man who doesn't announce his arrival. The line centres on a single-origin African whiskey, aged with intention, and a palm wine spirit, reimagined, pale gold and ancestral. Its line: “The liquid is the argument.”",
    "duo": [
-    "eavS9OWR5napIXyZe9rmMxtJ3iI.png",
-    "x01NxoibGHVlLubmh3WGKX4EM.jpg"
+    "ase-whiskey-bottle-closeup-01.png",
+    "ase-palm-bottle-closeup-01.png"
    ],
-   "challenge": "Luxury spirits is the most technically demanding category in AI product photography: glass refraction, liquid caustics, smoke and amber light, with the bottle staying continuous in every frame. The brand also had to sit between imported prestige labels and local labels that carry culture without perceived quality.",
+   "challenge": "Luxury spirits is the most technically demanding category in AI product photography: glass refraction, liquid caustics, smoke and amber light, with the whiskey's dark amber and the palm spirit's pale gold staying continuous bottle to bottle. The brand also had to sit between imported prestige labels and local labels that carry culture without perceived quality, for affluent professionals across Lagos, Accra, London and Johannesburg who can afford anything but choose carefully.",
    "results": "A brand system with strategy and research across eight competitors; 33 prompt templates; 25 AI-generated images (14 product stills, 8 lifestyle and 3 ad creatives); three video storyboards, a poster set, 18 mockup specs and a website.",
-   "wide": "8zXOC9YNAJIQvCSZNSx5VoWXgs.jpg",
-   "conclusion": "Prompt engineering is brand engineering. ÀSE is concept work with no sales or distribution, and we present it as exactly that."
-  },
-  "ile": {
-   "overview": "ILÉ is a fictional Nigerian restaurant and hospitality brand, a creative direction we developed to explore warmth, threshold and homecoming. It exists as a visual world, not as produced work.",
-   "duo": [
-    "kZzg2vOCOqk9JashLQ1mh9cdGpw.jpeg",
-    "a795qi2LAKXCEnwrwK9N6Sk5Q.jpg"
-   ],
-   "challenge": "Make hospitality feel like arriving home. The world is Lagos blue hour, hands rather than faces, cinematic environmental storytelling and UGC-style content, in a palette of Charred Umber, Terracotta, Brass and Bone.",
-   "results": "A creative direction only: a colour palette and a visual world. There are no finished campaign assets for ILÉ yet.",
-   "wide": "9hrovGCF8uFCnQ65NK36m60BOH4.jpeg",
-   "conclusion": "ILÉ shows how we start, palette and world before production. We list it as a concept direction, not as shipped work."
+   "wide": "ase-whiskey-lounge-glasses-01.png",
+   "conclusion": "ÀSE never explains itself; it states, pauses and moves on, and the images were held to the same restraint. Prompt engineering is brand engineering. ÀSE is concept work with no sales or distribution, and we present it as exactly that."
   }
  },
  "SERVICES": [
@@ -149,8 +129,8 @@
     "Storyboard-led",
     "Platform cuts"
    ],
-   "pgfva58lzcfswEXW2JWh197fGE.png",
-   "Service Image"
+   "studio-ai-commercial-set.webp",
+   "AI Commercials: SLIIQQUE on set with a cinema camera, directing an AI commercial production"
   ],
   [
    "AI UGC & Digital Humans",
@@ -197,8 +177,8 @@
     "Visual campaigns",
     "Campaign assets"
    ],
-   "YvMvx8L2sjrKc702UhznarfwW3I.png",
-   "Service Image"
+   "studio-campaign-systems-moodboard.webp",
+   "Brand Launches & Campaigns: a campaign moodboard and art direction system, print and mobile"
   ]
  ],
  "SECTION_SUB": "Eight creative services, run as monthly retainers and content systems, never per-asset deliverables.",
@@ -254,28 +234,7 @@
    "Oct 2, 2026",
    "Digital Humans",
    "Why every digital human needs a character lock.",
-   "vQrr3TnWPhJ9dAuuUQscatqJQQ.png"
-  ],
-  [
-   "from-one-reference-image-to-a-nine-panel-storyboard",
-   "Sep 28, 2026",
-   "Process",
-   "From one reference image to a nine-panel storyboard.",
-   "iAa680Ic6vhiW3EBZUV7AHiDFI.png"
-  ],
-  [
-   "upscale-once-grade-once",
-   "Sep 24, 2026",
-   "Post-production",
-   "Upscale once, grade once: keeping AI frames consistent.",
-   "Ds5WVvfqyi8Wlzws4iEGrzpHIU.png"
-  ],
-  [
-   "ten-seconds-at-a-time",
-   "Sep 18, 2026",
-   "Commercials",
-   "Ten seconds at a time: building animated sequences in blocks.",
-   "iPDWOnc90iD01gdnLG4HSp5gW8.png"
+   "digital-human-woman-portrait.jpg"
   ],
   [
    "ai-fashion-imagery-photorealistic-models",
@@ -289,10 +248,10 @@
    "Sep 5, 2026",
    "Studio",
    "Creative systems, not one-off assets.",
-   "3ZgRUMOV3PXwKNKh7gLshb39XU0.png"
+   "studio-campaign-systems-moodboard.webp"
   ]
  ],
- "BLOGS_LISTED": 4,
+ "BLOGS_LISTED": 3,
  "POSTS": {
   "why-every-digital-human-needs-a-character-lock": {
    "groups": [
@@ -350,8 +309,8 @@
     ]
    ],
    "gallery": [
-    "Of3bHbAkm4eo3ha280vFGvDmOUg.png",
-    "ZbOVl5hW4IVsSOxbkxMb4z1MtA.png"
+    "digital-human-woman-cafe-portrait.jpg",
+    "digital-human-woman-sunglasses-lounge.jpg"
    ]
   },
   "from-one-reference-image-to-a-nine-panel-storyboard": {
@@ -403,8 +362,8 @@
     ]
    ],
    "gallery": [
-    "0PezkOon65ROZnQ8oFng1DCOFy4.jpg",
-    "MrYIMKb0bbKdizPtCi2R8c8ll9A.jpg"
+    "studio-storyboard-closeup-detail.webp",
+    "studio-process-flatlay-mosaic.webp"
    ]
   },
   "upscale-once-grade-once": {
@@ -456,8 +415,8 @@
     ]
    ],
    "gallery": [
-    "k0R4EnxnRp1ZntYQeVpv9SRTiE.jpg",
-    "gkW5zzua3D9R282TFleUbxOnA.jpg"
+    "studio-flat-reference-portrait.webp",
+    "studio-graded-portrait.webp"
    ]
   },
   "ten-seconds-at-a-time": {
@@ -509,8 +468,8 @@
     ]
    ],
    "gallery": [
-    "GLjVP9SlD1xhXR9kZK3BUNneDeA.jpg",
-    "PkSISQpT2A77XFmAhT5iohJpn0.jpg"
+    "studio-animation-keyframe-a.webp",
+    "studio-animation-keyframe-b.webp"
    ]
   },
   "creative-systems-not-one-off-assets": {
@@ -562,8 +521,8 @@
     ]
    ],
    "gallery": [
-    "Of3bHbAkm4eo3ha280vFGvDmOUg.png",
-    "vv4eph7XQ6yxwSA8i4OMq5KScR0.jpg"
+    "studio-campaign-systems-moodboard.webp",
+    "studio-content-calendar-moodboard.webp"
    ]
   },
   "ai-fashion-imagery-photorealistic-models": {
@@ -629,7 +588,7 @@
  "ABOUT_PAGE": {
   "hero_h1": "about<br>our studio",
   "hero_sub": "A Lagos creative studio. Premium production, powered by AI.",
-  "story_img": "ieaLQvZp3V1lVTK5iPkShah0Kxc.png",
+  "story_img": "studio-process-flatlay-mosaic.webp",
   "story_label": "our story",
   "story_h3": "SLIIQQUE treats AI as production infrastructure, not as the product.",
   "story_p": "Founded in Lagos on 22 December 2025, we build creative systems for modern brands: AI commercials, UGC, photography, fashion imagery, brand launches and visual campaigns, with photorealistic digital humans whose identity holds from the first frame to the last. Our work to date is self-initiated concept work: three complete brand worlds, labelled as exactly that.",

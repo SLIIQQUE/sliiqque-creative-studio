@@ -7,23 +7,44 @@
    ========================================================================== */
 
 /* ---------- 1. Tokens ---------- */
+/* SLIIQQUE Brand Book v1.1 — light theme (§13) applied site-wide. Accents
+   (gradient, orange, blue, purple, green, amber, red) are identical to the
+   brand's dark theme; only backgrounds, surfaces and text invert. */
 :root {
   /* colour */
-  --ink: #030303;          /* rgb(3,3,3)   headings, buttons, footer bg */
-  --ink-pure: #000;        /* rgb(0,0,0)   home hero "HALO STUDIO"      */
-  --ink-2: #121212;        /* rgb(18,18,18) page titles on inner pages  */
-  --text: #4f4f4f;         /* rgb(79,79,79) body copy                   */
-  --text-2: #4e4e4e;       /* rgb(78,78,78) secondary body / tags       */
-  --surface: #f5f5f5;      /* rgb(245,245,245) cards, tags, logo tiles  */
+  --ink: #050505;          /* primary text, headings (Brand Book §13 "Primary Text") */
+  --ink-pure: #050505;
+  --ink-2: #050505;
+  --text: #6B7280;         /* secondary text, gray-500 (§13 "Secondary Text") */
+  --text-2: #6B7280;
+  --text-muted: #9CA3AF;   /* placeholder / disabled, gray-400 (§13 "Muted Text") */
+  --surface: #fff;         /* card / surface background (§13 "Surface / Card") */
+  --surface-tint: rgba(0, 0, 0, .04); /* subtle tinted fill for tags, table stripes */
   --white: #fff;
-  --accent: #ff4718;       /* rgb(255,71,24)  orange                    */
-  --green: #3ccd48;        /* rgb(60,205,72)  "available" dot           */
-  --star: #ffc107;         /* rgb(255,193,7)  rating stars              */
-  --line: rgba(3, 3, 3, .2);
-  --nav-bg: rgba(255, 255, 255, .9);
+  --accent: #f97316;       /* brand orange-500 — primary CTA fill in light theme (§13) */
+  --accent-hover: #ea580c; /* orange-600 */
+  --blue: #3b82f6;         /* gradient component, links (§3 / §13) */
+  --purple: #8b5cf6;       /* gradient component (§3 / §13) */
+  --green: #22c55e;        /* success / "available" dot (§3) */
+  --amber: #fbbf24;        /* warning (§3) */
+  --red: #f87171;          /* error (§3) */
+  --star: #fbbf24;
+  --gradient: linear-gradient(90deg, #f97316, #3b82f6, #8b5cf6); /* signature brand gradient (§3) */
+  --line: rgba(0, 0, 0, .10);     /* medium border: inputs, dividers (§13) */
+  --line-subtle: rgba(0, 0, 0, .06); /* card borders (§13) */
+  --line-strong: rgba(0, 0, 0, .20); /* secondary button borders, focus (§13) */
+  --nav-bg: rgba(255, 255, 255, .95);
+  --footer-bg: #f0f0f0;    /* footer / meta sections (§13) */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, .04);   /* cards, containers (§13 depth) */
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, .06);  /* feature cards, dropdowns */
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, .10);  /* modals, front-most elements */
+  --radius-card: 24px;     /* rounded-3xl (§5/§6) */
+  --radius-card-sm: 16px;  /* rounded-2xl */
+  --radius-pill: 9999px;   /* badges, tags, nav CTA (§5/§6) */
 
-  /* type family */
-  --font: "Google Sans Flex", "Google Sans", "Product Sans", Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  /* type family (Brand Book §4): Syne for display/headings, DM Sans for body/UI */
+  --font: var(--font-dm-sans), "DM Sans", Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: var(--font-syne), "Syne", sans-serif;
 
   /* layout */
   --container: 1320px;
@@ -31,9 +52,11 @@
   --nav-h: 59.2px;
 
   /* type scale: DESKTOP */
-  --fs-hero: 200px;   --lh-hero: 160px;    --ls-hero: -8px;      /* home HALO STUDIO       */
-  --fs-display: 120px; --lh-display: 98.4px; --ls-display: -6px; /* inner page H1, stats    */
-  --fs-title: 100px;  --lh-title: 84px;    --ls-title: -4px;     /* section titles          */
+  /* Page/section titles run smaller than the original template but heavier
+     (Syne 800, its boldest cut) so they still carry full visual weight. */
+  --fs-hero: 170px;   --lh-hero: 136px;    --ls-hero: -7px;      /* home SLIIQQUE STUDIO   */
+  --fs-display: 102px; --lh-display: 84px;  --ls-display: -5px;  /* inner page H1, stats    */
+  --fs-title: 85px;   --lh-title: 71px;    --ls-title: -3.5px;   /* section titles          */
   --fs-h3: 48px;      --lh-h3: 52.8px;     --ls-h3: -1px;
   --fs-h4: 32px;      --lh-h4: 38.4px;     --ls-h4: -1px;
   --fs-h5: 24px;      --lh-h5: 28.8px;     --ls-h5: -.5px;
@@ -50,9 +73,9 @@
 
 @media (max-width: 1319.98px) {            /* TABLET */
   :root {
-    --fs-hero: 100px;   --lh-hero: 80px;     --ls-hero: -4px;
-    --fs-display: 68px; --lh-display: 55.76px; --ls-display: -4px;
-    --fs-title: 66px;   --lh-title: 55.44px; --ls-title: -4px;
+    --fs-hero: 85px;    --lh-hero: 68px;     --ls-hero: -3.5px;
+    --fs-display: 58px; --lh-display: 47.5px; --ls-display: -3.5px;
+    --fs-title: 56px;   --lh-title: 47px;    --ls-title: -3.5px;
     --fs-h3: 38px;      --lh-h3: 41.8px;     --ls-h3: -.7px;
     --fs-h4: 26px;      --lh-h4: 31.2px;
     --fs-h5: 20px;      --lh-h5: 24px;
@@ -61,13 +84,13 @@
     --head-gap: 60px;
   }
   /* "SLIIQQUE" is twice as long as "HALO": ease the tablet wordmark so the hero aside keeps its width */
-  .hero__title { font-size: 88px; line-height: 70.4px; letter-spacing: -3.5px; }
+  .hero__title { font-size: 75px; line-height: 60px; letter-spacing: -3px; }
 }
 @media (max-width: 767.98px) {             /* PHONE */
   :root {
-    --fs-hero: 74px;    --lh-hero: 59.2px;   --ls-hero: -3px;
-    --fs-display: 50px; --lh-display: 41px;  --ls-display: -3.4px;
-    --fs-title: 50px;   --lh-title: 42px;    --ls-title: -3.4px;
+    --fs-hero: 63px;    --lh-hero: 50px;    --ls-hero: -2.5px;
+    --fs-display: 43px; --lh-display: 35px; --ls-display: -3px;
+    --fs-title: 43px;   --lh-title: 36px;   --ls-title: -3px;
     --fs-h3: 30px;      --lh-h3: 33px;       --ls-h3: -.6px;
     --fs-h4: 24px;      --lh-h4: 28.8px;
     --fs-h5: 18px;      --lh-h5: 21.6px;
@@ -95,19 +118,31 @@ button, input, select, textarea { font: inherit; color: inherit; }
 section { position: relative; }
 .container { width: 100%; max-width: var(--container); margin: 0 auto; }
 
+/* Syne is reserved for display/heading roles (Brand Book §4); every real heading
+   tag gets it automatically, plus the helper classes below for headings set on
+   non-heading elements (e.g. the home hero, stat numbers). */
+h1, h2, h3, h4, h5 { font-family: var(--font-display); }
+
+
 /* type helpers */
-.t-hero    { font-size: var(--fs-hero); line-height: var(--lh-hero); letter-spacing: var(--ls-hero); font-weight: 600; text-transform: uppercase; }
-.t-display { font-size: var(--fs-display); line-height: var(--lh-display); letter-spacing: var(--ls-display); font-weight: 600; text-transform: uppercase; color: var(--ink-2); }
-.t-title   { font-size: var(--fs-title); line-height: var(--lh-title); letter-spacing: var(--ls-title); font-weight: 600; text-transform: uppercase; }
-.t-h3      { font-size: var(--fs-h3); line-height: var(--lh-h3); letter-spacing: var(--ls-h3); font-weight: 600; text-transform: uppercase; }
-.t-h4      { font-size: var(--fs-h4); line-height: var(--lh-h4); letter-spacing: var(--ls-h4); font-weight: 600; text-transform: uppercase; }
-.t-h5      { font-size: var(--fs-h5); line-height: var(--lh-h5); letter-spacing: var(--ls-h5); font-weight: 600; text-transform: uppercase; }
+.t-hero    { font-family: var(--font-display); font-size: var(--fs-hero); line-height: var(--lh-hero); letter-spacing: var(--ls-hero); font-weight: 800; text-transform: uppercase; }
+.t-display { font-family: var(--font-display); font-size: var(--fs-display); line-height: var(--lh-display); letter-spacing: var(--ls-display); font-weight: 800; text-transform: uppercase; color: var(--ink-2); }
+.t-title   { font-family: var(--font-display); font-size: var(--fs-title); line-height: var(--lh-title); letter-spacing: var(--ls-title); font-weight: 800; text-transform: uppercase; }
+.t-h3      { font-family: var(--font-display); font-size: var(--fs-h3); line-height: var(--lh-h3); letter-spacing: var(--ls-h3); font-weight: 700; text-transform: uppercase; }
+.t-h4      { font-family: var(--font-display); font-size: var(--fs-h4); line-height: var(--lh-h4); letter-spacing: var(--ls-h4); font-weight: 700; text-transform: uppercase; }
+.t-h5      { font-family: var(--font-display); font-size: var(--fs-h5); line-height: var(--lh-h5); letter-spacing: var(--ls-h5); font-weight: 600; text-transform: uppercase; }
 .t-label   { font-size: var(--fs-label); line-height: var(--lh-label); font-weight: 500; }
-.t-lead    { font-size: var(--fs-lead); line-height: var(--lh-lead); font-weight: 500; }
+.t-lead    { font-size: var(--fs-lead); line-height: var(--lh-lead); font-weight: 400; }
 .t-body    { font-size: var(--fs-body); line-height: var(--lh-body); font-weight: 400; color: var(--text); }
 .muted     { color: var(--text); }
+/* Micro/UI text: nav, buttons, labels, badges, tags (Brand Book §4 "Micro / UI") */
+.t-ui      { font-size: 11px; line-height: 1; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
 
 /* ---------- 3. Navigation ---------- */
+/* Scroll progress: shared visual language with sliiqque.space (Product & Engineering). */
+.scroll-progress { position: fixed; top: 0; left: 0; right: 0; height: 4px; transform-origin: left; background: linear-gradient(to right, #f97316, #3b82f6, #a855f7); transition: transform .1s linear; z-index: 100; pointer-events: none; }
+@media (prefers-reduced-motion: reduce) { .scroll-progress { transition: none; } }
+
 .nav-wrap { position: sticky; top: 0; z-index: 50; }
 .nav {
   background: var(--nav-bg); -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px);
@@ -118,6 +153,9 @@ section { position: relative; }
 .logo img { display: block; height: 28px; width: auto; }
 
 .nav-links { display: flex; align-items: center; gap: 24px; }
+/* Nav items uppercase for consistency with sliiqque.space (Product & Engineering). */
+.nav-links .link-u, .nav-cta { text-transform: uppercase; letter-spacing: .04em; }
+.nav-links .link-u { font-weight: 600; font-size: 15px; }
 .link-u { position: relative; display: inline-flex; align-items: center; gap: 5px; font-weight: 500; font-size: 16px; line-height: 27.2px; overflow: visible; }
 .link-u::after {            /* hover underline: grows from 1px to full width */
   content: ""; position: absolute; left: -1px; bottom: 0; height: 1px; width: 0; background: currentColor; transition: width .35s cubic-bezier(.2, .7, .2, 1);
@@ -128,25 +166,33 @@ section { position: relative; }
 .has-menu { position: relative; }
 .menu {
   position: absolute; top: 100%; right: -20px; margin-top: 0; padding: 20px 30px 20px 20px; width: 279px;
-  background: var(--ink); color: #fff; display: grid; grid-template-columns: auto auto; column-gap: 40px; row-gap: 8px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, .18); opacity: 0; visibility: hidden; transform: translateY(-4px);
+  background: var(--surface); color: var(--ink); display: grid; grid-template-columns: auto auto; column-gap: 40px; row-gap: 8px;
+  border: 1px solid var(--line-subtle); border-radius: var(--radius-card-sm);
+  box-shadow: var(--shadow-md); opacity: 0; visibility: hidden; transform: translateY(-4px);
   transition: opacity .2s, transform .2s, visibility .2s;
 }
 .has-menu:hover .menu, .has-menu:focus-within .menu { opacity: 1; visibility: visible; transform: none; }
-.menu a { font-weight: 500; font-size: 16px; line-height: 27.2px; color: #fff; }
+.menu a { font-weight: 500; font-size: 16px; line-height: 27.2px; color: var(--ink); }
 .menu::before { content: ""; position: absolute; left: 0; right: 0; top: -14px; height: 14px; } /* hover bridge */
 
 
 /* ---------- 4. Buttons ---------- */
+/* Primary CTA = solid brand-orange fill (Brand Book §13: white buttons vanish on
+   a white page, so orange — not white — carries the fill in the light theme). */
 .btn {
-  display: inline-flex; align-items: center; justify-content: center; padding: 16px 40px; background: var(--ink); color: #fff;
-  font-size: 18px; line-height: 27px; font-weight: 500; border: 0; cursor: pointer; transition: background-color .3s ease;
+  display: inline-flex; align-items: center; justify-content: center; padding: 16px 40px; background: var(--accent); color: #fff;
+  font-size: 18px; line-height: 27px; font-weight: 500; border: 0; border-radius: 0; cursor: pointer; transition: background-color .3s ease;
 }
-.btn:hover { background: var(--accent); }
-.btn--accent { background: var(--accent); }
-.btn--accent:hover { background: var(--ink); }
+.btn:hover { background: var(--accent-hover); }
+/* Secondary emphasis: solid ink fill, used where a page already reads as "the"
+   orange action and a button needs a distinct, equally strong alternative. */
+.btn--accent { background: var(--ink); }
+.btn--accent:hover { background: var(--accent); }
 .btn--block { display: flex; width: 100%; }
 .btn--sm { padding: 16px 40px; }
+/* Secondary/outline button (Brand Book §5.1): transparent, bordered, inverts on hover. */
+.btn--outline { background: transparent; color: var(--ink); border: 1px solid var(--line-strong); }
+.btn--outline:hover { background: var(--ink); color: #fff; }
 
 /* ---------- 5. Reveal animation ---------- */
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s cubic-bezier(.2, .7, .2, 1), transform .8s cubic-bezier(.2, .7, .2, 1); }
@@ -165,7 +211,11 @@ section { position: relative; }
 /* ---------- 7. Home hero ---------- */
 .hero { padding: 200px var(--gutter) 102px; }
 .hero__row { display: flex; justify-content: space-between; align-items: flex-end; max-width: var(--container); margin: 0 auto; }
-.hero__title { color: var(--ink-pure); }
+/* "SLIIQQUE" is twice as long as "HALO": var(--fs-hero) (170px) is sized for the
+   original template's short wordmark and makes "sliiqque" ~1292px wide on its own,
+   squeezing the hero__aside off the right edge of the viewport. Ease the desktop
+   wordmark size too (already done for tablet below) so the aside keeps its width. */
+.hero__title { font-family: var(--font-display); font-weight: 800; color: var(--ink-pure); font-size: 105px; line-height: 84px; letter-spacing: -4.5px; }
 .hero__title .line { display: block; width: max-content; position: relative; white-space: nowrap; }
 .hero__title sup { position: absolute; top: 0; left: 100%; margin-left: -6.7px; font-size: var(--fs-tm); line-height: var(--lh-tm); letter-spacing: -.5px; font-weight: 600; vertical-align: top; }
 .hero__aside { text-align: right; margin-bottom: -4px; display: flex; flex-direction: column; align-items: flex-end; max-width: 419px; }
@@ -174,7 +224,7 @@ section { position: relative; }
 .hero__aside .scroll { margin-top: 22px; font-size: 18px; line-height: 27px; font-weight: 500; }
 .ticker { max-width: var(--container); margin: 103px auto 0; overflow: hidden; }
 .ticker__track { display: flex; gap: 24px; width: max-content; animation: ticker 48s linear infinite; }
-.ticker__track img { width: 450px; height: 550px; object-fit: cover; flex: none; }
+.ticker__track img { width: 450px; height: 550px; object-fit: cover; flex: none; border-radius: var(--radius-card); }
 @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(calc(-50% - 12px)); } }
 
 /* ---------- 8. About block (home) ---------- */
@@ -184,10 +234,10 @@ section { position: relative; }
 .about__copy p { margin-top: 40px; max-width: 564px; color: var(--text); }
 .about__copy .btn { margin-top: 40px; }
 .about__row2 { display: flex; align-items: flex-end; max-width: var(--container); margin: 100px auto 0; }
-.about__row2 img { width: 290px; height: 197px; object-fit: cover; flex: none; margin-right: 170px; }
+.about__row2 img { width: 290px; height: 197px; object-fit: cover; flex: none; margin-right: 170px; border-radius: var(--radius-card-sm); }
 .stats { display: flex; gap: 72px; }
 .stat { width: 257px; }
-.stat__num { display: flex; align-items: flex-start; font-size: var(--fs-display); line-height: 100.8px; letter-spacing: var(--ls-display); font-weight: 600; color: var(--ink); }
+.stat__num { display: flex; align-items: flex-start; font-family: var(--font-display); font-size: var(--fs-display); line-height: 100.8px; letter-spacing: var(--ls-display); font-weight: 700; color: var(--ink); }
 .stat__num .sign { line-height: var(--lh-display); opacity: .78; }
 .stat p { margin-top: 24px; color: var(--text-2); }
 
@@ -197,7 +247,7 @@ section { position: relative; }
 .work__row { display: flex; justify-content: space-between; align-items: center; }
 .work__row h3 { font-size: var(--fs-h5); line-height: var(--lh-h5); letter-spacing: var(--ls-h5); font-weight: 600; text-transform: uppercase; }
 .work__row span { font-size: 18px; line-height: 27px; font-weight: 500; color: var(--text); }
-.work__img { aspect-ratio: 640 / 577; overflow: hidden; }
+.work__img { aspect-ratio: 640 / 577; overflow: hidden; border-radius: var(--radius-card); }
 .work__img img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s cubic-bezier(.2, .7, .2, 1); }
 .work:hover .work__img img { transform: scale(1.03); }  /* inferred: subtle zoom, not confirmed on the original */
 .is-hidden { display: none !important; }
@@ -210,7 +260,7 @@ section { position: relative; }
 .acc { max-width: var(--container); margin: 0 auto; border-top: 1px solid var(--line); }
 .acc__item { border-bottom: 1px solid var(--line); padding: 40px 0; cursor: pointer; }
 .acc__row { display: flex; align-items: flex-start; }
-.acc__thumb { width: 0; height: 0; opacity: 0; overflow: hidden; flex: none; transition: width .5s cubic-bezier(.2, .7, .2, 1), opacity .4s, margin .5s; margin-right: 0; }
+.acc__thumb { width: 0; height: 0; opacity: 0; overflow: hidden; flex: none; border-radius: var(--radius-card-sm); transition: width .5s cubic-bezier(.2, .7, .2, 1), opacity .4s, margin .5s; margin-right: 0; }
 .acc__thumb img { width: 193px; height: 100px; object-fit: cover; }
 .acc__main { flex: 1; min-width: 0; display: grid; grid-template-columns: 665px 1fr; column-gap: 0; }
 .acc__title { font-size: var(--fs-h4); line-height: var(--lh-h4); letter-spacing: var(--ls-h4); font-weight: 600; text-transform: uppercase; align-self: start; }
@@ -219,7 +269,8 @@ section { position: relative; }
 .sec--last { padding-bottom: 200px; }
 .ph-hide { }
 .acc__tags { grid-column: 2; grid-row: 1 / span 2; display: flex; flex-wrap: wrap; gap: 12px 12px; align-content: flex-start; max-width: 480px; opacity: 0; max-height: 0; overflow: hidden; transition: opacity .4s; }
-.tag { background: var(--surface); padding: 4px 8px; font-size: 18px; line-height: 27px; font-weight: 500; color: var(--text-2); height: 35px; white-space: nowrap; }
+/* Tag/badge pill (Brand Book §5.5): fully rounded, bold uppercase micro text. */
+.tag { display: inline-flex; align-items: center; background: var(--surface-tint); border-radius: var(--radius-pill); padding: 4px 14px; font-size: 11px; line-height: 1; letter-spacing: .1em; font-weight: 700; text-transform: uppercase; color: var(--ink); height: 35px; white-space: nowrap; }
 .icon-ring { width: 40px; height: 40px; flex: none; color: var(--text); margin-left: 24px; }
 .icon-ring svg { width: 100%; height: 100%; display: block; }
 .icon-ring .v { transition: opacity .25s; }
@@ -245,17 +296,26 @@ section { position: relative; }
 .award .award__year { text-align: right; font-size: 18px; line-height: 27px; font-weight: 500; color: inherit; }
 
 /* ---------- 13. Pricing ---------- */
+/* plansIntro is the longest sec-aside copy on the site; at the standard 312px width it
+   wraps to 7 lines and towers over the two-line "monthly retainers" title. Widen it on
+   desktop only, where there's room, so it reads as a short paragraph instead of a column. */
+@media (min-width: 1320px) { #pricing .sec-aside { width: 460px; } }
 .plans { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: var(--container); margin: 0 auto; }
-.plan { padding: 60px 40px; display: flex; flex-direction: column; justify-content: center; gap: 32px; background: var(--surface); min-height: 593.3px; }
+.plan { padding: 60px 40px; display: flex; flex-direction: column; justify-content: center; gap: 32px; background: var(--surface); border: 1px solid var(--line-subtle); border-radius: var(--radius-card); box-shadow: var(--shadow-sm); min-height: 593.3px; }
 .plan p.desc { color: var(--text); }
 .plan__price { display: flex; align-items: flex-end; gap: 5px; }
-.plan__price h3 { margin: 0; }
+/* Syne lacks a Naira glyph (₦ falls back to a mismatched font mid-string, reading
+   like a strikethrough); keep the price numerals in the body font instead. */
+.plan__price h3 { margin: 0; font-family: var(--font); font-weight: 700; }
 .plan__price span { font-size: 20px; line-height: 28px; font-weight: 500; }
 .plan ul { display: flex; flex-direction: column; gap: 12px; }
 .plan li { display: flex; align-items: center; gap: 10px; color: var(--text); }
 .plan li::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: currentColor; flex: none; }
-.plan--dark { background: var(--ink); color: #fff; }
-.plan--dark p.desc, .plan--dark li { color: var(--surface); }
+/* Featured plan: bordered in the brand accent + a top gradient bar (§5.2 "Accent Bar"),
+   instead of a solid dark fill — keeps the card inside the light theme's own palette. */
+.plan--dark { position: relative; background: var(--surface); color: var(--ink); border: 1px solid var(--accent); box-shadow: var(--shadow-md); overflow: hidden; }
+.plan--dark::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 4px; background: var(--gradient); }
+.plan--dark p.desc, .plan--dark li { color: var(--text); }
 
 /* ---------- 14. Testimonials ---------- */
 .testis { display: grid; grid-template-columns: 425.3px 421.3px 425.3px; gap: 24px; max-width: var(--container); margin: 0 auto; }
@@ -280,7 +340,7 @@ section { position: relative; }
 /* ---------- 15. Blog cards ---------- */
 .blog-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--card-gap); row-gap: 60px; max-width: var(--container); margin: 0 auto; }
 .post-card { display: flex; flex-direction: column; }
-.post-card__img { height: 440.7px; overflow: hidden; }
+.post-card__img { height: 440.7px; overflow: hidden; border-radius: var(--radius-card); }
 .post-card__img img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s cubic-bezier(.2, .7, .2, 1); }
 .post-card:hover .post-card__img img { transform: scale(1.03); }
 .post-meta { display: flex; align-items: center; gap: 12px; margin-top: 16px; font-size: 18px; line-height: 27px; font-weight: 500; color: var(--text); }
@@ -288,26 +348,27 @@ section { position: relative; }
 .post-card h3 { margin-top: 8px; font-size: 20px; line-height: 28px; font-weight: 500; text-transform: none; letter-spacing: 0; }
 
 /* ---------- 16. Footer ---------- */
-.footer { background: var(--ink); color: #fff; padding: 0 var(--gutter) 40px; }
+/* Light theme (Brand Book §13 "Footer Background #F0F0F0"), not the dark anchor
+   the Halo template used — the wordmark now reads dark-on-light (see Logo.tsx). */
+.footer { background: var(--footer-bg); color: var(--ink); padding: 0 var(--gutter) 40px; }
 .footer__in { max-width: var(--container); margin: 0 auto; }
-/* Cap tops sit just above the footer edge so the white wordmark meets the white page with no dark strip; round letters overshoot onto the page. */
 .footer__logo svg { display: block; width: 100%; height: auto; overflow: visible; }
 .footer__mid { display: flex; justify-content: space-between; margin-top: 140px; }
 .footer__about { width: 430px; }
-.footer__about p { font-size: 18px; line-height: 27px; font-weight: 500; color: var(--surface); }
-.footer__about .mail { display: inline-block; margin-top: 25px; font-size: 20px; line-height: 28px; font-weight: 500; }
-.footer__about .tel { display: block; margin-top: 14px; font-size: 16px; line-height: 27.2px; font-weight: 500; }
+.footer__about p { font-size: 18px; line-height: 27px; font-weight: 500; color: var(--text); }
+.footer__about .mail { display: inline-block; margin-top: 25px; font-size: 20px; line-height: 28px; font-weight: 500; color: var(--ink); }
+.footer__about .tel { display: block; margin-top: 14px; font-size: 16px; line-height: 27.2px; font-weight: 500; color: var(--ink); }
 .footer__news { width: 460px; }
-.footer__news p { color: var(--surface); }
-.field-dark { display: block; width: 100%; height: 60px; padding: 18px 16px; background: #fff; border: 0; color: var(--ink); margin-top: 24px; outline: 0; }
-.field-dark::placeholder { color: var(--ink); opacity: .75; }
+.footer__news p { color: var(--text); }
+.field-dark { display: block; width: 100%; height: 60px; padding: 18px 16px; background: #fff; border: 1px solid var(--line); border-radius: 0; color: var(--ink); margin-top: 24px; outline: 0; }
+.field-dark::placeholder { color: var(--text); opacity: 1; }
 .footer__news .btn { margin-top: 24px; width: 100%; background: var(--accent); }
-.footer__news .btn:hover { background: #fff; color: var(--ink); }
+.footer__news .btn:hover { background: var(--accent-hover); }
 .footer__cols { display: grid; grid-template-columns: repeat(4, 290.4px); column-gap: 52.8px; margin-top: 140px; }
 .footer__cols ul { display: flex; flex-direction: column; }
-.footer__cols .copy p { color: var(--surface); font-size: 16px; line-height: 22.4px; }
+.footer__cols .copy p { color: var(--text); font-size: 16px; line-height: 22.4px; }
 .footer__cols .copy p + p { margin-top: 8px; }
-.footer__cols .copy a { color: #fff; }
+.footer__cols .copy a { color: var(--ink); }
 
 /* ---------- 17. Inner pages ---------- */
 .page-hero { padding: 140px var(--gutter) 100px; }
@@ -315,14 +376,17 @@ section { position: relative; }
 .page-hero .sec-head { margin-bottom: 0; }
 .page-hero h1, .page-hero h2 { max-width: 600px; }
 .page-hero--contact h1 { max-width: 780px; }
-.page-hero h1.nw { max-width: none; white-space: nowrap; }
+/* "our studio" at the full var(--fs-display) (102px) is wider than the About hero's
+   sec-head can hold next to its fixed 312px sec-aside, pushing the sub-text off the
+   right edge of the viewport. Ease the size, same fix as the home hero wordmark. */
+.page-hero h1.nw { max-width: none; white-space: nowrap; font-size: 85px; line-height: 70px; letter-spacing: -4.2px; }
 .page-hero + .sec { padding-top: 0; }
 .page-hero .sec-aside { padding-bottom: 0; }
 .page-hero.is-tablet-phone { padding-top: 80px; }
 
 /* about: story */
 .story { padding: 0 var(--gutter) 100px; }
-.story__img { max-width: var(--container); margin: 0 auto; height: 800px; }
+.story__img { max-width: var(--container); margin: 0 auto; height: 800px; border-radius: var(--radius-card); overflow: hidden; }
 .story__img img { width: 100%; height: 100%; object-fit: cover; }
 .split { display: grid; grid-template-columns: 520px 800px; max-width: var(--container); margin: 0 auto; }
 .split--even { grid-template-columns: 660px 660px; }
@@ -335,12 +399,19 @@ section { position: relative; }
 
 /* process cards */
 .process { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: var(--container); margin: 0 auto; }
-.process__card { background: var(--surface); padding: 40px; height: 375.6px; display: flex; flex-direction: column; justify-content: space-between; }
+.process__card { background: var(--surface); border: 1px solid var(--line-subtle); border-radius: var(--radius-card); box-shadow: var(--shadow-sm); padding: 40px; height: 375.6px; display: flex; flex-direction: column; justify-content: space-between; }
 .process__card p { max-width: 400px; color: var(--text-2); }
+
+/* ecosystem callout */
+.ecosystem-card { max-width: var(--container); margin: 0 auto; background: var(--surface); border: 1px solid var(--line-subtle); border-radius: var(--radius-card); box-shadow: var(--shadow-sm); padding: 48px; display: flex; align-items: center; justify-content: space-between; gap: 40px; }
+.ecosystem-card__text { max-width: 640px; }
+.ecosystem-card__text p { margin-top: 16px; color: var(--text-2); }
+.ecosystem-card .btn { flex-shrink: 0; }
+@media (max-width: 767.98px) { .ecosystem-card { flex-direction: column; align-items: flex-start; padding: 28px; gap: 24px; } }
 
 /* team */
 .team { display: grid; grid-template-columns: repeat(3, 1fr); gap: 60px 20px; max-width: var(--container); margin: 0 auto; }
-.member img { width: 100%; height: auto; aspect-ratio: 426.7 / 576.6; object-fit: cover; }
+.member img { width: 100%; height: auto; aspect-ratio: 426.7 / 576.6; object-fit: cover; border-radius: var(--radius-card-sm); }
 .member h5 { margin-top: 24px; }
 .member p { margin-top: 8px; color: var(--text); }
 
@@ -385,21 +456,21 @@ section { position: relative; }
 .case__meta p { margin-top: 8px; color: var(--text); }
 .case__meta--post { gap: 40px; text-align: right; }
 .post .case__title { font-weight: 600; text-transform: uppercase; font-size: var(--fs-h3); line-height: var(--lh-h3); letter-spacing: var(--ls-h3); max-width: 800px; }
-.case__hero { max-width: var(--container); margin: 100px auto 0; height: 775.2px; }
+.case__hero { max-width: var(--container); margin: 100px auto 0; height: 775.2px; border-radius: var(--radius-card); overflow: hidden; }
 .case__hero img, .case__duo img, .case__wide img, .post__hero img { width: 100%; height: 100%; object-fit: cover; }
 .case .split { margin-top: 80px; }
 .case .split + .split { margin-top: 80px; }
 .case__hero + .split { margin-top: 80px; }
 .case__duo { display: grid; grid-template-columns: 645px 645px; gap: 30px; max-width: var(--container); margin: 80px auto 0; }
-.case__duo > div { height: 645px; }
-.case__wide { height: 775px; margin: 80px auto 0; max-width: var(--container); }
+.case__duo > div { height: 645px; border-radius: var(--radius-card); overflow: hidden; }
+.case__wide { height: 775px; margin: 80px auto 0; max-width: var(--container); border-radius: var(--radius-card); overflow: hidden; }
 .case__wide + .split { margin-top: 80px; }
 .case__hero--narrow, .case__wide--narrow { width: 1188px; max-width: 100%; height: 697.7px; }
 .case__wide--narrow { margin-top: 118.7px; }
 .case__wide--narrow + .split { margin-top: 118.8px; }
 .pager { display: flex; justify-content: space-between; max-width: var(--container); margin: 78px auto 0; }
 .pager .btn:only-child { margin-left: auto; }
-.post__hero { max-width: var(--container); margin: 100px auto 0; height: 838.1px; }
+.post__hero { max-width: var(--container); margin: 100px auto 0; height: 838.1px; border-radius: var(--radius-card); overflow: hidden; }
 .post .split { margin-top: 140px; }
 .post .split + .split { margin-top: 100px; }
 .post .post__gallery + .split { margin-top: 99px; }
@@ -408,10 +479,10 @@ section { position: relative; }
 .post .split p + p { margin-top: 20px; }
 .post .split .sub + p { margin-top: 20px; }
 .post__gallery { display: grid; grid-template-columns: 640px 640px; column-gap: 40px; max-width: var(--container); margin: 100px auto 0; }
-.post__gallery > div { height: 634.9px; }
+.post__gallery > div { height: 634.9px; border-radius: var(--radius-card); overflow: hidden; }
 .post__gallery img { width: 100%; height: 100%; object-fit: cover; }
 .svc-gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 30px; max-width: var(--container); margin: 60px auto; }
-.svc-gallery > div { aspect-ratio: 2 / 3; overflow: hidden; }
+.svc-gallery > div { aspect-ratio: 2 / 3; overflow: hidden; border-radius: var(--radius-card); }
 .svc-gallery img { width: 100%; height: 100%; object-fit: cover; }
 @media (max-width: 767.98px) { .svc-gallery { grid-template-columns: 1fr; gap: 24px; margin: 40px auto; } .svc-gallery > div { aspect-ratio: 4 / 5; } }
 .post .pager { margin-top: 60px; }
@@ -419,7 +490,7 @@ section { position: relative; }
 /* 404 */
 .nf { padding: 140px var(--gutter) 200px; }
 .nf__row { display: grid; grid-template-columns: 1fr 400px; align-items: end; max-width: var(--container); margin: 0 auto; }
-.nf h1 { font-size: var(--fs-hero); line-height: var(--lh-hero); letter-spacing: var(--ls-hero); font-weight: 600; color: var(--accent); }
+.nf h1 { font-size: var(--fs-hero); line-height: var(--lh-hero); letter-spacing: var(--ls-hero); font-weight: 800; color: var(--accent); }
 .nf .t-title { margin-top: 100px; }
 .nf__aside { text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: 24px; }
 .nf__aside p { color: var(--text); }
@@ -645,9 +716,9 @@ section { position: relative; }
 @media (min-width: 1320px) { .awards--price .award { grid-template-columns: 1fr 1fr 1.5fr 190px; column-gap: 40px; } }
 
 /* Currency toggle (pricing) */
-.cur-toggle { display: inline-flex; border: 1px solid var(--line); }
+.cur-toggle { display: inline-flex; border: 1px solid var(--line); border-radius: var(--radius-pill); overflow: hidden; }
 .cur-toggle button { padding: 8px 16px; font: inherit; font-size: 16px; font-weight: 500; line-height: 22px; background: transparent; color: var(--ink); border: 0; cursor: pointer; transition: background .3s, color .3s; }
-.cur-toggle button.is-on { background: var(--ink); color: #fff; }
+.cur-toggle button.is-on { background: var(--accent); color: #fff; }
 .cur-toggle button:not(.is-on):hover { color: var(--accent); }
 
 /* Legal pages (terms, policies, privacy) */
@@ -671,13 +742,15 @@ section { position: relative; }
 .nav__inner .logo { margin-right: auto; }
 .nav-links { gap: 28px; }
 .link-u[aria-current="page"]::after { width: calc(100% + 1px); }
-.nav-cta { padding: 6px 22px; font-size: 16px; line-height: 27px; white-space: nowrap; }
-.nav-cta[aria-current="page"] { background: var(--accent); }
-.nav-toggle { display: none; padding: 6px 18px; font: inherit; font-size: 16px; font-weight: 500; line-height: 27px; background: var(--ink); color: #fff; border: 0; cursor: pointer; }
-.nav-panel { position: absolute; left: 0; right: 0; top: 100%; padding: 20px var(--gutter) 24px; background: var(--ink); color: #fff; box-shadow: 0 10px 30px rgba(0, 0, 0, .18); }
+/* Nav CTA pill (Brand Book §5.1 "Nav CTA Button" — the one rounded-full button on the site). */
+.nav-cta { padding: 6px 22px; font-size: 15px; font-weight: 600; line-height: 27px; white-space: nowrap; border-radius: var(--radius-pill); }
+.nav-cta[aria-current="page"] { background: var(--accent-hover); }
+.nav-toggle { display: none; padding: 6px 18px; font: inherit; font-size: 16px; font-weight: 500; line-height: 27px; background: transparent; color: var(--ink); border: 1px solid var(--line-strong); border-radius: var(--radius-pill); cursor: pointer; }
+.nav-panel { position: absolute; left: 0; right: 0; top: 100%; padding: 20px var(--gutter) 24px; background: var(--surface); color: var(--ink); border-top: 1px solid var(--line-subtle); box-shadow: var(--shadow-lg); }
 .nav-panel ul { display: flex; flex-direction: column; margin-bottom: 20px; }
-.nav-panel li a { display: block; padding: 12px 0; font-size: 20px; line-height: 28px; font-weight: 500; border-bottom: 1px solid rgba(255, 255, 255, .15); }
+.nav-panel li a { display: block; padding: 12px 0; font-size: 20px; line-height: 28px; font-weight: 500; text-transform: uppercase; letter-spacing: .04em; border-bottom: 1px solid var(--line-subtle); }
 .nav-panel li a[aria-current="page"] { color: var(--accent); }
+.nav-panel .btn { text-transform: uppercase; letter-spacing: .04em; }
 a:focus-visible, button:focus-visible, .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 section[id] { scroll-margin-top: 80px; }
 @media (max-width: 959.98px) {
@@ -686,10 +759,10 @@ section[id] { scroll-margin-top: 80px; }
 }
 
 /* ---------- Footer: production layout ---------- */
-.footer__cols h6 { margin-bottom: 16px; font-size: 14px; line-height: 20px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: rgba(255, 255, 255, .55); }
-.footer__bottom { display: flex; justify-content: flex-start; gap: 16px 40px; flex-wrap: wrap; margin-top: 100px; padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, .15); }
-.footer__bottom p { color: var(--surface); font-size: 16px; line-height: 22.4px; }
-.footer__bottom a { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+.footer__cols h6 { margin-bottom: 16px; font-size: 14px; line-height: 20px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--text-muted); }
+.footer__bottom { display: flex; justify-content: flex-start; gap: 16px 40px; flex-wrap: wrap; margin-top: 100px; padding-top: 24px; border-top: 1px solid var(--line-subtle); }
+.footer__bottom p { color: var(--text); font-size: 16px; line-height: 22.4px; }
+.footer__bottom a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
 @media (max-width: 1319.98px) { .footer__bottom { margin-top: 80px; } }
 @media (max-width: 767.98px) { .footer__bottom { margin-top: 50px; } }
 .nav { position: relative; }

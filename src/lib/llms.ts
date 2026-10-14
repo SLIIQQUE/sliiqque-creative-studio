@@ -1,6 +1,6 @@
 import { SERVICE_PAGES, SITE_FAQ } from "@/data/services";
 import { BLOGS, PLANS, PROJECT_ROWS, WORKS } from "@/lib/data";
-import { BRAND_DESC, KEYWORDS, SITE_URL } from "@/lib/seo";
+import { BRAND_DESC, KEYWORDS, PRODUCT_ENGINEERING, SITE_URL } from "@/lib/seo";
 
 const head = [
   "# SLIIQQUE Studio",
@@ -8,6 +8,8 @@ const head = [
   `> ${BRAND_DESC}`,
   "",
   "SLIIQQUE (pronounced \"sleek\") is a creative studio in Lagos, Nigeria, founded on 22 December 2025 by Gabriel Njoabozia. Its tagline is \"Premium creative studio powered by AI\". AI is production infrastructure at SLIIQQUE; what the studio sells is creative systems, not AI. Services include AI fashion imagery: photorealistic AI models wearing a brand's clothes. SLIIQQUE does not offer logo design.",
+  "",
+  `SLIIQQUE also runs a sister product-engineering studio, [${PRODUCT_ENGINEERING.name}](${PRODUCT_ENGINEERING.url}): ${PRODUCT_ENGINEERING.description} It is a separate site from this one.`,
   "",
 ];
 
@@ -21,7 +23,8 @@ export function llmsTxt(): string {
     "- Location: Lagos, Nigeria. Works with clients in Nigeria, Africa and worldwide",
     "- Email: hello@sliiqque.space | Phone/WhatsApp: +234 704 100 0085 | Hours: Monday to Friday 9am to 6pm WAT",
     "- Currencies: NGN for Nigerian clients, USD for international clients",
-    "- Social: X, Instagram and LinkedIn at @sliiqque",
+    "- Social: Instagram, YouTube and Facebook at @sliiqque",
+    `- Sister studio: [${PRODUCT_ENGINEERING.name}](${PRODUCT_ENGINEERING.url}) — ${PRODUCT_ENGINEERING.description}`,
     "",
     "## Services",
     "",
@@ -35,10 +38,13 @@ export function llmsTxt(): string {
     `- [Terms & Conditions](${SITE_URL}/terms)`,
     `- [Privacy Policy](${SITE_URL}/privacy)`,
     "",
-    "## Work and journal",
+    "## Work",
     "",
     `- [Work](${SITE_URL}/works): self-initiated concept projects for fictional brands, labelled as concept work`,
     ...WORKS.map((w) => `- [${w[1]}](${SITE_URL}/works/${w[0]}): ${w[2]}`),
+    "",
+    "## Journal",
+    "",
     `- [Journal](${SITE_URL}/blogs)`,
     ...BLOGS.map((b) => `- [${b[3].replace(/\.$/, "")}](${SITE_URL}/blogs/${b[0]})`),
     "",

@@ -1,5 +1,5 @@
 import JsonLd from "@/components/JsonLd";
-import { abs, breadcrumbSchema, pageMeta } from "@/lib/seo";
+import { abs, breadcrumbSchema, pageMeta, PRODUCT_ENGINEERING, shareImg } from "@/lib/seo";
 import LoadMore from "@/components/LoadMore";
 import { PageHero } from "@/components/ui";
 import { WORKS, WORKS_LISTED } from "@/lib/data";
@@ -7,9 +7,10 @@ import { WORKS, WORKS_LISTED } from "@/lib/data";
 export const metadata = pageMeta({
   title: "Work: AI Concept Brand Worlds",
   description:
-    "Concept work by SLIIQQUE: ÀLÀ skincare, ODÈ grooming, ÀSE spirits and ILÉ hospitality, with AI commercials, digital humans and AI photography. Not client work.",
+    "Concept work by SLIIQQUE: ÀLÀ skincare, ODÈ grooming and ÀSE spirits, with AI commercials, digital humans and AI photography. Not client work.",
   path: "/works",
   keywords: ["AI commercial portfolio", "AI product photography portfolio", "digital humans portfolio", "concept brand work"],
+  image: { url: shareImg(WORKS[0][5]), alt: `${WORKS[0][1]}: concept brand visual by SLIIQQUE` },
 });
 
 export default function WorksPage() {
@@ -30,6 +31,9 @@ export default function WorksPage() {
             wrapClass="center-btn"
             cells={WORKS.map((w, i) => ({ kind: "work" as const, item: w, hidden: i >= WORKS_LISTED, phHide: i >= 3 && i < WORKS_LISTED }))}
           />
+          <p className="services-note">
+            Looking for product work instead? Visit <a href={PRODUCT_ENGINEERING.url} target="_blank" rel="noopener noreferrer">{PRODUCT_ENGINEERING.name} ↗</a> for websites, SaaS interfaces and case studies.
+          </p>
         </div>
       </section>
     </>

@@ -1,11 +1,15 @@
 import Link from "next/link";
 import { SITE } from "@/lib/data";
+import { PRODUCT_ENGINEERING } from "@/lib/seo";
 import { LogoFooter } from "./Logo";
 import DemoForm from "./DemoForm";
 
 type Item = [label: string, href: string, external?: boolean];
 
-const STUDIO: Item[] = [["Home", "/"], ["Work", "/works"], ["About", "/about"], ["Journal", "/blogs"], ["FAQ", "/faq"], ["Contact", "/contact"]];
+const STUDIO: Item[] = [
+  ["Home", "/"], ["Work", "/works"], ["About", "/about"], ["Journal", "/blogs"], ["FAQ", "/faq"], ["Contact", "/contact"],
+  [`${PRODUCT_ENGINEERING.name} ↗`, PRODUCT_ENGINEERING.url, true],
+];
 const SERVICES: Item[] = [
   ["AI Commercials", "/services/ai-commercials"],
   ["AI UGC & Digital Humans", "/services/ai-ugc-digital-humans"],

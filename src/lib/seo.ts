@@ -6,6 +6,14 @@ export const SITE_NAME = "SLIIQQUE Studio";
 export const BRAND_DESC =
   "SLIIQQUE Studio is a premium creative studio in Lagos, Nigeria producing AI commercials, AI UGC and digital humans, AI product photography, AI fashion imagery, brand launches and visual campaigns for brands in Nigeria, Africa and worldwide.";
 
+/** SLIIQQUE's other division: product engineering (websites, AI bots/agents, SaaS interfaces, automation), a separate codebase hosted at the root domain. Mirrors the `creativeStudio` sister-studio entry on that site. */
+export const PRODUCT_ENGINEERING = {
+  name: "SLIIQQUE Product & Engineering",
+  url: "https://sliiqque.space",
+  description:
+    "The product-engineering vertical of the SLIIQQUE ecosystem: websites, AI bots and agents, SaaS interfaces and workflow automation for businesses in Nigeria and worldwide.",
+};
+
 /** Core keyword themes (used in meta keywords, llms.txt and the SEO plan). Natural phrases only, never hidden text. */
 export const KEYWORDS = [
   "AI creative studio Lagos",
@@ -40,7 +48,7 @@ export const KEYWORDS = [
 export const abs = (path: string) => `${SITE_URL}${path === "/" ? "" : path}`;
 
 /** Date the site content last changed (sitemap lastModified). Bump it when copy changes; a build alone is not a change. */
-export const CONTENT_UPDATED = "2026-10-07";
+export const CONTENT_UPDATED = "2026-10-14";
 
 /** Social preview for a public/img asset, resized by the image optimizer (1200px is one of its widths, 90 its only quality). */
 export const shareImg = (id: string) => `/_next/image?url=${encodeURIComponent(`/img/${id}`)}&w=1200&q=90`;
@@ -61,7 +69,7 @@ export function pageMeta({ title, description, path, keywords = [], type = "webs
     alternates: { canonical: abs(path) },
     robots: noindex ? { index: false, follow: false } : { index: true, follow: true },
     openGraph: { type, url: abs(path), siteName: SITE_NAME, title: fullTitle, description, locale: "en_NG", images, ...(published ? { publishedTime: published } : {}) },
-    twitter: { card: "summary_large_image", title: fullTitle, description, site: "@sliiqque", creator: "@sliiqque", images },
+    twitter: { card: "summary_large_image", title: fullTitle, description, images },
   };
 }
 
@@ -97,7 +105,7 @@ export function organizationSchema() {
     ],
     openingHoursSpecification: [{ "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "09:00", closes: "18:00" }],
     contactPoint: [{ "@type": "ContactPoint", contactType: "customer service", email: "hello@sliiqque.space", telephone: "+2347041000085", areaServed: ["NG", "Worldwide"], availableLanguage: ["English"] }],
-    sameAs: ["https://x.com/sliiqque", "https://www.linkedin.com/company/sliiqque", "https://www.instagram.com/sliiqque"],
+    sameAs: ["https://www.instagram.com/sliiqque", "https://www.youtube.com/@sliiqque", "https://www.facebook.com/sliiqque", PRODUCT_ENGINEERING.url],
   };
 }
 

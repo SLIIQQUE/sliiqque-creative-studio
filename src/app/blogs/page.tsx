@@ -1,5 +1,5 @@
 import JsonLd from "@/components/JsonLd";
-import { abs, breadcrumbSchema, pageMeta } from "@/lib/seo";
+import { abs, breadcrumbSchema, pageMeta, shareImg } from "@/lib/seo";
 import LoadMore from "@/components/LoadMore";
 import { PageHero } from "@/components/ui";
 import { BLOGS, BLOGS_LISTED } from "@/lib/data";
@@ -10,6 +10,7 @@ export const metadata = pageMeta({
     "SLIIQQUE's journal on identity lock, storyboarding, upscaling, grading and ten-second animation blocks, written from the studio's own production work.",
   path: "/blogs",
   keywords: ["AI commercial production guide", "digital human identity lock", "AI storyboard workflow", "AI photography guide"],
+  image: { url: shareImg(BLOGS[0][4]), alt: `${BLOGS[0][3]} SLIIQQUE Studio journal` },
 });
 
 export default function BlogsPage() {

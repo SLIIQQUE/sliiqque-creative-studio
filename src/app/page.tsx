@@ -1,7 +1,7 @@
 import Home from "@/components/Home";
 import JsonLd from "@/components/JsonLd";
-import { PLANS, PROJECT_ROWS, SERVICES } from "@/lib/data";
-import { ORG_ID, SITE_URL, pageMeta } from "@/lib/seo";
+import { HERO, PLANS, PROJECT_ROWS, SERVICES } from "@/lib/data";
+import { ORG_ID, SITE_URL, pageMeta, shareImg } from "@/lib/seo";
 
 export const metadata = pageMeta({
   title: "SLIIQQUE | AI Commercial & UGC Studio in Lagos, Nigeria",
@@ -9,6 +9,7 @@ export const metadata = pageMeta({
   path: "/",
   absoluteTitle: true,
   keywords: ["AI creative studio Lagos", "AI commercial production Nigeria", "AI UGC ads Nigeria", "AI product photography Lagos", "digital humans for advertising"],
+  image: { url: shareImg(HERO.ticker[0]), alt: "SLIIQQUE Studio: AI-produced photorealistic digital human, extreme close-up" },
 });
 
 const num = (s: string) => s.replace(/[^\d]/g, "");

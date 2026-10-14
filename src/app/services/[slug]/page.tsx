@@ -8,7 +8,7 @@ import Reveal from "@/components/Reveal";
 import { Btn, PageHero } from "@/components/ui";
 import { SERVICE_PAGES, SERVICE_WORKS, serviceBySlug } from "@/data/services";
 import { WORKS } from "@/lib/data";
-import { abs, breadcrumbSchema, faqSchema, ORG_ID, pageMeta } from "@/lib/seo";
+import { abs, breadcrumbSchema, faqSchema, ORG_ID, pageMeta, shareImg } from "@/lib/seo";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -16,11 +16,23 @@ export function generateStaticParams() {
   return SERVICE_PAGES.map((s) => ({ slug: s.slug }));
 }
 
+/** Services with no gallery of their own borrow the hero of the concept work that best represents them. */
+const FALLBACK_SHARE_WORK: Record<string, string> = { "ai-commercials": "ode", "brand-launches-campaigns": "ala-skin" };
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const s = serviceBySlug(slug);
   if (!s) return {};
-  return pageMeta({ title: s.title, description: s.description, path: `/services/${s.slug}`, keywords: s.keywords });
+  const firstGalleryId = s.gallery?.[0]?.id;
+  const fallbackWork = FALLBACK_SHARE_WORK[s.slug] && WORKS.find((w) => w[0] === FALLBACK_SHARE_WORK[s.slug]);
+  const imageId = firstGalleryId ?? fallbackWork?.[5];
+  return pageMeta({
+    title: s.title,
+    description: s.description,
+    path: `/services/${s.slug}`,
+    keywords: s.keywords,
+    ...(imageId ? { image: { url: shareImg(imageId), alt: `${s.name}: example work by SLIIQQUE` } } : {}),
+  });
 }
 
 export default async function ServicePage({ params }: Props) {
