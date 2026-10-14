@@ -7,7 +7,7 @@ import DemoForm from "./DemoForm";
 type Item = [label: string, href: string, external?: boolean];
 
 const STUDIO: Item[] = [
-  ["Home", "/"], ["Work", "/works"], ["About", "/about"], ["Journal", "/blogs"], ["FAQ", "/faq"], ["Contact", "/contact"],
+  ["Home", "/"], ["Work", "/works"], ["About", "/about"], ["Journal", "/blogs"], ["FAQ", "/faq"], ["Glossary", "/glossary"], ["Contact", "/contact"],
   [`${PRODUCT_ENGINEERING.name} ↗`, PRODUCT_ENGINEERING.url, true],
 ];
 const SERVICES: Item[] = [

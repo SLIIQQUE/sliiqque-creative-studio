@@ -139,3 +139,14 @@ export function faqSchema(faqs: { q: string; a: string }[]) {
     mainEntity: faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
   };
 }
+
+/** For the glossary: a defined-term list, not a FAQPage, so it matches what the content actually is. */
+export function glossarySchema(terms: { term: string; def: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "DefinedTermSet",
+    name: "SLIIQQUE AI production glossary",
+    url: abs("/glossary"),
+    hasDefinedTerm: terms.map((t) => ({ "@type": "DefinedTerm", name: t.term, description: t.def, inDefinedTermSet: abs("/glossary") })),
+  };
+}

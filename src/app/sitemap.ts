@@ -18,7 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   };
   const top: [string, number, MetadataRoute.Sitemap[number]["changeFrequency"]][] = [
     ["", 1, "weekly"], ["/services", 0.9, "monthly"], ["/works", 0.8, "monthly"], ["/about", 0.7, "monthly"],
-    ["/faq", 0.8, "monthly"], ["/blogs", 0.7, "weekly"], ["/contact", 0.8, "yearly"],
+    ["/faq", 0.8, "monthly"], ["/glossary", 0.5, "monthly"], ["/blogs", 0.7, "weekly"], ["/contact", 0.8, "yearly"],
     ["/terms", 0.3, "yearly"], ["/policies", 0.4, "yearly"], ["/privacy", 0.3, "yearly"],
   ];
   return [

@@ -1,4 +1,5 @@
 import { SERVICE_PAGES, SITE_FAQ } from "@/data/services";
+import { GLOSSARY } from "@/data/glossary";
 import { BLOGS, PLANS, PROJECT_ROWS, WORKS } from "@/lib/data";
 import { BRAND_DESC, KEYWORDS, PRODUCT_ENGINEERING, SITE_URL } from "@/lib/seo";
 
@@ -34,6 +35,7 @@ export function llmsTxt(): string {
     "",
     `- [Pricing](${SITE_URL}/#pricing): monthly retainers and one-off projects in NGN and USD`,
     `- [FAQ](${SITE_URL}/faq): answers on cost, turnaround, revisions, usage rights, logos and AI disclosure`,
+    `- [Glossary](${SITE_URL}/glossary): definitions of AI commercial, AI UGC, digital human, identity lock, storyboard, grade, cutdown and retainer`,
     `- [Studio Policies](${SITE_URL}/policies): revisions, turnaround, retainers, usage rights, AI content, likeness`,
     `- [Terms & Conditions](${SITE_URL}/terms)`,
     `- [Privacy Policy](${SITE_URL}/privacy)`,
@@ -82,6 +84,8 @@ export function llmsFullTxt(): string {
     `- Full text: ${SITE_URL}/policies and ${SITE_URL}/terms`, "");
   lines.push("## Frequently asked questions", "");
   SITE_FAQ.forEach((f) => lines.push(`Q: ${f.q}`, `A: ${f.a}`, ""));
+  lines.push("## Glossary", "");
+  GLOSSARY.forEach((t) => lines.push(`${t.term}: ${t.def}`, ""));
   lines.push("## Work (concept projects, not client work)", "");
   WORKS.forEach((w) => lines.push(`- ${w[1]} (${w[2]}): ${SITE_URL}/works/${w[0]}`));
   lines.push("", "## Contact", "", "Email: hello@sliiqque.space", "Phone/WhatsApp: +234 704 100 0085", `Website: ${SITE_URL}`, "");
