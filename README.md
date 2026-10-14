@@ -47,9 +47,14 @@ npm run build && npm start
 | `npm run build` | Production build. Also prerenders every static route and the sitemap |
 | `npm start` | Serve the production build |
 
-There is no `.env` file and no required environment variables — the site has no backend services.
+Copy `.env.example` to `.env.local` and fill in real values for local dev — `.env.local` is gitignored and never committed.
 
-> **Known gap:** the contact form (`src/components/DemoForm.tsx`) is a client-side demo handler. It shows "Thank you!" and resets, but does not send anywhere yet. Wire it to an email service (e.g. Resend, as the Product & Engineering site does) before relying on it for real enquiries.
+| Variable | Required | Used for |
+|---|---|---|
+| `RESEND_API_KEY` | Yes | `/api/contact` (`src/app/api/contact/route.ts`) emails submissions from the contact form and the footer newsletter sign-up to `hello@sliiqque.space`, via [Resend](https://resend.com). Without it, the route returns a clear "not yet configured" error and the form shows a visible fallback (email us directly) instead of silently failing. Get a key at [resend.com/api-keys](https://resend.com/api-keys). |
+| `RESEND_FROM` | No | The verified "From" address, e.g. `SLIIQQUE Studio <notifications@sliiqque.space>`. Unset, it falls back to Resend's shared `onboarding@resend.dev` sandbox address, which only delivers to the email on the Resend account itself — fine for a first test, not for real visitor submissions. |
+
+To enable real delivery for live visitors: create a Resend account, verify `sliiqque.space` as a sending domain (Resend will give you DNS records to add at your registrar), set `RESEND_FROM` to an address on that domain, then add both variables to Vercel's project environment variables and redeploy. Restart `next dev` (or `next start`) after changing `.env.local` — Next.js only reads env files at server start.
 
 ---
 

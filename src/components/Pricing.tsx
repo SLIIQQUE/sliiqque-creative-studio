@@ -39,6 +39,7 @@ export default function Pricing({ plans, plansIntro, projects, projectsIntro }: 
           <div className={`plans${plans.length === 3 ? " plans--3" : ""}`}>
             {plans.map(([n, d, ngn, feats, dark, usd]) => (
               <div className={`plan${dark ? " plan--dark" : ""}`} key={n}>
+                {dark && <span className="plan__badge">Start here</span>}
                 <h5 className="t-h5">{n}</h5>
                 <p className="desc">{d}</p>
                 <div className="plan__price"><h3 className="t-h3">{cur === "NGN" ? ngn : usd}</h3><span>/ month</span></div>

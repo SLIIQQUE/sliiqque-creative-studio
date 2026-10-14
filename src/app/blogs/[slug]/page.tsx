@@ -9,7 +9,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import JsonLd from "@/components/JsonLd";
 import { serviceForCategory } from "@/data/services";
 import { BLOGS, POSTS } from "@/lib/data";
-import { abs, breadcrumbSchema, isoDate, ORG_ID, pageMeta, SITE_NAME, shareImg } from "@/lib/seo";
+import { abs, breadcrumbSchema, founderSchema, isoDate, ORG_ID, pageMeta, SITE_NAME, shareImg } from "@/lib/seo";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -64,7 +64,7 @@ export default async function PostPage({ params }: Props) {
             url: abs(`/blogs/${slug}`),
             mainEntityOfPage: abs(`/blogs/${slug}`),
             image: abs(`/img/${cardImg}`),
-            author: { "@type": "Person", name: "Gabriel Njoabozia", jobTitle: "Founder", worksFor: { "@id": ORG_ID } },
+            author: founderSchema({ worksFor: { "@id": ORG_ID } }),
             publisher: { "@id": ORG_ID },
           },
           breadcrumbSchema(breadcrumb),

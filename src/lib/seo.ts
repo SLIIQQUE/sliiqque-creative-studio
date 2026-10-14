@@ -92,6 +92,14 @@ export function displayDate(iso: string): string {
 
 export const ORG_ID = `${SITE_URL}/#organization`;
 
+/** Same @id as the Person node on the product-engineering site (sliiqque.space/studio/#person),
+ * so the two domains' structured data describe one entity, not two unlinked people. */
+export const FOUNDER_ID = `${PRODUCT_ENGINEERING.url}/studio/#person`;
+
+export function founderSchema(extra?: Record<string, unknown>) {
+  return { "@type": "Person", "@id": FOUNDER_ID, name: "Gabriel Njoabozia", jobTitle: "Founder", ...extra };
+}
+
 export function organizationSchema() {
   return {
     "@context": "https://schema.org",
@@ -105,7 +113,7 @@ export function organizationSchema() {
     description: BRAND_DESC,
     slogan: "Premium creative studio powered by AI",
     foundingDate: "2025-12-22",
-    founder: { "@type": "Person", name: "Gabriel Njoabozia", jobTitle: "Founder" },
+    founder: founderSchema({ worksFor: { "@id": ORG_ID } }),
     email: "hello@sliiqque.space",
     telephone: "+2347041000085",
     address: { "@type": "PostalAddress", addressLocality: "Lagos", addressCountry: "NG" },
@@ -116,7 +124,7 @@ export function organizationSchema() {
     ],
     openingHoursSpecification: [{ "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "09:00", closes: "18:00" }],
     contactPoint: [{ "@type": "ContactPoint", contactType: "customer service", email: "hello@sliiqque.space", telephone: "+2347041000085", areaServed: ["NG", "Worldwide"], availableLanguage: ["English"] }],
-    sameAs: ["https://www.instagram.com/sliiqque", "https://www.youtube.com/@sliiqque", "https://www.facebook.com/sliiqque", PRODUCT_ENGINEERING.url],
+    sameAs: ["https://www.instagram.com/sliiqque", "https://www.youtube.com/@sliiqque", "https://facebook.com/studio.sliiqque/", PRODUCT_ENGINEERING.url],
   };
 }
 

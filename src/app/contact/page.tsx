@@ -3,7 +3,7 @@ import { abs, breadcrumbSchema, ORG_ID, pageMeta, shareImg } from "@/lib/seo";
 import DemoForm from "@/components/DemoForm";
 import Reveal from "@/components/Reveal";
 import { PageHero } from "@/components/ui";
-import { CONTACT as C } from "@/lib/data";
+import { CONTACT as C, SITE } from "@/lib/data";
 
 export const metadata = pageMeta({
   title: "Contact SLIIQQUE: Start a Project",
@@ -36,7 +36,7 @@ export default function ContactPage() {
             <h4 className="t-h4">Start Here</h4>
             {C.groups.map(([t, h, d]) => <div className="contact__grp" key={t}>{h ? <a href={h}>{t}</a> : <span>{t}</span>}<p>{d}</p></div>)}
           </div>
-          <DemoForm className="form" label="Send message">
+          <DemoForm className="form" label="Send message" kind="contact" successMessage="Thanks — your message is in. We reply within one working day." mailtoFallback={SITE.email}>
             <div className="field"><label htmlFor="f-name">Name</label><input id="f-name" name="name" type="text" placeholder="Your name" required /></div>
             <div className="field"><label htmlFor="f-email">email address</label><input id="f-email" name="email" type="email" placeholder="Your email address" required /></div>
             <div className="field"><label htmlFor="f-phone">Phone number</label><input id="f-phone" name="phone" type="tel" placeholder="Your phone number" /></div>

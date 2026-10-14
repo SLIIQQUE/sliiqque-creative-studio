@@ -24,7 +24,7 @@ export function llmsTxt(): string {
     "- Location: Lagos, Nigeria. Works with clients in Nigeria, Africa and worldwide",
     "- Email: hello@sliiqque.space | Phone/WhatsApp: +234 704 100 0085 | Hours: Monday to Friday 9am to 6pm WAT",
     "- Currencies: NGN for Nigerian clients, USD for international clients",
-    "- Social: Instagram, YouTube and Facebook at @sliiqque",
+    "- Social: Instagram and YouTube at @sliiqque, Facebook at @studio.sliiqque",
     `- Sister studio: [${PRODUCT_ENGINEERING.name}](${PRODUCT_ENGINEERING.url}) — ${PRODUCT_ENGINEERING.description}`,
     "",
     "## Services",

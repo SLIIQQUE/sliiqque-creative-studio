@@ -55,7 +55,7 @@ export default function Footer() {
             <a className="mail" href={`mailto:${SITE.email}`}>{SITE.email}</a>
             <a className="tel" href={`tel:${phone}`}>{SITE.phone}</a>
           </div>
-          <DemoForm className="footer__news" label="Sign up">
+          <DemoForm className="footer__news" label="Sign up" kind="newsletter" successMessage="You're on the list." mailtoFallback={SITE.email}>
             <p>{SITE.news_blurb}</p>
             <input className="field-dark" type="email" name="email" placeholder="Email address" aria-label="Email address" required />
           </DemoForm>
