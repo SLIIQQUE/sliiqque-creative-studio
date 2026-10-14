@@ -8,6 +8,7 @@ import { BlogCard, WorkCard } from "./cards";
 import { Btn, SecHead } from "./ui";
 import { IconPlus } from "./icons";
 import { ABOUT, BLOGS, HERO, HOME_WORKS, PLANS, PLANS_INTRO, PROCESS_ROWS, PROJECT_ROWS, PROJECTS_INTRO, AWARDS_INTRO, SECTION_SUB, SERVICES, WORKS } from "@/lib/data";
+import { PRODUCT_ENGINEERING } from "@/lib/seo";
 
 export default function Home() {
   return (
@@ -90,6 +91,19 @@ export default function Home() {
       <Awards id="process" title="our process" intro={AWARDS_INTRO} rows={PROCESS_ROWS} />
 
       <Pricing plans={PLANS} plansIntro={PLANS_INTRO} projects={PROJECT_ROWS} projectsIntro={PROJECTS_INTRO} />
+
+      <section className="sec" id="ecosystem">
+        <Reveal className="container">
+          <SecHead title="the sliiqque ecosystem" aside={<p>One studio, two divisions: creative production here, product engineering next door.</p>} />
+          <div className="ecosystem-card">
+            <div className="ecosystem-card__text">
+              <h3 className="t-h4">{PRODUCT_ENGINEERING.name}</h3>
+              <p>{PRODUCT_ENGINEERING.description}</p>
+            </div>
+            <a className="btn" href={PRODUCT_ENGINEERING.url} target="_blank" rel="noopener noreferrer">Visit Product &amp; Engineering ↗</a>
+          </div>
+        </Reveal>
+      </section>
 
       <section className="sec sec--last" id="blogs">
         <Reveal className="container">

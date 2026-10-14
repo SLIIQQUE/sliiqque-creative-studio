@@ -1,3 +1,5 @@
+import { PRODUCT_ENGINEERING } from "@/lib/seo";
+
 export type Faq = { q: string; a: string };
 
 export type ServicePage = {
@@ -282,4 +284,5 @@ export const SITE_FAQ: Faq[] = [
   { q: "Does SLIIQQUE do AI fashion imagery?", a: "Yes. SLIIQQUE creates photorealistic AI models wearing a brand's clothes for lookbooks, campaigns and e-commerce, working from photos of the real garments. It is included in retainer stills from ₦150,000 (US$280) a month." },
   { q: "Is the work on this site client work?", a: "No. ÀLÀ, ODÈ and ÀSE are self-initiated concept projects for fictional brands, labelled as concept work. They show how SLIIQQUE works and do not show real sales or audience results." },
   { q: "How do I start a project?", a: "Email hello@sliiqque.space or call or WhatsApp +234 704 100 0085 with the product, audience, platforms and deadline. SLIIQQUE replies within one working day with a scope and quote." },
+  { q: "Does SLIIQQUE build websites, bots or software?", a: `Yes, through ${PRODUCT_ENGINEERING.name} (${PRODUCT_ENGINEERING.url.replace("https://", "")}), the product-engineering vertical of the SLIIQQUE ecosystem. It builds websites, AI bots and agents, SaaS interfaces and workflow automation, separate from this site's creative-production work.` },
 ];

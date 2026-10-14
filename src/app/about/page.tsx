@@ -1,5 +1,5 @@
 import JsonLd from "@/components/JsonLd";
-import { abs, breadcrumbSchema, faqSchema, ORG_ID, pageMeta, shareImg } from "@/lib/seo";
+import { abs, breadcrumbSchema, faqSchema, ORG_ID, pageMeta, PRODUCT_ENGINEERING, shareImg } from "@/lib/seo";
 import Img from "@/components/Img";
 import Reveal from "@/components/Reveal";
 import Stats from "@/components/Stats";
@@ -44,6 +44,19 @@ export default function AboutPage() {
           <SecHead title="How we work" aside={<p>{A.how_intro}</p>} />
           <div className="process">
             {A.steps.map(([t, d]) => <div className="process__card" key={t}><h4 className="t-h4">{t}</h4><p>{d}</p></div>)}
+          </div>
+        </Reveal>
+      </section>
+
+      <section className="sec" id="ecosystem">
+        <Reveal className="container">
+          <SecHead title="the sliiqque ecosystem" aside={<p>SLIIQQUE runs two divisions under one studio: creative production here, and product engineering next door.</p>} />
+          <div className="ecosystem-card">
+            <div className="ecosystem-card__text">
+              <h3 className="t-h4">{PRODUCT_ENGINEERING.name}</h3>
+              <p>{PRODUCT_ENGINEERING.description}</p>
+            </div>
+            <a className="btn" href={PRODUCT_ENGINEERING.url} target="_blank" rel="noopener noreferrer">Visit Product &amp; Engineering ↗</a>
           </div>
         </Reveal>
       </section>

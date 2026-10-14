@@ -395,6 +395,13 @@ h1, h2, h3, h4, h5 { font-family: var(--font-display); }
 .process__card { background: var(--surface); border: 1px solid var(--line-subtle); border-radius: var(--radius-card); box-shadow: var(--shadow-sm); padding: 40px; height: 375.6px; display: flex; flex-direction: column; justify-content: space-between; }
 .process__card p { max-width: 400px; color: var(--text-2); }
 
+/* ecosystem callout */
+.ecosystem-card { max-width: var(--container); margin: 0 auto; background: var(--surface); border: 1px solid var(--line-subtle); border-radius: var(--radius-card); box-shadow: var(--shadow-sm); padding: 48px; display: flex; align-items: center; justify-content: space-between; gap: 40px; }
+.ecosystem-card__text { max-width: 640px; }
+.ecosystem-card__text p { margin-top: 16px; color: var(--text-2); }
+.ecosystem-card .btn { flex-shrink: 0; }
+@media (max-width: 767.98px) { .ecosystem-card { flex-direction: column; align-items: flex-start; padding: 28px; gap: 24px; } }
+
 /* team */
 .team { display: grid; grid-template-columns: repeat(3, 1fr); gap: 60px 20px; max-width: var(--container); margin: 0 auto; }
 .member img { width: 100%; height: auto; aspect-ratio: 426.7 / 576.6; object-fit: cover; border-radius: var(--radius-card-sm); }

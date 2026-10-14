@@ -3,7 +3,7 @@ import JsonLd from "@/components/JsonLd";
 import Reveal from "@/components/Reveal";
 import { Btn, PageHero } from "@/components/ui";
 import { SERVICE_PAGES } from "@/data/services";
-import { abs, breadcrumbSchema, ORG_ID, pageMeta } from "@/lib/seo";
+import { abs, breadcrumbSchema, ORG_ID, pageMeta, PRODUCT_ENGINEERING } from "@/lib/seo";
 
 export const metadata = pageMeta({
   title: "Creative Services: AI Ads & Photography",
@@ -45,6 +45,9 @@ export default function ServicesPage() {
           </div>
           <p className="services-note">
             SLIIQQUE does not offer logo design. See <Link href="/#pricing">pricing</Link>, the <Link href="/faq">FAQ</Link> or <Link href="/contact">start a project</Link>.
+          </p>
+          <p className="services-note">
+            Need a website, AI bot or software instead? Visit <a href={PRODUCT_ENGINEERING.url} target="_blank" rel="noopener noreferrer">{PRODUCT_ENGINEERING.name} ↗</a>.
           </p>
           <div className="center-btn"><Btn href="/contact">Start a project</Btn></div>
         </Reveal>

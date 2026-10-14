@@ -1,5 +1,5 @@
 import JsonLd from "@/components/JsonLd";
-import { abs, breadcrumbSchema, pageMeta, shareImg } from "@/lib/seo";
+import { abs, breadcrumbSchema, pageMeta, PRODUCT_ENGINEERING, shareImg } from "@/lib/seo";
 import LoadMore from "@/components/LoadMore";
 import { PageHero } from "@/components/ui";
 import { WORKS, WORKS_LISTED } from "@/lib/data";
@@ -31,6 +31,9 @@ export default function WorksPage() {
             wrapClass="center-btn"
             cells={WORKS.map((w, i) => ({ kind: "work" as const, item: w, hidden: i >= WORKS_LISTED, phHide: i >= 3 && i < WORKS_LISTED }))}
           />
+          <p className="services-note">
+            Looking for product work instead? Visit <a href={PRODUCT_ENGINEERING.url} target="_blank" rel="noopener noreferrer">{PRODUCT_ENGINEERING.name} ↗</a> for websites, SaaS interfaces and case studies.
+          </p>
         </div>
       </section>
     </>
