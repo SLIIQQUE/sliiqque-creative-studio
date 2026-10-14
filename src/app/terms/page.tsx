@@ -11,11 +11,13 @@ export const metadata = pageMeta({
   image: { url: shareImg("studio-ai-review-monitor.webp"), alt: "SLIIQQUE Studio reviewing AI-generated production stills" },
 });
 
+const BREADCRUMB = [{ name: "Home", path: "/" }, { name: "Terms & Conditions", path: "/terms" }];
+
 export default function Page() {
   return (
     <>
-      <JsonLd data={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Terms & Conditions", path: "/terms" }])} />
-      <LegalPage doc={LEGAL.terms} />
+      <JsonLd data={breadcrumbSchema(BREADCRUMB)} />
+      <LegalPage doc={LEGAL.terms} breadcrumb={BREADCRUMB} />
     </>
   );
 }

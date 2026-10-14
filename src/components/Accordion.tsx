@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type KeyboardEvent, type ReactNode } from "react";
+import { useState, type KeyboardEvent, type MouseEvent, type ReactNode } from "react";
 
 type Item = { key: string; content: ReactNode };
 
@@ -14,6 +14,11 @@ export default function Accordion({ className, itemClass, items }: { className: 
       toggle(i);
     }
   };
+  // Content can include a real link (e.g. "Learn more"); let it navigate instead of just toggling.
+  const onClick = (e: MouseEvent, i: number) => {
+    if ((e.target as HTMLElement).closest("a")) return;
+    toggle(i);
+  };
 
   return (
     <div className={className}>
@@ -24,7 +29,7 @@ export default function Accordion({ className, itemClass, items }: { className: 
           role="button"
           tabIndex={0}
           aria-expanded={open === i}
-          onClick={() => toggle(i)}
+          onClick={(e) => onClick(e, i)}
           onKeyDown={(e) => onKey(e, i)}
         >
           {it.content}

@@ -5,6 +5,7 @@ import { Fragment } from "react";
 import Img from "@/components/Img";
 import Reveal from "@/components/Reveal";
 import { Pager } from "@/components/ui";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import JsonLd from "@/components/JsonLd";
 import { serviceForCategory } from "@/data/services";
 import { BLOGS, POSTS } from "@/lib/data";
@@ -45,6 +46,7 @@ export default async function PostPage({ params }: Props) {
   const [, date, cat, title, cardImg] = BLOGS[i];
   const P = POSTS[slug];
   const service = serviceForCategory(cat);
+  const breadcrumb = [{ name: "Home", path: "/" }, { name: "Journal", path: "/blogs" }, { name: title.replace(/\.$/, ""), path: `/blogs/${slug}` }];
 
   return (
     <section className="case post">
@@ -65,13 +67,14 @@ export default async function PostPage({ params }: Props) {
             author: { "@type": "Person", name: "Gabriel Njoabozia", jobTitle: "Founder", worksFor: { "@id": ORG_ID } },
             publisher: { "@id": ORG_ID },
           },
-          breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Journal", path: "/blogs" }, { name: title.replace(/\.$/, ""), path: `/blogs/${slug}` }]),
+          breadcrumbSchema(breadcrumb),
         ]}
       />
+      <Breadcrumbs items={breadcrumb} />
       <div className="case__head">
         <h1 className="case__title">{title}</h1>
         <div className="case__meta case__meta--post">
-          <div><h5 className="t-h5">Date</h5><p>{date}</p></div>
+          <div><h5 className="t-h5">Published</h5><p>{date}</p></div>
           <div><h5 className="t-h5">Category</h5><p>{cat}</p></div>
         </div>
       </div>
@@ -99,7 +102,7 @@ export default async function PostPage({ params }: Props) {
       ))}
       {service && (
         <p className="services-note">
-          Related service: <Link href={`/services/${service.slug}`}>{service.name}</Link>. <Link href="/services">All services</Link> · <Link href="/works">Concept work</Link>.
+          Related service: <Link href={`/services/${service.slug}`}>{service.name}</Link>. <Link href="/services">All services</Link> · <Link href="/works">Concept work</Link> · <Link href="/contact">Start a project</Link>.
         </p>
       )}
       <Pager prev={i > 0 ? `/blogs/${BLOGS[i - 1][0]}` : undefined} next={i < BLOGS.length - 1 ? `/blogs/${BLOGS[i + 1][0]}` : undefined} />

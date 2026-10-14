@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Img from "./Img";
 import Reveal from "./Reveal";
 import Stats from "./Stats";
@@ -7,6 +8,7 @@ import Pricing from "./Pricing";
 import { BlogCard, WorkCard } from "./cards";
 import { Btn, SecHead } from "./ui";
 import { IconPlus } from "./icons";
+import { SERVICE_PAGES } from "@/data/services";
 import { ABOUT, BLOGS, HERO, HOME_WORKS, PLANS, PLANS_INTRO, PROCESS_ROWS, PROJECT_ROWS, PROJECTS_INTRO, AWARDS_INTRO, SECTION_SUB, SERVICES, WORKS } from "@/lib/data";
 import { PRODUCT_ENGINEERING } from "@/lib/seo";
 
@@ -70,14 +72,21 @@ export default function Home() {
           <Accordion
             className="acc"
             itemClass="acc__item"
-            items={SERVICES.map(([t, d, tags, im, alt]) => ({
+            items={SERVICES.map(([t, d, tags, im, alt], i) => ({
               key: t,
               content: (
                 <div className="acc__row">
                   <div className="acc__thumb"><Img id={im} w={193} h={100} alt={alt} /></div>
                   <div className="acc__main">
                     <h4 className="acc__title">{t}</h4>
-                    <div className="acc__body"><p>{d}</p></div>
+                    <div className="acc__body">
+                      <p>{d}</p>
+                      {SERVICE_PAGES[i] && (
+                        <Link className="link-u" href={`/services/${SERVICE_PAGES[i].slug}`}>
+                          Learn more about {t}
+                        </Link>
+                      )}
+                    </div>
                     <div className="acc__tags">{tags.map((x) => <span className="tag" key={x}>{x}</span>)}</div>
                   </div>
                   <div className="icon-ring"><IconPlus /></div>

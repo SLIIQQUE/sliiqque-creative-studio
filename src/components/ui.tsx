@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import Breadcrumbs from "./Breadcrumbs";
 
 export function Btn({ href, children, className = "" }: { href: string; children: ReactNode; className?: string }) {
   return <Link className={`btn ${className}`.trim()} href={href}>{children}</Link>;
@@ -14,10 +15,11 @@ export function SecHead({ title, aside, asideClass = "" }: { title: ReactNode; a
   );
 }
 
-export function PageHero({ h1, sub, className = "", h1Class = "t-display" }: { h1: ReactNode; sub: string; className?: string; h1Class?: string }) {
+export function PageHero({ h1, sub, className = "", h1Class = "t-display", breadcrumb }: { h1: ReactNode; sub: string; className?: string; h1Class?: string; breadcrumb?: { name: string; path: string }[] }) {
   return (
     <section className={`page-hero${className ? " " + className : ""}`}>
       <div className="container">
+        {breadcrumb && <Breadcrumbs items={breadcrumb} />}
         <div className="sec-head">
           <h1 className={h1Class}>{h1}</h1>
           <div className="sec-aside"><p>{sub}</p></div>

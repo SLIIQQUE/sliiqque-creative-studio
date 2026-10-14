@@ -5,13 +5,15 @@ import { PageHero } from "@/components/ui";
 import { WORKS, WORKS_LISTED } from "@/lib/data";
 
 export const metadata = pageMeta({
-  title: "Work: AI Concept Brand Worlds",
+  title: "Work: AI Concept Brand Worlds in Lagos",
   description:
-    "Concept work by SLIIQQUE: ÀLÀ skincare, ODÈ grooming and ÀSE spirits, with AI commercials, digital humans and AI photography. Not client work.",
+    "Concept work by SLIIQQUE: ÀLÀ skincare, ODÈ grooming and ÀSE spirits, with AI commercials and AI photography. Not client work. Start your own.",
   path: "/works",
   keywords: ["AI commercial portfolio", "AI product photography portfolio", "digital humans portfolio", "concept brand work"],
   image: { url: shareImg(WORKS[0][5]), alt: `${WORKS[0][1]}: concept brand visual by SLIIQQUE` },
 });
+
+const BREADCRUMB = [{ name: "Home", path: "/" }, { name: "Work", path: "/works" }];
 
 export default function WorksPage() {
   return (
@@ -20,10 +22,10 @@ export default function WorksPage() {
         data={[
           { "@context": "https://schema.org", "@type": "CollectionPage", name: "SLIIQQUE Studio work", url: abs("/works") },
           { "@context": "https://schema.org", "@type": "ItemList", itemListElement: WORKS.map((w, i) => ({ "@type": "ListItem", position: i + 1, url: abs(`/works/${w[0]}`), name: w[1] })) },
-          breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Work", path: "/works" }]),
+          breadcrumbSchema(BREADCRUMB),
         ]}
       />
-      <PageHero h1="Our Work" sub="Concept brand worlds, self-initiated studio work, labelled as exactly that." />
+      <PageHero h1="Our Work" sub="Concept brand worlds, self-initiated studio work, labelled as exactly that." breadcrumb={BREADCRUMB} />
       <section className="sec sec--works sec--last">
         <div className="container">
           <LoadMore

@@ -5,6 +5,7 @@ import Img from "@/components/Img";
 import Reveal from "@/components/Reveal";
 import { Pager } from "@/components/ui";
 import AgeGate from "@/components/AgeGate";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import JsonLd from "@/components/JsonLd";
 import { servicesForWork } from "@/data/services";
 import { CASES, WORKS } from "@/lib/data";
@@ -44,15 +45,17 @@ export default async function CasePage({ params }: Props) {
   const narrow = false;
   const [heroW, heroH] = narrow ? [1188, 698] : [1320, 775];
   const [wideW, wideH] = ({ "ala-skin": [1318, 774], ode: [1319, 774] } as Record<string, number[]>)[slug] ?? [1320, 775];
+  const breadcrumb = [{ name: "Home", path: "/" }, { name: "Work", path: "/works" }, { name: name, path: `/works/${slug}` }];
 
   return (
     <section className="case">
       <JsonLd
         data={[
           { "@context": "https://schema.org", "@type": "CreativeWork", name: name, description: C.overview, url: abs(`/works/${slug}`), creator: { "@id": ORG_ID }, genre: cat, dateCreated: yr, image: [cardImg, ...C.duo, C.wide].map((id) => abs(`/img/${id}`)) },
-          breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Work", path: "/works" }, { name: name, path: `/works/${slug}` }]),
+          breadcrumbSchema(breadcrumb),
         ]}
       />
+      <Breadcrumbs items={breadcrumb} />
       {slug === "ase" && <AgeGate />}
       <div className="case__head">
         <h1 className="t-display case__title">{name}</h1>

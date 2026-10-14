@@ -23,11 +23,13 @@ function Select({ id, name, placeholder, options }: { id: string; name: string; 
   );
 }
 
+const BREADCRUMB = [{ name: "Home", path: "/" }, { name: "Contact", path: "/contact" }];
+
 export default function ContactPage() {
   return (
     <>
-      <JsonLd data={[{ "@context": "https://schema.org", "@type": "ContactPage", name: "Contact SLIIQQUE Studio", url: abs("/contact"), about: { "@id": ORG_ID } }, breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Contact", path: "/contact" }])]} />
-      <PageHero h1={C.h2} sub={C.sub} className="page-hero--contact" />
+      <JsonLd data={[{ "@context": "https://schema.org", "@type": "ContactPage", name: "Contact SLIIQQUE Studio", url: abs("/contact"), about: { "@id": ORG_ID } }, breadcrumbSchema(BREADCRUMB)]} />
+      <PageHero h1={C.h2} sub={C.sub} className="page-hero--contact" breadcrumb={BREADCRUMB} />
       <section className="sec sec--last">
         <Reveal className="contact">
           <div className="contact__info">

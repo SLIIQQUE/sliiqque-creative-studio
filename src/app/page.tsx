@@ -4,8 +4,8 @@ import { HERO, PLANS, PROJECT_ROWS, SERVICES } from "@/lib/data";
 import { ORG_ID, SITE_URL, pageMeta, shareImg } from "@/lib/seo";
 
 export const metadata = pageMeta({
-  title: "SLIIQQUE | AI Commercial & UGC Studio in Lagos, Nigeria",
-  description: "SLIIQQUE is a Lagos creative studio producing AI commercials, UGC, digital humans and AI product photography. Retainers from ₦150,000 / $280 a month.",
+  title: "AI Commercial & UGC Studio in Lagos, Nigeria | SLIIQQUE",
+  description: "SLIIQQUE is a Lagos creative studio producing AI commercials, UGC, digital humans and AI product photography. Start a project from ₦150,000 / $280 a month.",
   path: "/",
   absoluteTitle: true,
   keywords: ["AI creative studio Lagos", "AI commercial production Nigeria", "AI UGC ads Nigeria", "AI product photography Lagos", "digital humans for advertising"],

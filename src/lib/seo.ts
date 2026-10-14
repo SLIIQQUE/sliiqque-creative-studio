@@ -85,6 +85,11 @@ export function isoDate(label: string): string {
   return isNaN(d.getTime()) ? "2026-10-01" : d.toISOString().slice(0, 10);
 }
 
+/** "2026-10-14" -> "Oct 14, 2026", for visible "last updated" dates. */
+export function displayDate(iso: string): string {
+  return new Date(`${iso}T00:00:00Z`).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" });
+}
+
 export const ORG_ID = `${SITE_URL}/#organization`;
 
 export function organizationSchema() {

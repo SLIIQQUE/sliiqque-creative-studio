@@ -1,3 +1,4 @@
+import { BLOGS } from "@/lib/data";
 import { PRODUCT_ENGINEERING } from "@/lib/seo";
 
 export type Faq = { q: string; a: string };
@@ -31,7 +32,7 @@ export const SERVICE_PAGES: ServicePage[] = [
     name: "AI Commercials",
     title: "AI Commercial Production in Lagos, Nigeria",
     description:
-      "AI commercial production in Lagos, Nigeria: storyboard, AI production, grade, sound and cutdowns for Meta, TikTok and YouTube. From ₦350,000 / $650 in 7 days.",
+      "AI commercial production in Lagos: storyboard, AI production, grade, sound and cutdowns for Meta, TikTok and YouTube. Book yours from ₦350,000 in 7 days.",
     h1: "AI commercial production in Lagos, Nigeria",
     answer:
       "An AI commercial is a short, cinematic advertisement produced with AI image and video tools under human art direction, without a conventional film shoot. SLIIQQUE storyboards, builds, grades and cuts 30 to 60 second AI commercials for brands in Nigeria, Africa and worldwide, starting from ₦350,000 (US$650) with a 7 day turnaround.",
@@ -72,7 +73,7 @@ export const SERVICE_PAGES: ServicePage[] = [
     name: "AI UGC & Digital Humans",
     title: "AI UGC Ads and Digital Humans for Brands",
     description:
-      "AI UGC ads and identity-locked digital humans for brands in Nigeria and worldwide. Retainers from ₦150,000 / $280 a month. Custom digital human ₦150,000.",
+      "AI UGC ads and identity-locked digital humans for brands worldwide. Retainers from ₦150,000 / $280 a month. Custom digital human ₦150,000. Start now.",
     h1: "AI UGC ads and digital humans for brands",
     answer:
       "AI UGC is UGC-style short-form video presented by a photorealistic AI-generated person instead of a hired creator. SLIIQQUE builds identity-locked digital humans, so the same person appears consistently across every ad, and produces vertical UGC-style videos for TikTok, Instagram Reels and Meta. Retainers start at ₦150,000 (US$280) a month and a custom digital human is ₦150,000 (US$280).",
@@ -115,9 +116,9 @@ export const SERVICE_PAGES: ServicePage[] = [
   {
     slug: "ai-photography",
     name: "AI Photography",
-    title: "AI Product Photography in Lagos",
+    title: "AI Product Photography in Lagos, Nigeria",
     description:
-      "AI product and lifestyle photography from SLIIQQUE in Lagos. Product Photo Pack, 5 SKUs, from ₦75,000 / $140, delivered in 5 working days.",
+      "AI product and lifestyle photography from SLIIQQUE in Lagos. Get a 5-SKU Product Photo Pack from ₦75,000 / $140, delivered in 5 working days.",
     h1: "AI product and lifestyle photography",
     answer:
       "AI photography creates commercial product and lifestyle images without a conventional studio shoot. SLIIQQUE builds high-resolution stills with your product held consistent in every frame. The Product Photo Pack covers 5 SKUs with 3 styled images each for ₦75,000 (US$140), delivered in 5 working days.",
@@ -159,9 +160,9 @@ export const SERVICE_PAGES: ServicePage[] = [
   {
     slug: "ai-fashion-imagery",
     name: "AI Fashion Imagery",
-    title: "AI Fashion Imagery and AI Models for Brands",
+    title: "AI Fashion Photography for Brands",
     description:
-      "AI fashion imagery from SLIIQQUE in Lagos: photorealistic AI models wearing your clothes for lookbooks, campaigns and e-commerce. Included in retainers from ₦150,000 / $280 a month.",
+      "AI fashion imagery from SLIIQQUE: photorealistic AI models wearing your clothes for lookbooks and e-commerce. Included in retainers from ₦150,000.",
     h1: "AI fashion imagery: photorealistic models wearing your clothes",
     answer:
       "AI fashion imagery is photorealistic imagery of AI-generated models wearing a brand's clothes, produced from photos of the real garments without a studio, a model booking or a wardrobe shoot. SLIIQQUE builds identity-locked AI models and puts your garments on them for lookbooks, campaign visuals and e-commerce product pages, keeping each garment's colour, cut and details consistent in every frame.",
@@ -206,7 +207,7 @@ export const SERVICE_PAGES: ServicePage[] = [
     name: "Brand Launches & Campaigns",
     title: "Brand Launch and Campaign Production",
     description:
-      "A brand launch campaign from SLIIQQUE: concept, art direction, an AI commercial, UGC-style videos and launch stills. ₦900,000 / $1,700 in 21 days.",
+      "A brand launch campaign from SLIIQQUE in Lagos: concept, art direction, an AI commercial and launch stills. Book yours: ₦900,000 / $1,700, 21 days.",
     h1: "Brand launch and visual campaign production",
     answer:
       "A brand launch campaign is the set of creative assets built around a new product or brand: concept, art direction, a hero commercial, short-form content and stills that all follow the same rules. SLIIQQUE delivers a 21 day Brand Launch Campaign for ₦900,000 (US$1,700), covering concept and art direction, one 30 second AI commercial with cutdowns, six UGC-style videos and 20 launch stills.",
@@ -266,6 +267,9 @@ const CATEGORY_SERVICE: Record<string, string> = {
 };
 
 export const serviceForCategory = (cat: string) => serviceBySlug(CATEGORY_SERVICE[cat] ?? "");
+
+/** The reverse of serviceForCategory: live Journal posts relevant to a given service page. */
+export const postsForService = (slug: string) => BLOGS.filter((b) => CATEGORY_SERVICE[b[2]] === slug);
 
 /** Site-wide FAQ (also the source for FAQPage schema and llms.txt). */
 export const SITE_FAQ: Faq[] = [

@@ -8,18 +8,20 @@ import { abs, breadcrumbSchema, ORG_ID, pageMeta, PRODUCT_ENGINEERING, shareImg 
 export const metadata = pageMeta({
   title: "Creative Services: AI Ads & Photography",
   description:
-    "AI commercials, AI UGC and digital humans, AI product photography and brand launches from SLIIQQUE in Lagos. From ₦150,000 / $280 a month.",
+    "AI commercials, AI UGC, digital humans, AI product photography and brand launches from SLIIQQUE in Lagos. Start a project from ₦150,000 a month.",
   path: "/services",
   keywords: ["AI creative studio Lagos", "AI advertising studio Africa", "creative studio Lagos", "AI video ads agency Lagos"],
   image: { url: shareImg("digital-human-portrait-wide.jpg"), alt: "SLIIQQUE Studio: identity-locked photorealistic AI digital human portrait" },
 });
+
+const BREADCRUMB = [{ name: "Home", path: "/" }, { name: "Services", path: "/services" }];
 
 export default function ServicesPage() {
   return (
     <>
       <JsonLd
         data={[
-          breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }]),
+          breadcrumbSchema(BREADCRUMB),
           {
             "@context": "https://schema.org",
             "@type": "ItemList",
@@ -32,6 +34,7 @@ export default function ServicesPage() {
         h1="creative services"
         sub="Eight creative services under one studio, run as monthly retainers and fixed-scope projects."
         className="page-hero--legal"
+        breadcrumb={BREADCRUMB}
       />
       <section className="sec sec--last">
         <Reveal className="container">

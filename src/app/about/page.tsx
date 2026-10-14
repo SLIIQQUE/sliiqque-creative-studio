@@ -12,11 +12,13 @@ import { ABOUT_PAGE as A, STANDARDS_ROWS } from "@/lib/data";
 export const metadata = pageMeta({
   title: "About SLIIQQUE, a Lagos AI Creative Studio",
   description:
-    "SLIIQQUE is a Lagos creative studio founded 22 December 2025 by Gabriel Njoabozia. How it works, its standards and its policies on AI and ownership.",
+    "SLIIQQUE is a Lagos creative studio founded 22 December 2025 by Gabriel Njoabozia. See how it works, its standards, and start a project today.",
   path: "/about",
   keywords: ["about SLIIQQUE", "creative studio Lagos", "AI creative studio Nigeria", "Gabriel Njoabozia"],
   image: { url: shareImg(A.story_img), alt: "SLIIQQUE Studio production flatlay: AI product stills, portrait and storyboard contact sheet" },
 });
+
+const BREADCRUMB = [{ name: "Home", path: "/" }, { name: "About", path: "/about" }];
 
 export default function AboutPage() {
   return (
@@ -25,10 +27,10 @@ export default function AboutPage() {
         data={[
           { "@context": "https://schema.org", "@type": "AboutPage", name: "About SLIIQQUE Studio", url: abs("/about"), about: { "@id": ORG_ID } },
           faqSchema(A.faq.map(([q, a]) => ({ q, a }))),
-          breadcrumbSchema([{ name: "Home", path: "/" }, { name: "About", path: "/about" }]),
+          breadcrumbSchema(BREADCRUMB),
         ]}
       />
-      <PageHero h1={<>about <br />our studio</>} sub={A.hero_sub} h1Class="t-display nw" />
+      <PageHero h1={<>about <br />our studio</>} sub={A.hero_sub} h1Class="t-display nw" breadcrumb={BREADCRUMB} />
 
       <section className="story">
         <div className="story__img"><Img id={A.story_img} w={1320} h={800} alt="SLIIQQUE Studio production flatlay: AI product stills, portrait and storyboard contact sheet" eager /></div>

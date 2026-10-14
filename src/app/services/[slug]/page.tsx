@@ -6,7 +6,7 @@ import Img from "@/components/Img";
 import JsonLd from "@/components/JsonLd";
 import Reveal from "@/components/Reveal";
 import { Btn, PageHero } from "@/components/ui";
-import { SERVICE_PAGES, SERVICE_WORKS, serviceBySlug } from "@/data/services";
+import { postsForService, SERVICE_PAGES, SERVICE_WORKS, serviceBySlug } from "@/data/services";
 import { WORKS } from "@/lib/data";
 import { abs, breadcrumbSchema, faqSchema, ORG_ID, pageMeta, shareImg } from "@/lib/seo";
 
@@ -41,12 +41,14 @@ export default async function ServicePage({ params }: Props) {
   if (!s) notFound();
   const related = SERVICE_PAGES.filter((x) => s.related.includes(x.slug));
   const works = WORKS.filter((w) => SERVICE_WORKS[s.slug]?.includes(w[0]));
+  const posts = postsForService(s.slug);
+  const breadcrumb = [{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: s.name, path: `/services/${s.slug}` }];
 
   return (
     <>
       <JsonLd
         data={[
-          breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: s.name, path: `/services/${s.slug}` }]),
+          breadcrumbSchema(breadcrumb),
           {
             "@context": "https://schema.org",
             "@type": "Service",
@@ -65,7 +67,7 @@ export default async function ServicePage({ params }: Props) {
           faqSchema(s.faqs),
         ]}
       />
-      <PageHero h1={s.h1} sub={`${s.priceLabel} ${s.priceNgn} (${s.priceUsd}) · ${s.timeline}`} className="page-hero--legal" h1Class="t-h3" />
+      <PageHero h1={s.h1} sub={`${s.priceLabel} ${s.priceNgn} (${s.priceUsd}) · ${s.timeline}`} className="page-hero--legal" h1Class="t-h3" breadcrumb={breadcrumb} />
       <section className="sec legal">
         <Reveal className="split">
           <h2 className="t-h4">The short answer</h2>
@@ -103,6 +105,14 @@ export default async function ServicePage({ params }: Props) {
             <div>
               <ul>{works.map((w) => <li key={w[0]}><Link href={`/works/${w[0]}`}>{w[1]}</Link>: {w[3]} ({w[2]})</li>)}</ul>
               <p>These are self-initiated concept projects for fictional brands, not client work.</p>
+            </div>
+          </Reveal>
+        )}
+        {posts.length > 0 && (
+          <Reveal className="split">
+            <h2 className="t-h4">From the journal</h2>
+            <div>
+              <ul>{posts.map((p) => <li key={p[0]}><Link href={`/blogs/${p[0]}`}>{p[3].replace(/\.$/, "")}</Link></li>)}</ul>
             </div>
           </Reveal>
         )}

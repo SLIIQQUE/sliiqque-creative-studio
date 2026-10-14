@@ -11,11 +11,13 @@ export const metadata = pageMeta({
   image: { url: shareImg("studio-process-flatlay-mosaic.webp"), alt: "SLIIQQUE Studio production flatlay: AI product stills, portrait and storyboard contact sheet" },
 });
 
+const BREADCRUMB = [{ name: "Home", path: "/" }, { name: "Studio Policies", path: "/policies" }];
+
 export default function Page() {
   return (
     <>
-      <JsonLd data={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Studio Policies", path: "/policies" }])} />
-      <LegalPage doc={LEGAL.policies} />
+      <JsonLd data={breadcrumbSchema(BREADCRUMB)} />
+      <LegalPage doc={LEGAL.policies} breadcrumb={BREADCRUMB} />
     </>
   );
 }

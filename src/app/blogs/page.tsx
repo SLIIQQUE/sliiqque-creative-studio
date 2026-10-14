@@ -7,17 +7,19 @@ import { BLOGS, BLOGS_LISTED } from "@/lib/data";
 export const metadata = pageMeta({
   title: "Journal: AI Production Notes",
   description:
-    "SLIIQQUE's journal on identity lock, storyboarding, upscaling, grading and ten-second animation blocks, written from the studio's own production work.",
+    "SLIIQQUE's journal on digital human identity lock, AI fashion imagery and building creative systems, written from the studio's own production work.",
   path: "/blogs",
   keywords: ["AI commercial production guide", "digital human identity lock", "AI storyboard workflow", "AI photography guide"],
   image: { url: shareImg(BLOGS[0][4]), alt: `${BLOGS[0][3]} SLIIQQUE Studio journal` },
 });
 
+const BREADCRUMB = [{ name: "Home", path: "/" }, { name: "Journal", path: "/blogs" }];
+
 export default function BlogsPage() {
   return (
     <>
-      <JsonLd data={[{ "@context": "https://schema.org", "@type": "Blog", name: "SLIIQQUE Studio journal", url: abs("/blogs") }, breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Journal", path: "/blogs" }])]} />
-      <PageHero h1="journal" sub="Notes on identity lock, storyboarding, grading and fashion imagery, written from our own production work." className="page-hero--blogs" />
+      <JsonLd data={[{ "@context": "https://schema.org", "@type": "Blog", name: "SLIIQQUE Studio journal", url: abs("/blogs") }, breadcrumbSchema(BREADCRUMB)]} />
+      <PageHero h1="journal" sub="Notes on identity lock, AI fashion imagery and creative systems, written from our own production work." className="page-hero--blogs" breadcrumb={BREADCRUMB} />
       <section className="sec sec--last">
         <div className="container">
           <LoadMore

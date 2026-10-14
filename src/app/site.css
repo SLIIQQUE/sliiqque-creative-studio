@@ -206,6 +206,7 @@ h1, h2, h3, h4, h5 { font-family: var(--font-display); }
 .sec-head .t-title { max-width: 600px; }
 .sec-aside { width: 312px; max-width: 100%; text-align: right; flex: none; display: flex; flex-direction: column; align-items: flex-end; gap: 40px; }
 .sec-aside p { font-size: var(--fs-body); line-height: var(--lh-body); color: var(--text); }
+.faq-updated { margin-top: 8px; font-size: 13px; color: var(--text-2); }
 .sec-aside--lift { margin-bottom: 12px; }
 
 /* ---------- 7. Home hero ---------- */
@@ -266,6 +267,7 @@ h1, h2, h3, h4, h5 { font-family: var(--font-display); }
 .acc__title { font-size: var(--fs-h4); line-height: var(--lh-h4); letter-spacing: var(--ls-h4); font-weight: 600; text-transform: uppercase; align-self: start; }
 .acc__body { grid-column: 1; overflow: hidden; max-height: 0; opacity: 0; transition: max-height .5s cubic-bezier(.2, .7, .2, 1), opacity .4s; }
 .acc__body p { margin-top: 32px; max-width: 334px; color: var(--text-2); }
+.acc__body .link-u { display: inline-flex; margin-top: 16px; font-size: 15px; font-weight: 500; }
 .sec--last { padding-bottom: 200px; }
 .ph-hide { }
 .acc__tags { grid-column: 2; grid-row: 1 / span 2; display: flex; flex-wrap: wrap; gap: 12px 12px; align-content: flex-start; max-width: 480px; opacity: 0; max-height: 0; overflow: hidden; transition: opacity .4s; }
@@ -275,7 +277,7 @@ h1, h2, h3, h4, h5 { font-family: var(--font-display); }
 .icon-ring svg { width: 100%; height: 100%; display: block; }
 .icon-ring .v { transition: opacity .25s; }
 .acc__item.is-open .acc__thumb { width: 193px; height: 100px; opacity: 1; margin-right: 40px; }
-.acc__item.is-open .acc__body { max-height: 200px; opacity: 1; }
+.acc__item.is-open .acc__body { max-height: 260px; opacity: 1; }
 .acc__item.is-open .acc__tags { opacity: 1; max-height: 120px; }
 .acc__item.is-open .icon-ring .v { opacity: 0; }
 .acc__item .acc__title { grid-row: 1; }
@@ -371,7 +373,17 @@ h1, h2, h3, h4, h5 { font-family: var(--font-display); }
 .footer__cols .copy a { color: var(--ink); }
 
 /* ---------- 17. Inner pages ---------- */
+.breadcrumbs { max-width: var(--container); margin: 0 auto 16px; }
+.breadcrumbs ol { display: flex; flex-wrap: wrap; align-items: center; list-style: none; padding: 0; margin: 0; }
+.breadcrumbs li { display: flex; align-items: center; font-size: 13px; line-height: 1.4; color: var(--text-2); }
+.breadcrumbs li:not(:last-child)::after { content: "/"; margin: 0 8px; color: var(--line-strong); }
+.breadcrumbs a { color: var(--text-2); text-decoration: none; }
+.breadcrumbs a:hover { color: var(--ink); text-decoration: underline; }
+.breadcrumbs [aria-current="page"] { color: var(--ink-2); font-weight: 500; }
+.case .breadcrumbs, .post .breadcrumbs { margin-bottom: 40px; }
+
 .page-hero { padding: 140px var(--gutter) 100px; }
+.page-hero .breadcrumbs { margin-bottom: 40px; }
 .page-hero--tall { padding-bottom: 200px; }
 .page-hero .sec-head { margin-bottom: 0; }
 .page-hero h1, .page-hero h2 { max-width: 600px; }
