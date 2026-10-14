@@ -139,6 +139,10 @@ h1, h2, h3, h4, h5 { font-family: var(--font-display); }
 .t-ui      { font-size: 11px; line-height: 1; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
 
 /* ---------- 3. Navigation ---------- */
+/* Scroll progress: shared visual language with sliiqque.space (Product & Engineering). */
+.scroll-progress { position: fixed; top: 0; left: 0; right: 0; height: 4px; transform-origin: left; background: linear-gradient(to right, #f97316, #3b82f6, #a855f7); transition: transform .1s linear; z-index: 100; pointer-events: none; }
+@media (prefers-reduced-motion: reduce) { .scroll-progress { transition: none; } }
+
 .nav-wrap { position: sticky; top: 0; z-index: 50; }
 .nav {
   background: var(--nav-bg); -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px);
@@ -149,6 +153,9 @@ h1, h2, h3, h4, h5 { font-family: var(--font-display); }
 .logo img { display: block; height: 28px; width: auto; }
 
 .nav-links { display: flex; align-items: center; gap: 24px; }
+/* Nav items uppercase for consistency with sliiqque.space (Product & Engineering). */
+.nav-links .link-u, .nav-cta { text-transform: uppercase; letter-spacing: .04em; }
+.nav-links .link-u { font-weight: 600; font-size: 15px; }
 .link-u { position: relative; display: inline-flex; align-items: center; gap: 5px; font-weight: 500; font-size: 16px; line-height: 27.2px; overflow: visible; }
 .link-u::after {            /* hover underline: grows from 1px to full width */
   content: ""; position: absolute; left: -1px; bottom: 0; height: 1px; width: 0; background: currentColor; transition: width .35s cubic-bezier(.2, .7, .2, 1);
@@ -736,13 +743,14 @@ h1, h2, h3, h4, h5 { font-family: var(--font-display); }
 .nav-links { gap: 28px; }
 .link-u[aria-current="page"]::after { width: calc(100% + 1px); }
 /* Nav CTA pill (Brand Book §5.1 "Nav CTA Button" — the one rounded-full button on the site). */
-.nav-cta { padding: 6px 22px; font-size: 16px; line-height: 27px; white-space: nowrap; border-radius: var(--radius-pill); }
+.nav-cta { padding: 6px 22px; font-size: 15px; font-weight: 600; line-height: 27px; white-space: nowrap; border-radius: var(--radius-pill); }
 .nav-cta[aria-current="page"] { background: var(--accent-hover); }
 .nav-toggle { display: none; padding: 6px 18px; font: inherit; font-size: 16px; font-weight: 500; line-height: 27px; background: transparent; color: var(--ink); border: 1px solid var(--line-strong); border-radius: var(--radius-pill); cursor: pointer; }
 .nav-panel { position: absolute; left: 0; right: 0; top: 100%; padding: 20px var(--gutter) 24px; background: var(--surface); color: var(--ink); border-top: 1px solid var(--line-subtle); box-shadow: var(--shadow-lg); }
 .nav-panel ul { display: flex; flex-direction: column; margin-bottom: 20px; }
-.nav-panel li a { display: block; padding: 12px 0; font-size: 20px; line-height: 28px; font-weight: 500; border-bottom: 1px solid var(--line-subtle); }
+.nav-panel li a { display: block; padding: 12px 0; font-size: 20px; line-height: 28px; font-weight: 500; text-transform: uppercase; letter-spacing: .04em; border-bottom: 1px solid var(--line-subtle); }
 .nav-panel li a[aria-current="page"] { color: var(--accent); }
+.nav-panel .btn { text-transform: uppercase; letter-spacing: .04em; }
 a:focus-visible, button:focus-visible, .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 section[id] { scroll-margin-top: 80px; }
 @media (max-width: 959.98px) {
