@@ -531,7 +531,9 @@ h1, h2, h3, h4, h5 { font-family: var(--font-display); }
   .works-grid { column-gap: 30px; row-gap: 40px; }
   .works-grid--page { column-gap: 24px; row-gap: 49px; }
   .page-hero h1 { max-width: 420px; }
-  .page-hero h1.nw { max-width: none; }
+  /* Same bug as the home hero wordmark: a fixed 85px nowrap h1 next to a 248px sec-aside
+     overflowed every tablet viewport. Ease it to fit. */
+  .page-hero h1.nw { max-width: none; font-size: 46px; line-height: 38px; letter-spacing: -2px; }
   .page-hero--blogs { padding-bottom: 60px; }
   .center-btn { margin-top: 42px; }
   .center-btn--blogs { margin-top: 37px; }
@@ -671,7 +673,14 @@ h1, h2, h3, h4, h5 { font-family: var(--font-display); }
   .split, .split--even { grid-template-columns: 1fr; row-gap: 24px; }
   .form { grid-template-columns: 1fr; }
   .case__head { flex-direction: column; align-items: flex-start; gap: 24px; }
-  .case__meta, .case__meta--post { gap: 40px; text-align: left; align-self: flex-start; }
+  /* Three squeezed columns (and on posts, a clipped third "Written by" column) read as
+     cramped on a phone-width row. Stack each label/value pair as its own full-width row. */
+  .case__meta, .case__meta--post {
+    flex-direction: column; align-items: flex-start; align-self: stretch;
+    width: 100%; gap: 16px; text-align: left;
+  }
+  .case__meta > div, .case__meta--post > div { width: 100%; padding-bottom: 16px; border-bottom: 1px solid var(--line-subtle); }
+  .case__meta > div:last-child, .case__meta--post > div:last-child { border-bottom: 0; padding-bottom: 0; }
   .case__duo, .post__gallery { grid-template-columns: 1fr; row-gap: 24px; }
   .case__hero, .case__duo > div, .case__wide { aspect-ratio: 350 / 274; }
   .case__hero--narrow, .case__wide--narrow { aspect-ratio: 350 / 274; }
@@ -698,6 +707,7 @@ h1, h2, h3, h4, h5 { font-family: var(--font-display); }
   .page-hero { padding: 50px var(--gutter) 50px; }
   .page-hero .sec-aside { width: 100%; }
   .page-hero h1 { max-width: none; }
+  .page-hero h1.nw { font-size: 34px; line-height: 28px; letter-spacing: -1.5px; white-space: normal; }
   .page-hero--blogs { padding-bottom: 50px; }
   .sec--last { padding-bottom: 60px; }
   .works-grid--page { row-gap: 36px; }
