@@ -1,5 +1,5 @@
 import JsonLd from "@/components/JsonLd";
-import { abs, breadcrumbSchema, ORG_ID, pageMeta } from "@/lib/seo";
+import { abs, breadcrumbSchema, ORG_ID, pageMeta, shareImg } from "@/lib/seo";
 import DemoForm from "@/components/DemoForm";
 import Reveal from "@/components/Reveal";
 import { PageHero } from "@/components/ui";
@@ -11,6 +11,7 @@ export const metadata = pageMeta({
     "Contact SLIIQQUE in Lagos: hello@sliiqque.space or call/WhatsApp +234 704 100 0085. Mon to Fri, 9am to 6pm WAT. Replies within one working day.",
   path: "/contact",
   keywords: ["contact SLIIQQUE", "hire AI creative studio Lagos", "AI commercial quote Nigeria"],
+  image: { url: shareImg("digital-human-face-macro.jpg"), alt: "SLIIQQUE Studio: AI-produced photorealistic digital human, extreme close-up" },
 });
 
 function Select({ id, name, placeholder, options }: { id: string; name: string; placeholder: string; options: string[] }) {
