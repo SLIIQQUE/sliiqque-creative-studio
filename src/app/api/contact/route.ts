@@ -1,5 +1,6 @@
 import { Resend } from "resend";
 import { SITE } from "@/lib/data";
+import { contactInquiryEmail, newsletterSignupEmail } from "@/lib/email";
 
 export const runtime = "nodejs";
 
@@ -13,8 +14,6 @@ type Payload = {
   budget?: string;
   message?: string;
 };
-
-const escape = (s: string) => s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c] as string);
 
 export async function POST(request: Request) {
   let body: Payload;
@@ -41,18 +40,9 @@ export async function POST(request: Request) {
 
   const resend = new Resend(apiKey);
   const isNewsletter = body.kind === "newsletter";
-  const subject = isNewsletter ? `Journal sign-up: ${email}` : `New project inquiry from ${body.name || email}`;
-  const rows = isNewsletter
-    ? [["Email", email]]
-    : [
-        ["Name", body.name || "—"],
-        ["Email", email],
-        ["Phone", body.phone || "—"],
-        ["Project type", body.type || "—"],
-        ["Budget range", body.budget || "—"],
-        ["Message", body.message || "—"],
-      ];
-  const html = `<table>${rows.map(([k, v]) => `<tr><td><strong>${escape(k)}</strong></td><td>${escape(v).replace(/\n/g, "<br>")}</td></tr>`).join("")}</table>`;
+  const { subject, html, text } = isNewsletter
+    ? newsletterSignupEmail(email)
+    : contactInquiryEmail({ name: body.name, email, phone: body.phone, type: body.type, budget: body.budget, message: body.message });
 
   try {
     await resend.emails.send({
@@ -63,6 +53,7 @@ export async function POST(request: Request) {
       replyTo: email,
       subject,
       html,
+      text,
     });
     return Response.json({ ok: true });
   } catch (err) {
