@@ -28,6 +28,8 @@ export const metadata: Metadata = {
   alternates: { canonical: SITE_URL },
   formatDetection: { telephone: true, email: true, address: false },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 } },
+  // Bing Webmaster Tools site ownership verification.
+  verification: { other: { "msvalidate.01": "872930D99381693004A6F51EC748030C" } },
   openGraph: { type: "website", siteName: SITE_NAME, locale: "en_NG", url: SITE_URL, title: `${SITE_NAME} | Premium Creative Studio Powered by AI`, description: BRAND_DESC },
   twitter: { card: "summary_large_image", title: `${SITE_NAME} | Premium Creative Studio Powered by AI`, description: BRAND_DESC },
   other: { "geo.region": "NG-LA", "geo.placename": "Lagos", "geo.position": "6.5244;3.3792", ICBM: "6.5244, 3.3792", "organization-id": ORG_ID },
