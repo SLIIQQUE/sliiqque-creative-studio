@@ -5,7 +5,7 @@ import { GLOSSARY } from "@/data/glossary";
 import { breadcrumbSchema, CONTENT_UPDATED, glossarySchema, pageMeta, shareImg } from "@/lib/seo";
 
 export const metadata = pageMeta({
-  title: "AI Production Glossary: Key Terms Explained",
+  title: "AI Production Glossary: Key Terms",
   description:
     "Plain-English definitions of AI commercial, AI UGC, digital human, identity lock, storyboard, grade, cutdown and retainer, as SLIIQQUE uses them.",
   path: "/glossary",

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Img from "./Img";
 import Reveal from "./Reveal";
-import Stats from "./Stats";
+import CountUp from "./CountUp";
 import Accordion from "./Accordion";
 import Awards from "./Awards";
 import Pricing from "./Pricing";
@@ -11,6 +11,15 @@ import { IconPlus } from "./icons";
 import { SERVICE_PAGES } from "@/data/services";
 import { ABOUT, BLOGS, HERO, HOME_WORKS, PLANS, PLANS_INTRO, PROCESS_ROWS, PROJECT_ROWS, PROJECTS_INTRO, AWARDS_INTRO, SECTION_SUB, SERVICES, WORKS } from "@/lib/data";
 import { PRODUCT_ENGINEERING } from "@/lib/seo";
+
+/** "AI is how we produce, not what we sell." -> headline halves; the rest of the sentence block stays as the paragraph. */
+const [FIRST, ...AFTER] = ABOUT.body.split(". ");
+const LEAD = FIRST.includes(", ") ? [FIRST.slice(0, FIRST.indexOf(", ")), FIRST.slice(FIRST.indexOf(", ") + 2)] : [FIRST, ""];
+const [AI_WORD, ...PRODUCE_WORDS] = LEAD[0].split(" ");
+const PRODUCE_REST = PRODUCE_WORDS.join(" ");
+const REST = AFTER.join(". ");
+/** "concept, art direction, production, motion and campaign assets" -> chips, read from the same paragraph. */
+const PARTS = (REST.match(/systems, (.+?) assets/)?.[1] ?? "").split(/, | and /).filter(Boolean).map((x, i, a) => (i === a.length - 1 ? `${x} assets` : x));
 
 export default function Home() {
   return (
@@ -40,18 +49,58 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="sec" id="about">
-        <Reveal className="about__row1">
-          <div className="about__label">About<br />SLIIQQUE Studio</div>
-          <div className="about__copy">
-            <h3 className="t-h3">{ABOUT.heading}</h3>
-            <p>{ABOUT.body}</p>
-            <Btn href="/about">About us</Btn>
+      <section className="ab" id="about" aria-labelledby="about-title">
+        <div className="ab__glow ab__glow--a" aria-hidden="true" />
+        <div className="ab__glow ab__glow--b" aria-hidden="true" />
+        <Reveal className="ab__in">
+          <div className="ab__top">
+            <p className="ab__label"><span aria-hidden="true" />About SLIIQQUE Studio</p>
+            <p className="ab__idx">Manifesto <i aria-hidden="true">/</i> 01</p>
           </div>
-        </Reveal>
-        <Reveal className="about__row2">
-          <Img id={ABOUT.img} w={290} h={197} alt="SLIIQQUE Studio reviewing AI-generated production stills" />
-          <Stats className="stats" stats={ABOUT.stats} />
+
+          <h2 className="ab__statement" id="about-title">
+            <span className="ab__line"><em className="ab__ai">{AI_WORD}</em> {PRODUCE_REST},</span>
+            <span className="ab__line ab__ghost">{LEAD[1]}.</span>
+          </h2>
+
+          <div className="ab__grid">
+            <div className="ab__intro">
+              <p className="ab__heading">{ABOUT.heading}</p>
+              <p className="ab__body">{REST}</p>
+              <div className="ab__actions">
+                <Btn href="/about">About us</Btn>
+                <span className="ab__where">Lagos, Nigeria <i aria-hidden="true">/</i> Working worldwide</span>
+              </div>
+            </div>
+            <figure className="ab__figure">
+              <div className="ab__shot">
+                <Img id={ABOUT.img} w={640} h={426} alt="SLIIQQUE Studio reviewing AI-generated production stills" />
+                <span className="ab__badge">In studio <i aria-hidden="true">/</i> Lagos</span>
+              </div>
+              <figcaption>Reviewing AI-generated production stills</figcaption>
+            </figure>
+          </div>
+
+          <div className="ab__stats">
+            {ABOUT.stats.map(([n, sign, caption]) => (
+              <div className="ab__stat" key={caption}>
+                <p className="ab__num"><CountUp target={n} /><span>{sign}</span></p>
+                <p className="ab__stat-copy">{caption}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="ab__sell">
+            <div className="ab__sell-lead">
+              <p className="ab__cap">What we sell</p>
+              <p className="ab__sell-title">Creative systems</p>
+            </div>
+            {PARTS.length > 0 && (
+              <ul className="ab__chips" aria-label="What a SLIIQQUE creative system includes">
+                {PARTS.map((x) => <li key={x}>{x}</li>)}
+              </ul>
+            )}
+          </div>
         </Reveal>
       </section>
 

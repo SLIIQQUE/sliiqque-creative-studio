@@ -1,5 +1,7 @@
 import Link from "next/link";
+import Img from "@/components/Img";
 import JsonLd from "@/components/JsonLd";
+import { IconArrow } from "@/components/icons";
 import Reveal from "@/components/Reveal";
 import { Btn, PageHero } from "@/components/ui";
 import { SERVICE_PAGES } from "@/data/services";
@@ -13,6 +15,12 @@ export const metadata = pageMeta({
   keywords: ["AI creative studio Lagos", "AI advertising studio Africa", "creative studio Lagos", "AI video ads agency Lagos"],
   image: { url: shareImg("digital-human-portrait-wide.jpg"), alt: "SLIIQQUE Studio: identity-locked photorealistic AI digital human portrait" },
 });
+
+/** Services without a gallery of their own borrow a frame from the concept work that best represents them. */
+const FALLBACK_IMG: Record<string, { id: string; alt: string }> = {
+  "ai-commercials": { id: "ode-portrait.jpg", alt: "AI commercial frame: ODÈ grooming concept, portrait" },
+  "brand-launches-campaigns": { id: "ala-serum-prismatic-hero.png", alt: "Brand launch visual: ÀLÀ skincare concept, prismatic serum hero" },
+};
 
 const BREADCRUMB = [{ name: "Home", path: "/" }, { name: "Services", path: "/services" }];
 
@@ -32,21 +40,31 @@ export default function ServicesPage() {
       />
       <PageHero
         h1="creative services"
-        sub="Eight creative services under one studio, run as monthly retainers and fixed-scope projects."
+        sub="Five creative services under one studio, run as monthly retainers and fixed-scope projects."
         className="page-hero--legal"
         breadcrumb={BREADCRUMB}
       />
       <section className="sec sec--last">
         <Reveal className="container">
-          <div className="process">
-            {SERVICE_PAGES.map((s) => (
-              <Link className="process__card service-card" key={s.slug} href={`/services/${s.slug}`}>
-                <h2 className="t-h4">{s.name}</h2>
-                <p>{s.answer.split(". ")[0]}.</p>
-                <p className="service-card__meta">{s.priceLabel} {s.priceNgn} ({s.priceUsd}) · {s.timeline}</p>
-              </Link>
-            ))}
-          </div>
+          <ol className="svc-list">
+            {SERVICE_PAGES.map((s, i) => {
+              const img = s.gallery?.[0] ?? FALLBACK_IMG[s.slug];
+              return (
+                <li key={s.slug}>
+                  <Link className="svc-row" href={`/services/${s.slug}`}>
+                    <span className="svc-row__num" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
+                    <div className="svc-row__main">
+                      <h2 className="svc-row__name">{s.name}</h2>
+                      <p>{s.answer.split(". ")[0]}.</p>
+                      <p className="svc-row__meta"><strong>{s.priceLabel} {s.priceNgn}</strong> ({s.priceUsd}) · {s.timeline}</p>
+                    </div>
+                    {img && <div className="svc-row__img"><Img id={img.id} w={320} h={400} alt={img.alt} /></div>}
+                    <span className="svc-row__go" aria-hidden="true"><IconArrow /></span>
+                  </Link>
+                </li>
+              );
+            })}
+          </ol>
           <p className="services-note">
             SLIIQQUE does not offer logo design. See <Link href="/#pricing">pricing</Link>, the <Link href="/faq">FAQ</Link> or <Link href="/contact">start a project</Link>.
           </p>

@@ -106,6 +106,7 @@ function shell({ eyebrowLabel, heading, bodyHtml, preheader }: { eyebrowLabel: s
           <!-- dark header: the hero wordmark, stacked -->
           <tr>
             <td style="padding:26px 28px 22px;background-color:${INK};" bgcolor="${INK}">
+              <img src="${SITE_URL}/brand/sliiqque-icon-white.png" width="44" alt="SLIIQQUE" style="display:block;width:44px;height:auto;margin:0 0 14px;border:0;" />
               <div style="font-family:${DISPLAY_FONT};font-weight:700;font-size:20px;line-height:1.15;letter-spacing:-.3px;text-transform:uppercase;color:#ffffff;">SLIIQQUE<br />STUDIO</div>
               <div style="margin-top:8px;font-family:${BODY_FONT};font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:${MUTED};">Premium creative studio powered by AI</div>
             </td>

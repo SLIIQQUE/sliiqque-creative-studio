@@ -48,7 +48,7 @@ export const KEYWORDS = [
 export const abs = (path: string) => `${SITE_URL}${path === "/" ? "" : path}`;
 
 /** Date the site content last changed (sitemap lastModified). Bump it when copy changes; a build alone is not a change. */
-export const CONTENT_UPDATED = "2026-10-14";
+export const CONTENT_UPDATED = "2026-10-26";
 
 /**
  * Social preview for a public/img asset. Points at a static, pre-cropped 1200x630 JPEG in
@@ -97,7 +97,7 @@ export const ORG_ID = `${SITE_URL}/#organization`;
 export const FOUNDER_ID = `${PRODUCT_ENGINEERING.url}/studio/#person`;
 
 export function founderSchema(extra?: Record<string, unknown>) {
-  return { "@type": "Person", "@id": FOUNDER_ID, name: "Gabriel Njoabozia", jobTitle: "Founder", ...extra };
+  return { "@type": "Person", "@id": FOUNDER_ID, name: "Gabriel Njoabozia", jobTitle: "Founder", image: `${SITE_URL}/brand/gabriel-njoabozia.jpg`, ...extra };
 }
 
 export function organizationSchema() {
@@ -108,7 +108,7 @@ export function organizationSchema() {
     name: SITE_NAME,
     alternateName: ["SLIIQQUE", "SLIIQQUE Creative Studio"],
     url: SITE_URL,
-    logo: `${SITE_URL}/brand/sliiqque-mark.png`,
+    logo: `${SITE_URL}/brand/sliiqque-logo.png`,
     image: `${SITE_URL}/opengraph-image`,
     description: BRAND_DESC,
     slogan: "Premium creative studio powered by AI",

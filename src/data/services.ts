@@ -261,6 +261,7 @@ const CATEGORY_SERVICE: Record<string, string> = {
   "Digital Humans": "ai-ugc-digital-humans",
   Process: "ai-commercials",
   "Post-production": "ai-photography",
+  Photography: "ai-photography",
   Commercials: "ai-commercials",
   Fashion: "ai-fashion-imagery",
   Studio: "brand-launches-campaigns",

@@ -15,7 +15,7 @@ export const metadata = pageMeta({
     "SLIIQQUE is a Lagos creative studio founded 22 December 2025 by Gabriel Njoabozia. See how it works, its standards, and start a project today.",
   path: "/about",
   keywords: ["about SLIIQQUE", "creative studio Lagos", "AI creative studio Nigeria", "Gabriel Njoabozia"],
-  image: { url: shareImg(A.story_img), alt: "SLIIQQUE Studio production flatlay: AI product stills, portrait and storyboard contact sheet" },
+  image: { url: shareImg("gabriel-njoabozia.jpg"), alt: "AI-generated portrait of Gabriel Njoabozia, founder of SLIIQQUE Studio" },
 });
 
 const BREADCRUMB = [{ name: "Home", path: "/" }, { name: "About", path: "/about" }];
@@ -33,21 +33,43 @@ export default function AboutPage() {
       <PageHero h1={<>about <br />our studio</>} sub={A.hero_sub} h1Class="t-display nw" breadcrumb={BREADCRUMB} />
 
       <section className="story">
-        <div className="story__img"><Img id={A.story_img} w={1320} h={800} alt="SLIIQQUE Studio production flatlay: AI product stills, portrait and storyboard contact sheet" eager /></div>
-        <Reveal className="split story__row">
-          <h4 className="t-h4">{A.story_label}</h4>
-          <div><h3 className="t-h3">{A.story_h3}</h3><p>{A.story_p}</p></div>
+        <Reveal className="founder">
+          <figure className="founder__img">
+            <Img id="gabriel-njoabozia-founder.webp" w={753} h={941} alt="AI-generated portrait of Gabriel Njoabozia, founder of SLIIQQUE Studio" eager />
+            <figcaption>Gabriel Njoabozia, Founder. AI-generated portrait.</figcaption>
+          </figure>
+          <div className="founder__text">
+            <h2 className="t-h4">{A.story_label}</h2>
+            <h3 className="t-h3">{A.story_h3}</h3>
+            <p>{A.story_p}</p>
+            <p>Gabriel Njoabozia founded SLIIQQUE in Lagos on 22 December 2025. SLIIQQUE runs two divisions: creative production here, and <a href={PRODUCT_ENGINEERING.url} target="_blank" rel="noopener noreferrer">{PRODUCT_ENGINEERING.name}</a> for websites, AI bots and automation.</p>
+            <p>The portrait is an AI-generated likeness, made the way the studio makes every digital human: from a locked identity profile.</p>
+          </div>
         </Reveal>
         <Stats className="stats--4" reveal stats={A.stats} />
       </section>
 
-      <section className="sec" id="how">
-        <Reveal className="container">
-          <SecHead title="How we work" aside={<p>{A.how_intro}</p>} />
-          <div className="process">
-            {A.steps.map(([t, d]) => <div className="process__card" key={t}><h4 className="t-h4">{t}</h4><p>{d}</p></div>)}
+      <section className="flow" id="how">
+        <div className="flow__in">
+          <div className="flow__head">
+            <h2 className="t-title">How we work</h2>
+            <p>{A.how_intro}</p>
           </div>
-        </Reveal>
+          <ol className="flow__list">
+            {A.steps.map(([t, d]) => {
+              const [n, ...rest] = t.split(" ");
+              return (
+                <Reveal as="li" className="flow__item" key={t}>
+                  <span className="flow__num" aria-hidden="true">{n.padStart(2, "0")}</span>
+                  <div className="flow__body">
+                    <h3 className="flow__title">{rest.join(" ")}</h3>
+                    <p>{d}</p>
+                  </div>
+                </Reveal>
+              );
+            })}
+          </ol>
+        </div>
       </section>
 
       <section className="sec" id="ecosystem">

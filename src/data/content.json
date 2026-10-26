@@ -40,7 +40,7 @@
   "img": "studio-ai-review-monitor.webp",
   "stats": [
    [
-    8,
+    5,
     "",
     "Creative services under one studio, run as retainers and content systems."
    ],
@@ -181,7 +181,7 @@
    "Brand Launches & Campaigns: a campaign moodboard and art direction system, print and mobile"
   ]
  ],
- "SECTION_SUB": "Eight creative services, run as monthly retainers and content systems, never per-asset deliverables.",
+ "SECTION_SUB": "Five creative services, run as monthly retainers and content systems, never per-asset deliverables.",
  "AWARDS_INTRO": "The same four stages sit under every commercial, UGC series and photography set we produce.",
  "PLANS_INTRO": "Three monthly retainers for ongoing content, plus one-off projects below. Switch between naira and US dollars with the toggle; international clients are invoiced in USD. Prices exclude taxes. Organic usage is included; paid-ad licensing is included on Scale and available as an add-on on the other plans.",
  "PLANS": [
@@ -229,6 +229,10 @@
   ]
  ],
  "BLOGS": [
+  ["identity-lock-explained-faces-products-garments", "Oct 26, 2026", "Digital Humans", "Identity lock explained: faces, products and garments.", "digital-human-face-macro.jpg"],
+  ["ai-ugc-vs-real-ugc-what-brands-actually-get", "Oct 26, 2026", "Digital Humans", "AI UGC vs real UGC: what brands actually get.", "digital-human-woman-portrait.jpg"],
+  ["how-much-does-an-ai-commercial-cost-in-lagos", "Oct 26, 2026", "Commercials", "How much does an AI commercial cost in Lagos?", "ode-portrait.jpg"],
+  ["ai-product-photography-vs-studio-shoot-cost-turnaround", "Oct 26, 2026", "Photography", "AI photography vs a studio shoot: cost and speed.", "ode-beard-oil.jpg"],
   [
    "why-every-digital-human-needs-a-character-lock",
    "Oct 2, 2026",
@@ -251,8 +255,12 @@
    "studio-campaign-systems-moodboard.webp"
   ]
  ],
- "BLOGS_LISTED": 3,
+ "BLOGS_LISTED": 6,
  "POSTS": {
+  "identity-lock-explained-faces-products-garments": {"groups": [["Overview", [["The short answer", ["Identity lock is the practice of describing a subject once, in writing, and reusing that description word for word in every generation so it stays identical. It applies to anything that must not drift: a face, a product, a garment. Our earlier note covers why digital humans need it; this one covers where else it matters and how we check it holds."]], ["Why AI subjects drift", ["Image models treat each generation as a fresh draw. Unless the subject is pinned down, small details wander between images: a label moves, a seam changes, a skin tone shifts. Across a set, the subject quietly becomes several different ones."]]]], ["Beyond faces", [["Products", ["For AI photography we write a product identity profile covering shape, material, colour, label and the details that must not drift. The setting, light and props change while the product stays identical. Your logo and packaging are used exactly as you supply them."]], ["Garments", ["For AI fashion imagery each garment gets a profile covering colour, cut, fabric, trim and any print or detail. The model is locked too, so one person wears the whole collection. The garment is never redesigned."]]]], ["How we check it holds", [["Compare against the reference", ["Every output is checked against the reference images and the written profile. When a result drifts, the reference is re-attached and the subject is treated as a locked asset instead of rewording the prompt."]], ["Upscale without invention", ["Stills are upscaled without invented detail and graded once as a set, so the finishing steps do not introduce changes of their own."]]]], ["Final Thoughts", [["Where it fits", ["Identity lock is the reason one digital human can appear in every ad, one product can look identical across a pack, and one collection can sit on one model. It is part of every SLIIQQUE service, and the part we are least willing to rush."]]]]], "gallery": ["ode-dropper.jpg", "fashion-suit-three-quarter.jpg"]},
+  "ai-ugc-vs-real-ugc-what-brands-actually-get": {"groups": [["Overview", [["The short answer", ["Real UGC comes from real people with real experience of your product. AI UGC is the same short-form, creator-style format presented by a synthetic digital human. They do different jobs, and a brand that treats them as interchangeable will be disappointed by one of them."]], ["What AI UGC is", ["AI UGC is UGC-style short-form video, the casual creator look used in TikTok and Reels ads, presented by a photorealistic AI-generated person. At SLIIQQUE the person is a digital human with a permanent identity profile, exclusive to the client."]]]], ["What each gives you", [["What real creators give you", ["Lived experience, an existing audience, spontaneity and genuine testimonials. If a claim in an ad is about what it is like to use your product, a real customer is the honest source."]], ["What AI UGC gives you", ["Consistency and volume. The same on-screen person appears in every ad, so a brand can test many hooks and formats without booking, briefing and chasing a new creator each time. Retainers start at ₦150,000 (US$280) a month, and a custom digital human is ₦150,000 (US$280)."]], ["What AI UGC does not give you", ["A real customer. SLIIQQUE does not produce fake reviews or testimonials presented as genuine, and does not present a digital human as a real customer. Use AI UGC for explainers, product demonstrations, offers and hooks, not for invented experience."]]]], ["Choosing and disclosing", [["A simple split", ["Use real creators where credibility depends on a real person's experience. Use AI UGC where the job is presenting the product, the offer or the hook at volume, with one consistent face. Many brands run both."]], ["Disclosure", ["You are responsible for any AI or synthetic-media labels a platform or the law requires. SLIIQQUE supplies suggested disclosure wording on request."]]]], ["Final Thoughts", [["Be clear about the job", ["The question is not which is better. It is what the ad is claiming and who can honestly make that claim. See the AI UGC page in Lagos for scope and pricing, or send a brief."]]]]], "gallery": ["digital-human-woman-lifestyle.jpg", "digital-human-portrait-wide.jpg"]},
+  "how-much-does-an-ai-commercial-cost-in-lagos": {"groups": [["Overview", [["The short answer", ["SLIIQQUE AI commercials start from ₦350,000 (US$650) for a 30 to 60 second spot with platform cutdowns, a high-resolution master, two revision rounds and commercial usage rights. Delivery is 7 days from the deposit and all required materials. Larger scopes are quoted after a brief, and prices exclude taxes."]], ["What an AI commercial is", ["An AI commercial is a short cinematic advertisement produced with AI image and video tools under human art direction, without a conventional film shoot. The craft is in the direction: storyboard, identity lock, grade and sound."]]]], ["What the price covers", [["Inside the ₦350,000 scope", ["A nine-panel storyboard agreed before any motion is made. AI production with product and character identity locked across shots. One colour grade across the piece. Sound and music, with captions where needed. Vertical 9:16, square 1:1 and landscape 16:9 cutdowns."]], ["Usage rights", ["One-off projects include commercial usage, including paid media, assigned to you on full payment. You are responsible for any AI or synthetic-media labels a platform or law requires, and SLIIQQUE supplies suggested wording on request."]], ["What changes the price", ["Longer running times, more hero spots, extra videos or stills, extra revision rounds and rush delivery. Rush is +50%, an extra video is ₦40,000 (US$75) and an extra revision round is ₦15,000 (US$30)."]]]], ["Retainer or one-off", [["One-off commercial", ["Choose a one-off AI Commercial when you have a single launch or campaign moment and want a finished hero spot with cutdowns."]], ["Monthly retainer", ["Retainers run from ₦150,000 (US$280) to ₦750,000 (US$1,400) a month. The top tier includes a monthly commercial plus always-on content. For a launch with concept, art direction, commercial, UGC-style videos and stills together, the Brand Launch Campaign is ₦900,000 (US$1,700) over 21 days."]]]], ["Final Thoughts", [["Compare like for like", ["Whatever you compare it with, ask for a written quote that lists running time, cutdowns, revisions, usage rights and delivery date. Then the price comparison means something. See the AI commercials page in Lagos for scope, or send a brief."]]]]], "gallery": ["ode-wide.jpg", "ode-profile.jpg"]},
+  "ai-product-photography-vs-studio-shoot-cost-turnaround": {"groups": [["Overview", [["The short answer", ["AI product photography suits catalogues, product pages, ads and social content, and it is quicker and cheaper to brief than a studio shoot. A traditional shoot is still the better tool when the exact physical product must be documented. This note sets out how SLIIQQUE decides between the two for brands in Lagos and beyond."]], ["What a studio shoot gives you", ["A conventional shoot photographs the real object under real light. That is the right method when fit, fabric drape, true colour or a physical texture has to be shown exactly as it is, and when a marketplace requires unretouched photography of the item."]]]], ["Cost and turnaround", [["What AI photography costs at SLIIQQUE", ["The Product Photo Pack is ₦75,000 (US$140) for 5 SKUs with 3 styled high-resolution images each, delivered in 5 working days. Monthly retainers from ₦150,000 (US$280) include stills alongside video. Prices exclude taxes."]], ["What to compare it with", ["Ask any studio you are considering for a quote that lists the same things: number of SKUs, styled images per SKU, usage rights, revision rounds and delivery date. Studio fees, model and prop hire, and location costs vary widely, so compare a written quote against the Product Photo Pack line by line rather than relying on a general figure."]], ["Where the time goes", ["With AI photography there is no booking, travel or set build. The work is the product profile, the styling direction and the grade. Delivery depends on how quickly you send clear photos of the product from several angles and sign off the direction."]]]], ["Choosing between them", [["Use AI photography when", ["You need styled images for many SKUs, lifestyle scenes without a studio, models and props, or fresh visuals for product pages, marketplaces, ads and social feeds. SLIIQQUE writes a permanent profile of the product so its shape, material, colour and label stay identical across scenes."]], ["Use a studio shoot when", ["The exact garment, fit or texture must be documented, or a platform requires unretouched photographs. SLIIQQUE will tell you when a traditional shoot is the better choice."]]]], ["Final Thoughts", [["Start from the use", ["Decide where the images will live, then pick the method. Many brands use both: a studio shoot for the hero SKU and AI photography for the range. See the AI product photography page for scope, or send a brief."]]]]], "gallery": ["ode-dropper.jpg", "digital-human-fabric-detail.jpg"]},
   "why-every-digital-human-needs-a-character-lock": {
    "groups": [
     [
@@ -594,7 +602,7 @@
   "story_p": "Founded in Lagos on 22 December 2025, we build creative systems for modern brands: AI commercials, UGC, photography, fashion imagery, brand launches and visual campaigns, with photorealistic digital humans whose identity holds from the first frame to the last. Our work to date is self-initiated concept work: three complete brand worlds, labelled as exactly that.",
   "stats": [
    [
-    8,
+    5,
     "",
     "Creative services under one studio."
    ],
@@ -637,7 +645,7 @@
   "faq": [
    [
     "what services do you offer?",
-    "Eight creative services: AI commercials, AI UGC, AI photography, AI fashion imagery, brand launches, product cinematography, visual campaigns and digital humans."
+    "Five creative services: AI commercials, AI UGC and digital humans, AI photography, AI fashion imagery, and brand launches and campaigns."
    ],
    [
     "do you design logos?",

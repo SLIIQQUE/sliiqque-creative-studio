@@ -82,7 +82,7 @@ To enable real delivery for live visitors: create a Resend account, verify `slii
 
 ```
 public/
-  brand/                   Logo marks (horizontal wordmark, icon mark)
+  brand/                   Logo marks (app-tile logo, white icon, horizontal wordmark)
   img/                     All photography, named either by AI-generation id
                             or descriptively (ala-*, ode-*, ase-*, fashion-suit-*,
                             digital-human-*, studio-*)

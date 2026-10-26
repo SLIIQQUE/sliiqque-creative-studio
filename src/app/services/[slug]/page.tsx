@@ -16,6 +16,13 @@ export function generateStaticParams() {
   return SERVICE_PAGES.map((s) => ({ slug: s.slug }));
 }
 
+/** Lagos-intent landing page for a service: [path, link text]. */
+const LAGOS_PAGE: Record<string, [string, string]> = {
+  "ai-commercials": ["/ai-commercials-lagos", "AI commercials in Lagos"],
+  "ai-ugc-digital-humans": ["/ai-ugc-ads-lagos", "AI UGC ads in Lagos"],
+  "ai-photography": ["/ai-product-photography-lagos", "AI product photography in Lagos"],
+};
+
 /** Services with no gallery of their own borrow the hero of the concept work that best represents them. */
 const FALLBACK_SHARE_WORK: Record<string, string> = { "ai-commercials": "ode", "brand-launches-campaigns": "ala-skin" };
 
@@ -99,6 +106,12 @@ export default async function ServicePage({ params }: Props) {
             <p>Prices exclude taxes. Two revision rounds are included. See <Link href="/#pricing">all retainers and projects</Link>, the <Link href="/policies">Studio Policies</Link> and the <Link href="/terms">Terms &amp; Conditions</Link>.</p>
           </div>
         </Reveal>
+        {LAGOS_PAGE[s.slug] && (
+          <Reveal className="split">
+            <h2 className="t-h4">In Lagos</h2>
+            <div><p>Ordering from Lagos? See <Link href={LAGOS_PAGE[s.slug][0]}>{LAGOS_PAGE[s.slug][1]}</Link>.</p></div>
+          </Reveal>
+        )}
         {works.length > 0 && (
           <Reveal className="split">
             <h2 className="t-h4">See it in practice</h2>

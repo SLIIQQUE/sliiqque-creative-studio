@@ -3,9 +3,9 @@ import Image from "next/image";
 /** SLIIQQUE wordmark: Syne 800, uppercase, 0.05em tracking (Brand Book §8). */
 const font = { fontFamily: "var(--font-syne), Syne, sans-serif", fontWeight: 800 } as const;
 
-/** Top bar: the SLIIQQUE icon mark (double-Q with blue square), 24px tall like the template's logo slot. */
+/** Top bar: the SLIIQQUE app-tile logo (black rounded tile, white double-Q, blue accent), the same mark as the favicon and the other SLIIQQUE sites. */
 export function LogoNav() {
-  return <Image src="/brand/sliiqque-mark.png" width={374} height={232} alt="SLIIQQUE Creative Studio" priority />;
+  return <Image src="/brand/sliiqque-logo.png" width={192} height={192} alt="SLIIQQUE Creative Studio" priority />;
 }
 
 export function LogoFooter() {
