@@ -45,7 +45,7 @@ function Row({ ids, reverse, offset }: { ids: string[]; reverse?: boolean; offse
             data-cursor="View"
             aria-label={`${frameLabel(id)}. Open ${frameHref(id).startsWith("/works") ? "the concept case" : "the service"}`}
           >
-            <Img id={id} w={300} h={375} alt={clone ? "" : frameAlt(id)} />
+            <Img id={id} w={300} h={375} alt={clone ? "" : frameAlt(id)} preload />
             <span className="showcase__cap">{String((n % list.length) + offset).padStart(2, "0")} / {frameLabel(id)}</span>
           </Link>
         );
