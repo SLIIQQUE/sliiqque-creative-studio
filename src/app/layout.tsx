@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { DM_Sans, Syne } from "next/font/google";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
@@ -51,6 +52,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <FloatingActions />
         <CursorTag />
         <Analytics />
+        <GoogleAnalytics gaId="G-0Q1FTZE6MT" />
         <AttributionCapture />
       </body>
     </html>
