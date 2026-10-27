@@ -1,5 +1,6 @@
 import { Resend } from "resend";
 import { SITE } from "@/lib/data";
+import { describeAttribution, type Attribution } from "@/lib/attribution";
 import { contactInquiryEmail, newsletterSignupEmail } from "@/lib/email";
 
 export const runtime = "nodejs";
@@ -13,6 +14,7 @@ type Payload = {
   type?: string;
   budget?: string;
   message?: string;
+  attribution?: Attribution | null;
 };
 
 export async function POST(request: Request) {
@@ -40,9 +42,10 @@ export async function POST(request: Request) {
 
   const resend = new Resend(apiKey);
   const isNewsletter = body.kind === "newsletter";
+  const source = describeAttribution(body.attribution);
   const { subject, html, text } = isNewsletter
-    ? newsletterSignupEmail(email)
-    : contactInquiryEmail({ name: body.name, email, phone: body.phone, type: body.type, budget: body.budget, message: body.message });
+    ? newsletterSignupEmail(email, source)
+    : contactInquiryEmail({ name: body.name, email, phone: body.phone, type: body.type, budget: body.budget, message: body.message, source });
 
   try {
     await resend.emails.send({

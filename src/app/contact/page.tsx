@@ -2,6 +2,7 @@ import JsonLd from "@/components/JsonLd";
 import { abs, breadcrumbSchema, ORG_ID, pageMeta, shareImg } from "@/lib/seo";
 import DemoForm from "@/components/DemoForm";
 import Reveal from "@/components/Reveal";
+import SocialFollow from "@/components/SocialFollow";
 import { PageHero } from "@/components/ui";
 import { CONTACT as C, SITE } from "@/lib/data";
 
@@ -45,6 +46,7 @@ export default function ContactPage() {
             <div className="field field--full field--msg"><label htmlFor="f-msg">message</label><textarea id="f-msg" name="message" placeholder="Write your project details/message" required /></div>
           </DemoForm>
         </Reveal>
+        <div className="container"><SocialFollow placement="contact" heading="Prefer to look first?" sub="See the latest production notes and price breakdowns before you write to us." /></div>
       </section>
     </>
   );

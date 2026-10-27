@@ -3,6 +3,9 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Fragment } from "react";
 import Img from "@/components/Img";
+import ShareLinks from "@/components/ShareLinks";
+import SocialFollow from "@/components/SocialFollow";
+import VideoBlock from "@/components/VideoBlock";
 import Reveal from "@/components/Reveal";
 import { Pager } from "@/components/ui";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -106,6 +109,9 @@ export default async function PostPage({ params }: Props) {
           Related service: <Link href={`/services/${service.slug}`}>{service.name}</Link>. <Link href="/services">All services</Link> · <Link href="/works">Concept work</Link> · <Link href="/contact">Start a project</Link>.
         </p>
       )}
+      <VideoBlock path={`/blogs/${slug}`} />
+      <ShareLinks url={abs(`/blogs/${slug}`)} title={title.replace(/\.$/, "")} />
+      <SocialFollow placement="journal-post" />
       <Pager prev={i > 0 ? `/blogs/${BLOGS[i - 1][0]}` : undefined} next={i < BLOGS.length - 1 ? `/blogs/${BLOGS[i + 1][0]}` : undefined} />
     </section>
   );

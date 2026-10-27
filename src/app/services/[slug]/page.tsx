@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import FaqList from "@/components/FaqList";
 import Img from "@/components/Img";
+import VideoBlock from "@/components/VideoBlock";
 import JsonLd from "@/components/JsonLd";
 import Reveal from "@/components/Reveal";
 import { Btn, PageHero } from "@/components/ui";
@@ -106,6 +107,7 @@ export default async function ServicePage({ params }: Props) {
             <p>Prices exclude taxes. Two revision rounds are included. See <Link href="/#pricing">all retainers and projects</Link>, the <Link href="/policies">Studio Policies</Link> and the <Link href="/terms">Terms &amp; Conditions</Link>.</p>
           </div>
         </Reveal>
+        <VideoBlock path={`/services/${s.slug}`} />
         {LAGOS_PAGE[s.slug] && (
           <Reveal className="split">
             <h2 className="t-h4">In Lagos</h2>

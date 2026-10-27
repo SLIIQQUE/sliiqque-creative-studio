@@ -3,6 +3,7 @@ import { SITE } from "@/lib/data";
 import { PRODUCT_ENGINEERING } from "@/lib/seo";
 import { LogoFooter } from "./Logo";
 import DemoForm from "./DemoForm";
+import OutLink from "./OutLink";
 
 type Item = [label: string, href: string, external?: boolean];
 
@@ -28,7 +29,7 @@ function Column({ title, items }: { title: string; items: Item[] }) {
         {items.map(([label, href, external]) => (
           <li key={label}>
             {external ? (
-              <a className="link-u" href={href} target="_blank" rel="noopener noreferrer">{label}</a>
+              <OutLink className="link-u" href={href} placement="footer">{label}</OutLink>
             ) : (
               <Link className="link-u" href={href}>{label}</Link>
             )}

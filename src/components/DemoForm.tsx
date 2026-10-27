@@ -2,6 +2,7 @@
 
 import { track } from "@vercel/analytics";
 import { useRef, useState, type FormEvent, type ReactNode } from "react";
+import { readAttribution } from "@/lib/attribution";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
@@ -32,7 +33,7 @@ export default function DemoForm({
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ kind, ...data }),
+        body: JSON.stringify({ kind, ...data, attribution: readAttribution() }),
       });
       const json = await res.json();
       if (!res.ok || !json.ok) throw new Error(json.error || "Something went wrong. Please try again.");

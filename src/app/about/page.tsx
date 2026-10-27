@@ -1,6 +1,7 @@
 import JsonLd from "@/components/JsonLd";
 import { abs, breadcrumbSchema, faqSchema, ORG_ID, pageMeta, PRODUCT_ENGINEERING, shareImg } from "@/lib/seo";
 import Img from "@/components/Img";
+import SocialFollow from "@/components/SocialFollow";
 import Reveal from "@/components/Reveal";
 import Stats from "@/components/Stats";
 import Accordion from "@/components/Accordion";
@@ -86,6 +87,10 @@ export default function AboutPage() {
       </section>
 
       <Awards id="standards" title="studio standards" intro="The rules we hold every project to, whether the work is concept or client." rows={STANDARDS_ROWS} />
+
+      <section className="sec">
+        <div className="container"><SocialFollow placement="about" /></div>
+      </section>
 
       <section className="sec sec--last" id="faq">
         <Reveal className="container">

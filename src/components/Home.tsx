@@ -5,6 +5,7 @@ import CountUp from "./CountUp";
 import Accordion from "./Accordion";
 import Awards from "./Awards";
 import Pricing from "./Pricing";
+import SocialFollow from "./SocialFollow";
 import { BlogCard, WorkCard } from "./cards";
 import { Btn, SecHead } from "./ui";
 import { IconPlus } from "./icons";
@@ -168,6 +169,7 @@ export default function Home() {
           <SecHead title="journal" aside={<><p>Notes on identity lock, storyboarding, grading and fashion imagery, written from our own production work.</p><Btn href="/blogs">All Articles</Btn></>} />
           <div className="blog-grid">{BLOGS.slice(0, 2).map((b) => <BlogCard key={b[0]} b={b} />)}</div>
         </Reveal>
+        <div className="container"><SocialFollow placement="home" /></div>
       </section>
     </>
   );

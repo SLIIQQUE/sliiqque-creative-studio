@@ -555,6 +555,26 @@ h1, h2, h3, h4, h5 { font-family: var(--font-display); }
 }
 @media (hover: none) { .svc-row__img { filter: none; transform: none; } }
 
+/* follow block, share links, video embed (traffic loop between the site and the socials) */
+.follow { max-width: var(--container); margin: 80px auto 0; padding: 36px 40px; border: 1px solid var(--line-strong); border-radius: var(--radius-card); display: flex; justify-content: space-between; align-items: center; gap: 32px; flex-wrap: wrap; }
+.follow__text h2 { color: var(--ink-2); }
+.follow__text p { margin-top: 10px; color: var(--text-2); max-width: 440px; }
+.follow__list { list-style: none; margin: 0; padding: 0; display: flex; gap: 12px; flex-wrap: wrap; }
+.follow__link { display: inline-block; padding: 12px 22px; border: 1px solid var(--line-strong); border-radius: 999px; font-weight: 500; color: var(--ink); text-decoration: none; transition: background .25s, color .25s, border-color .25s; }
+.follow__link:hover, .follow__link:focus-visible { background: var(--ink); color: #fff; border-color: var(--ink); }
+.share { max-width: var(--container); margin: 56px auto 0; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.share__label { font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: var(--text-2); margin-right: 8px; }
+.share__link { padding: 8px 16px; border: 1px solid var(--line-strong); border-radius: 999px; font-size: 14px; color: var(--ink); text-decoration: none; }
+.share__link:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+.video { position: relative; aspect-ratio: 16 / 9; border-radius: var(--radius-card); overflow: hidden; background: #000; }
+.video iframe, .video__play, .video__play img { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.video__play { padding: 0; cursor: pointer; background: none; border: 0; }
+.video__play img { object-fit: cover; }
+.video__icon { position: absolute; left: 50%; top: 50%; width: 72px; height: 72px; margin: -36px 0 0 -36px; border-radius: 50%; background: var(--accent); }
+.video__icon::after { content: ""; position: absolute; left: 29px; top: 22px; border-left: 20px solid #fff; border-top: 14px solid transparent; border-bottom: 14px solid transparent; }
+.video__cap { margin-top: 12px; font-size: 14px; color: var(--text-2); }
+@media (max-width: 767px) { .follow { padding: 24px; margin-top: 48px; } }
+
 /* about: story */
 .story { padding: 0 var(--gutter) 100px; }
 .story__img { max-width: var(--container); margin: 0 auto; height: 800px; border-radius: var(--radius-card); overflow: hidden; }

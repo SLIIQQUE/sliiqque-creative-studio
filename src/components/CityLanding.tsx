@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import FaqList from "@/components/FaqList";
 import Img from "@/components/Img";
+import VideoBlock from "@/components/VideoBlock";
 import JsonLd from "@/components/JsonLd";
 import Reveal from "@/components/Reveal";
 import { Btn, PageHero } from "@/components/ui";
@@ -72,6 +73,7 @@ export default function CityLanding(p: CityLandingProps) {
             {gallery.map((g) => <div key={g.id}><Img id={g.id} w={427} h={640} alt={g.alt} /></div>)}
           </Reveal>
         )}
+        <VideoBlock path={p.path} />
         <Reveal className="split">
           <h2 className="t-h4">Who it suits in Lagos</h2>
           <div><ul>{p.who.map((x) => <li key={x}>{x}</li>)}</ul></div>

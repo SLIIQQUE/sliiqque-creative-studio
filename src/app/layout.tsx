@@ -4,6 +4,7 @@ import { DM_Sans, Syne } from "next/font/google";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import FloatingActions from "@/components/FloatingActions";
+import AttributionCapture from "@/components/AttributionCapture";
 import JsonLd from "@/components/JsonLd";
 import { BRAND_DESC, KEYWORDS, ORG_ID, SITE_NAME, SITE_URL, organizationSchema, websiteSchema } from "@/lib/seo";
 import "./fonts.css";
@@ -46,6 +47,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Footer />
         <FloatingActions />
         <Analytics />
+        <AttributionCapture />
       </body>
     </html>
   );

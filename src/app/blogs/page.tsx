@@ -1,4 +1,5 @@
 import JsonLd from "@/components/JsonLd";
+import SocialFollow from "@/components/SocialFollow";
 import { abs, breadcrumbSchema, pageMeta, shareImg } from "@/lib/seo";
 import LoadMore from "@/components/LoadMore";
 import { PageHero } from "@/components/ui";
@@ -27,6 +28,7 @@ export default function BlogsPage() {
             wrapClass="center-btn center-btn--blogs"
             cells={BLOGS.map((b, i) => ({ kind: "post" as const, item: b, hidden: i >= BLOGS_LISTED, phHide: i === 3 }))}
           />
+          <SocialFollow placement="journal" />
         </div>
       </section>
     </>

@@ -142,7 +142,7 @@ function shell({ eyebrowLabel, heading, bodyHtml, preheader }: { eyebrowLabel: s
 </html>`;
 }
 
-export type ContactFields = { name?: string; email: string; phone?: string; type?: string; budget?: string; message?: string };
+export type ContactFields = { name?: string; email: string; phone?: string; type?: string; budget?: string; message?: string; source?: string };
 
 export function contactInquiryEmail(f: ContactFields): { subject: string; html: string; text: string } {
   const name = f.name?.trim() || "there";
@@ -154,7 +154,8 @@ export function contactInquiryEmail(f: ContactFields): { subject: string; html: 
     fieldRow("Email", `<a href="mailto:${encodeURIComponent(f.email)}" style="color:${ACCENT};font-weight:700;text-decoration:none;">${escapeHtml(f.email)}</a>`),
     fieldRow("Phone", escapeHtml(f.phone || "—")),
     fieldRow("Project type", escapeHtml(f.type || "—")),
-    fieldRow("Budget range", escapeHtml(f.budget || "—"), !f.message),
+    fieldRow("Budget range", escapeHtml(f.budget || "-"), !f.message && !f.source),
+    ...(f.source ? [fieldRow("Came from", escapeHtml(f.source), !f.message)] : []),
   ].join("");
   const body = f.message ? rows + messageRow(f.message) : rows;
 
@@ -174,6 +175,7 @@ export function contactInquiryEmail(f: ContactFields): { subject: string; html: 
     `Phone: ${f.phone || "—"}`,
     `Project type: ${f.type || "—"}`,
     `Budget range: ${f.budget || "—"}`,
+    f.source ? `Came from: ${f.source}` : "",
     f.message ? `Message: ${f.message}` : "",
     "",
     `Submitted via studio.sliiqque.space/contact · ${submittedAt} WAT`,
@@ -184,7 +186,7 @@ export function contactInquiryEmail(f: ContactFields): { subject: string; html: 
   return { subject: `New project inquiry from ${name}`, html, text };
 }
 
-export function newsletterSignupEmail(email: string): { subject: string; html: string; text: string } {
+export function newsletterSignupEmail(email: string, source = ""): { subject: string; html: string; text: string } {
   const submittedAt = new Date().toLocaleString("en-NG", { dateStyle: "medium", timeStyle: "short", timeZone: "Africa/Lagos" });
 
   const html = shell({
@@ -192,7 +194,8 @@ export function newsletterSignupEmail(email: string): { subject: string; html: s
     eyebrowLabel: "New journal subscriber",
     heading: "Someone just joined the list.",
     bodyHtml:
-      fieldRow("Email", `<a href="mailto:${encodeURIComponent(email)}" style="color:${ACCENT};font-weight:700;text-decoration:none;">${escapeHtml(email)}</a>`, true) +
+      fieldRow("Email", `<a href="mailto:${encodeURIComponent(email)}" style="color:${ACCENT};font-weight:700;text-decoration:none;">${escapeHtml(email)}</a>`, !source) +
+      (source ? fieldRow("Came from", escapeHtml(source), true) : "") +
       `<tr><td style="padding-top:12px;font-family:${BODY_FONT};font-size:12px;line-height:1.6;color:${MUTED};font-style:italic;">No mailing list is wired up yet — this is a raw notification. Add this address wherever you send journal updates from.</td></tr>` +
       `<tr><td style="padding-top:14px;text-align:center;font-family:${BODY_FONT};font-size:11px;color:${MUTED};">Submitted via studio.sliiqque.space &middot; ${submittedAt} WAT</td></tr>`,
   });
