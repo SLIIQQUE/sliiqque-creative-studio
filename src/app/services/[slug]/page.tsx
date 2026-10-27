@@ -9,7 +9,7 @@ import Reveal from "@/components/Reveal";
 import { Btn, PageHero } from "@/components/ui";
 import { postsForService, SERVICE_PAGES, SERVICE_WORKS, serviceBySlug } from "@/data/services";
 import { WORKS } from "@/lib/data";
-import { abs, breadcrumbSchema, faqSchema, ORG_ID, pageMeta, shareImg } from "@/lib/seo";
+import { abs, breadcrumbSchema, CONTENT_UPDATED, faqSchema, ORG_ID, pageMeta, shareImg } from "@/lib/seo";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -132,7 +132,7 @@ export default async function ServicePage({ params }: Props) {
           </Reveal>
         )}
       </section>
-      <FaqList faqs={s.faqs} title="faq" id="faq" last={false} />
+      <FaqList faqs={s.faqs} title="faq" id="faq" last={false} updated={CONTENT_UPDATED} />
       <section className="sec sec--last">
         <Reveal className="container">
           <div className="center-btn"><Btn href="/contact">Start a project</Btn></div>

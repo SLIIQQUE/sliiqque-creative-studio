@@ -1,54 +1,55 @@
-import Link from "next/link";
 import Img from "./Img";
 import Reveal from "./Reveal";
 import CountUp from "./CountUp";
-import Accordion from "./Accordion";
 import Awards from "./Awards";
 import Pricing from "./Pricing";
 import SocialFollow from "./SocialFollow";
+import ServiceIndex from "./ServiceIndex";
+import HeroReel from "./HeroReel";
+import LagosTime from "./LagosTime";
 import { BlogCard, WorkCard } from "./cards";
 import { Btn, SecHead } from "./ui";
-import { IconPlus } from "./icons";
-import { SERVICE_PAGES } from "@/data/services";
-import { ABOUT, BLOGS, HERO, HOME_WORKS, PLANS, PLANS_INTRO, PROCESS_ROWS, PROJECT_ROWS, PROJECTS_INTRO, AWARDS_INTRO, SECTION_SUB, SERVICES, WORKS } from "@/lib/data";
+import { ABOUT, BLOGS, HERO, HOME_WORKS, PLANS, PLANS_INTRO, PROCESS_ROWS, PROJECT_ROWS, PROJECTS_INTRO, AWARDS_INTRO, SECTION_SUB, WORKS } from "@/lib/data";
 import { PRODUCT_ENGINEERING } from "@/lib/seo";
 
-/** "AI is how we produce, not what we sell." -> headline halves; the rest of the sentence block stays as the paragraph. */
 const [FIRST, ...AFTER] = ABOUT.body.split(". ");
 const LEAD = FIRST.includes(", ") ? [FIRST.slice(0, FIRST.indexOf(", ")), FIRST.slice(FIRST.indexOf(", ") + 2)] : [FIRST, ""];
 const [AI_WORD, ...PRODUCE_WORDS] = LEAD[0].split(" ");
 const PRODUCE_REST = PRODUCE_WORDS.join(" ");
 const REST = AFTER.join(". ");
-/** "concept, art direction, production, motion and campaign assets" -> chips, read from the same paragraph. */
 const PARTS = (REST.match(/systems, (.+?) assets/)?.[1] ?? "").split(/, | and /).filter(Boolean).map((x, i, a) => (i === a.length - 1 ? `${x} assets` : x));
+
+const STRIP = ["AI commercials", "AI UGC", "Digital humans", "AI photography", "Fashion imagery", "Brand launches"];
 
 export default function Home() {
   return (
     <>
       <section className="hero">
-        <div className="hero__row">
-          <p className="hero__title t-hero">
+        <div className="hero__meta">
+          <span><i aria-hidden="true" />Creative studio, Lagos</span>
+          <span className="hero__meta-right"><LagosTime /><b aria-hidden="true">/</b>Working worldwide</span>
+        </div>
+
+        <div className="hero__stage">
+          <h1 className="hero__title t-hero">
             <span className="line">sliiqque</span>
-            <span className="line">studio</span>
-          </p>
+            <span className="line line--ghost">studio</span>
+          </h1>
           <div className="hero__aside">
             <p className="hero__tag">{HERO.tag}</p>
-            <h1 className="t-h4">{HERO.sub}</h1>
-            <a className="scroll" href="#gallery">Scroll Down ↓</a>
+            <p className="hero__sub">{HERO.sub}</p>
+            <a className="scroll" href="#gallery">Scroll to the work</a>
           </div>
         </div>
-        <div className="ticker" id="gallery">
-          <div className="ticker__track">
-            {[0, 1].map((copy) =>
-              HERO.ticker.map((id, n) => (
-                <span key={`${copy}-${id}`} style={{ display: "contents" }} aria-hidden={copy ? true : undefined}>
-                  <Img id={id} w={450} h={550} alt={`SLIIQQUE AI-produced visual ${n + 1}`} eager={!copy && n === 0} />
-                </span>
-              )),
-            )}
-          </div>
-        </div>
+
+        <div id="gallery"><HeroReel ids={HERO.ticker} /></div>
       </section>
+
+      <div className="strip" aria-hidden="true">
+        <div className="strip__track">
+          {[...STRIP, ...STRIP, ...STRIP].map((x, i) => <span className="strip__item" key={`${x}-${i}`}>{x}</span>)}
+        </div>
+      </div>
 
       <section className="ab" id="about" aria-labelledby="about-title">
         <div className="ab__glow ab__glow--a" aria-hidden="true" />
@@ -69,7 +70,7 @@ export default function Home() {
               <p className="ab__heading">{ABOUT.heading}</p>
               <p className="ab__body">{REST}</p>
               <div className="ab__actions">
-                <Btn href="/about">About us</Btn>
+                <Btn href="/about">About the studio</Btn>
                 <span className="ab__where">Lagos, Nigeria <i aria-hidden="true">/</i> Working worldwide</span>
               </div>
             </div>
@@ -108,52 +109,39 @@ export default function Home() {
       <section className="sec sec--works" id="works">
         <div className="container">
           <SecHead
-            title="selected works"
+            index="02 / Selected work"
+            title="the work"
             asideClass="sec-aside--lift"
-            aside={<><p>Concept brand worlds built to show how we work, and labelled as exactly that.</p><Btn href="/works">View all work</Btn></>}
+            aside={<><p>Three concept brand worlds, built end to end and labelled as exactly that. Not client work.</p><Btn href="/works">View all work</Btn></>}
           />
-          <div className="works-grid">{WORKS.slice(0, HOME_WORKS).map((w) => <WorkCard key={w[0]} w={w} />)}</div>
+          <div className="works-grid">
+            {WORKS.slice(0, HOME_WORKS).map((w) => <WorkCard key={w[0]} w={w} />)}
+          </div>
         </div>
       </section>
 
-      <section className="sec" id="services">
-        <Reveal className="container">
-          <SecHead title="our services" aside={<><p>{SECTION_SUB}</p><Btn href="/services">All services</Btn></>} />
-          <Accordion
-            className="acc"
-            itemClass="acc__item"
-            items={SERVICES.map(([t, d, tags, im, alt], i) => ({
-              key: t,
-              content: (
-                <div className="acc__row">
-                  <div className="acc__thumb"><Img id={im} w={193} h={100} alt={alt} /></div>
-                  <div className="acc__main">
-                    <h4 className="acc__title">{t}</h4>
-                    <div className="acc__body">
-                      <p>{d}</p>
-                      {SERVICE_PAGES[i] && (
-                        <Link className="link-u" href={`/services/${SERVICE_PAGES[i].slug}`}>
-                          Learn more about {t}
-                        </Link>
-                      )}
-                    </div>
-                    <div className="acc__tags">{tags.map((x) => <span className="tag" key={x}>{x}</span>)}</div>
-                  </div>
-                  <div className="icon-ring"><IconPlus /></div>
-                </div>
-              ),
-            }))}
+      <section className="sec sec--services" id="services">
+        <div className="container">
+          <SecHead
+            index="03 / Capabilities"
+            title="what we make"
+            aside={<><p>{SECTION_SUB}</p><Btn href="/services">All services</Btn></>}
           />
-        </Reveal>
+          <ServiceIndex />
+        </div>
       </section>
 
-      <Awards id="process" title="our process" intro={AWARDS_INTRO} rows={PROCESS_ROWS} />
+      <Awards id="process" index="04 / Process" title="how it gets made" intro={AWARDS_INTRO} rows={PROCESS_ROWS} tone="night" ghost="Process" />
 
-      <Pricing plans={PLANS} plansIntro={PLANS_INTRO} projects={PROJECT_ROWS} projectsIntro={PROJECTS_INTRO} />
+      <Pricing index="05 / Investment" plans={PLANS} plansIntro={PLANS_INTRO} projects={PROJECT_ROWS} projectsIntro={PROJECTS_INTRO} />
 
       <section className="sec" id="ecosystem">
-        <Reveal className="container">
-          <SecHead title="the sliiqque ecosystem" aside={<p>One studio, two divisions: creative production here, product engineering next door.</p>} />
+        <div className="container">
+          <SecHead
+            index="06 / Ecosystem"
+            title="one studio, two doors"
+            aside={<p>Creative production here. Product engineering next door. Separate teams, one standard.</p>}
+          />
           <div className="ecosystem-card">
             <div className="ecosystem-card__text">
               <h3 className="t-h4">{PRODUCT_ENGINEERING.name}</h3>
@@ -161,15 +149,19 @@ export default function Home() {
             </div>
             <a className="btn" href={PRODUCT_ENGINEERING.url} target="_blank" rel="noopener noreferrer">Visit Product &amp; Engineering ↗</a>
           </div>
-        </Reveal>
+        </div>
       </section>
 
       <section className="sec sec--last" id="blogs">
-        <Reveal className="container">
-          <SecHead title="journal" aside={<><p>Notes on identity lock, storyboarding, grading and fashion imagery, written from our own production work.</p><Btn href="/blogs">All Articles</Btn></>} />
+        <div className="container">
+          <SecHead
+            index="07 / Journal"
+            title="notes from the floor"
+            aside={<><p>Identity lock, storyboarding, grading and fashion imagery, written from our own production work.</p><Btn href="/blogs">All articles</Btn></>}
+          />
           <div className="blog-grid">{BLOGS.slice(0, 2).map((b) => <BlogCard key={b[0]} b={b} />)}</div>
-        </Reveal>
-        <div className="container"><SocialFollow placement="home" /></div>
+          <SocialFollow placement="home" />
+        </div>
       </section>
     </>
   );

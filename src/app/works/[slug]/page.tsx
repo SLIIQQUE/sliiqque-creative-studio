@@ -9,7 +9,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import JsonLd from "@/components/JsonLd";
 import { servicesForWork } from "@/data/services";
 import { CASES, WORKS } from "@/lib/data";
-import { abs, breadcrumbSchema, ORG_ID, pageMeta, shareImg } from "@/lib/seo";
+import { abs, breadcrumbSchema, ORG_ID, pageMeta, shareImg, trimDesc } from "@/lib/seo";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const c = CASES[slug];
   return pageMeta({
     title: `${w[1]}: ${w[2].split(" · ")[0]} concept work`,
-    description: c.overview.length > 155 ? `${c.overview.slice(0, 152).trimEnd()}...` : c.overview,
+    description: trimDesc(c.overview),
     path: `/works/${slug}`,
     keywords: [`${w[1]} concept brand`, "AI commercial portfolio", "AI product photography"],
     image: { url: shareImg(w[5]), alt: `${w[1]}: concept brand visual by SLIIQQUE` },

@@ -7,7 +7,7 @@ import JsonLd from "@/components/JsonLd";
 import Reveal from "@/components/Reveal";
 import { Btn, PageHero } from "@/components/ui";
 import { serviceBySlug } from "@/data/services";
-import { abs, breadcrumbSchema, faqSchema, ORG_ID } from "@/lib/seo";
+import { abs, breadcrumbSchema, CONTENT_UPDATED, faqSchema, ORG_ID } from "@/lib/seo";
 
 export type Faq = { q: string; a: string };
 
@@ -99,7 +99,7 @@ export default function CityLanding(p: CityLandingProps) {
           </div>
         </Reveal>
       </section>
-      <FaqList faqs={p.faqs} title="faq" id="faq" last={false} />
+      <FaqList faqs={p.faqs} title="faq" id="faq" last={false} updated={CONTENT_UPDATED} />
       <section className="sec sec--last">
         <Reveal className="container">
           <div className="center-btn"><Btn href="/contact">Start a project</Btn></div>

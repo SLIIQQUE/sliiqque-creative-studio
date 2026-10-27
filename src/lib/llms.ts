@@ -50,7 +50,7 @@ export function llmsTxt(): string {
     "",
     "## Journal",
     "",
-    `- [Journal](${SITE_URL}/blogs)`,
+    `- [Journal](${SITE_URL}/blogs) (RSS: ${SITE_URL}/feed.xml)`,
     ...BLOGS.map((b) => `- [${b[3].replace(/\.$/, "")}](${SITE_URL}/blogs/${b[0]})`),
     "",
     "## Optional",

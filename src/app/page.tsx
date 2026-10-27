@@ -12,6 +12,7 @@ export const metadata = pageMeta({
   image: { url: shareImg(HERO.ticker[0]), alt: "SLIIQQUE Studio: AI-produced photorealistic digital human, extreme close-up" },
 });
 
+const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 const num = (s: string) => s.replace(/[^\d]/g, "");
 
 export default function Page() {
@@ -35,12 +36,12 @@ export default function Page() {
             name: "SLIIQQUE Studio retainers and projects",
             itemListElement: [
               ...PLANS.flatMap(([name, desc, ngn, , , usd]) => [
-                { "@type": "Offer", name: `${name} (NGN)`, description: desc, priceCurrency: "NGN", price: num(ngn), priceSpecification: { "@type": "UnitPriceSpecification", price: num(ngn), priceCurrency: "NGN", unitText: "MONTH" }, seller: { "@id": ORG_ID } },
-                { "@type": "Offer", name: `${name} (USD)`, description: desc, priceCurrency: "USD", price: num(usd), priceSpecification: { "@type": "UnitPriceSpecification", price: num(usd), priceCurrency: "USD", unitText: "MONTH" }, seller: { "@id": ORG_ID } },
+                { "@type": "Offer", name: `${cap(name)} (NGN)`, description: desc, priceCurrency: "NGN", price: num(ngn), priceSpecification: { "@type": "UnitPriceSpecification", price: num(ngn), priceCurrency: "NGN", unitText: "MONTH" }, seller: { "@id": ORG_ID } },
+                { "@type": "Offer", name: `${cap(name)} (USD)`, description: desc, priceCurrency: "USD", price: num(usd), priceSpecification: { "@type": "UnitPriceSpecification", price: num(usd), priceCurrency: "USD", unitText: "MONTH" }, seller: { "@id": ORG_ID } },
               ]),
               ...PROJECT_ROWS.flatMap(([name, , desc, ngn, usd]) => [
-                { "@type": "Offer", name: `${name} (NGN)`, description: desc, priceCurrency: "NGN", price: num(ngn), seller: { "@id": ORG_ID } },
-                { "@type": "Offer", name: `${name} (USD)`, description: desc, priceCurrency: "USD", price: num(usd), seller: { "@id": ORG_ID } },
+                { "@type": "Offer", name: `${cap(name)} (NGN)`, description: desc, priceCurrency: "NGN", price: num(ngn), seller: { "@id": ORG_ID } },
+                { "@type": "Offer", name: `${cap(name)} (USD)`, description: desc, priceCurrency: "USD", price: num(usd), seller: { "@id": ORG_ID } },
               ]),
             ],
           },

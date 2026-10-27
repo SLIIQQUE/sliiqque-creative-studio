@@ -4,9 +4,11 @@ import { DM_Sans, Syne } from "next/font/google";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import FloatingActions from "@/components/FloatingActions";
+import SectionRail from "@/components/SectionRail";
 import AttributionCapture from "@/components/AttributionCapture";
+import CursorTag from "@/components/CursorTag";
 import JsonLd from "@/components/JsonLd";
-import { BRAND_DESC, KEYWORDS, ORG_ID, SITE_NAME, SITE_URL, organizationSchema, websiteSchema } from "@/lib/seo";
+import { BRAND_DESC, FEED_PATH, KEYWORDS, ORG_ID, SITE_NAME, SITE_URL, organizationSchema, websiteSchema } from "@/lib/seo";
 import "./fonts.css";
 import "./site.css";
 
@@ -26,7 +28,7 @@ export const metadata: Metadata = {
   creator: SITE_NAME,
   publisher: SITE_NAME,
   category: "Creative studio",
-  alternates: { canonical: SITE_URL },
+  alternates: { canonical: SITE_URL, languages: { "en-NG": SITE_URL, "x-default": SITE_URL }, types: { "application/rss+xml": FEED_PATH } },
   formatDetection: { telephone: true, email: true, address: false },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 } },
   // Bing Webmaster Tools site ownership verification.
@@ -45,7 +47,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Nav />
         <main id="main">{children}</main>
         <Footer />
+        <SectionRail />
         <FloatingActions />
+        <CursorTag />
         <Analytics />
         <AttributionCapture />
       </body>

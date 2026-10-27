@@ -12,7 +12,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import JsonLd from "@/components/JsonLd";
 import { serviceForCategory } from "@/data/services";
 import { BLOGS, POSTS } from "@/lib/data";
-import { abs, breadcrumbSchema, founderSchema, isoDate, ORG_ID, pageMeta, SITE_NAME, shareImg } from "@/lib/seo";
+import { abs, breadcrumbSchema, founderSchema, isoDate, ORG_ID, pageMeta, SITE_NAME, shareImg, trimDesc } from "@/lib/seo";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: branded.length <= 60 ? branded : headline,
     absoluteTitle: true,
     image: { url: shareImg(b[4]), alt: headline },
-    description: first.length > 155 ? `${first.slice(0, 152).trimEnd()}...` : first,
+    description: trimDesc(first),
     path: `/blogs/${slug}`,
     type: "article",
     published: isoDate(b[1]),
@@ -63,6 +63,9 @@ export default async function PostPage({ params }: Props) {
             datePublished: isoDate(date),
             dateModified: isoDate(date),
             articleSection: cat,
+            keywords: [cat, "AI creative studio Lagos", "AI production workflow"].join(", "),
+            wordCount: P.groups.flatMap(([h, subs]) => [h, ...subs.flatMap(([sh, ps]) => [sh, ...ps])]).join(" ").split(/\s+/).filter(Boolean).length,
+            isPartOf: { "@type": "Blog", name: "SLIIQQUE Studio journal", url: abs("/blogs") },
             inLanguage: "en-NG",
             url: abs(`/blogs/${slug}`),
             mainEntityOfPage: abs(`/blogs/${slug}`),

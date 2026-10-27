@@ -3,11 +3,12 @@ import { SecHead } from "./ui";
 import type { Row } from "@/lib/data";
 
 /** Four-row hover list (the template's awards block), used here for process and studio standards. */
-export default function Awards({ id, title, intro, rows, priceCol = false }: { id: string; title: string; intro: string; rows: Row[]; priceCol?: boolean }) {
+export default function Awards({ id, title, intro, rows, priceCol = false, tone, ghost, index }: { id: string; title: string; intro: string; rows: Row[]; priceCol?: boolean; tone?: "night"; ghost?: string; index?: string }) {
   return (
-    <section className="sec" id={id}>
+    <section className={`sec${tone === "night" ? " sec--night" : ""}`} id={id}>
+      {ghost && <span className="awards__ghost" aria-hidden="true">{ghost}</span>}
       <Reveal className="container">
-        <SecHead title={title} aside={<p>{intro}</p>} asideClass="sec-aside--lift" />
+        <SecHead index={index} title={title} aside={<p>{intro}</p>} asideClass="sec-aside--lift" />
         <div className={`awards${priceCol ? " awards--price" : ""}`}>
           {rows.map(([t, s, d, n]) => (
             <div className="award" key={t}>

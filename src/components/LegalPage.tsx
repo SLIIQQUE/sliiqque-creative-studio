@@ -6,7 +6,7 @@ import type { LegalDoc } from "@/lib/data";
 export default function LegalPage({ doc, breadcrumb }: { doc: LegalDoc; breadcrumb: { name: string; path: string }[] }) {
   return (
     <>
-      <PageHero h1={doc.title} sub={`Effective ${doc.effective} · Version ${doc.version}. ${doc.sub}`} className="page-hero--legal" breadcrumb={breadcrumb} />
+      <PageHero h1={doc.title} sub={`Effective ${doc.effective} · Version ${doc.version}. ${doc.sub}`} className="page-hero--legal" h1Class="t-h3" breadcrumb={breadcrumb} />
       <section className="sec sec--last legal">
         <div className="legal__intro">
           {doc.intro.map((p) => <p key={p}>{p}</p>)}

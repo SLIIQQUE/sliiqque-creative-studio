@@ -47,6 +47,28 @@ export const KEYWORDS = [
 
 export const abs = (path: string) => `${SITE_URL}${path === "/" ? "" : path}`;
 
+/** Journal feed (RSS 2.0), advertised on every page via <link rel="alternate">. */
+export const FEED_PATH = "/feed.xml";
+
+/**
+ * Meta description from longer copy: whole sentences up to `max` characters, so a snippet never ends
+ * mid-thought. Falls back to a word boundary plus an ellipsis only when no sentence fits.
+ */
+export function trimDesc(text: string, max = 155): string {
+  const t = text.replace(/\s+/g, " ").trim();
+  if (t.length <= max) return t;
+  const cut = t.slice(0, max);
+  const closed = (x: string) => (x.match(/[“"]/g) ?? []).length <= (x.match(/[”"]/g) ?? []).length;
+  // The last sentence end (a period, ? or !, optionally followed by a closing quote) that leaves no quote open.
+  const ends = [...cut.matchAll(/[.?!][”"]?(?=\s)/g)].map((m) => m.index + m[0].length).filter((i) => i >= 80 && closed(cut.slice(0, i)));
+  if (ends.length) return cut.slice(0, ends[ends.length - 1]);
+  let words = cut.slice(0, cut.lastIndexOf(" "));
+  if (!closed(words)) words = words.slice(0, Math.max(words.lastIndexOf("“"), words.lastIndexOf('"')));
+  // Never end on a dangling connector such as "and" or "with the".
+  words = words.replace(/[\s,;:.-]+$/, "").replace(/(?:\s+(?:and|or|with|the|a|an|of|to|for|in|on|from|that|which|line))+$/i, "");
+  return `${words.replace(/[\s,;:.-]+$/, "")}...`;
+}
+
 /** Date the site content last changed (sitemap lastModified). Bump it when copy changes; a build alone is not a change. */
 export const CONTENT_UPDATED = "2026-10-26";
 
@@ -72,7 +94,8 @@ export function pageMeta({ title, description, path, keywords = [], type = "webs
     title: absoluteTitle ? { absolute: title } : title,
     description,
     keywords: [...keywords, ...KEYWORDS.slice(0, 8)],
-    alternates: { canonical: abs(path) },
+    // One language and one market, so the self-referencing en-NG entry and x-default state that plainly.
+    alternates: { canonical: abs(path), languages: { "en-NG": abs(path), "x-default": abs(path) }, types: { "application/rss+xml": FEED_PATH } },
     robots: noindex ? { index: false, follow: false } : { index: true, follow: true },
     openGraph: { type, url: abs(path), siteName: SITE_NAME, title: fullTitle, description, locale: "en_NG", images, ...(published ? { publishedTime: published } : {}) },
     twitter: { card: "summary_large_image", title: fullTitle, description, images },
@@ -116,8 +139,10 @@ export function organizationSchema() {
     founder: founderSchema({ worksFor: { "@id": ORG_ID } }),
     email: "hello@sliiqque.space",
     telephone: "+2347041000085",
-    address: { "@type": "PostalAddress", addressLocality: "Lagos", addressCountry: "NG" },
-    areaServed: [{ "@type": "Country", name: "Nigeria" }, { "@type": "Continent", name: "Africa" }, "Worldwide"],
+    address: { "@type": "PostalAddress", addressLocality: "Lagos", addressRegion: "Lagos State", addressCountry: "NG" },
+    geo: { "@type": "GeoCoordinates", latitude: 6.5244, longitude: 3.3792 },
+    priceRange: "From ₦75,000",
+    areaServed: [{ "@type": "City", name: "Lagos" }, { "@type": "Country", name: "Nigeria" }, { "@type": "Continent", name: "Africa" }, "Worldwide"],
     knowsAbout: [
       "AI commercials", "AI UGC", "digital humans", "AI product photography", "brand launches", "visual campaigns",
       "product cinematography", "short-form video advertising", "AI-generated imagery", "creative direction",
@@ -129,7 +154,7 @@ export function organizationSchema() {
 }
 
 export function websiteSchema() {
-  return { "@context": "https://schema.org", "@type": "WebSite", "@id": `${SITE_URL}/#website`, url: SITE_URL, name: SITE_NAME, inLanguage: "en", publisher: { "@id": ORG_ID } };
+  return { "@context": "https://schema.org", "@type": "WebSite", "@id": `${SITE_URL}/#website`, url: SITE_URL, name: SITE_NAME, inLanguage: "en-NG", publisher: { "@id": ORG_ID } };
 }
 
 export function breadcrumbSchema(items: { name: string; path: string }[]) {

@@ -41,7 +41,6 @@ export default function ServicesPage() {
       <PageHero
         h1="creative services"
         sub="Five creative services under one studio, run as monthly retainers and fixed-scope projects."
-        className="page-hero--legal"
         breadcrumb={BREADCRUMB}
       />
       <section className="sec sec--last">

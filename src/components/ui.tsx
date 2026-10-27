@@ -6,10 +6,13 @@ export function Btn({ href, children, className = "" }: { href: string; children
   return <Link className={`btn ${className}`.trim()} href={href}>{children}</Link>;
 }
 
-export function SecHead({ title, aside, asideClass = "" }: { title: ReactNode; aside?: ReactNode; asideClass?: string }) {
+export function SecHead({ title, aside, asideClass = "", index }: { title: ReactNode; aside?: ReactNode; asideClass?: string; index?: string }) {
   return (
     <div className="sec-head">
-      <h2 className="t-title">{title}</h2>
+      <div>
+        {index && <span className="sec-head__idx">{index}</span>}
+        <h2 className="t-title">{title}</h2>
+      </div>
       {aside && <div className={`sec-aside ${asideClass}`.trim()}>{aside}</div>}
     </div>
   );
