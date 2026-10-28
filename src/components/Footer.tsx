@@ -4,6 +4,7 @@ import { PRODUCT_ENGINEERING } from "@/lib/seo";
 import { LogoFooter } from "./Logo";
 import DemoForm from "./DemoForm";
 import OutLink from "./OutLink";
+import CookieSettingsButton from "./CookieSettingsButton";
 
 type Item = [label: string, href: string, external?: boolean];
 
@@ -116,6 +117,7 @@ export default function Footer() {
         </div>
         <div className="footer__bottom">
           <p>{SITE.copyright}</p>
+          <CookieSettingsButton className="footer__cookie" />
         </div>
       </div>
     </footer>

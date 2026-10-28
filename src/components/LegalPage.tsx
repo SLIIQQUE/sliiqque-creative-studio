@@ -12,7 +12,7 @@ export default function LegalPage({ doc, breadcrumb }: { doc: LegalDoc; breadcru
           {doc.intro.map((p) => <p key={p}>{p}</p>)}
         </div>
         {doc.sections.map((s) => (
-          <Reveal className="split" key={s.h}>
+          <Reveal className="split" key={s.h} id={s.h.replace(/^\d+\.\s*/, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}>
             <h2 className="t-h4">{s.h}</h2>
             <div>
               {s.blocks.map((b, i) =>

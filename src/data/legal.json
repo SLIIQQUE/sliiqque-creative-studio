@@ -537,8 +537,8 @@
   "slug": "privacy",
   "title": "privacy policy",
   "sub": "What personal data we collect, why we collect it, and the rights you have over it.",
-  "effective": "4 October 2026",
-  "version": "1.0",
+  "effective": "28 October 2026",
+  "version": "1.1",
   "intro": [
    "SLIIQQUE respects your privacy. This policy explains how SLIIQQUE handles personal data when you use the SLIIQQUE website or engage its creative services. We process personal data under the Nigeria Data Protection Act 2023 (NDPA) and, where it applies, the EU and UK GDPR."
   ],
@@ -557,7 +557,7 @@
       "Project data: briefs, references, product images, brand assets and feedback you send us.",
       "Face and likeness images: only if you or a person you represent gives them to us for a digital human or likeness-based project, and only with consent.",
       "Billing data: invoice details and payment confirmations. We do not store card numbers.",
-      "Technical data: basic device and browser information and pages visited, if analytics are enabled.",
+      "Technical data: basic device and browser information, approximate location derived from your IP address, the pages you visit and how you arrived (for example from a link in a social post). Only if you accept analytics cookies, Google Analytics 4 also collects analytics identifiers. Our hosting provider records basic technical data such as IP address in server logs, and Vercel Web Analytics counts page views without setting cookies.",
       "Communications: emails and messages with us."
      ]
     ]
@@ -585,6 +585,7 @@
     "h": "5. Who we share it with",
     "blocks": [
      "We share personal data only with providers that help us run the studio, under appropriate safeguards: website hosting, email and communication tools, cloud storage, AI generation and editing tools, accounting and payment tools, and professional advisers. We do not sell personal data.",
+     "Analytics: if you accept analytics cookies, Google (Google Analytics 4) processes the analytics data described above under its own privacy policy. Vercel hosts the website and provides cookie-free analytics.",
      "We may disclose data where the law requires it or to protect legal rights."
     ]
    },
@@ -597,7 +598,7 @@
    {
     "h": "7. International transfers",
     "blocks": [
-     "Our providers may process data outside Nigeria, including in the United States and Europe. Where we transfer personal data internationally, we use safeguards required by law, such as contractual protections."
+     "Our providers, including Google and Vercel, may process data outside Nigeria, including in the United States and Europe. Where we transfer personal data internationally, we use safeguards required by law, such as contractual protections."
     ]
    },
    {
@@ -635,7 +636,12 @@
    {
     "h": "11. Cookies and similar technologies",
     "blocks": [
-     "This website uses only what it needs to work. For example, it remembers in your browser session that you confirmed you are 18 or older on age-gated pages. If we add analytics or marketing cookies, we will update this policy and ask for consent where the law requires."
+     "This website uses cookies and similar technologies for two purposes.",
+     [
+      "Needed to work: it remembers in your browser session that you confirmed you are 18 or older on age-gated pages; it keeps in your browser session the campaign or referrer that brought you here so an enquiry you send can be linked to it; on the pricing page it remembers your chosen currency; and it remembers your cookie choice in your browser. None of these identify you.",
+      "Analytics, only if you accept: when you first visit, a banner asks whether you accept analytics cookies. If you choose Decline, or do nothing, no analytics script is loaded and no analytics cookies are set. If you choose Accept, we load Google Analytics 4, which sets the cookies _ga (distinguishes visitors, up to two years) and _ga_ followed by an identifier (keeps session state, up to two years) to count visits and see which pages and campaigns bring visitors. It does not receive your name or email address from the website."
+     ],
+     "You can change your choice at any time with \"Cookie settings\" in the footer. Declining or withdrawing consent stops further analytics and removes the analytics cookies we can reach from this site. You can also block or delete cookies in your browser settings or use Google's Analytics opt-out add-on. We do not use advertising, remarketing or third-party marketing cookies. If we add them, we will update this policy first and ask for consent."
     ]
    },
    {
