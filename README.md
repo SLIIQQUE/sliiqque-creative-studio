@@ -4,6 +4,8 @@ The website for SLIIQQUE's creative-production division: a premium creative stud
 
 **Live:** [https://studio.sliiqque.space](https://studio.sliiqque.space)
 
+**Documents:** this project keeps no docs of its own. The growth plan, keyword master list and journal drafts are in the workspace at `Documents/Sales/` (`SLIIQQUE-Studio-Social-Content-Plan-Nov-Dec-2026.md`, `SLIIQQUE-Studio-Keyword-Master-List-Oct2026.md`, `SLIIQQUE-Studio-Journal-Drafts-Nov-Dec-2026.md`).
+
 SLIIQQUE runs two divisions under one studio, founded 22 December 2025 by Gabriel Njoabozia:
 
 | Division | Site | What it does |
