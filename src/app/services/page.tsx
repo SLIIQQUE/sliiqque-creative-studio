@@ -44,7 +44,7 @@ export default function ServicesPage() {
         breadcrumb={BREADCRUMB}
       />
       <section className="sec sec--last">
-        <Reveal className="container">
+        <Reveal className="container" visible>
           <ol className="svc-list">
             {SERVICE_PAGES.map((s, i) => {
               const img = s.gallery?.[0] ?? FALLBACK_IMG[s.slug];

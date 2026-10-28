@@ -77,7 +77,7 @@ export default async function ServicePage({ params }: Props) {
       />
       <PageHero h1={s.h1} sub={`${s.priceLabel} ${s.priceNgn} (${s.priceUsd}) · ${s.timeline}`} className="page-hero--legal" h1Class="t-h3" breadcrumb={breadcrumb} />
       <section className="sec legal">
-        <Reveal className="split">
+        <Reveal className="split" visible>
           <h2 className="t-h4">The short answer</h2>
           <div><p>{s.answer}</p></div>
         </Reveal>

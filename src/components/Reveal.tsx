@@ -2,16 +2,16 @@
 
 import { createElement, useEffect, useRef, useState, type ComponentProps, type ElementType } from "react";
 
-type Props<T extends ElementType> = { as?: T; className?: string } & Omit<ComponentProps<T>, "className" | "as">;
+type Props<T extends ElementType> = { as?: T; className?: string; /** Above-the-fold content: render shown from the server HTML so it can paint (and count as LCP) before hydration. */ visible?: boolean } & Omit<ComponentProps<T>, "className" | "as">;
 
 /** Scroll-reveal wrapper: adds `is-in` once 12% visible (opacity/translate defined in site.css). */
-export default function Reveal<T extends ElementType = "div">({ as, className = "", ...rest }: Props<T>) {
+export default function Reveal<T extends ElementType = "div">({ as, className = "", visible = false, ...rest }: Props<T>) {
   const ref = useRef<HTMLElement>(null);
-  const [seen, setSeen] = useState(false);
+  const [seen, setSeen] = useState(visible);
 
   useEffect(() => {
     const el = ref.current;
-    if (!el) return;
+    if (!el || visible) return;
     if (!("IntersectionObserver" in window) || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       setSeen(true);
       return;
@@ -27,7 +27,7 @@ export default function Reveal<T extends ElementType = "div">({ as, className = 
     );
     io.observe(el);
     return () => io.disconnect();
-  }, []);
+  }, [visible]);
 
   return createElement(as ?? "div", { ...rest, ref, className: `reveal${className ? " " + className : ""}${seen ? " is-in" : ""}` });
 }

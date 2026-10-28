@@ -34,7 +34,7 @@ export default function AboutPage() {
       <PageHero h1={<>about <br />our studio</>} sub={A.hero_sub} h1Class="t-display nw" breadcrumb={BREADCRUMB} />
 
       <section className="story">
-        <Reveal className="founder">
+        <Reveal className="founder" visible>
           <figure className="founder__img">
             <Img id="gabriel-njoabozia-founder.webp" w={753} h={941} alt="AI-generated portrait of Gabriel Njoabozia, founder of SLIIQQUE Studio" eager />
             <figcaption>Gabriel Njoabozia, Founder. AI-generated portrait.</figcaption>

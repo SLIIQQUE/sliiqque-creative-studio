@@ -32,7 +32,7 @@ export default function ContactPage() {
       <JsonLd data={[{ "@context": "https://schema.org", "@type": "ContactPage", name: "Contact SLIIQQUE Studio", url: abs("/contact"), about: { "@id": ORG_ID } }, breadcrumbSchema(BREADCRUMB)]} />
       <PageHero h1={C.h2} sub={C.sub} className="page-hero--contact" breadcrumb={BREADCRUMB} />
       <section className="sec sec--last">
-        <Reveal className="contact">
+        <Reveal className="contact" visible>
           <div className="contact__info">
             <h4 className="t-h4">Start Here</h4>
             {C.groups.map(([t, h, d]) => <div className="contact__grp" key={t}>{h ? <a href={h}>{t}</a> : <span>{t}</span>}<p>{d}</p></div>)}
