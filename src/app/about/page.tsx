@@ -31,7 +31,7 @@ export default function AboutPage() {
           breadcrumbSchema(BREADCRUMB),
         ]}
       />
-      <PageHero h1={<>about <br />our studio</>} sub={A.hero_sub} h1Class="t-display nw" breadcrumb={BREADCRUMB} />
+      <PageHero h1={<>about <br />our studio</>} sub={A.hero_sub} h1Class="t-display nw" className="page-hero--about" breadcrumb={BREADCRUMB} />
 
       <section className="story">
         <Reveal className="founder" visible>

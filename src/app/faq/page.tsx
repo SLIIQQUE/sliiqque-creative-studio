@@ -19,7 +19,7 @@ export default function FaqPage() {
   return (
     <>
       <JsonLd data={[faqSchema(SITE_FAQ), breadcrumbSchema(BREADCRUMB)]} />
-      <PageHero h1="faq" sub="Straight answers on what SLIIQQUE makes, what it costs, how long it takes and who owns the work." className="page-hero--legal" breadcrumb={BREADCRUMB} />
+      <PageHero h1="faq" sub="Straight answers on what SLIIQQUE makes, what it costs, how long it takes and who owns the work." className="page-hero--legal page-hero--flush" breadcrumb={BREADCRUMB} />
       <FaqList faqs={SITE_FAQ} title="frequently asked questions" id="faq" updated={CONTENT_UPDATED} />
     </>
   );

@@ -30,7 +30,7 @@ export default function ContactPage() {
   return (
     <>
       <JsonLd data={[{ "@context": "https://schema.org", "@type": "ContactPage", name: "Contact SLIIQQUE Studio", url: abs("/contact"), about: { "@id": ORG_ID } }, breadcrumbSchema(BREADCRUMB)]} />
-      <PageHero h1={C.h2} sub={C.sub} className="page-hero--contact" breadcrumb={BREADCRUMB} />
+      <PageHero h1={C.h2} sub={C.sub} className="page-hero--contact page-hero--flush" breadcrumb={BREADCRUMB} />
       <section className="sec sec--last">
         <Reveal className="contact" visible>
           <div className="contact__info">

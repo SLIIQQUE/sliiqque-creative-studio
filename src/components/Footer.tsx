@@ -23,7 +23,7 @@ const SERVICES: Item[] = [
   ["AI Photography", "/services/ai-photography"],
   ["AI Fashion Imagery", "/services/ai-fashion-imagery"],
   ["Brand Launches & Campaigns", "/services/brand-launches-campaigns"],
-  ["Pricing", "/#pricing"],
+  ["Pricing", "/pricing"],
 ];
 const LEGAL: Item[] = [
   ["Terms & Conditions", "/terms"],

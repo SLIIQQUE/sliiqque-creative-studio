@@ -20,7 +20,7 @@ export default function GlossaryPage() {
   return (
     <>
       <JsonLd data={[glossarySchema(GLOSSARY), breadcrumbSchema(BREADCRUMB)]} />
-      <PageHero h1="glossary" sub="The AI-production terms used across this site, defined plainly." className="page-hero--legal" breadcrumb={BREADCRUMB} />
+      <PageHero h1="glossary" sub="The AI-production terms used across this site, defined plainly." className="page-hero--legal page-hero--flush" breadcrumb={BREADCRUMB} />
       <FaqList faqs={faqs} title="key terms" id="glossary" updated={CONTENT_UPDATED} />
     </>
   );

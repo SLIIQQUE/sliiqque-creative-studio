@@ -59,7 +59,7 @@ export default function BlogsPage() {
       <PageHero
         h1="journal"
         sub="Notes on identity lock, AI fashion imagery and creative systems, written from our own production work."
-        className="page-hero--blogs"
+        className="page-hero--blogs page-hero--flush"
         breadcrumb={BREADCRUMB}
       />
       <section className="sec sec--last">

@@ -64,6 +64,7 @@ To enable real delivery for live visitors: create a Resend account, verify `slii
 |---|---|
 | `/` | Home: hero, about, selected work, services, process, pricing, ecosystem callout, journal preview |
 | `/about` | Story, how we work, studio standards, ecosystem callout, FAQ |
+| `/pricing` | Full rate card: monthly retainers, plan finder, one-off projects, add-ons, payment terms and pricing FAQ |
 | `/services`, `/services/[slug]` | Five service pages, each with its own JSON-LD `Service` + `FAQPage` schema |
 | `/works`, `/works/[slug]` | Three concept case studies: ÀLÀ (skincare), ODÈ (grooming), ÀSE (spirits, age-gated 18+) |
 | `/blogs`, `/blogs/[slug]` | Journal. Currently 3 live posts; 3 more exist in the data but are unpublished (see below) |

@@ -36,7 +36,7 @@ export function llmsTxt(): string {
     "",
     "## Pricing, FAQ and policies",
     "",
-    `- [Pricing](${SITE_URL}/#pricing): monthly retainers and one-off projects in NGN and USD`,
+    `- [Pricing](${SITE_URL}/pricing): monthly retainers and one-off projects in NGN and USD`,
     `- [FAQ](${SITE_URL}/faq): answers on cost, turnaround, revisions, usage rights, logos and AI disclosure`,
     `- [Glossary](${SITE_URL}/glossary): definitions of AI commercial, AI UGC, digital human, identity lock, storyboard, grade, cutdown and retainer`,
     `- [Studio Policies](${SITE_URL}/policies): revisions, turnaround, retainers, usage rights, AI content, likeness`,

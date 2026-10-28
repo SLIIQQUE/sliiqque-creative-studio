@@ -52,8 +52,8 @@ export default function CityLanding(p: CityLandingProps) {
             provider: { "@id": ORG_ID },
             areaServed: [{ "@type": "City", name: "Lagos" }, { "@type": "Country", name: "Nigeria" }],
             offers: [
-              { "@type": "Offer", name: `${p.offer.name} (NGN)`, priceCurrency: "NGN", price: p.offer.ngn, url: abs("/#pricing") },
-              { "@type": "Offer", name: `${p.offer.name} (USD)`, priceCurrency: "USD", price: p.offer.usd, url: abs("/#pricing") },
+              { "@type": "Offer", name: `${p.offer.name} (NGN)`, priceCurrency: "NGN", price: p.offer.ngn, url: abs("/pricing") },
+              { "@type": "Offer", name: `${p.offer.name} (USD)`, priceCurrency: "USD", price: p.offer.usd, url: abs("/pricing") },
             ],
           },
           faqSchema(p.faqs),
@@ -94,7 +94,7 @@ export default function CityLanding(p: CityLandingProps) {
           <h2 className="t-h4">Pricing and timeline</h2>
           <div>
             <p><strong>{S.priceLabel}:</strong> {S.priceNgn} for Nigerian clients, {S.priceUsd} for international clients. Timeline: {S.timeline}.</p>
-            <p>Prices exclude taxes. Two revision rounds are included. See <Link href="/#pricing">all retainers and projects</Link>, the <Link href="/policies">Studio Policies</Link> and the <Link href="/terms">Terms &amp; Conditions</Link>.</p>
+            <p>Prices exclude taxes. Two revision rounds are included. See <Link href="/pricing">all retainers and projects</Link>, the <Link href="/policies">Studio Policies</Link> and the <Link href="/terms">Terms &amp; Conditions</Link>.</p>
             {p.conceptNote}
           </div>
         </Reveal>

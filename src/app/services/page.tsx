@@ -41,6 +41,7 @@ export default function ServicesPage() {
       <PageHero
         h1="creative services"
         sub="Five creative services under one studio, run as monthly retainers and fixed-scope projects."
+        className="page-hero--services"
         breadcrumb={BREADCRUMB}
       />
       <section className="sec sec--last">
@@ -65,7 +66,7 @@ export default function ServicesPage() {
             })}
           </ol>
           <p className="services-note">
-            SLIIQQUE does not offer logo design. See <Link href="/#pricing">pricing</Link>, the <Link href="/faq">FAQ</Link> or <Link href="/contact">start a project</Link>.
+            SLIIQQUE does not offer logo design. See <Link href="/pricing">pricing</Link>, the <Link href="/faq">FAQ</Link> or <Link href="/contact">start a project</Link>.
           </p>
           <p className="services-note">
             Need a website, AI bot or software instead? Visit <a href={PRODUCT_ENGINEERING.url} target="_blank" rel="noopener noreferrer">{PRODUCT_ENGINEERING.name} ↗</a>.

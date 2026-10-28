@@ -9,7 +9,7 @@ import { SITE } from "@/lib/data";
 export const NAV_LINKS = [
   { label: "Work", href: "/works" },
   { label: "Services", href: "/services" },
-  { label: "Pricing", href: "/#pricing" },
+  { label: "Pricing", href: "/pricing" },
   { label: "About", href: "/about" },
   { label: "Journal", href: "/blogs" },
 ] as const;

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import Reveal from "./Reveal";
 import { Btn, SecHead } from "./ui";
@@ -90,7 +91,7 @@ export default function Pricing({ plans, plansIntro, projects, projectsIntro, in
           </div>
         )}
 
-        <p className="bill-note">Prices exclude taxes. Every project starts with a scoped brief, and the currency toggle sets the invoice currency.</p>
+        <p className="bill-note">Prices exclude taxes. Every project starts with a scoped brief, and the currency toggle sets the invoice currency. <Link href="/pricing">See the full rate card</Link>.</p>
       </Reveal>
     </section>
   );

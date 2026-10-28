@@ -18,14 +18,14 @@ export function SecHead({ title, aside, asideClass = "", index }: { title: React
   );
 }
 
-export function PageHero({ h1, sub, className = "", h1Class = "t-display", breadcrumb }: { h1: ReactNode; sub: string; className?: string; h1Class?: string; breadcrumb?: { name: string; path: string }[] }) {
+export function PageHero({ h1, sub, className = "", h1Class = "t-display", breadcrumb }: { h1: ReactNode; sub: ReactNode; className?: string; h1Class?: string; breadcrumb?: { name: string; path: string }[] }) {
   return (
     <section className={`page-hero${className ? " " + className : ""}`}>
       <div className="container">
         {breadcrumb && <Breadcrumbs items={breadcrumb} />}
         <div className="sec-head">
           <h1 className={h1Class}>{h1}</h1>
-          <div className="sec-aside"><p>{sub}</p></div>
+          <div className="sec-aside">{typeof sub === "string" ? <p>{sub}</p> : sub}</div>
         </div>
       </div>
     </section>

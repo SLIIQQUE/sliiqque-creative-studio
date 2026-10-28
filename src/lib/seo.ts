@@ -70,7 +70,7 @@ export function trimDesc(text: string, max = 155): string {
 }
 
 /** Date the site content last changed (sitemap lastModified). Bump it when copy changes; a build alone is not a change. */
-export const CONTENT_UPDATED = "2026-10-26";
+export const CONTENT_UPDATED = "2026-10-28";
 
 /**
  * Social preview for a public/img asset. Points at a static, pre-cropped 1200x630 JPEG in

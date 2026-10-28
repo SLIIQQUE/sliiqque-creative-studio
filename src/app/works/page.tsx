@@ -25,7 +25,7 @@ export default function WorksPage() {
           breadcrumbSchema(BREADCRUMB),
         ]}
       />
-      <PageHero h1="Our Work" sub="Concept brand worlds, self-initiated studio work, labelled as exactly that." breadcrumb={BREADCRUMB} />
+      <PageHero h1="Our Work" sub="Concept brand worlds, self-initiated studio work, labelled as exactly that." className="page-hero--flush" breadcrumb={BREADCRUMB} />
       <section className="sec sec--works sec--last">
         <div className="container">
           <LoadMore

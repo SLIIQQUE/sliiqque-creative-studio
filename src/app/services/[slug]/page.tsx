@@ -68,8 +68,8 @@ export default async function ServicePage({ params }: Props) {
             areaServed: ["Nigeria", "Africa", "Worldwide"],
             ...(s.gallery ? { image: s.gallery.map((g) => abs(`/img/${g.id}`)) } : {}),
             offers: [
-              { "@type": "Offer", name: `${s.priceLabel} (NGN)`, priceCurrency: "NGN", price: s.priceNgn.replace(/[^\d]/g, ""), url: abs("/#pricing") },
-              { "@type": "Offer", name: `${s.priceLabel} (USD)`, priceCurrency: "USD", price: s.priceUsd.replace(/[^\d]/g, ""), url: abs("/#pricing") },
+              { "@type": "Offer", name: `${s.priceLabel} (NGN)`, priceCurrency: "NGN", price: s.priceNgn.replace(/[^\d]/g, ""), url: abs("/pricing") },
+              { "@type": "Offer", name: `${s.priceLabel} (USD)`, priceCurrency: "USD", price: s.priceUsd.replace(/[^\d]/g, ""), url: abs("/pricing") },
             ],
           },
           faqSchema(s.faqs),
@@ -104,7 +104,7 @@ export default async function ServicePage({ params }: Props) {
           <h2 className="t-h4">Pricing and timeline</h2>
           <div>
             <p><strong>{s.priceLabel}:</strong> {s.priceNgn} for Nigerian clients, {s.priceUsd} for international clients. Timeline: {s.timeline}.</p>
-            <p>Prices exclude taxes. Two revision rounds are included. See <Link href="/#pricing">all retainers and projects</Link>, the <Link href="/policies">Studio Policies</Link> and the <Link href="/terms">Terms &amp; Conditions</Link>.</p>
+            <p>Prices exclude taxes. Two revision rounds are included. See <Link href="/pricing">all retainers and projects</Link>, the <Link href="/policies">Studio Policies</Link> and the <Link href="/terms">Terms &amp; Conditions</Link>.</p>
           </div>
         </Reveal>
         <VideoBlock path={`/services/${s.slug}`} />
