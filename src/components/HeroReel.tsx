@@ -28,7 +28,7 @@ function frameHref(id: string) {
   return "/services/ai-ugc-digital-humans";
 }
 
-function Row({ ids, reverse, offset }: { ids: string[]; reverse?: boolean; offset: number }) {
+function Row({ ids, reverse, offset, first }: { ids: string[]; reverse?: boolean; offset: number; first?: boolean }) {
   const list = reverse ? [...ids].reverse() : ids;
   const doubled = [...list, ...list];
   return (
@@ -45,7 +45,7 @@ function Row({ ids, reverse, offset }: { ids: string[]; reverse?: boolean; offse
             data-cursor="View"
             aria-label={`${frameLabel(id)}. Open ${frameHref(id).startsWith("/works") ? "the concept case" : "the service"}`}
           >
-            <Img id={id} w={300} h={375} alt={clone ? "" : frameAlt(id)} preload />
+            <Img id={id} w={300} h={375} alt={clone ? "" : frameAlt(id)} sizes="(max-width: 767px) 46vw, 300px" eager={first && n === 0} preload />
             <span className="showcase__cap">{String((n % list.length) + offset).padStart(2, "0")} / {frameLabel(id)}</span>
           </Link>
         );
@@ -64,7 +64,7 @@ export default function HeroReel({ ids }: { ids: string[] }) {
   return (
     <div className="showcase">
       <div className={`showcase__rows${paused ? " is-paused" : ""}`}>
-        <Row ids={ids} offset={1} />
+        <Row ids={ids} offset={1} first />
         <Row ids={ids} reverse offset={6} />
       </div>
       <div className="showcase__bar">
