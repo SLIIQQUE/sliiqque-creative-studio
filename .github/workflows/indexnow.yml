@@ -1,0 +1,20 @@
+name: IndexNow
+
+# After each successful production deploy on Vercel, send the sitemap URLs to
+# IndexNow so Bing and the other participating engines recrawl changes.
+# No secrets: the IndexNow key is public (served from public/).
+
+on:
+  deployment_status:
+  workflow_dispatch:
+
+jobs:
+  submit:
+    if: github.event_name == 'workflow_dispatch' || (github.event.deployment_status.state == 'success' && github.event.deployment.environment == 'Production')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: node scripts/indexnow.mjs
