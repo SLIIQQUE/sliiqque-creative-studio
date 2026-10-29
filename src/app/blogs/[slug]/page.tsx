@@ -80,9 +80,9 @@ export default async function PostPage({ params }: Props) {
       <div className="case__head">
         <h1 className="case__title">{title}</h1>
         <div className="case__meta case__meta--post">
-          <div><h5 className="t-h5">Published</h5><p>{date}</p></div>
-          <div><h5 className="t-h5">Category</h5><p>{cat}</p></div>
-          <div><h5 className="t-h5">Written by</h5><p className="byline"><Img id="gabriel-njoabozia-avatar.webp" w={32} h={32} alt="" className="byline__img" /><Link href="/about">Gabriel Njoabozia, Founder</Link></p></div>
+          <div><p className="t-h5 case__label">Published</p><p><time dateTime={isoDate(date)}>{date}</time></p></div>
+          <div><p className="t-h5 case__label">Category</p><p>{cat}</p></div>
+          <div><p className="t-h5 case__label">Written by</p><p className="byline"><Img id="gabriel-njoabozia-avatar.webp" w={32} h={32} alt="" className="byline__img" /><Link href="/about">Gabriel Njoabozia, Founder</Link></p></div>
         </div>
       </div>
       <div className="post__hero"><Img id={cardImg} w={1188} h={754} alt={title.replace(/\.$/, "")} eager /></div>

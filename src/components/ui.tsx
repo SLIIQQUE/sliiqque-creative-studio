@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import Breadcrumbs from "./Breadcrumbs";
+import { slugify } from "@/lib/seo";
 
 export function Btn({ href, children, className = "" }: { href: string; children: ReactNode; className?: string }) {
   return <Link className={`btn ${className}`.trim()} href={href}>{children}</Link>;
@@ -11,7 +12,7 @@ export function SecHead({ title, aside, asideClass = "", index }: { title: React
     <div className="sec-head">
       <div>
         {index && <span className="sec-head__idx">{index}</span>}
-        <h2 className="t-title">{title}</h2>
+        <h2 className="t-title" id={typeof title === "string" ? slugify(title) : undefined}>{title}</h2>
       </div>
       {aside && <div className={`sec-aside ${asideClass}`.trim()}>{aside}</div>}
     </div>

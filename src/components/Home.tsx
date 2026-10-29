@@ -5,12 +5,14 @@ import Awards from "./Awards";
 import Pricing from "./Pricing";
 import SocialFollow from "./SocialFollow";
 import ServiceIndex from "./ServiceIndex";
+import FaqList from "./FaqList";
 import HeroReel from "./HeroReel";
 import LagosTime from "./LagosTime";
 import { BlogCard, WorkCard } from "./cards";
 import { Btn, SecHead } from "./ui";
 import { ABOUT, BLOGS, HERO, HOME_WORKS, PLANS, PLANS_INTRO, PROCESS_ROWS, PROJECT_ROWS, PROJECTS_INTRO, AWARDS_INTRO, SECTION_SUB, WORKS } from "@/lib/data";
-import { PRODUCT_ENGINEERING } from "@/lib/seo";
+import { HOME_FAQ } from "@/data/services";
+import { CONTENT_UPDATED, PRODUCT_ENGINEERING, displayDate } from "@/lib/seo";
 
 const [FIRST, ...AFTER] = ABOUT.body.split(". ");
 const LEAD = FIRST.includes(", ") ? [FIRST.slice(0, FIRST.indexOf(", ")), FIRST.slice(FIRST.indexOf(", ") + 2)] : [FIRST, ""];
@@ -18,6 +20,10 @@ const [AI_WORD, ...PRODUCE_WORDS] = LEAD[0].split(" ");
 const PRODUCE_REST = PRODUCE_WORDS.join(" ");
 const REST = AFTER.join(". ");
 const PARTS = (REST.match(/systems, (.+?) assets/)?.[1] ?? "").split(/, | and /).filter(Boolean).map((x, i, a) => (i === a.length - 1 ? `${x} assets` : x));
+
+/** Plain-language answer to "what is this studio?", the passage search engines, assistants and voice read first. Price comes from PLANS, never retyped. */
+const [STARTER] = PLANS;
+const ANSWER = `SLIIQQUE Studio is a creative studio in Lagos, Nigeria. It produces AI commercials, AI UGC and digital humans, AI product photography and fashion imagery for brands in Nigeria, Africa and worldwide. Monthly retainers start at ${STARTER[2]} or ${STARTER[5]}, and every project begins with a scoped brief.`;
 
 const STRIP = ["AI commercials", "AI UGC", "Digital humans", "AI photography", "Fashion imagery", "Brand launches"];
 
@@ -34,6 +40,7 @@ export default function Home() {
           <h1 className="hero__title t-hero">
             <span className="line">sliiqque</span>
             <span className="line line--ghost">studio</span>
+            <span className="sr-only">: AI commercials, UGC and photography studio in Lagos, Nigeria</span>
           </h1>
           <div className="hero__aside">
             <p className="hero__tag">{HERO.tag}</p>
@@ -50,6 +57,13 @@ export default function Home() {
           {[...STRIP, ...STRIP, ...STRIP].map((x, i) => <span className="strip__item" key={`${x}-${i}`}>{x}</span>)}
         </div>
       </div>
+
+      <section className="answer" id="in-brief" aria-label="SLIIQQUE Studio in brief">
+        <div className="container">
+          <p className="answer__text">{ANSWER}</p>
+          <p className="answer__updated">Last updated <time dateTime={CONTENT_UPDATED}>{displayDate(CONTENT_UPDATED)}</time></p>
+        </div>
+      </section>
 
       <section className="ab" id="about" aria-labelledby="about-title">
         <div className="ab__glow ab__glow--a" aria-hidden="true" />
@@ -152,10 +166,12 @@ export default function Home() {
         </div>
       </section>
 
+      <FaqList faqs={HOME_FAQ} id="faq" title="questions people ask" index="07 / Questions" last={false} intro="Short answers on what SLIIQQUE makes, what it costs and how it works." />
+
       <section className="sec sec--last" id="blogs">
         <div className="container">
           <SecHead
-            index="07 / Journal"
+            index="08 / Journal"
             title="notes from the floor"
             aside={<><p>Identity lock, storyboarding, grading and fashion imagery, written from our own production work.</p><Btn href="/blogs">All articles</Btn></>}
           />

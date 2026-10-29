@@ -1,5 +1,5 @@
 import JsonLd from "@/components/JsonLd";
-import { abs, breadcrumbSchema, faqSchema, ORG_ID, pageMeta, PRODUCT_ENGINEERING, shareImg } from "@/lib/seo";
+import { abs, breadcrumbSchema, faqSchema, ORG_ID, pageMeta, PRODUCT_ENGINEERING, shareImg, slugify } from "@/lib/seo";
 import Img from "@/components/Img";
 import SocialFollow from "@/components/SocialFollow";
 import Reveal from "@/components/Reveal";
@@ -102,7 +102,7 @@ export default function AboutPage() {
               key: q,
               content: (
                 <>
-                  <div className="faq__q"><h5 className="t-h5">{q}</h5><div className="icon-ring"><IconArrow /></div></div>
+                  <div className="faq__q"><h3 className="t-h5" id={slugify(q)}>{q}</h3><div className="icon-ring"><IconArrow /></div></div>
                   <div className="faq__a"><p>{a}</p></div>
                 </>
               ),

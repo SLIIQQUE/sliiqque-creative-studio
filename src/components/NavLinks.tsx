@@ -110,13 +110,13 @@ export default function NavLinks() {
 
             <div className="nav-panel__cols">
               <div>
-                <h6>Services</h6>
+                <p className="col-label">Services</p>
                 <ul>
                   {MENU_SERVICES.map(([label, href]) => <li key={href}><Link href={href}>{label}</Link></li>)}
                 </ul>
               </div>
               <div>
-                <h6>Studio</h6>
+                <p className="col-label">Studio</p>
                 <ul>
                   <li><Link href="/about">About</Link></li>
                   <li><Link href="/faq">FAQ</Link></li>

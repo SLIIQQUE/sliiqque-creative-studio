@@ -12,7 +12,7 @@ export default function Awards({ id, title, intro, rows, priceCol = false, tone,
         <div className={`awards${priceCol ? " awards--price" : ""}`}>
           {rows.map(([t, s, d, n]) => (
             <div className="award" key={t}>
-              <h5 className="t-h5">{t}</h5>
+              <h3 className="t-h5">{t}</h3>
               <p className="award__sub">{s}</p>
               <p className="award__desc">{d}</p>
               <p className="award__year">{n}</p>

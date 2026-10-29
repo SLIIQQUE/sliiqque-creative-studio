@@ -6,6 +6,14 @@ import { readAttribution } from "@/lib/attribution";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
+/** WebMCP declarative tool attributes (early browser spec), so an AI agent can submit the enquiry form on a visitor's behalf. Spread, not typed props, because React's DOM types do not know them yet. */
+const WEBMCP: Partial<Record<"contact" | "newsletter", Record<string, string>>> = {
+  contact: {
+    toolname: "send_enquiry_to_sliiqque_studio",
+    tooldescription: "Send a project enquiry to SLIIQQUE Studio, a creative studio in Lagos, Nigeria that produces AI commercials, AI UGC, digital humans and AI product photography. The studio replies by email within one working day.",
+  },
+};
+
 /** Posts to /api/contact (Resend-backed) and shows a distinct, accessible confirmation or
  *  error state, rather than just a transient button-label change. Includes a hidden honeypot
  *  field: real visitors never fill it, so a filled submission is treated as spam. */
@@ -47,7 +55,7 @@ export default function DemoForm({
   };
 
   return (
-    <form ref={ref} className={className} onSubmit={onSubmit}>
+    <form ref={ref} className={className} onSubmit={onSubmit} {...(WEBMCP[kind] ?? {})}>
       {children}
       <div className="hp-field" aria-hidden="true">
         <label htmlFor={`hp-${kind}`}>Leave this field blank</label>

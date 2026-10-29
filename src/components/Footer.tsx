@@ -35,7 +35,7 @@ const LEGAL: Item[] = [
 function Column({ title, items }: { title: string; items: Item[] }) {
   return (
     <nav aria-label={title}>
-      <h6>{title}</h6>
+      <p className="col-label">{title}</p>
       <ul>
         {items.map(([label, href, external]) => (
           <li key={label}>

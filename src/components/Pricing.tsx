@@ -67,9 +67,9 @@ export default function Pricing({ plans, plansIntro, projects, projectsIntro, in
               <article className={`plan${dark ? " plan--dark" : ""}`} key={n}>
                 <span className="plan__no">{String(i + 1).padStart(2, "0")}</span>
                 {dark && <span className="plan__badge">Start here</span>}
-                <h5 className="t-h5">{n}</h5>
+                <h3 className="t-h5">{n}</h3>
                 <p className="desc">{d}</p>
-                <div className="plan__price"><h3 className="t-h3">{cur === "NGN" ? ngn : usd}</h3><span>/ month</span></div>
+                <div className="plan__price"><p className="t-h3">{cur === "NGN" ? ngn : usd}</p><span>/ month</span></div>
                 <ul>{feats.map((f) => <li key={f}>{f}</li>)}</ul>
                 <Btn href="/contact" className={`btn--block${dark ? " btn--accent" : ""}`}>Get started</Btn>
               </article>
@@ -81,7 +81,7 @@ export default function Pricing({ plans, plansIntro, projects, projectsIntro, in
             <div className="awards awards--price">
               {rows.map(([t, s, d, n]) => (
                 <div className="award" key={t}>
-                  <h5 className="t-h5">{t}</h5>
+                  <h3 className="t-h5">{t}</h3>
                   <p className="award__sub">{s}</p>
                   <p className="award__desc">{d}</p>
                   <p className="award__year">{n}</p>

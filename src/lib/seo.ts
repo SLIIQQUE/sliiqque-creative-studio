@@ -70,7 +70,7 @@ export function trimDesc(text: string, max = 155): string {
 }
 
 /** Date the site content last changed (sitemap lastModified). Bump it when copy changes; a build alone is not a change. */
-export const CONTENT_UPDATED = "2026-10-28";
+export const CONTENT_UPDATED = "2026-10-29";
 
 /**
  * Social preview for a public/img asset. Points at a static, pre-cropped 1200x630 JPEG in
@@ -102,6 +102,12 @@ export function pageMeta({ title, description, path, keywords = [], type = "webs
   };
 }
 
+/** "How it gets made" -> "how-it-gets-made". Gives headings stable anchor ids for deep links and citations. */
+export const slugify = (text: string) => text.toLowerCase().replace(/&/g, " ").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+
+/** Date the site first went live (first deploy), used as the homepage datePublished. */
+export const SITE_LAUNCHED = "2026-10-04";
+
 /** "Oct 2, 2026" -> "2026-10-02" */
 export function isoDate(label: string): string {
   const d = new Date(`${label} UTC`);
@@ -120,7 +126,19 @@ export const ORG_ID = `${SITE_URL}/#organization`;
 export const FOUNDER_ID = `${PRODUCT_ENGINEERING.url}/studio/#person`;
 
 export function founderSchema(extra?: Record<string, unknown>) {
-  return { "@type": "Person", "@id": FOUNDER_ID, name: "Gabriel Njoabozia", jobTitle: "Founder", image: `${SITE_URL}/brand/gabriel-njoabozia.jpg`, ...extra };
+  return {
+    "@type": "Person",
+    "@id": FOUNDER_ID,
+    name: "Gabriel Njoabozia",
+    jobTitle: "Founder",
+    // Same page the @id points at on sliiqque.space; this site's own profile page is the sameAs entry.
+    url: `${PRODUCT_ENGINEERING.url}/studio/`,
+    sameAs: [abs("/about"), "https://www.linkedin.com/in/gabriel-njoabozia/", "https://github.com/flawlexsaint"],
+    description: "Founder of SLIIQQUE, a creative studio in Lagos, Nigeria producing AI commercials, AI UGC, digital humans and AI product photography.",
+    knowsAbout: ["AI commercials", "AI UGC", "digital humans", "AI product photography", "creative direction"],
+    image: `${SITE_URL}/brand/gabriel-njoabozia.jpg`,
+    ...extra,
+  };
 }
 
 export function organizationSchema() {
@@ -154,7 +172,7 @@ export function organizationSchema() {
 }
 
 export function websiteSchema() {
-  return { "@context": "https://schema.org", "@type": "WebSite", "@id": `${SITE_URL}/#website`, url: SITE_URL, name: SITE_NAME, inLanguage: "en-NG", publisher: { "@id": ORG_ID } };
+  return { "@context": "https://schema.org", "@type": "WebSite", "@id": `${SITE_URL}/#website`, url: SITE_URL, name: SITE_NAME, inLanguage: "en-NG", description: BRAND_DESC, publisher: { "@id": ORG_ID } };
 }
 
 export function breadcrumbSchema(items: { name: string; path: string }[]) {

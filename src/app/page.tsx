@@ -1,7 +1,8 @@
 import Home from "@/components/Home";
 import JsonLd from "@/components/JsonLd";
+import { HOME_FAQ, SERVICE_PAGES } from "@/data/services";
 import { HERO, PLANS, PROJECT_ROWS, SERVICES } from "@/lib/data";
-import { ORG_ID, SITE_URL, pageMeta, shareImg } from "@/lib/seo";
+import { BRAND_DESC, CONTENT_UPDATED, FOUNDER_ID, ORG_ID, SITE_LAUNCHED, SITE_URL, faqSchema, pageMeta, shareImg } from "@/lib/seo";
 
 export const metadata = pageMeta({
   title: "AI Commercial & UGC Studio in Lagos, Nigeria | SLIIQQUE",
@@ -27,8 +28,15 @@ export default function Page() {
             url: SITE_URL,
             name: "AI Commercials, AI UGC and AI Photography Studio in Lagos, Nigeria",
             isPartOf: { "@id": `${SITE_URL}/#website` },
+            description: BRAND_DESC,
             about: { "@id": ORG_ID },
+            author: { "@id": FOUNDER_ID },
+            publisher: { "@id": ORG_ID },
+            datePublished: SITE_LAUNCHED,
+            dateModified: CONTENT_UPDATED,
             inLanguage: "en-NG",
+            // Voice assistants read the heading and the plain-language answer under the hero.
+            speakable: { "@type": "SpeakableSpecification", cssSelector: ["h1", ".answer__text"] },
           },
           {
             "@context": "https://schema.org",
@@ -49,8 +57,14 @@ export default function Page() {
             "@context": "https://schema.org",
             "@type": "ItemList",
             name: "SLIIQQUE Studio services",
-            itemListElement: SERVICES.map(([name, desc], i) => ({ "@type": "ListItem", position: i + 1, name, description: desc })),
+            numberOfItems: SERVICES.length,
+            itemListOrder: "https://schema.org/ItemListOrderAscending",
+            itemListElement: SERVICES.map(([name, desc], i) => {
+              const page = SERVICE_PAGES.find((s) => s.name === name);
+              return { "@type": "ListItem", position: i + 1, name, description: desc, ...(page ? { url: `${SITE_URL}/services/${page.slug}` } : {}) };
+            }),
           },
+          faqSchema(HOME_FAQ),
         ]}
       />
       <Home />

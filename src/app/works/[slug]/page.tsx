@@ -60,7 +60,7 @@ export default async function CasePage({ params }: Props) {
       <div className="case__head">
         <h1 className="t-display case__title">{name}</h1>
         <div className="case__meta">
-          {([["Service", svc], ["Category", cat], ["Year", yr]] as const).map(([k, v]) => <div key={k}><h5 className="t-h5">{k}</h5><p>{v}</p></div>)}
+          {([["Service", svc], ["Category", cat], ["Year", yr]] as const).map(([k, v]) => <div key={k}><p className="t-h5 case__label">{k}</p><p>{v}</p></div>)}
         </div>
       </div>
       <div className={`case__hero${narrow ? " case__hero--narrow" : ""}`}><Img id={cardImg} w={heroW} h={heroH} alt={`${name}: concept brand hero visual by SLIIQQUE`} eager /></div>
