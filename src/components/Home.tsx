@@ -25,6 +25,15 @@ const PARTS = (REST.match(/systems, (.+?) assets/)?.[1] ?? "").split(/, | and /)
 const [STARTER] = PLANS;
 const ANSWER = `SLIIQQUE Studio is a creative studio in Lagos, Nigeria. It produces AI commercials, AI UGC and digital humans, AI product photography and fashion imagery for brands in Nigeria, Africa and worldwide. Monthly retainers start at ${STARTER[2]} or ${STARTER[5]}, and every project begins with a scoped brief.`;
 
+/** Phrases picked out inside the answer paragraph. The text stays one plain sentence run for crawlers and voice. */
+const KEY_TERMS = /(AI commercials|AI UGC and digital humans|AI product photography|fashion imagery)/;
+const FACTS: [label: string, value: string, note: string][] = [
+  ["Based in", "Lagos", "Nigeria"],
+  ["Works with", "Brands", "Nigeria, Africa and worldwide"],
+  ["Retainers from", STARTER[2], `or ${STARTER[5]} a month`],
+  ["Every project", "Scoped brief", "agreed before any production"],
+];
+
 const STRIP = ["AI commercials", "AI UGC", "Digital humans", "AI photography", "Fashion imagery", "Brand launches"];
 
 export default function Home() {
@@ -59,12 +68,26 @@ export default function Home() {
       </div>
 
       <section className="answer" id="in-brief" aria-label="SLIIQQUE Studio in brief">
-        <div className="container">
-          <p className="answer__text">{ANSWER}</p>
-          <p className="answer__updated">Last updated <time dateTime={CONTENT_UPDATED}>{displayDate(CONTENT_UPDATED)}</time></p>
-        </div>
+        <Reveal className="container answer__in">
+          <div className="answer__top">
+            <p className="answer__label"><span aria-hidden="true" />In brief</p>
+            <p className="answer__updated">Last updated <time dateTime={CONTENT_UPDATED}>{displayDate(CONTENT_UPDATED)}</time></p>
+          </div>
+          <p className="answer__text">
+            {ANSWER.split(KEY_TERMS).map((part, i) => (KEY_TERMS.test(part) ? <mark className="answer__key" key={i}>{part}</mark> : part))}
+          </p>
+          <dl className="answer__facts">
+            {FACTS.map(([label, value, note]) => (
+              <div className="answer__fact" key={label}>
+                <dt>{label}</dt>
+                <dd><b>{value}</b><span>{note}</span></dd>
+              </div>
+            ))}
+          </dl>
+        </Reveal>
       </section>
 
+      {/* About / manifesto section, hidden for now. Restore by removing this comment wrapper.
       <section className="ab" id="about" aria-labelledby="about-title">
         <div className="ab__glow ab__glow--a" aria-hidden="true" />
         <div className="ab__glow ab__glow--b" aria-hidden="true" />
@@ -119,6 +142,7 @@ export default function Home() {
           </div>
         </Reveal>
       </section>
+      */}
 
       <section className="sec sec--works" id="works">
         <div className="container">
