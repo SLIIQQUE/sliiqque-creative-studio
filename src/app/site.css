@@ -580,7 +580,8 @@ p { max-width: 72ch; }
 
 /* Hero showcase: two counter-running film rows */
 .showcase {
-  margin: 0 calc(var(--gutter) * -1);
+  max-width: var(--container);
+  margin: 0 auto;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
   overflow: hidden;
@@ -637,7 +638,7 @@ p { max-width: 72ch; }
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  padding: 11px var(--gutter);
+  padding: 11px 0;
   border-top: 1px solid var(--line-soft);
   background: var(--paper);
 }
@@ -2020,7 +2021,7 @@ p { max-width: 72ch; }
   .hero__tag { max-width: none; }
   .showcase__item { width: 46vw; }
   .showcase__hint { display: none; }
-  .showcase__bar { padding: 10px var(--gutter); }
+  .showcase__bar { padding: 10px 0; }
   .svc-acc__head { grid-template-columns: 1fr 40px; grid-template-areas: "num icon" "name name"; gap: 9px 12px; padding: 18px 4px; }
   .svc-acc__head:hover, .svc-acc__item.is-open .svc-acc__head { padding-left: 14px; padding-right: 14px; }
   .svc-acc__tags { display: none; }
