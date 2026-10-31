@@ -1,4 +1,3 @@
-import { BLOGS } from "@/lib/data";
 import { PRODUCT_ENGINEERING } from "@/lib/seo";
 
 export type Faq = { q: string; a: string };
@@ -269,8 +268,6 @@ const CATEGORY_SERVICE: Record<string, string> = {
 
 export const serviceForCategory = (cat: string) => serviceBySlug(CATEGORY_SERVICE[cat] ?? "");
 
-/** The reverse of serviceForCategory: live Journal posts relevant to a given service page. */
-export const postsForService = (slug: string) => BLOGS.filter((b) => CATEGORY_SERVICE[b[2]] === slug);
 
 /** Site-wide FAQ (also the source for FAQPage schema and llms.txt). */
 export const SITE_FAQ: Faq[] = [

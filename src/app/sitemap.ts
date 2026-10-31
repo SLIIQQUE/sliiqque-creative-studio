@@ -1,20 +1,23 @@
 import type { MetadataRoute } from "next";
 import { SERVICE_PAGES } from "@/data/services";
-import { BLOGS, CASES, HERO, LEGAL, POSTS, WORKS } from "@/lib/data";
+import { CASES, HERO, LEGAL, WORKS } from "@/lib/data";
+import { getJournalCards, getSitemapPosts } from "@/lib/journal";
 import { abs, CONTENT_UPDATED, isoDate, SITE_URL } from "@/lib/seo";
 
 const LEGAL_PATHS = { "/terms": 1, "/policies": 1, "/privacy": 1 };
 
 const img = (id: string) => abs(`/img/${id}`);
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const { cards } = await getJournalCards();
+  const journalPosts = await getSitemapPosts();
   const updated = new Date(CONTENT_UPDATED);
   const legal = (slug: string) => new Date(isoDate(LEGAL[slug as keyof typeof LEGAL].effective));
   // Google's image sitemap extension: surfaces the studio's visuals directly in Image Search and AI crawls.
   const IMAGES: Record<string, string[]> = {
     "": HERO.ticker.map(img),
     "/works": WORKS.map((w) => img(w[5])),
-    "/blogs": BLOGS.map((b) => img(b[4])),
+    "/blogs": cards.map((b) => (/^(\/|https?:)/.test(b[4]) ? (b[4].startsWith("/") ? abs(b[4]) : b[4]) : img(b[4]))),
   };
   const top: [string, number, MetadataRoute.Sitemap[number]["changeFrequency"]][] = [
     ["", 1, "weekly"], ["/services", 0.9, "monthly"], ["/pricing", 0.9, "monthly"], ["/works", 0.8, "monthly"], ["/about", 0.7, "monthly"],
@@ -46,12 +49,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
         images: [w[5], ...c.duo, c.wide].map(img),
       };
     }),
-    ...BLOGS.map((b) => ({
-      url: `${SITE_URL}/blogs/${b[0]}`,
-      lastModified: new Date(isoDate(b[1])),
+    ...journalPosts.map((p) => ({
+      url: `${SITE_URL}/blogs/${p.slug}`,
+      lastModified: p.modified,
       changeFrequency: "yearly" as const,
       priority: 0.6,
-      images: [b[4], ...POSTS[b[0]].gallery].map(img),
+      images: p.images.map((u) => (u.startsWith("http") ? u : abs(u))),
     })),
   ];
 }

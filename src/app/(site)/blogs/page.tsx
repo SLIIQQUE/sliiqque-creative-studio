@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import JsonLd from "@/components/JsonLd";
 import SocialFollow from "@/components/SocialFollow";
 import {
@@ -10,9 +11,14 @@ import {
 } from "@/lib/seo";
 import LoadMore from "@/components/LoadMore";
 import { PageHero } from "@/components/ui";
-import { BLOGS, BLOGS_LISTED } from "@/lib/data";
+import { getJournalCards } from "@/lib/journal";
 
-export const metadata = pageMeta({
+const shareFor = (ref: string) => (/^(\/|https?:)/.test(ref) ? ref : shareImg(ref));
+
+export async function generateMetadata(): Promise<Metadata> {
+  const { cards } = await getJournalCards();
+  const first = cards[0];
+  return pageMeta({
   title: "Journal: AI Production Notes",
   description:
     "SLIIQQUE's journal on digital human identity lock, AI fashion imagery and building creative systems, written from the studio's own production work.",
@@ -23,18 +29,17 @@ export const metadata = pageMeta({
     "AI storyboard workflow",
     "AI photography guide",
   ],
-  image: {
-    url: shareImg(BLOGS[0][4]),
-    alt: `${BLOGS[0][3]} SLIIQQUE Studio journal`,
-  },
-});
+  ...(first ? { image: { url: shareFor(first[4]), alt: `${first[3]} SLIIQQUE Studio journal` } } : {}),
+  });
+}
 
 const BREADCRUMB = [
   { name: "Home", path: "/" },
   { name: "Journal", path: "/blogs" },
 ];
 
-export default function BlogsPage() {
+export default async function BlogsPage() {
+  const { cards, listed } = await getJournalCards();
   return (
     <>
       <JsonLd
@@ -46,7 +51,7 @@ export default function BlogsPage() {
             url: abs("/blogs"),
             inLanguage: "en-NG",
             publisher: { "@id": ORG_ID },
-            blogPost: BLOGS.map((b) => ({
+            blogPost: cards.map((b) => ({
               "@type": "BlogPosting",
               headline: b[3].replace(/\.$/, ""),
               url: abs(`/blogs/${b[0]}`),
@@ -67,10 +72,10 @@ export default function BlogsPage() {
           <LoadMore
             gridClass="blog-grid"
             wrapClass="center-btn center-btn--blogs"
-            cells={BLOGS.map((b, i) => ({
+            cells={cards.map((b, i) => ({
               kind: "post" as const,
               item: b,
-              hidden: i >= BLOGS_LISTED,
+              hidden: i >= listed,
               phHide: i === 3,
             }))}
           />

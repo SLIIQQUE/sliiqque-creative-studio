@@ -82,7 +82,7 @@ export const shareImg = (id: string) => `/og/${id.replace(/\.[a-zA-Z0-9]+$/, "")
 
 const DEFAULT_SHARE = { url: "/opengraph-image", width: 1200, height: 630, alt: "SLIIQQUE Studio: premium creative studio powered by AI" };
 
-type Opts = { title: string; description: string; path: string; keywords?: string[]; type?: "website" | "article"; absoluteTitle?: boolean; published?: string; noindex?: boolean; image?: { url: string; alt: string } };
+type Opts = { title: string; description: string; path: string; keywords?: string[]; type?: "website" | "article"; absoluteTitle?: boolean; published?: string; noindex?: boolean; image?: { url: string; alt: string; width?: number; height?: number } };
 
 /** One place that builds title, description, canonical, Open Graph and Twitter metadata for a page. */
 export function pageMeta({ title, description, path, keywords = [], type = "website", absoluteTitle = false, published, noindex = false, image }: Opts): Metadata {

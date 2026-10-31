@@ -2,11 +2,11 @@ import Image from "next/image";
 
 type Props = { id: string; w: number; h: number; alt?: string; className?: string; eager?: boolean; /** Fetch at page load without LCP priority, for images that scroll in sideways (e.g. the reel). */ preload?: boolean; /** Overrides the default `sizes` when the rendered width is not the viewport on mobile (e.g. 46vw reel tiles). */ sizes?: string };
 
-/** Original Framer images (public/img/<id>), rendered at the template's measured size. */
+/** Original Framer images (public/img/<id>), rendered at the template's measured size. An id that is already a path or URL (journal uploads) is used as is. */
 export default function Img({ id, w, h, alt = "", className, eager = false, preload = false, sizes }: Props) {
   return (
     <Image
-      src={`/img/${id}`}
+      src={/^(\/|https?:)/.test(id) ? id : `/img/${id}`}
       width={w}
       height={h}
       alt={alt}

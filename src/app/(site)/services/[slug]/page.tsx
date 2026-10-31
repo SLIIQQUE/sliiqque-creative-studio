@@ -7,7 +7,8 @@ import VideoBlock from "@/components/VideoBlock";
 import JsonLd from "@/components/JsonLd";
 import Reveal from "@/components/Reveal";
 import { Btn, PageHero } from "@/components/ui";
-import { postsForService, SERVICE_PAGES, SERVICE_WORKS, serviceBySlug } from "@/data/services";
+import { SERVICE_PAGES, SERVICE_WORKS, serviceBySlug } from "@/data/services";
+import { getPostsForService } from "@/lib/journal";
 import { WORKS } from "@/lib/data";
 import { abs, breadcrumbSchema, CONTENT_UPDATED, faqSchema, ORG_ID, pageMeta, shareImg } from "@/lib/seo";
 
@@ -49,7 +50,7 @@ export default async function ServicePage({ params }: Props) {
   if (!s) notFound();
   const related = SERVICE_PAGES.filter((x) => s.related.includes(x.slug));
   const works = WORKS.filter((w) => SERVICE_WORKS[s.slug]?.includes(w[0]));
-  const posts = postsForService(s.slug);
+  const posts = await getPostsForService(s.slug);
   const breadcrumb = [{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: s.name, path: `/services/${s.slug}` }];
 
   return (

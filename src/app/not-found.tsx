@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import NotFoundView from "./NotFoundView";
+import SiteChrome from "@/components/SiteChrome";
 
 export const metadata: Metadata = {
   title: "Page Not Found",
@@ -8,5 +9,9 @@ export const metadata: Metadata = {
 };
 
 export default function NotFound() {
-  return <NotFoundView />;
+  return (
+    <SiteChrome>
+      <NotFoundView />
+    </SiteChrome>
+  );
 }

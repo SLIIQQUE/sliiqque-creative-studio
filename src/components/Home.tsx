@@ -10,8 +10,9 @@ import HeroReel from "./HeroReel";
 import LagosTime from "./LagosTime";
 import { BlogCard, WorkCard } from "./cards";
 import { Btn, SecHead } from "./ui";
-import { ABOUT, BLOGS, HERO, HOME_WORKS, PLANS, PLANS_INTRO, PROCESS_ROWS, PROJECT_ROWS, PROJECTS_INTRO, AWARDS_INTRO, SECTION_SUB, WORKS } from "@/lib/data";
+import { ABOUT, HERO, HOME_WORKS, PLANS, PLANS_INTRO, PROCESS_ROWS, PROJECT_ROWS, PROJECTS_INTRO, AWARDS_INTRO, SECTION_SUB, WORKS } from "@/lib/data";
 import { HOME_FAQ } from "@/data/services";
+import { getJournalCards } from "@/lib/journal";
 import { CONTENT_UPDATED, PRODUCT_ENGINEERING, displayDate } from "@/lib/seo";
 
 const [FIRST, ...AFTER] = ABOUT.body.split(". ");
@@ -36,7 +37,8 @@ const FACTS: [label: string, value: string, note: string][] = [
 
 const STRIP = ["AI commercials", "AI UGC", "Digital humans", "AI photography", "Fashion imagery", "Brand launches"];
 
-export default function Home() {
+export default async function Home() {
+  const { cards } = await getJournalCards();
   return (
     <>
       <section className="hero">
@@ -199,7 +201,7 @@ export default function Home() {
             title="notes from the floor"
             aside={<><p>Identity lock, storyboarding, grading and fashion imagery, written from our own production work.</p><Btn href="/blogs">All articles</Btn></>}
           />
-          <div className="blog-grid">{BLOGS.slice(0, 2).map((b) => <BlogCard key={b[0]} b={b} />)}</div>
+          <div className="blog-grid">{cards.slice(0, 2).map((b) => <BlogCard key={b[0]} b={b} />)}</div>
           <SocialFollow placement="home" />
         </div>
       </section>

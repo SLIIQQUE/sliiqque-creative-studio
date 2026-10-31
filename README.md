@@ -4,7 +4,7 @@ The website for SLIIQQUE's creative-production division: a premium creative stud
 
 **Live:** [https://studio.sliiqque.space](https://studio.sliiqque.space)
 
-**Documents:** this project keeps no docs of its own. The growth plan, keyword master list and journal drafts are in the workspace at `Documents/Sales/` (`SLIIQQUE-Studio-Social-Content-Plan-Nov-Dec-2026.md`, `SLIIQQUE-Studio-Keyword-Master-List-Oct2026.md`, `SLIIQQUE-Studio-Journal-Drafts-Nov-Dec-2026.md`).
+**Documents:** the journal admin plan and guide are in `docs/` ([plan](docs/journal-admin-cms-plan.md), [guide](docs/journal-admin-guide.md)). The growth plan, keyword master list and journal drafts are in the workspace at `Documents/Sales/` (`SLIIQQUE-Studio-Social-Content-Plan-Nov-Dec-2026.md`, `SLIIQQUE-Studio-Keyword-Master-List-Oct2026.md`, `SLIIQQUE-Studio-Journal-Drafts-Nov-Dec-2026.md`).
 
 SLIIQQUE runs two divisions under one studio, founded 22 December 2025 by Gabriel Njoabozia:
 
@@ -29,7 +29,7 @@ They are separate Next.js codebases and separate deployments. This site links to
 | SEO | Next.js `metadata` API, JSON-LD, `sitemap.ts`, `robots.ts`, `manifest.ts`, `llms.txt` / `llms-full.txt` |
 | Hosting | Vercel |
 
-No animation library, no CMS, no database. Content lives in two JSON files and a couple of TypeScript data modules; scroll-reveal and the scroll-progress bar are plain React + `IntersectionObserver` / scroll events.
+No animation library. Page content lives in two JSON files and a couple of TypeScript data modules. The Journal can be served from either `src/data/content.json` or the admin database (Postgres through Drizzle, with Tiptap for editing, images in Vercel Blob), chosen by `JOURNAL_SOURCE`; see [docs/journal-admin-guide.md](docs/journal-admin-guide.md). Scroll-reveal and the scroll-progress bar are plain React + `IntersectionObserver` / scroll events.
 
 Requires Node.js 18.18 or newer.
 
@@ -69,7 +69,8 @@ To enable real delivery for live visitors: create a Resend account, verify `slii
 | `/pricing` | Full rate card: monthly retainers, plan finder, one-off projects, add-ons, payment terms and pricing FAQ |
 | `/services`, `/services/[slug]` | Five service pages, each with its own JSON-LD `Service` + `FAQPage` schema |
 | `/works`, `/works/[slug]` | Three concept case studies: ÀLÀ (skincare), ODÈ (grooming), ÀSE (spirits, age-gated 18+) |
-| `/blogs`, `/blogs/[slug]` | Journal. Currently 3 live posts; 3 more exist in the data but are unpublished (see below) |
+| `/blogs`, `/blogs/[slug]` | Journal. Read from `content.json` (default) or the admin database when `JOURNAL_SOURCE=db`. See the note below |
+| `/admin` | Private journal admin: posts, media, categories, redirects, settings, users, audit log. Signed-in only, never indexed. Not part of the public site |
 | `/faq` | Site-wide FAQ, also emitted as `FAQPage` schema |
 | `/contact` | Contact form (see the gap noted above) and direct contact details |
 | `/terms`, `/policies`, `/privacy` | Legal pages, rendered from `src/data/legal.json` |
@@ -77,7 +78,7 @@ To enable real delivery for live visitors: create a Resend account, verify `slii
 | `/llms.txt`, `/llms-full.txt` | Plain-text index and full reference for AI assistants, built from the same data at request time |
 | `/opengraph-image` | Fallback social-share card (only used where a page sets no image of its own — currently none do) |
 
-**The Journal is partially published.** `src/data/content.json`'s `BLOGS` array controls which posts are live; a post's full content stays in `POSTS[slug]` even when removed from `BLOGS`, so removing/restoring a post is a one-line change (no content is deleted). The whole Journal route can also be disabled wholesale — see the comments at the top of `src/app/blogs/page.tsx` and `src/app/blogs/[slug]/page.tsx` for the uncomment/re-disable steps, which also touch `NavLinks.tsx`, `Footer.tsx`, `Home.tsx`, `sitemap.ts` and `lib/llms.ts`.
+**The Journal source.** With `JOURNAL_SOURCE=json` (the default), `src/data/content.json`'s `BLOGS` array controls which posts are live and `BLOGS_LISTED` how many show before "Load more"; a post's full content stays in `POSTS[slug]` even when removed from `BLOGS`. With `JOURNAL_SOURCE=db` the admin controls all of that and `content.json` post bodies are no longer read. At the time of writing `BLOGS` has 7 entries (6 listed) and `POSTS` has 10; the 3 posts not in `BLOGS` are drafts in the database after the import. The old note about publishing by hand-editing JSON still applies in `json` mode.
 
 ---
 

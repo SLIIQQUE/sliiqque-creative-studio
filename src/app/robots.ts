@@ -6,8 +6,8 @@ const AI_BOTS = ["GPTBot", "ChatGPT-User", "OAI-SearchBot", "ClaudeBot", "Claude
 
 export default function robots(): MetadataRoute.Robots {
   return {
-    // The contact form endpoint is not a page; keep every crawler out of it.
-    rules: [{ userAgent: "*", allow: "/", disallow: "/api/" }, ...AI_BOTS.map((userAgent) => ({ userAgent, allow: "/", disallow: "/api/" }))],
+    // The contact form endpoint is not a page, and the journal admin is private; keep every crawler out of both.
+    rules: [{ userAgent: "*", allow: "/", disallow: ["/api/", "/admin"] }, ...AI_BOTS.map((userAgent) => ({ userAgent, allow: "/", disallow: ["/api/", "/admin"] }))],
     sitemap: `${SITE_URL}/sitemap.xml`,
     host: SITE_URL,
   };

@@ -1,6 +1,6 @@
 import { SERVICE_PAGES, SITE_FAQ } from "@/data/services";
 import { GLOSSARY } from "@/data/glossary";
-import { BLOGS, PLANS, PROJECT_ROWS, WORKS } from "@/lib/data";
+import { PLANS, PROJECT_ROWS, WORKS } from "@/lib/data";
 import { BRAND_DESC, KEYWORDS, PRODUCT_ENGINEERING, SITE_URL } from "@/lib/seo";
 
 const head = [
@@ -15,7 +15,7 @@ const head = [
 ];
 
 /** Short index for AI assistants (llmstxt.org format). */
-export function llmsTxt(): string {
+export function llmsTxt(journal: { slug: string; title: string }[]): string {
   return [
     ...head,
     "## Key facts",
@@ -51,7 +51,7 @@ export function llmsTxt(): string {
     "## Journal",
     "",
     `- [Journal](${SITE_URL}/blogs) (RSS: ${SITE_URL}/feed.xml)`,
-    ...BLOGS.map((b) => `- [${b[3].replace(/\.$/, "")}](${SITE_URL}/blogs/${b[0]})`),
+    ...journal.map((b) => `- [${b.title.replace(/\.$/, "")}](${SITE_URL}/blogs/${b.slug})`),
     "",
     "## Optional",
     "",

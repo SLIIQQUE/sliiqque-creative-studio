@@ -6,3 +6,6 @@ AGENTS.md
 CLAUDE.md
 .lighthouseci
 .env*.local
+
+# Local development uploads for the journal admin
+/storage/

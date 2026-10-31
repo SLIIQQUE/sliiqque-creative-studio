@@ -637,7 +637,8 @@ p { max-width: 72ch; }
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  padding: 11px var(--gutter);
+  /* The reel stays full-bleed; only the text and button line up with the page content width (same edges as .hero__meta). */
+  padding: 11px max(var(--gutter), calc((100% - var(--container)) / 2));
   border-top: 1px solid var(--line-soft);
   background: var(--paper);
 }

@@ -1,7 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // AVIF first, WebP fallback, for every image the optimizer serves through Img.tsx.
-  images: { qualities: [90], formats: ["image/avif", "image/webp"] },
+  images: {
+    qualities: [90],
+    formats: ["image/avif", "image/webp"],
+    // Journal uploads live in Vercel Blob in production.
+    remotePatterns: [{ protocol: "https", hostname: "*.public.blob.vercel-storage.com" }],
+  },
   // Vercel redirects HTTP to HTTPS at the edge; this tells browsers to skip that round
   // trip on repeat visits and never downgrade to plain HTTP for this host.
   async headers() {

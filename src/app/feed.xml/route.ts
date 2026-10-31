@@ -1,23 +1,23 @@
-import { BLOGS, POSTS } from "@/lib/data";
-import { abs, BRAND_DESC, FEED_PATH, isoDate, SITE_NAME } from "@/lib/seo";
+import { getFeedItems } from "@/lib/journal";
+import { abs, BRAND_DESC, FEED_PATH, SITE_NAME } from "@/lib/seo";
 
 export const dynamic = "force-static";
 
 const esc = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 
 /** RSS 2.0 feed of the journal, newest first, so readers and AI crawlers can follow new posts. */
-export function GET() {
-  const posts = [...BLOGS].sort((a, b) => isoDate(b[1]).localeCompare(isoDate(a[1])));
+export async function GET() {
+  const posts = await getFeedItems();
   const items = posts.map((b) => {
-    const url = abs(`/blogs/${b[0]}`);
+    const url = abs(`/blogs/${b.slug}`);
     return [
       "<item>",
-      `<title>${esc(b[3].replace(/\.$/, ""))}</title>`,
+      `<title>${esc(b.title.replace(/\.$/, ""))}</title>`,
       `<link>${url}</link>`,
       `<guid isPermaLink="true">${url}</guid>`,
-      `<pubDate>${new Date(isoDate(b[1])).toUTCString()}</pubDate>`,
-      `<category>${esc(b[2])}</category>`,
-      `<description>${esc(POSTS[b[0]].groups[0][1][0][1][0])}</description>`,
+      `<pubDate>${new Date(b.iso).toUTCString()}</pubDate>`,
+      `<category>${esc(b.category)}</category>`,
+      `<description>${esc(b.description)}</description>`,
       "</item>",
     ].join("");
   });
