@@ -17,7 +17,7 @@ import {
 } from "@/app/admin/(console)/posts/actions";
 import { blockers, runChecks, warnings } from "@/lib/cms/checks";
 import { docToText, mediaIdsOf, safeHref, sanitizeDoc } from "@/lib/cms/doc";
-import { seoScore } from "@/lib/cms/seo-score";
+import { aeoScore, geoScore, seoScore } from "@/lib/cms/seo-score";
 import type { Doc, FaqItem, PostStatus, PriceToken, SeoFields } from "@/lib/cms/types";
 import { extensions, hydrateDoc, type MediaLite } from "./extensions";
 import MediaPicker from "./MediaPicker";
@@ -181,6 +181,12 @@ export default function PostEditor({ post, categories, services, authors, media:
     () => seoScore({ title, seoTitle: seo.title, seoDescription: seo.description, focusKeyword: seo.focusKeyword, doc, hasHero: !!hero, imageAlts: mediaIdsOf(doc).map((id) => mediaMap.get(id)?.alt ?? "") }),
     [title, seo, doc, hero, mediaMap],
   );
+  const [lens, setLens] = useState<"seo" | "aeo" | "geo">("seo");
+  const grades = useMemo(() => {
+    const input = { title, seoTitle: seo.title, seoDescription: seo.description, focusKeyword: seo.focusKeyword, doc, hasHero: !!hero, imageAlts: mediaIdsOf(doc).map((id) => mediaMap.get(id)?.alt ?? ""), excerpt, faq };
+    return { seo: score, aeo: aeoScore(input), geo: geoScore(input) };
+  }, [title, seo, doc, hero, mediaMap, excerpt, faq, score]);
+  const shown = grades[lens];
 
   async function run(label: string, fn: () => Promise<{ ok: boolean; error?: string }>, next?: PostStatus) {
     setMessage(null);
@@ -257,8 +263,14 @@ export default function PostEditor({ post, categories, services, authors, media:
     description: (seo.description || excerpt || "The meta description appears here.").slice(0, 160),
   };
   const seoRing = 2 * Math.PI * 42;
-  const seoDash = (score.score / 100) * seoRing;
-  const seoColor = score.score >= 80 ? "#1b8a48" : score.score >= 50 ? "#b57a00" : "#c0392b";
+  const seoDash = (shown.score / 100) * seoRing;
+  const gradeColor = (n: number) => (n >= 80 ? "#1b8a48" : n >= 50 ? "#b57a00" : "#c0392b");
+  const seoColor = gradeColor(shown.score);
+  const lensCopy = {
+    seo: ["Search health", "The piece is ready for discovery.", "Useful, but still has room to sharpen.", "Needs work before search can carry it."],
+    aeo: ["Answer engines (AEO)", "Easy for answer boxes and voice assistants to quote.", "Some answers can be lifted, but they are not clear enough yet.", "Hard to pull a direct answer from. Lead with one and add an FAQ."],
+    geo: ["AI citation (GEO)", "Specific and sourced enough for AI assistants to cite.", "Reasonable, but it needs more facts and sources to be cited.", "Too vague for AI assistants to trust. Add figures, sources and named facts."],
+  }[lens];
 
   return (
     <div className={`adm-editorpage${focus ? " is-focus" : ""}`}>
@@ -486,20 +498,28 @@ export default function PostEditor({ post, categories, services, authors, media:
           <div className="adm-seo__preview">
             <div className="adm-seohead">
               <div className="adm-seoring">
-                <svg viewBox="0 0 100 100" role="img" aria-label={`SEO score ${score.score} out of 100`}>
+                <svg viewBox="0 0 100 100" role="img" aria-label={`${lens.toUpperCase()} score ${shown.score} out of 100`}>
                   <circle cx="50" cy="50" r="42" fill="none" stroke="var(--line)" strokeWidth="7" />
                   <circle cx="50" cy="50" r="42" fill="none" stroke={seoColor} strokeWidth="7" strokeLinecap="round" strokeDasharray={`${seoDash} ${seoRing - seoDash}`} />
                 </svg>
-                <div className="adm-seoring__center"><b>{score.score}</b><span>of 100</span></div>
+                <div className="adm-seoring__center"><b>{shown.score}</b><span>of 100</span></div>
               </div>
               <div>
-                <p className="adm-kicker">Search health</p>
-                <p className="adm-card__note">{score.score >= 80 ? "The piece is ready for discovery." : score.score >= 50 ? "Useful, but still has room to sharpen." : "Needs work before search can carry it."}</p>
+                <p className="adm-kicker">{lensCopy[0]}</p>
+                <p className="adm-card__note">{shown.score >= 80 ? lensCopy[1] : shown.score >= 50 ? lensCopy[2] : lensCopy[3]}</p>
               </div>
+            </div>
+            <div className="adm-lens" role="tablist" aria-label="Score type">
+              {(["seo", "aeo", "geo"] as const).map((k) => (
+                <button key={k} type="button" role="tab" aria-selected={lens === k} className={lens === k ? "is-on" : ""} onClick={() => setLens(k)}>
+                  <span>{k.toUpperCase()}</span>
+                  <b style={{ color: gradeColor(grades[k].score) }}>{grades[k].score}</b>
+                </button>
+              ))}
             </div>
             <div className="adm-serp"><div className="adm-serp__t">{serp.title}</div><div className="adm-serp__u">{serp.url}</div><div className="adm-serp__d">{serp.description}</div></div>
             <ul className="adm-checks">
-              {score.items.filter((i) => i.status !== "ok").map((i) => <li key={i.id}><span className={`dot dot--${i.status === "bad" ? "block" : "warn"}`} /><span><strong>{i.label}:</strong> {i.detail}</span></li>)}
+              {shown.items.filter((i) => i.status !== "ok").map((i) => <li key={i.id}><span className={`dot dot--${i.status === "bad" ? "block" : "warn"}`} /><span><strong>{i.label}:</strong> {i.detail}</span></li>)}
             </ul>
           </div>
         </div>
