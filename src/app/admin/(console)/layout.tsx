@@ -3,6 +3,8 @@ import { endSession } from "@/lib/cms/session";
 import { redirect } from "next/navigation";
 import AdminNav from "./AdminNav";
 import ConsoleBar from "./ConsoleBar";
+import { journalSource } from "@/lib/journal";
+import { runDueSchedule } from "@/lib/cms/post-service";
 
 async function signOut() {
   "use server";
@@ -21,6 +23,9 @@ function initials(name: string) {
 
 export default async function ConsoleLayout({ children }: { children: React.ReactNode }) {
   const user = await requireUser();
+  // Catch-up: publish anything that came due while no cron ran (the daily cron is the only other trigger).
+  await runDueSchedule().catch((error) => console.error("catch-up schedule run failed", error));
+  const jsonSource = journalSource() === "json";
   return (
     <div className="adm-shell">
       <aside className="adm-side">
@@ -62,7 +67,14 @@ export default async function ConsoleLayout({ children }: { children: React.Reac
         <header className="adm-topbar">
           <ConsoleBar isOwner={user.role === "owner"} />
         </header>
-        <main className="adm-main">{children}</main>
+        <main className="adm-main">
+          {jsonSource ? (
+            <p className="adm-notice" role="alert">
+              The public journal is still reading from content.json, so posts published here do not appear on the site. Set JOURNAL_SOURCE=db and redeploy to switch it over.
+            </p>
+          ) : null}
+          {children}
+        </main>
       </div>
     </div>
   );

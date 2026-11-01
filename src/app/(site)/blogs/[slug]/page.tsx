@@ -49,7 +49,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     path: `/blogs/${slug}`,
     type: "article",
     published: e.isoDate,
-    noindex: !!e.seo.noindex || draft,
+    noindex: !!e.seo.noindex || e.isDraft,
     keywords: [e.category, "AI creative studio Lagos", "AI production workflow"],
   });
   return e.seo.canonical ? { ...meta, alternates: { ...meta.alternates, canonical: e.seo.canonical } } : meta;
@@ -99,7 +99,7 @@ export default async function PostPage({ params }: Props) {
           ...(e.faq.length ? [faqSchema(e.faq)] : []),
         ]}
       />
-      {draft ? (
+      {draft && e.isDraft ? (
         <p className="services-note" style={{ background: "#fff6e0", padding: 12, borderRadius: 8 }}>
           Preview: you are viewing {e.slug} as a draft, only you can see this. <a href={`/api/admin/preview/exit?to=/admin/posts`}>Exit preview</a>
         </p>

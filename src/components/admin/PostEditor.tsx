@@ -292,7 +292,7 @@ export default function PostEditor({ post, categories, services, authors, media:
             {focus ? "Exit focus" : "Focus mode"}
           </button>
           <a className="adm-btn adm-btn--ghost" href={`/api/admin/preview?id=${post.id}`} target="_blank" rel="noreferrer">Preview</a>
-          {status === "published" ? <a className="adm-btn adm-btn--ghost" href={`/blogs/${slug}`} target="_blank" rel="noreferrer">View live</a> : null}
+          {status === "published" ? <a className="adm-btn adm-btn--ghost" href={`/api/admin/preview/exit?to=/blogs/${slug}`} target="_blank" rel="noreferrer">View live</a> : null}
         </div>
       </div>
 

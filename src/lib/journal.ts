@@ -34,6 +34,8 @@ export type JournalEntry = {
   media: Map<string, MediaView>;
   hero: MediaView | null;
   isConcept: boolean;
+  /** True when the post is not published (only reachable in draft preview). */
+  isDraft: boolean;
   listed: boolean;
   faq: FaqItem[];
   seo: SeoFields & { shareUrl?: string };
@@ -83,6 +85,7 @@ function jsonEntry(b: Blog): JournalEntry {
     media,
     hero,
     isConcept: false,
+    isDraft: false,
     listed: true,
     faq: [],
     seo: {},
@@ -168,6 +171,7 @@ export async function getJournalEntry(slug: string, opts: { draft?: boolean } = 
     media: mediaMap,
     hero: post.heroMediaId ? (mediaMap.get(post.heroMediaId) ?? null) : null,
     isConcept: post.isConcept,
+    isDraft: post.status !== "published",
     listed: post.listed,
     faq: post.faq,
     seo: { ...post.seo, shareUrl: og?.url },
