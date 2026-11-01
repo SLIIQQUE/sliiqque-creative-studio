@@ -120,6 +120,16 @@ h1, h2, h3, h4, h5, p, ul, ol, figure, blockquote { margin: 0; padding: 0; }
 ul, ol { list-style: none; }
 a { color: inherit; text-decoration: none; }
 img { display: block; max-width: 100%; background: var(--paper-2); }
+/* Skeleton: the element is already its final size, so the shimmer sits exactly where the image will land. */
+.skel {
+  background-color: var(--skel-base, var(--paper-2));
+  background-image: linear-gradient(100deg, transparent 30%, rgba(255, 255, 255, .55) 50%, transparent 70%);
+  background-size: 220% 100%;
+  background-repeat: no-repeat;
+  animation: skel-sweep 1.5s ease-in-out infinite;
+}
+@keyframes skel-sweep { from { background-position: 170% 0; } to { background-position: -70% 0; } }
+@media (prefers-reduced-motion: reduce) { .skel { animation: none; } }
 button, input, select, textarea { font: inherit; color: inherit; }
 section { position: relative; }
 ::selection { background: var(--accent); color: #fff; }
@@ -1383,7 +1393,7 @@ p { max-width: 72ch; }
 /* ---------- 15. Journal ---------- */
 .blog-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px 20px; }
 .post-card { display: flex; flex-direction: column; gap: 16px; }
-.post-card__img { aspect-ratio: 4 / 3; overflow: hidden; border-radius: var(--radius-card); background: var(--paper-3); }
+.post-card__img { --skel-base: var(--paper-3); aspect-ratio: 4 / 3; overflow: hidden; border-radius: var(--radius-card); background: var(--paper-3); }
 .post-card__img img { width: 100%; height: 100%; object-fit: cover; transition: transform .9s cubic-bezier(.16, .84, .24, 1); }
 .post-card:hover .post-card__img img { transform: scale(1.04); }
 .post-meta { display: flex; align-items: center; gap: 12px; font-size: 10px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--text-2); }

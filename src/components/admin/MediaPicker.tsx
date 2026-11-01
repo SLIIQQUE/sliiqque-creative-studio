@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import type { MediaLite } from "./extensions";
+import LoadImg from "@/components/LoadImg";
 
 /** Shrinks big photos in the browser so they fit the 4 MB upload limit. The server re-encodes and strips metadata regardless. */
 async function prepare(file: File): Promise<File> {
@@ -89,8 +90,7 @@ export default function MediaPicker({
       <div className="adm-media-grid" style={{ maxHeight: "44vh", overflow: "auto", paddingBottom: 4 }}>
         {shown.map((m) => (
           <button type="button" key={m.id} className="adm-media-item" onClick={() => { onPick(m); onClose(); }}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={m.url} alt="" loading="lazy" />
+            <LoadImg src={m.url} alt="" loading="lazy" />
             <span title={m.alt}>{m.alt || m.url}</span>
           </button>
         ))}

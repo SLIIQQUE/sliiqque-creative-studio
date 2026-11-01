@@ -17,6 +17,7 @@ import {
 } from "@/app/admin/(console)/posts/actions";
 import { blockers, runChecks, warnings } from "@/lib/cms/checks";
 import { docToText, mediaIdsOf, safeHref, sanitizeDoc } from "@/lib/cms/doc";
+import LoadImg from "@/components/LoadImg";
 import { aeoScore, geoScore, seoScore } from "@/lib/cms/seo-score";
 import type { Doc, FaqItem, PostStatus, PriceToken, SeoFields } from "@/lib/cms/types";
 import { extensions, hydrateDoc, type MediaLite } from "./extensions";
@@ -436,7 +437,7 @@ export default function PostEditor({ post, categories, services, authors, media:
             <div className="adm-field"><label htmlFor="author">Author</label>
               <select id="author" value={authorId ?? ""} onChange={(e) => setAuthorId(e.target.value || null)} disabled={archived}>{authors.map((a) => <option key={a.id} value={a.id}>{a.name}</option>)}</select></div>
             <div className="adm-field"><span className="adm-label">Hero image</span>
-              {hero ? <>{/* eslint-disable-next-line @next/next/no-img-element */}<img src={hero.url} alt="" style={{ maxWidth: "100%", borderRadius: 8 }} /><span className="hint">{hero.alt}</span></> : <span className="hint">None yet.</span>}
+              {hero ? <><LoadImg src={hero.url} alt="" style={{ maxWidth: "100%", borderRadius: 8 }} /><span className="hint">{hero.alt}</span></> : <span className="hint">None yet.</span>}
               <div className="adm-row"><button type="button" className="adm-btn adm-btn--ghost adm-btn--sm" onClick={() => setTarget("hero")} disabled={archived}>{hero ? "Change" : "Choose"}</button>{hero ? <button type="button" className="adm-btn adm-btn--ghost adm-btn--sm" onClick={() => setHeroMediaId(null)} disabled={archived}>Remove</button> : null}</div></div>
             <label className="adm-check" style={{ marginBottom: 8 }}><input type="checkbox" checked={isConcept} onChange={(e) => setIsConcept(e.target.checked)} disabled={archived} /> Concept work, not a client project</label>
             <label className="adm-check"><input type="checkbox" checked={listed} onChange={(e) => setListed(e.target.checked)} disabled={archived} /> Show in the journal grid</label>

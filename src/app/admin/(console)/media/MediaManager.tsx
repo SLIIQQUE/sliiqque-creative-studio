@@ -2,6 +2,7 @@
 
 import { useActionState, useCallback, useEffect, useState } from "react";
 import MediaPicker from "@/components/admin/MediaPicker";
+import LoadImg from "@/components/LoadImg";
 import type { MediaLite } from "@/components/admin/extensions";
 import { removeMedia, saveMediaText, type MediaState } from "./actions";
 
@@ -35,8 +36,7 @@ function Asset({ m, index, onRemoved }: { m: Item; index: number; onRemoved: (id
           </div>
         ) : (
           <>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={m.url} alt={m.alt} loading="lazy" onError={() => setBroken(true)} />
+            <LoadImg src={m.url} alt={m.alt} loading="lazy" onError={() => setBroken(true)} />
           </>
         )}
         <span className="adm-asset__shade" aria-hidden="true" />
