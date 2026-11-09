@@ -4,6 +4,7 @@
   "title": "SLIIQQUE Studio – Premium Creative Studio Powered by AI",
   "email": "hello@sliiqque.space",
   "phone": "+234 810 341 3970",
+  "phone_alt": "+234 704 100 0085",
   "footer_blurb": "SLIIQQUE Studio is a creative studio producing AI commercials, UGC, photography and brand campaigns.",
   "news_blurb": "Notes on identity lock, storyboarding, grading and fashion imagery, sent occasionally, never spam.",
   "copyright": "©2026 SLIIQQUE Studio. All Rights Reserved.",
@@ -690,6 +691,11 @@
     "+234 810 341 3970",
     "https://wa.me/2348103413970",
     "Call or WhatsApp. Monday to Friday, 9am – 6pm WAT; Saturday by appointment."
+   ],
+   [
+    "+234 704 100 0085",
+    "tel:+2347041000085",
+    "Alternative number, calls only (no WhatsApp)."
    ],
    [
     "Lagos, Nigeria",

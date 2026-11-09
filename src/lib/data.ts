@@ -8,7 +8,7 @@ export type Stat = [n: number, sign: string, caption: string];
 export type PostGroup = [heading: string, subs: [string, string[]][]];
 
 export const SITE = raw.SITE as {
-  name: string; title: string; email: string; phone: string; hours: string; footer_blurb: string;
+  name: string; title: string; email: string; phone: string; phone_alt: string; hours: string; footer_blurb: string;
   news_blurb: string; copyright: string; social: [string, string][];
 };
 export const HERO = raw.HERO as { tag: string; sub: string; ticker: string[] };

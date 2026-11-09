@@ -122,6 +122,7 @@ export default function NavLinks() {
                   <li><Link href="/faq">FAQ</Link></li>
                   <li><a href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
                   <li><a href={`tel:${SITE.phone.replace(/\s/g, "")}`}>{SITE.phone}</a></li>
+                  <li><a href={`tel:${SITE.phone_alt.replace(/\s/g, "")}`}>{SITE.phone_alt} (calls only)</a></li>
                 </ul>
               </div>
             </div>

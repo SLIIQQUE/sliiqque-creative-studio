@@ -188,7 +188,7 @@ After a deploy, submit `https://studio.sliiqque.space/sitemap.xml` in Google Sea
 |---|---|---|
 | Founded | 22 December 2025, by Gabriel Njoabozia | `src/lib/seo.ts` (`organizationSchema`) |
 | Location | Lagos, Nigeria; works with clients in Nigeria, Africa and worldwide | — |
-| Contact | hello@sliiqque.space · +234 810 341 3970 (call/WhatsApp) | `src/data/content.json` (`SITE`, `CONTACT`) |
+| Contact | hello@sliiqque.space · +234 810 341 3970 (call/WhatsApp), +234 704 100 0085 (alternative, calls only) | `src/data/content.json` (`SITE`, `CONTACT`) |
 | Retainers | ₦150,000 / $280, ₦350,000 / $650, ₦750,000 / $1,400 per month | `src/data/content.json` (`PLANS`) |
 | One-off projects | AI Commercial from ₦350,000/$650 · Product Photo Pack ₦75,000/$140 · Custom Digital Human ₦150,000/$280 · Brand Launch Campaign ₦900,000/$1,700 | `src/data/content.json` (`PROJECT_ROWS`) |
 | Legal docs version | 1.0, effective 4 October 2026 | `src/data/legal.json` |

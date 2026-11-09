@@ -9,7 +9,7 @@ import { CONTACT as C, SITE } from "@/lib/data";
 export const metadata = pageMeta({
   title: "Contact SLIIQQUE: Start a Project",
   description:
-    "Contact SLIIQQUE in Lagos: hello@sliiqque.space or call/WhatsApp +234 810 341 3970. Mon to Fri, 9am to 6pm WAT. Replies within one working day.",
+    "Contact SLIIQQUE in Lagos: hello@sliiqque.space or call/WhatsApp +234 810 341 3970 (alternative, calls only: +234 704 100 0085). Mon to Fri, 9am to 6pm WAT. Replies within one working day.",
   path: "/contact",
   keywords: ["contact SLIIQQUE", "hire AI creative studio Lagos", "AI commercial quote Nigeria"],
   image: { url: shareImg("digital-human-face-macro.jpg"), alt: "SLIIQQUE Studio: AI-produced photorealistic digital human, extreme close-up" },
