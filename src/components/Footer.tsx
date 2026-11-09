@@ -90,9 +90,6 @@ export default function Footer() {
             <a className="tel" href={`tel:${phone}`}>
               {SITE.phone}
             </a>
-            <a className="tel" href={`tel:${SITE.phone_alt.replace(/\s/g, "")}`}>
-              {SITE.phone_alt} (calls only)
-            </a>
           </div>
           <DemoForm
             className="footer__news"
