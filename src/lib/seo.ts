@@ -156,7 +156,7 @@ export function organizationSchema() {
     foundingDate: "2025-12-22",
     founder: founderSchema({ worksFor: { "@id": ORG_ID } }),
     email: "hello@sliiqque.space",
-    telephone: "+2347041000085",
+    telephone: "+2348103413970",
     address: { "@type": "PostalAddress", addressLocality: "Lagos", addressRegion: "Lagos State", addressCountry: "NG" },
     geo: { "@type": "GeoCoordinates", latitude: 6.5244, longitude: 3.3792 },
     priceRange: "From ₦75,000",
@@ -166,7 +166,7 @@ export function organizationSchema() {
       "product cinematography", "short-form video advertising", "AI-generated imagery", "creative direction",
     ],
     openingHoursSpecification: [{ "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "09:00", closes: "18:00" }],
-    contactPoint: [{ "@type": "ContactPoint", contactType: "customer service", email: "hello@sliiqque.space", telephone: "+2347041000085", areaServed: ["NG", "Worldwide"], availableLanguage: ["English"] }],
+    contactPoint: [{ "@type": "ContactPoint", contactType: "customer service", email: "hello@sliiqque.space", telephone: "+2348103413970", areaServed: ["NG", "Worldwide"], availableLanguage: ["English"] }],
     sameAs: ["https://www.instagram.com/sliiqque", "https://www.youtube.com/@sliiqque", "https://facebook.com/studio.sliiqque/", PRODUCT_ENGINEERING.url],
   };
 }

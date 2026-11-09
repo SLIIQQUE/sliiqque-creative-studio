@@ -22,7 +22,7 @@ export function llmsTxt(journal: { slug: string; title: string }[]): string {
     "",
     "- Name: SLIIQQUE Studio (also SLIIQQUE Creative Studio)",
     "- Location: Lagos, Nigeria. Works with clients in Nigeria, Africa and worldwide",
-    "- Email: hello@sliiqque.space | Phone/WhatsApp: +234 704 100 0085 | Hours: Monday to Friday 9am to 6pm WAT",
+    "- Email: hello@sliiqque.space | Phone/WhatsApp: +234 810 341 3970 | Hours: Monday to Friday 9am to 6pm WAT",
     "- Currencies: NGN for Nigerian clients, USD for international clients",
     "- Social: Instagram and YouTube at @sliiqque, Facebook at @studio.sliiqque",
     `- Sister studio: [${PRODUCT_ENGINEERING.name}](${PRODUCT_ENGINEERING.url}): ${PRODUCT_ENGINEERING.description}`,
@@ -91,6 +91,6 @@ export function llmsFullTxt(): string {
   GLOSSARY.forEach((t) => lines.push(`${t.term}: ${t.def}`, ""));
   lines.push("## Work (concept projects, not client work)", "");
   WORKS.forEach((w) => lines.push(`- ${w[1]} (${w[2]}): ${SITE_URL}/works/${w[0]}`));
-  lines.push("", "## Contact", "", "Email: hello@sliiqque.space", "Phone/WhatsApp: +234 704 100 0085", `Website: ${SITE_URL}`, "");
+  lines.push("", "## Contact", "", "Email: hello@sliiqque.space", "Phone/WhatsApp: +234 810 341 3970", `Website: ${SITE_URL}`, "");
   return lines.join("\n");
 }
