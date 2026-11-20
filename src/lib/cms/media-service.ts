@@ -3,10 +3,10 @@ import { randomBytes } from "node:crypto";
 import { mkdir, readFile, unlink, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { del, put } from "@vercel/blob";
-import { eq } from "drizzle-orm";
+import { eq, or, sql } from "drizzle-orm";
 import sharp, { type FormatEnum, type Metadata } from "sharp";
 import { db } from "@/db/client";
-import { media } from "@/db/schema";
+import { heroFrames, media, works } from "@/db/schema";
 import { audit } from "./audit";
 import { mediaUsage } from "./queries";
 import type { SessionUser } from "./session";
@@ -97,6 +97,13 @@ export async function updateMediaText(user: SessionUser, id: string, alt: string
 export async function deleteMedia(user: SessionUser, id: string) {
   const [row] = await db.select().from(media).where(eq(media.id, id)).limit(1);
   if (!row) return;
+  const inWorks = await db
+    .select({ name: works.name })
+    .from(works)
+    .where(or(eq(works.cardMediaId, id), eq(works.wideMediaId, id), sql`${works.duoMediaIds}::text like ${"%" + id + "%"}`));
+  if (inWorks.length) throw new MediaError(`Used in ${inWorks.length === 1 ? "the work" : "the works"} ${inWorks.map((w) => w.name).join(", ")}. Remove it there first.`);
+  const [inReel] = await db.select({ id: heroFrames.id }).from(heroFrames).where(eq(heroFrames.mediaId, id)).limit(1);
+  if (inReel) throw new MediaError("Used in the homepage hero reel. Remove it there first.");
   const used = await mediaUsage(id);
   if (used.length) throw new MediaError(`Used in ${used.length} post${used.length === 1 ? "" : "s"}: ${used.map((u) => u.title).slice(0, 3).join(", ")}. Remove it there first.`);
   if (row.storageKey) {

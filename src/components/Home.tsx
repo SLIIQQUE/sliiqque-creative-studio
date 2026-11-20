@@ -10,9 +10,11 @@ import HeroReel from "./HeroReel";
 import LagosTime from "./LagosTime";
 import { BlogCard, WorkCard } from "./cards";
 import { Btn, SecHead } from "./ui";
-import { ABOUT, HERO, HOME_WORKS, PLANS, PLANS_INTRO, PROCESS_ROWS, PROJECT_ROWS, PROJECTS_INTRO, AWARDS_INTRO, SECTION_SUB, WORKS } from "@/lib/data";
+import { ABOUT, HERO, HOME_WORKS, PLANS, PLANS_INTRO, PROCESS_ROWS, PROJECT_ROWS, PROJECTS_INTRO, AWARDS_INTRO, SECTION_SUB } from "@/lib/data";
 import { HOME_FAQ } from "@/data/services";
 import { getJournalCards } from "@/lib/journal";
+import { getHeroFrames } from "@/lib/hero";
+import { getWorkEntries, workTuple } from "@/lib/works";
 import { CONTENT_UPDATED, PRODUCT_ENGINEERING, displayDate } from "@/lib/seo";
 
 const [FIRST, ...AFTER] = ABOUT.body.split(". ");
@@ -38,7 +40,7 @@ const FACTS: [label: string, value: string, note: string][] = [
 const STRIP = ["AI commercials", "AI UGC", "Digital humans", "AI photography", "Fashion imagery", "Brand launches"];
 
 export default async function Home() {
-  const { cards } = await getJournalCards();
+  const [{ cards }, heroFrames, workEntries] = await Promise.all([getJournalCards(), getHeroFrames(), getWorkEntries()]);
   return (
     <>
       <section className="hero">
@@ -60,7 +62,7 @@ export default async function Home() {
           </div>
         </div>
 
-        <div id="gallery"><HeroReel ids={HERO.ticker} /></div>
+        <div id="gallery"><HeroReel frames={heroFrames} /></div>
       </section>
 
       <div className="strip" aria-hidden="true">
@@ -155,7 +157,7 @@ export default async function Home() {
             aside={<><p>Three concept brand worlds, built end to end and labelled as exactly that. Not client work.</p><Btn href="/works">View all work</Btn></>}
           />
           <div className="works-grid">
-            {WORKS.slice(0, HOME_WORKS).map((w) => <WorkCard key={w[0]} w={w} />)}
+            {workEntries.slice(0, HOME_WORKS).map((w) => <WorkCard key={w.slug} w={workTuple(w)} />)}
           </div>
         </div>
       </section>

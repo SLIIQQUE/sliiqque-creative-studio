@@ -7,9 +7,9 @@ import VideoBlock from "@/components/VideoBlock";
 import JsonLd from "@/components/JsonLd";
 import Reveal from "@/components/Reveal";
 import { Btn, PageHero } from "@/components/ui";
-import { SERVICE_PAGES, SERVICE_WORKS, serviceBySlug } from "@/data/services";
+import { SERVICE_PAGES, serviceBySlug } from "@/data/services";
 import { getPostsForService } from "@/lib/journal";
-import { WORKS } from "@/lib/data";
+import { getWorkEntries, shareFor, workTuple } from "@/lib/works";
 import { abs, breadcrumbSchema, CONTENT_UPDATED, faqSchema, ORG_ID, pageMeta, shareImg } from "@/lib/seo";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -33,14 +33,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const s = serviceBySlug(slug);
   if (!s) return {};
   const firstGalleryId = s.gallery?.[0]?.id;
-  const fallbackWork = FALLBACK_SHARE_WORK[s.slug] && WORKS.find((w) => w[0] === FALLBACK_SHARE_WORK[s.slug]);
-  const imageId = firstGalleryId ?? fallbackWork?.[5];
+  const fallbackWork = FALLBACK_SHARE_WORK[s.slug] && (await getWorkEntries()).find((w) => w.slug === FALLBACK_SHARE_WORK[s.slug]);
+  const imageUrl = firstGalleryId ? shareImg(firstGalleryId) : fallbackWork ? shareFor(fallbackWork.img) : undefined;
   return pageMeta({
     title: s.title,
     description: s.description,
     path: `/services/${s.slug}`,
     keywords: s.keywords,
-    ...(imageId ? { image: { url: shareImg(imageId), alt: `${s.name}: example work by SLIIQQUE` } } : {}),
+    ...(imageUrl ? { image: { url: imageUrl, alt: `${s.name}: example work by SLIIQQUE` } } : {}),
   });
 }
 
@@ -49,7 +49,7 @@ export default async function ServicePage({ params }: Props) {
   const s = serviceBySlug(slug);
   if (!s) notFound();
   const related = SERVICE_PAGES.filter((x) => s.related.includes(x.slug));
-  const works = WORKS.filter((w) => SERVICE_WORKS[s.slug]?.includes(w[0]));
+  const works = (await getWorkEntries()).filter((w) => w.serviceSlugs.includes(s.slug)).map(workTuple);
   const posts = await getPostsForService(s.slug);
   const breadcrumb = [{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: s.name, path: `/services/${s.slug}` }];
 

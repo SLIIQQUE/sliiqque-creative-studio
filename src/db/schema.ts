@@ -205,3 +205,51 @@ export const auditLog = pgTable(
   },
   (t) => [index("audit_log_at_idx").on(t.at)],
 );
+
+/** Frames in the homepage reel, in display order. When the table is empty the site falls back to the built-in frames in content.json. */
+export const heroFrames = pgTable(
+  "hero_frames",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    mediaId: uuid("media_id").notNull().references(() => media.id, { onDelete: "cascade" }),
+    /** Caption shown on the tile. Null derives one from the file name. */
+    label: varchar("label", { length: 80 }),
+    /** Where the tile links. Null derives a link from the file name. Site paths only. */
+    href: varchar("href", { length: 512 }),
+    sortOrder: integer("sort_order").notNull().default(0),
+    ...stamps,
+  },
+  (t) => [index("hero_frames_sort_idx").on(t.sortOrder)],
+);
+
+/** Concept works (case studies) shown on the homepage, /works and /works/<slug>. When the table is empty the site falls back to the built-in works in content.json. */
+export const works = pgTable(
+  "works",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    /** URL slug, fixed after creation so a published address never changes. */
+    slug: varchar("slug", { length: 120 }).notNull().unique(),
+    name: varchar("name", { length: 160 }).notNull(),
+    /** e.g. "Skincare · Concept". The part before " · " is used as the short category. */
+    category: varchar("category", { length: 160 }).notNull(),
+    /** e.g. "Brand system · AI photography". */
+    service: varchar("service", { length: 200 }).notNull(),
+    year: varchar("year", { length: 12 }).notNull(),
+    cardMediaId: uuid("card_media_id").notNull().references(() => media.id, { onDelete: "restrict" }),
+    overview: text("overview").notNull().default(""),
+    challenge: text("challenge").notNull().default(""),
+    results: text("results").notNull().default(""),
+    conclusion: text("conclusion").notNull().default(""),
+    /** Campaign images in the two-up grid, in order. Media ids. */
+    duoMediaIds: jsonb("duo_media_ids").$type<string[]>().notNull().default(sql`'[]'::jsonb`),
+    wideMediaId: uuid("wide_media_id").references(() => media.id, { onDelete: "restrict" }),
+    /** Service page slugs (src/data/services.ts) that list this work. */
+    serviceSlugs: jsonb("service_slugs").$type<string[]>().notNull().default(sql`'[]'::jsonb`),
+    /** Shows the legal-age gate before the page, for alcohol work. */
+    ageGate: boolean("age_gate").notNull().default(false),
+    published: boolean("published").notNull().default(true),
+    sortOrder: integer("sort_order").notNull().default(0),
+    ...stamps,
+  },
+  (t) => [index("works_sort_idx").on(t.sortOrder)],
+);

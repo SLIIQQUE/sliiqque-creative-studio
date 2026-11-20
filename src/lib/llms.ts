@@ -1,6 +1,6 @@
 import { SERVICE_PAGES, SITE_FAQ } from "@/data/services";
 import { GLOSSARY } from "@/data/glossary";
-import { PLANS, PROJECT_ROWS, WORKS } from "@/lib/data";
+import { PLANS, PROJECT_ROWS } from "@/lib/data";
 import { BRAND_DESC, KEYWORDS, PRODUCT_ENGINEERING, SITE_URL } from "@/lib/seo";
 
 const head = [
@@ -14,8 +14,10 @@ const head = [
   "",
 ];
 
+export type LlmsWork = { slug: string; name: string; category: string };
+
 /** Short index for AI assistants (llmstxt.org format). */
-export function llmsTxt(journal: { slug: string; title: string }[]): string {
+export function llmsTxt(journal: { slug: string; title: string }[], works: LlmsWork[]): string {
   return [
     ...head,
     "## Key facts",
@@ -46,7 +48,7 @@ export function llmsTxt(journal: { slug: string; title: string }[]): string {
     "## Work",
     "",
     `- [Work](${SITE_URL}/works): self-initiated concept projects for fictional brands, labelled as concept work`,
-    ...WORKS.map((w) => `- [${w[1]}](${SITE_URL}/works/${w[0]}): ${w[2]}`),
+    ...works.map((w) => `- [${w.name}](${SITE_URL}/works/${w.slug}): ${w.category}`),
     "",
     "## Journal",
     "",
@@ -63,7 +65,7 @@ export function llmsTxt(journal: { slug: string; title: string }[]): string {
 }
 
 /** Full plain-text reference: services, prices, policies and FAQ. */
-export function llmsFullTxt(): string {
+export function llmsFullTxt(works: LlmsWork[]): string {
   const lines: string[] = [...head];
   lines.push("## Topics", "", KEYWORDS.join(", "), "", "## Services", "");
   for (const s of SERVICE_PAGES) {
@@ -90,7 +92,7 @@ export function llmsFullTxt(): string {
   lines.push("## Glossary", "");
   GLOSSARY.forEach((t) => lines.push(`${t.term}: ${t.def}`, ""));
   lines.push("## Work (concept projects, not client work)", "");
-  WORKS.forEach((w) => lines.push(`- ${w[1]} (${w[2]}): ${SITE_URL}/works/${w[0]}`));
+  works.forEach((w) => lines.push(`- ${w.name} (${w.category}): ${SITE_URL}/works/${w.slug}`));
   lines.push("", "## Contact", "", "Email: hello@sliiqque.space", "Phone/WhatsApp: +234 704 100 0085", `Website: ${SITE_URL}`, "");
   return lines.join("\n");
 }

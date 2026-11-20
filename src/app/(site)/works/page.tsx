@@ -1,21 +1,26 @@
 import JsonLd from "@/components/JsonLd";
-import { abs, breadcrumbSchema, pageMeta, PRODUCT_ENGINEERING, shareImg } from "@/lib/seo";
+import { abs, breadcrumbSchema, pageMeta, PRODUCT_ENGINEERING } from "@/lib/seo";
 import LoadMore from "@/components/LoadMore";
 import { PageHero } from "@/components/ui";
-import { WORKS, WORKS_LISTED } from "@/lib/data";
+import { WORKS_LISTED } from "@/lib/data";
+import { getWorkEntries, shareFor, workTuple } from "@/lib/works";
 
-export const metadata = pageMeta({
-  title: "Work: AI Concept Brand Worlds in Lagos",
-  description:
-    "Concept work by SLIIQQUE: ÀLÀ skincare, ODÈ grooming and ÀSE spirits, with AI commercials and AI photography. Not client work. Start your own.",
-  path: "/works",
-  keywords: ["AI commercial portfolio", "AI product photography portfolio", "digital humans portfolio", "concept brand work"],
-  image: { url: shareImg(WORKS[0][5]), alt: `${WORKS[0][1]}: concept brand visual by SLIIQQUE` },
-});
+export async function generateMetadata() {
+  const [first] = await getWorkEntries();
+  return pageMeta({
+    title: "Work: AI Concept Brand Worlds in Lagos",
+    description:
+      "Concept work by SLIIQQUE: ÀLÀ skincare, ODÈ grooming and ÀSE spirits, with AI commercials and AI photography. Not client work. Start your own.",
+    path: "/works",
+    keywords: ["AI commercial portfolio", "AI product photography portfolio", "digital humans portfolio", "concept brand work"],
+    ...(first ? { image: { url: shareFor(first.img), alt: `${first.name}: concept brand visual by SLIIQQUE` } } : {}),
+  });
+}
 
 const BREADCRUMB = [{ name: "Home", path: "/" }, { name: "Work", path: "/works" }];
 
-export default function WorksPage() {
+export default async function WorksPage() {
+  const WORKS = (await getWorkEntries()).map(workTuple);
   return (
     <>
       <JsonLd

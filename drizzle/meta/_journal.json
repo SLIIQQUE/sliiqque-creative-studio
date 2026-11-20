@@ -15,6 +15,20 @@
       "when": 1793416871442,
       "tag": "0001_media-url-not-unique",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1795199102706,
+      "tag": "0002_hero-frames",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1795200160368,
+      "tag": "0003_works",
+      "breakpoints": true
     }
   ]
 }

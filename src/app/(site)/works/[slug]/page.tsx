@@ -7,27 +7,32 @@ import { Pager } from "@/components/ui";
 import AgeGate from "@/components/AgeGate";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import JsonLd from "@/components/JsonLd";
-import { servicesForWork } from "@/data/services";
-import { CASES, WORKS } from "@/lib/data";
-import { abs, breadcrumbSchema, ORG_ID, pageMeta, shareImg, trimDesc } from "@/lib/seo";
+import { SERVICE_PAGES } from "@/data/services";
+import { abs, breadcrumbSchema, ORG_ID, pageMeta, trimDesc } from "@/lib/seo";
+import { absImg, getWorkEntries, getWorkSlugs, shareFor } from "@/lib/works";
 
 type Props = { params: Promise<{ slug: string }> };
 
-export function generateStaticParams() {
-  return WORKS.map((w) => ({ slug: w[0] }));
+export async function generateStaticParams() {
+  try {
+    return (await getWorkSlugs()).map((slug) => ({ slug }));
+  } catch (error) {
+    // No database at build time: pages are then generated on first request and cached.
+    console.error("generateStaticParams: could not list works", error);
+    return [];
+  }
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const w = WORKS.find((x) => x[0] === slug);
+  const w = (await getWorkEntries()).find((x) => x.slug === slug);
   if (!w) return {};
-  const c = CASES[slug];
   return pageMeta({
-    title: `${w[1]}: ${w[2].split(" · ")[0]} concept work`,
-    description: trimDesc(c.overview),
+    title: `${w.name}: ${w.category.split(" · ")[0]} concept work`,
+    description: trimDesc(w.overview),
     path: `/works/${slug}`,
-    keywords: [`${w[1]} concept brand`, "AI commercial portfolio", "AI product photography"],
-    image: { url: shareImg(w[5]), alt: `${w[1]}: concept brand visual by SLIIQQUE` },
+    keywords: [`${w.name} concept brand`, "AI commercial portfolio", "AI product photography"],
+    image: { url: shareFor(w.img), alt: `${w.name}: concept brand visual by SLIIQQUE` },
   });
 }
 
@@ -37,11 +42,12 @@ const Split = ({ h, p }: { h: string; p: string }) => (
 
 export default async function CasePage({ params }: Props) {
   const { slug } = await params;
-  const i = WORKS.findIndex((x) => x[0] === slug);
+  const WORKS = await getWorkEntries();
+  const i = WORKS.findIndex((x) => x.slug === slug);
   if (i < 0) notFound();
-  const [, name, cat, svc, yr, cardImg, alt] = WORKS[i];
-  const C = CASES[slug];
-  const services = servicesForWork(slug);
+  const { name, category: cat, service: svc, year: yr, img: cardImg } = WORKS[i];
+  const C = WORKS[i];
+  const services = SERVICE_PAGES.filter((s) => WORKS[i].serviceSlugs.includes(s.slug));
   const narrow = false;
   const [heroW, heroH] = narrow ? [1188, 698] : [1320, 775];
   const [wideW, wideH] = ({ "ala-skin": [1318, 774], ode: [1319, 774] } as Record<string, number[]>)[slug] ?? [1320, 775];
@@ -51,12 +57,12 @@ export default async function CasePage({ params }: Props) {
     <section className="case">
       <JsonLd
         data={[
-          { "@context": "https://schema.org", "@type": "CreativeWork", name: name, description: C.overview, url: abs(`/works/${slug}`), creator: { "@id": ORG_ID }, genre: cat, dateCreated: yr, image: [cardImg, ...C.duo, C.wide].map((id) => abs(`/img/${id}`)) },
+          { "@context": "https://schema.org", "@type": "CreativeWork", name: name, description: C.overview, url: abs(`/works/${slug}`), creator: { "@id": ORG_ID }, genre: cat, dateCreated: yr, image: [cardImg, ...C.duo, C.wide].map(absImg) },
           breadcrumbSchema(breadcrumb),
         ]}
       />
       <Breadcrumbs items={breadcrumb} />
-      {slug === "ase" && <AgeGate />}
+      {WORKS[i].ageGate && <AgeGate />}
       <div className="case__head">
         <h1 className="t-display case__title">{name}</h1>
         <div className="case__meta">
@@ -75,7 +81,7 @@ export default async function CasePage({ params }: Props) {
           Services shown in this project: {services.map((s, n) => <span key={s.slug}>{n ? ", " : ""}<Link href={`/services/${s.slug}`}>{s.name}</Link></span>)}.
         </p>
       )}
-      <Pager prev={i > 0 ? `/works/${WORKS[i - 1][0]}` : undefined} next={i < WORKS.length - 1 ? `/works/${WORKS[i + 1][0]}` : undefined} />
+      <Pager prev={i > 0 ? `/works/${WORKS[i - 1].slug}` : undefined} next={i < WORKS.length - 1 ? `/works/${WORKS[i + 1].slug}` : undefined} />
     </section>
   );
 }

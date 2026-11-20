@@ -1,8 +1,9 @@
 import type { MetadataRoute } from "next";
 import { SERVICE_PAGES } from "@/data/services";
-import { CASES, HERO, LEGAL, WORKS } from "@/lib/data";
+import { HERO, LEGAL } from "@/lib/data";
 import { getJournalCards, getSitemapPosts } from "@/lib/journal";
 import { abs, CONTENT_UPDATED, isoDate, SITE_URL } from "@/lib/seo";
+import { absImg, getWorkEntries } from "@/lib/works";
 
 const LEGAL_PATHS = { "/terms": 1, "/policies": 1, "/privacy": 1 };
 
@@ -11,12 +12,13 @@ const img = (id: string) => abs(`/img/${id}`);
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const { cards } = await getJournalCards();
   const journalPosts = await getSitemapPosts();
+  const WORKS = await getWorkEntries();
   const updated = new Date(CONTENT_UPDATED);
   const legal = (slug: string) => new Date(isoDate(LEGAL[slug as keyof typeof LEGAL].effective));
   // Google's image sitemap extension: surfaces the studio's visuals directly in Image Search and AI crawls.
   const IMAGES: Record<string, string[]> = {
     "": HERO.ticker.map(img),
-    "/works": WORKS.map((w) => img(w[5])),
+    "/works": WORKS.map((w) => absImg(w.img)),
     "/blogs": cards.map((b) => (/^(\/|https?:)/.test(b[4]) ? (b[4].startsWith("/") ? abs(b[4]) : b[4]) : img(b[4]))),
   };
   const top: [string, number, MetadataRoute.Sitemap[number]["changeFrequency"]][] = [
@@ -39,16 +41,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.9,
       ...(s.gallery ? { images: s.gallery.map((g) => img(g.id)) } : {}),
     })),
-    ...WORKS.map((w) => {
-      const c = CASES[w[0]];
-      return {
-        url: `${SITE_URL}/works/${w[0]}`,
-        lastModified: updated,
-        changeFrequency: "monthly" as const,
-        priority: 0.6,
-        images: [w[5], ...c.duo, c.wide].map(img),
-      };
-    }),
+    ...WORKS.map((w) => ({
+      url: `${SITE_URL}/works/${w.slug}`,
+      lastModified: updated,
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+      images: [w.img, ...w.duo, w.wide].map(absImg),
+    })),
     ...journalPosts.map((p) => ({
       url: `${SITE_URL}/blogs/${p.slug}`,
       lastModified: p.modified,
