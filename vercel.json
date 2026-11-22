@@ -1,3 +1,4 @@
 {
+  "buildCommand": "sh scripts/migrate-on-deploy.sh && npm run build",
   "crons": [{ "path": "/api/cron/publish-scheduled", "schedule": "0 7 * * *" }]
 }
