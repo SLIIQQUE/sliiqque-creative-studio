@@ -24,7 +24,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/blogs": cards.map((b) => (/^(\/|https?:)/.test(b[4]) ? (b[4].startsWith("/") ? abs(b[4]) : b[4]) : img(b[4]))),
   };
   const top: [string, number, MetadataRoute.Sitemap[number]["changeFrequency"]][] = [
-    ["", 1, "weekly"], ["/services", 0.9, "monthly"], ["/pricing", 0.9, "monthly"], ["/works", 0.8, "monthly"], ["/about", 0.7, "monthly"],
+    ["", 1, "weekly"], ["/services", 0.9, "monthly"], ["/pricing", 0.9, "monthly"], ["/works", 0.8, "monthly"], ["/videos", 0.7, "monthly"], ["/about", 0.7, "monthly"],
     ["/faq", 0.8, "monthly"], ["/glossary", 0.5, "monthly"], ["/blogs", 0.7, "weekly"], ["/contact", 0.8, "yearly"],
     ["/ai-product-photography-lagos", 0.9, "monthly"], ["/ai-commercials-lagos", 0.9, "monthly"], ["/ai-ugc-ads-lagos", 0.9, "monthly"], ["/terms", 0.3, "yearly"], ["/policies", 0.4, "yearly"], ["/privacy", 0.3, "yearly"],
   ];

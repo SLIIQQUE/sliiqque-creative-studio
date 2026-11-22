@@ -11,6 +11,8 @@ const CONTENT: Item[] = [
   { href: "/admin/media", label: "Media", icon: "image" },
   { href: "/admin/hero", label: "Hero reel", icon: "image" },
   { href: "/admin/works", label: "Works", icon: "doc" },
+  { href: "/admin/videos", label: "Videos", icon: "image" },
+  { href: "/admin/notice", label: "Notice", icon: "sliders" },
   { href: "/admin/categories", label: "Categories", icon: "tag" },
 ];
 

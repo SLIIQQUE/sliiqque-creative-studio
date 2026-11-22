@@ -51,6 +51,8 @@ export function llmsTxt(journal: { slug: string; title: string }[], works: LlmsW
     `- [Work](${SITE_URL}/works): self-initiated concept projects for fictional brands, labelled as concept work`,
     ...works.map((w) => `- [${w.name}](${SITE_URL}/works/${w.slug}): ${w.category}`),
     "",
+    `- [Videos](${SITE_URL}/videos): films by the studio, AI commercials, UGC and digital humans`,
+    "",
     "## Journal",
     "",
     `- [Journal](${SITE_URL}/blogs) (RSS: ${SITE_URL}/feed.xml)`,

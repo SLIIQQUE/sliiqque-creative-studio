@@ -11,6 +11,7 @@ type Item = [label: string, href: string, external?: boolean];
 const STUDIO: Item[] = [
   ["Home", "/"],
   ["Work", "/works"],
+  // ["Videos", "/videos"], // Restore when the first film is published on YouTube. The page and admin stay live.
   ["About", "/about"],
   ["Journal", "/blogs"],
   ["FAQ", "/faq"],

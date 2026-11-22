@@ -29,6 +29,20 @@
       "when": 1795200160368,
       "tag": "0003_works",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1795201261146,
+      "tag": "0004_videos",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1795326909303,
+      "tag": "0005_site-notice",
+      "breakpoints": true
     }
   ]
 }

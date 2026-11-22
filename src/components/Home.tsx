@@ -1,4 +1,5 @@
 import Img from "./Img";
+import VideoEmbed from "./VideoEmbed";
 import Reveal from "./Reveal";
 import CountUp from "./CountUp";
 import Awards from "./Awards";
@@ -15,7 +16,9 @@ import { HOME_FAQ } from "@/data/services";
 import { getJournalCards } from "@/lib/journal";
 import { getHeroFrames } from "@/lib/hero";
 import { getWorkEntries, workTuple } from "@/lib/works";
+import { getVideos, videoSchema } from "@/lib/videos";
 import { countWord } from "@/lib/site-facts";
+import JsonLd from "./JsonLd";
 import { CONTENT_UPDATED, PRODUCT_ENGINEERING, displayDate } from "@/lib/seo";
 
 const [FIRST, ...AFTER] = ABOUT.body.split(". ");
@@ -41,7 +44,10 @@ const FACTS: [label: string, value: string, note: string][] = [
 const STRIP = ["AI commercials", "AI UGC", "Digital humans", "AI photography", "Fashion imagery", "Brand launches"];
 
 export default async function Home() {
-  const [{ cards }, heroFrames, workEntries] = await Promise.all([getJournalCards(), getHeroFrames(), getWorkEntries()]);
+  const [{ cards }, heroFrames, workEntries, allVideos] = await Promise.all([getJournalCards(), getHeroFrames(), getWorkEntries(), getVideos()]);
+  const reel = allVideos.filter((v) => v.featured).slice(0, 3);
+  // The showreel takes slot 03 when it exists, so the section numbers after it shift by one.
+  const n = (i: number) => String(i + (reel.length ? 1 : 0)).padStart(2, "0");
   return (
     <>
       <section className="hero">
@@ -163,10 +169,32 @@ export default async function Home() {
         </div>
       </section>
 
+      {reel.length > 0 && (
+        <section className="sec" id="showreel">
+          <JsonLd data={reel.map(videoSchema)} />
+          <div className="container">
+            <SecHead
+              index="03 / Showreel"
+              title="press play"
+              aside={<><p>Commercials, UGC and digital humans, made as systems. Watch a few, or see them all.</p><Btn href="/videos">All videos</Btn></>}
+            />
+            <div className="reel-videos">
+              {reel.map((v) => (
+                <article key={v.youtubeId} style={{ "--ar": v.orientation === "portrait" ? 0.5625 : 1.778 } as React.CSSProperties}>
+                  <VideoEmbed youtubeId={v.youtubeId} title={v.title} portrait={v.orientation === "portrait"} />
+                  <p className="vgrid__type">{v.type}</p>
+                  <h3 className="vgrid__title">{v.title}</h3>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       <section className="sec sec--services" id="services">
         <div className="container">
           <SecHead
-            index="03 / Capabilities"
+            index={`${n(3)} / Capabilities`}
             title="what we make"
             aside={<><p>{SECTION_SUB}</p><Btn href="/services">All services</Btn></>}
           />
@@ -174,14 +202,14 @@ export default async function Home() {
         </div>
       </section>
 
-      <Awards id="process" index="04 / Process" title="how it gets made" intro={AWARDS_INTRO} rows={PROCESS_ROWS} tone="night" ghost="Process" />
+      <Awards id="process" index={`${n(4)} / Process`} title="how it gets made" intro={AWARDS_INTRO} rows={PROCESS_ROWS} tone="night" ghost="Process" />
 
-      <Pricing index="05 / Investment" plans={PLANS} plansIntro={PLANS_INTRO} projects={PROJECT_ROWS} projectsIntro={PROJECTS_INTRO} />
+      <Pricing index={`${n(5)} / Investment`} plans={PLANS} plansIntro={PLANS_INTRO} projects={PROJECT_ROWS} projectsIntro={PROJECTS_INTRO} />
 
       <section className="sec" id="ecosystem">
         <div className="container">
           <SecHead
-            index="06 / Ecosystem"
+            index={`${n(6)} / Ecosystem`}
             title="one studio, two doors"
             aside={<p>Creative production here. Product engineering next door. Separate teams, one standard.</p>}
           />
@@ -195,12 +223,12 @@ export default async function Home() {
         </div>
       </section>
 
-      <FaqList faqs={HOME_FAQ} id="faq" title="questions people ask" index="07 / Questions" last={false} intro="Short answers on what SLIIQQUE makes, what it costs and how it works." />
+      <FaqList faqs={HOME_FAQ} id="faq" title="questions people ask" index={`${n(7)} / Questions`} last={false} intro="Short answers on what SLIIQQUE makes, what it costs and how it works." />
 
       <section className="sec sec--last" id="blogs">
         <div className="container">
           <SecHead
-            index="08 / Journal"
+            index={`${n(8)} / Journal`}
             title="notes from the floor"
             aside={<><p>Identity lock, storyboarding, grading and fashion imagery, written from our own production work.</p><Btn href="/blogs">All articles</Btn></>}
           />

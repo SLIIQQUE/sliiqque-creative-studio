@@ -5,6 +5,7 @@ import Img from "@/components/Img";
 import Reveal from "@/components/Reveal";
 import { Pager } from "@/components/ui";
 import AgeGate from "@/components/AgeGate";
+import VideoBlock from "@/components/VideoBlock";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import JsonLd from "@/components/JsonLd";
 import { SERVICE_PAGES } from "@/data/services";
@@ -74,6 +75,7 @@ export default async function CasePage({ params }: Props) {
       <Reveal className="case__duo">{C.duo.map((id, n) => <div key={id}><Img id={id} w={645} h={645} alt={`${name} campaign visual ${n + 1}`} /></div>)}</Reveal>
       <Split h="the challenge" p={C.challenge} />
       <Split h="what we delivered" p={C.results} />
+      <VideoBlock path={`/works/${slug}`} />
       <Reveal className={`case__wide${narrow ? " case__wide--narrow" : ""}`}><Img id={C.wide} w={wideW} h={wideH} alt={`${name} wide campaign visual`} /></Reveal>
       <Split h="the takeaway" p={C.conclusion} />
       {services.length > 0 && (

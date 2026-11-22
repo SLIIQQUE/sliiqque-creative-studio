@@ -137,3 +137,37 @@ test("lagos time conversion round trips and is UTC+1", () => {
   assert.equal(dateToLagosLocal(d), "2026-11-05T09:30");
   assert.equal(lagosLocalToDate("nonsense"), null);
 });
+
+import { clockToIso, isoToClock, parseYoutubeId } from "../src/lib/video-utils.ts";
+
+test("parseYoutubeId reads every common YouTube link shape", () => {
+  const id = "dQw4w9WgXcQ";
+  for (const input of [id, `https://www.youtube.com/watch?v=${id}&t=10s`, `youtu.be/${id}?si=x`, `https://youtube.com/shorts/${id}`, `https://www.youtube-nocookie.com/embed/${id}`, `https://m.youtube.com/live/${id}`]) {
+    assert.equal(parseYoutubeId(input), id, input);
+  }
+  for (const input of ["", "not a link", "https://vimeo.com/123456789", "https://youtube.com/watch?v=short", "https://evil.com/watch?v=dQw4w9WgXcQ"]) {
+    assert.equal(parseYoutubeId(input), null, input);
+  }
+});
+
+test("clockToIso and isoToClock round-trip", () => {
+  assert.equal(clockToIso("0:30"), "PT0M30S");
+  assert.equal(clockToIso("8:05"), "PT8M5S");
+  assert.equal(clockToIso("1:02:03"), "PT1H2M3S");
+  assert.equal(clockToIso("30"), null);
+  assert.equal(clockToIso("1:75"), null);
+  for (const c of ["0:30", "8:05", "1:02:03"]) assert.equal(isoToClock(clockToIso(c)!), c);
+});
+
+import { isSafeHref, noticeVersion } from "../src/lib/notice-utils.ts";
+
+test("isSafeHref accepts site paths and https only", () => {
+  for (const ok of ["/contact", "/works/ode", "https://example.com/a?b=1"]) assert.equal(isSafeHref(ok), true, ok);
+  for (const bad of ["", "//evil.com", "javascript:alert(1)", "data:text/html,x", "http://example.com", "mailto:a@b.co", "https://a b.com"]) assert.equal(isSafeHref(bad), false, bad);
+});
+
+test("noticeVersion changes with the text and is stable otherwise", () => {
+  assert.equal(noticeVersion("a", "/x", "go"), noticeVersion("a", "/x", "go"));
+  assert.notEqual(noticeVersion("a", "/x", "go"), noticeVersion("b", "/x", "go"));
+  assert.notEqual(noticeVersion("ab", "", ""), noticeVersion("a", "b", ""));
+});

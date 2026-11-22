@@ -253,3 +253,45 @@ export const works = pgTable(
   },
   (t) => [index("works_sort_idx").on(t.sortOrder)],
 );
+
+/** YouTube films shown on /videos, the homepage reel and any page listed in `pages`. */
+export const videos = pgTable(
+  "videos",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    /** YouTube video ID (the part after v=). */
+    youtubeId: varchar("youtube_id", { length: 20 }).notNull().unique(),
+    title: varchar("title", { length: 160 }).notNull(),
+    description: text("description").notNull().default(""),
+    /** Filter label on /videos, e.g. "Commercial" or "UGC". */
+    type: varchar("type", { length: 40 }).notNull(),
+    orientation: varchar("orientation", { length: 10 }).notNull().default("landscape"),
+    /** ISO 8601 duration for structured data, e.g. PT0M30S. */
+    duration: varchar("duration", { length: 20 }).notNull(),
+    /** ISO date (YYYY-MM-DD) the film was published. */
+    uploadDate: varchar("upload_date", { length: 10 }).notNull(),
+    /** Site paths that also embed this film, e.g. /services/ai-commercials or /works/ode. */
+    pages: jsonb("pages").$type<string[]>().notNull().default(sql`'[]'::jsonb`),
+    /** Shown in the homepage reel. */
+    featured: boolean("featured").notNull().default(false),
+    published: boolean("published").notNull().default(true),
+    sortOrder: integer("sort_order").notNull().default(0),
+    ...stamps,
+  },
+  (t) => [index("videos_sort_idx").on(t.sortOrder)],
+);
+
+/** Singleton row (id is always 1): the notice bar shown above the navigation on every public page. When no row exists the built-in default in src/lib/notice.ts applies. */
+export const siteNotice = pgTable("site_notice", {
+  id: integer("id").primaryKey().default(1),
+  enabled: boolean("enabled").notNull().default(true),
+  /** Short tag shown before the message, e.g. "Pricing update". */
+  label: varchar("label", { length: 40 }),
+  message: text("message").notNull(),
+  linkLabel: varchar("link_label", { length: 60 }),
+  /** A site path (/contact) or an https URL. */
+  linkHref: varchar("link_href", { length: 512 }),
+  /** Last day (YYYY-MM-DD, Lagos time) the notice shows. Null shows it until switched off. */
+  hideAfter: varchar("hide_after", { length: 10 }),
+  updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
+});
