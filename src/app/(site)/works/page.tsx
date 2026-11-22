@@ -1,8 +1,7 @@
 import JsonLd from "@/components/JsonLd";
 import { abs, breadcrumbSchema, pageMeta, PRODUCT_ENGINEERING } from "@/lib/seo";
-import LoadMore from "@/components/LoadMore";
+import { WorkCard } from "@/components/cards";
 import { PageHero } from "@/components/ui";
-import { WORKS_LISTED } from "@/lib/data";
 import { getWorkEntries, shareFor, workTuple } from "@/lib/works";
 
 export async function generateMetadata() {
@@ -33,11 +32,9 @@ export default async function WorksPage() {
       <PageHero h1="Our Work" sub="Concept brand worlds, self-initiated studio work, labelled as exactly that." className="page-hero--flush" breadcrumb={BREADCRUMB} />
       <section className="sec sec--works sec--last">
         <div className="container">
-          <LoadMore
-            gridClass="works-grid works-grid--page"
-            wrapClass="center-btn"
-            cells={WORKS.map((w, i) => ({ kind: "work" as const, item: w, hidden: i >= WORKS_LISTED, phHide: i >= 3 && i < WORKS_LISTED }))}
-          />
+          <div className="works-grid works-grid--page">
+            {WORKS.map((w) => <WorkCard key={w[0]} w={w} />)}
+          </div>
           <p className="services-note">
             Looking for product work instead? Visit <a href={PRODUCT_ENGINEERING.url} target="_blank" rel="noopener noreferrer">{PRODUCT_ENGINEERING.name} ↗</a> for websites, SaaS interfaces and case studies.
           </p>
