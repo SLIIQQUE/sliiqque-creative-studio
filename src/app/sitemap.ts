@@ -4,6 +4,7 @@ import { HERO, LEGAL } from "@/lib/data";
 import { getJournalCards, getSitemapPosts } from "@/lib/journal";
 import { abs, CONTENT_UPDATED, isoDate, SITE_URL } from "@/lib/seo";
 import { absImg, getWorkEntries } from "@/lib/works";
+import { getHeroFrames } from "@/lib/hero";
 
 const LEGAL_PATHS = { "/terms": 1, "/policies": 1, "/privacy": 1 };
 
@@ -13,11 +14,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const { cards } = await getJournalCards();
   const journalPosts = await getSitemapPosts();
   const WORKS = await getWorkEntries();
+  const frames = await getHeroFrames();
   const updated = new Date(CONTENT_UPDATED);
   const legal = (slug: string) => new Date(isoDate(LEGAL[slug as keyof typeof LEGAL].effective));
   // Google's image sitemap extension: surfaces the studio's visuals directly in Image Search and AI crawls.
   const IMAGES: Record<string, string[]> = {
-    "": HERO.ticker.map(img),
+    "": frames.map((f) => absImg(f.src)),
     "/works": WORKS.map((w) => absImg(w.img)),
     "/blogs": cards.map((b) => (/^(\/|https?:)/.test(b[4]) ? (b[4].startsWith("/") ? abs(b[4]) : b[4]) : img(b[4]))),
   };

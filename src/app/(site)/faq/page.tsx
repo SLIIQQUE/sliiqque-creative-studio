@@ -1,7 +1,8 @@
 import FaqList from "@/components/FaqList";
 import JsonLd from "@/components/JsonLd";
 import { PageHero } from "@/components/ui";
-import { SITE_FAQ } from "@/data/services";
+import { SITE_FAQ, withWorkNames } from "@/data/services";
+import { getWorkFacts } from "@/lib/site-facts";
 import { breadcrumbSchema, CONTENT_UPDATED, faqSchema, pageMeta, shareImg } from "@/lib/seo";
 
 export const metadata = pageMeta({
@@ -15,12 +16,14 @@ export const metadata = pageMeta({
 
 const BREADCRUMB = [{ name: "Home", path: "/" }, { name: "FAQ", path: "/faq" }];
 
-export default function FaqPage() {
+export default async function FaqPage() {
+  const facts = await getWorkFacts();
+  const faqs = withWorkNames(SITE_FAQ, facts.namesList, facts.count);
   return (
     <>
-      <JsonLd data={[faqSchema(SITE_FAQ), breadcrumbSchema(BREADCRUMB)]} />
+      <JsonLd data={[faqSchema(faqs), breadcrumbSchema(BREADCRUMB)]} />
       <PageHero h1="faq" sub="Straight answers on what SLIIQQUE makes, what it costs, how long it takes and who owns the work." className="page-hero--legal page-hero--flush" breadcrumb={BREADCRUMB} />
-      <FaqList faqs={SITE_FAQ} title="frequently asked questions" id="faq" updated={CONTENT_UPDATED} />
+      <FaqList faqs={faqs} title="frequently asked questions" id="faq" updated={CONTENT_UPDATED} />
     </>
   );
 }

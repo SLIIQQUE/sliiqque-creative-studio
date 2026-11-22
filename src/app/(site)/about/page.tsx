@@ -8,7 +8,9 @@ import Accordion from "@/components/Accordion";
 import Awards from "@/components/Awards";
 import { IconArrow } from "@/components/icons";
 import { PageHero, SecHead } from "@/components/ui";
+import { SERVICE_PAGES } from "@/data/services";
 import { ABOUT_PAGE as A, STANDARDS_ROWS } from "@/lib/data";
+import { getWorkFacts } from "@/lib/site-facts";
 
 export const metadata = pageMeta({
   title: "About SLIIQQUE, a Lagos AI Creative Studio",
@@ -21,7 +23,13 @@ export const metadata = pageMeta({
 
 const BREADCRUMB = [{ name: "Home", path: "/" }, { name: "About", path: "/about" }];
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const facts = await getWorkFacts();
+  // Counts and names follow the admin: services from the service pages, works from the published works.
+  const stats = A.stats.map(([n, sign, caption]): [number, string, string] =>
+    caption.startsWith("Creative services") ? [SERVICE_PAGES.length, sign, caption]
+    : caption.startsWith("Concept brand worlds") ? [facts.count, sign, `Concept brand ${facts.noun} built end to end: ${facts.namesList}.`]
+    : [n, sign, caption]);
   return (
     <>
       <JsonLd
@@ -47,7 +55,7 @@ export default function AboutPage() {
             <p>The portrait is an AI-generated likeness, made the way the studio makes every digital human: from a locked identity profile.</p>
           </div>
         </Reveal>
-        <Stats className="stats--4" reveal stats={A.stats} />
+        <Stats className="stats--4" reveal stats={stats} />
       </section>
 
       <section className="flow" id="how">

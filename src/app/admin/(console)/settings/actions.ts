@@ -6,6 +6,7 @@ import { z } from "zod";
 import { db } from "@/db/client";
 import { settings } from "@/db/schema";
 import { audit } from "@/lib/cms/audit";
+import { revalidateSite } from "@/lib/cms/revalidate";
 import { Forbidden, authorize } from "@/lib/cms/dal";
 
 export type SettingsState = { error?: string; ok?: string } | undefined;
@@ -19,6 +20,7 @@ export async function saveSettings(_prev: SettingsState, formData: FormData): Pr
     await db.update(settings).set({ journalTitle: v.journalTitle, journalDescription: v.journalDescription, postsPerPage: v.postsPerPage, defaultShareMediaId: v.defaultShareMediaId || null, updatedAt: new Date() }).where(eq(settings.id, 1));
     await audit(user, "update", "settings");
     revalidatePath("/blogs");
+    revalidateSite();
     revalidatePath("/admin/settings");
     return { ok: "Settings saved" };
   } catch (e) {

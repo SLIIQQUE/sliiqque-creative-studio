@@ -7,6 +7,7 @@ import { db } from "@/db/client";
 import { categories, posts } from "@/db/schema";
 import { SERVICE_PAGES } from "@/data/services";
 import { audit } from "@/lib/cms/audit";
+import { revalidateSite } from "@/lib/cms/revalidate";
 import { Forbidden, authorize } from "@/lib/cms/dal";
 import { slugify } from "@/lib/seo";
 
@@ -25,6 +26,7 @@ export async function saveCategory(_prev: FormState, formData: FormData): Promis
     }
     await audit(user, id ? "update" : "create", "category", id || null, { name: parsed.name });
     revalidatePath("/admin/categories");
+    revalidateSite();
     return { ok: "Saved" };
   } catch (e) {
     if (e instanceof Forbidden) return { error: e.message };
@@ -41,4 +43,5 @@ export async function deleteCategory(formData: FormData): Promise<void> {
   await db.delete(categories).where(eq(categories.id, id));
   await audit(user, "delete", "category", id);
   revalidatePath("/admin/categories");
+  revalidateSite();
 }

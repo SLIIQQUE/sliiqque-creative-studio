@@ -1,4 +1,5 @@
-import { SERVICE_PAGES, SITE_FAQ } from "@/data/services";
+import { SERVICE_PAGES, SITE_FAQ, withWorkNames } from "@/data/services";
+import { joinNames } from "@/lib/site-facts";
 import { GLOSSARY } from "@/data/glossary";
 import { PLANS, PROJECT_ROWS } from "@/lib/data";
 import { BRAND_DESC, KEYWORDS, PRODUCT_ENGINEERING, SITE_URL } from "@/lib/seo";
@@ -88,7 +89,7 @@ export function llmsFullTxt(works: LlmsWork[]): string {
     "- Alcohol-related work only for legal-age audiences, age-gated on the site. No logo design.",
     `- Full text: ${SITE_URL}/policies and ${SITE_URL}/terms`, "");
   lines.push("## Frequently asked questions", "");
-  SITE_FAQ.forEach((f) => lines.push(`Q: ${f.q}`, `A: ${f.a}`, ""));
+  withWorkNames(SITE_FAQ, joinNames(works.map((w) => w.name)), works.length).forEach((f) => lines.push(`Q: ${f.q}`, `A: ${f.a}`, ""));
   lines.push("## Glossary", "");
   GLOSSARY.forEach((t) => lines.push(`${t.term}: ${t.def}`, ""));
   lines.push("## Work (concept projects, not client work)", "");

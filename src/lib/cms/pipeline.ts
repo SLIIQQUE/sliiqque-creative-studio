@@ -4,6 +4,7 @@ import { eq } from "drizzle-orm";
 import { db } from "@/db/client";
 import { settings } from "@/db/schema";
 import { SITE_URL } from "@/lib/seo";
+import { revalidateSite } from "./revalidate";
 
 const HOST = new URL(SITE_URL).host;
 // IndexNow keys are public by design (served at /<key>.txt from public/). Override with INDEXNOW_KEY if it is ever rotated.
@@ -18,6 +19,7 @@ export function pathsAffected(slug: string, serviceSlug: string | null, extraSlu
 
 export function revalidateJournal(slug: string, serviceSlug: string | null, extraSlugs: string[] = []): void {
   for (const path of pathsAffected(slug, serviceSlug, extraSlugs)) revalidatePath(path);
+  revalidateSite();
 }
 
 /** Tells IndexNow about changed URLs. Only runs in production, never throws, records the last status. */

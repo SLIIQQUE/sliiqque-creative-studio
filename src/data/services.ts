@@ -270,6 +270,12 @@ export const serviceForCategory = (cat: string) => serviceBySlug(CATEGORY_SERVIC
 
 
 /** Site-wide FAQ (also the source for FAQPage schema and llms.txt). */
+/** Question whose answer names the works. The names come from the admin, see withWorkNames. */
+export const WORK_FAQ_Q = "Is the work on this site client work?";
+export const workFaqAnswer = (names: string, count = 3) => `No. ${names} ${count === 1 ? "is a" : "are"} self-initiated concept project${count === 1 ? "" : "s"} for fictional brands, labelled as concept work. They show how SLIIQQUE works and do not show real sales or audience results.`;
+/** The same FAQ with the work names filled in from the live works. */
+export const withWorkNames = (faqs: Faq[], names: string, count: number): Faq[] => (names ? faqs.map((f) => (f.q === WORK_FAQ_Q ? { ...f, a: workFaqAnswer(names, count) } : f)) : faqs);
+
 export const SITE_FAQ: Faq[] = [
   { q: "What is SLIIQQUE?", a: "SLIIQQUE is a premium creative studio based in Lagos, Nigeria, founded on 22 December 2025 by Gabriel Njoabozia. It produces AI commercials, AI UGC and digital humans, AI product photography, AI fashion imagery, brand launches, product cinematography and visual campaigns for brands in Nigeria, Africa and worldwide. AI is how SLIIQQUE produces; what it sells is creative systems." },
   { q: "Where is SLIIQQUE based and who does it work with?", a: "SLIIQQUE is based in Lagos, Nigeria and works with brands in Nigeria, across Africa and internationally. International clients are quoted and invoiced in US dollars." },
@@ -284,7 +290,7 @@ export const SITE_FAQ: Faq[] = [
   { q: "Are AI-generated ads allowed on Meta, TikTok and YouTube?", a: "Generally yes, but platforms and regulators increasingly require labels for synthetic or AI-generated media. The client is responsible for required labelling, and SLIIQQUE supplies suggested disclosure wording on request." },
   { q: "Does SLIIQQUE create fake testimonials or deepfakes?", a: "No. Digital humans are synthetic and are not presented as real customers. SLIIQQUE does not make fabricated reviews, deepfakes of public figures or a likeness of a real person without written consent." },
   { q: "Does SLIIQQUE do AI fashion imagery?", a: "Yes. SLIIQQUE creates photorealistic AI models wearing a brand's clothes for lookbooks, campaigns and e-commerce, working from photos of the real garments. It is included in retainer stills from ₦150,000 (US$280) a month." },
-  { q: "Is the work on this site client work?", a: "No. ÀLÀ, ODÈ and ÀSE are self-initiated concept projects for fictional brands, labelled as concept work. They show how SLIIQQUE works and do not show real sales or audience results." },
+  { q: "Is the work on this site client work?", a: workFaqAnswer("ÀLÀ, ODÈ and ÀSE") },
   { q: "How do I start a project?", a: "Email hello@sliiqque.space or call or WhatsApp +234 704 100 0085 with the product, audience, platforms and deadline. SLIIQQUE replies within one working day with a scope and quote." },
   { q: "Does SLIIQQUE build websites, bots or software?", a: `Yes, through ${PRODUCT_ENGINEERING.name} (${PRODUCT_ENGINEERING.url.replace("https://", "")}), the product-engineering vertical of the SLIIQQUE ecosystem. It builds websites, AI bots and agents, SaaS interfaces and workflow automation, separate from this site's creative-production work.` },
 ];

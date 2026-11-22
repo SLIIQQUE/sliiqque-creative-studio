@@ -1,17 +1,22 @@
 import Home from "@/components/Home";
 import JsonLd from "@/components/JsonLd";
 import { HOME_FAQ, SERVICE_PAGES } from "@/data/services";
+import { getHeroFrames } from "@/lib/hero";
+import { shareFor } from "@/lib/works";
 import { HERO, PLANS, PROJECT_ROWS, SERVICES } from "@/lib/data";
 import { BRAND_DESC, CONTENT_UPDATED, FOUNDER_ID, ORG_ID, SITE_LAUNCHED, SITE_URL, faqSchema, pageMeta, shareImg } from "@/lib/seo";
 
-export const metadata = pageMeta({
-  title: "AI Commercial & UGC Studio in Lagos, Nigeria | SLIIQQUE",
-  description: "SLIIQQUE is a Lagos creative studio producing AI commercials, UGC, digital humans and AI product photography. Start a project from ₦150,000 / $280 a month.",
-  path: "/",
-  absoluteTitle: true,
-  keywords: ["AI creative studio Lagos", "AI commercial production Nigeria", "AI UGC ads Nigeria", "AI product photography Lagos", "digital humans for advertising"],
-  image: { url: shareImg(HERO.ticker[0]), alt: "SLIIQQUE Studio: AI-produced photorealistic digital human, extreme close-up" },
-});
+export async function generateMetadata() {
+  const [first] = await getHeroFrames();
+  return pageMeta({
+    title: "AI Commercial & UGC Studio in Lagos, Nigeria | SLIIQQUE",
+    description: "SLIIQQUE is a Lagos creative studio producing AI commercials, UGC, digital humans and AI product photography. Start a project from ₦150,000 / $280 a month.",
+    path: "/",
+    absoluteTitle: true,
+    keywords: ["AI creative studio Lagos", "AI commercial production Nigeria", "AI UGC ads Nigeria", "AI product photography Lagos", "digital humans for advertising"],
+    image: { url: first ? shareFor(first.src) : shareImg(HERO.ticker[0]), alt: "SLIIQQUE Studio: AI-produced photorealistic digital human, extreme close-up" },
+  });
+}
 
 const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 const num = (s: string) => s.replace(/[^\d]/g, "");

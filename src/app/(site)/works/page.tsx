@@ -3,13 +3,15 @@ import { abs, breadcrumbSchema, pageMeta, PRODUCT_ENGINEERING } from "@/lib/seo"
 import { WorkCard } from "@/components/cards";
 import { PageHero } from "@/components/ui";
 import { getWorkEntries, shareFor, workTuple } from "@/lib/works";
+import { getWorkFacts } from "@/lib/site-facts";
 
 export async function generateMetadata() {
   const [first] = await getWorkEntries();
+  const facts = await getWorkFacts();
   return pageMeta({
     title: "Work: AI Concept Brand Worlds in Lagos",
     description:
-      "Concept work by SLIIQQUE: ÀLÀ skincare, ODÈ grooming and ÀSE spirits, with AI commercials and AI photography. Not client work. Start your own.",
+      `Concept work by SLIIQQUE: ${facts.withCategories}, with AI commercials and AI photography. Not client work. Start your own.`,
     path: "/works",
     keywords: ["AI commercial portfolio", "AI product photography portfolio", "digital humans portfolio", "concept brand work"],
     ...(first ? { image: { url: shareFor(first.img), alt: `${first.name}: concept brand visual by SLIIQQUE` } } : {}),

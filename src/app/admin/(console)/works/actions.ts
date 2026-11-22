@@ -7,6 +7,7 @@ import { z } from "zod";
 import { db } from "@/db/client";
 import { media, works } from "@/db/schema";
 import { audit } from "@/lib/cms/audit";
+import { revalidateSite } from "@/lib/cms/revalidate";
 import { Forbidden, authorize } from "@/lib/cms/dal";
 import { SERVICE_PAGES } from "@/data/services";
 import { builtInWorks, type WorkEntry } from "@/lib/works";
@@ -38,6 +39,7 @@ const schema = z.object({
 });
 
 function refresh(slug?: string, serviceSlugs: string[] = []) {
+  revalidateSite();
   for (const p of ["/", "/works", "/admin/works", "/sitemap.xml", "/llms.txt", "/llms-full.txt"]) revalidatePath(p);
   if (slug) revalidatePath(`/works/${slug}`);
   for (const s of serviceSlugs) revalidatePath(`/services/${s}`);

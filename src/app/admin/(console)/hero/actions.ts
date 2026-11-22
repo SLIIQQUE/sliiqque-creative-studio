@@ -6,6 +6,7 @@ import { z } from "zod";
 import { db } from "@/db/client";
 import { heroFrames, media } from "@/db/schema";
 import { audit } from "@/lib/cms/audit";
+import { revalidateSite } from "@/lib/cms/revalidate";
 import { Forbidden, authorize } from "@/lib/cms/dal";
 import { HERO } from "@/lib/data";
 import { frameAlt } from "@/lib/hero";
@@ -23,6 +24,7 @@ const href = z
   .transform((v) => v || null);
 
 function refresh() {
+  revalidateSite();
   revalidatePath("/");
   revalidatePath("/admin/hero");
 }

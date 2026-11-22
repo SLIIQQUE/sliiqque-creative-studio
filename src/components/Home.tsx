@@ -15,6 +15,7 @@ import { HOME_FAQ } from "@/data/services";
 import { getJournalCards } from "@/lib/journal";
 import { getHeroFrames } from "@/lib/hero";
 import { getWorkEntries, workTuple } from "@/lib/works";
+import { countWord } from "@/lib/site-facts";
 import { CONTENT_UPDATED, PRODUCT_ENGINEERING, displayDate } from "@/lib/seo";
 
 const [FIRST, ...AFTER] = ABOUT.body.split(". ");
@@ -154,7 +155,7 @@ export default async function Home() {
             index="02 / Selected work"
             title="the work"
             asideClass="sec-aside--lift"
-            aside={<><p>Three concept brand worlds, built end to end and labelled as exactly that. Not client work.</p><Btn href="/works">View all work</Btn></>}
+            aside={<><p>{(() => { const w = countWord(workEntries.length); return w[0].toUpperCase() + w.slice(1); })()} concept brand {workEntries.length === 1 ? "world" : "worlds"}, built end to end and labelled as exactly that. Not client work.</p><Btn href="/works">View all work</Btn></>}
           />
           <div className="works-grid">
             {workEntries.slice(0, HOME_WORKS).map((w) => <WorkCard key={w.slug} w={workTuple(w)} />)}
