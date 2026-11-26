@@ -2691,3 +2691,30 @@ main [id^="rail-"] { scroll-margin-top: 110px; }
   .notice__cta { order: 2; margin-left: auto; padding-block: 6px; }
   .notice__close { order: 3; }
 }
+
+/* ---------- Films on work, service and journal pages ---------- */
+.vblock { min-width: 0; }
+.vfig { margin: 0; min-width: 0; }
+.vfig .video--portrait { max-width: none; }
+.vfig__cap { display: flex; flex-direction: column; gap: 3px; margin-top: 12px; font-size: 13px; font-weight: 600; line-height: 1.35; color: var(--ink); }
+.vfig__cap span { font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--text-2); }
+/* One film: horizontal fills the column, vertical keeps a phone-like width. */
+.vblock--single .vfig--tall { max-width: 300px; }
+/* One horizontal film beside one or two vertical ones: each grows in proportion to its shape (--ar), so all stand at the same height. */
+.vblock--row { display: flex; align-items: flex-start; gap: 20px; }
+.vblock--row .vfig { flex: var(--ar) 1 0; }
+/* Mixed or many: horizontal films two-up (the first spans the row when the count is odd), vertical films in a row of quarter-width tiles. */
+.vblock--stack { display: grid; gap: 28px; }
+.vblock__wide { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 20px; }
+/* With an odd count the first film leads across the full row and the rest pair up below, so same-sized films stay together. */
+.vblock__wide .vfig:first-child:nth-last-child(odd) { grid-column: 1 / -1; }
+.vblock__tall { display: grid; grid-template-columns: repeat(var(--cols, 4), minmax(0, 1fr)); gap: 24px 20px; max-width: calc((100% - 60px) / 4 * var(--cols, 4) + 20px * (var(--cols, 4) - 1)); }
+@media (max-width: 900px) {
+  .vblock__tall { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: none; }
+}
+@media (max-width: 760px) {
+  .vblock__wide { grid-template-columns: 1fr; }
+  .vblock--row { flex-wrap: wrap; gap: 24px 16px; }
+  .vblock--row .vfig--wide { flex: 1 1 100%; }
+  .vblock--row .vfig--tall { flex: 0 0 calc(50% - 8px); }
+}
