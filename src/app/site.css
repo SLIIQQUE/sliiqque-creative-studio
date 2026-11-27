@@ -2713,8 +2713,10 @@ main [id^="rail-"] { scroll-margin-top: 110px; }
   .vblock__tall { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: none; }
 }
 @media (max-width: 760px) {
+  /* Phones: every film on its own row. Vertical films keep a phone-like width instead of filling the screen. */
   .vblock__wide { grid-template-columns: 1fr; }
-  .vblock--row { flex-wrap: wrap; gap: 24px 16px; }
-  .vblock--row .vfig--wide { flex: 1 1 100%; }
-  .vblock--row .vfig--tall { flex: 0 0 calc(50% - 8px); }
+  .vblock__tall { grid-template-columns: 1fr; max-width: 300px; }
+  .vblock--row { flex-direction: column; align-items: stretch; gap: 24px; }
+  .vblock--row .vfig { flex: none; }
+  .vblock--row .vfig--tall { max-width: 300px; }
 }
