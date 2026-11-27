@@ -2,7 +2,8 @@ import { isoToSeconds } from "@/lib/video-utils";
 import { abs } from "@/lib/seo";
 import { getVideos, type VideoItem } from "@/lib/videos";
 
-export const dynamic = "force-static";
+// Built on every request for the same reason as sitemap.xml: a cached copy was not refreshed after a publish.
+export const dynamic = "force-dynamic";
 
 const esc = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&apos;");
 

@@ -10,6 +10,13 @@ const LEGAL_PATHS = { "/terms": 1, "/policies": 1, "/privacy": 1 };
 
 const img = (id: string) => abs(`/img/${id}`);
 
+/**
+ * Generated on every request, never cached. Sitemap files are cached by default, and on Vercel that cached copy was not
+ * refreshed by revalidatePath after a publish (the feed, llms.txt, journal and home pages were), so a new post stayed out
+ * of the sitemap for hours. Crawlers fetch this rarely, so building it fresh costs almost nothing.
+ */
+export const dynamic = "force-dynamic";
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const { cards } = await getJournalCards();
   const journalPosts = await getSitemapPosts();
