@@ -1,5 +1,5 @@
 import Img from "./Img";
-import VideoEmbed from "./VideoEmbed";
+import ReelRail from "./ReelRail";
 import Reveal from "./Reveal";
 import CountUp from "./CountUp";
 import Awards from "./Awards";
@@ -45,7 +45,8 @@ const STRIP = ["AI commercials", "AI UGC", "Digital humans", "AI photography", "
 
 export default async function Home() {
   const [{ cards }, heroFrames, workEntries, allVideos] = await Promise.all([getJournalCards(), getHeroFrames(), getWorkEntries(), getVideos()]);
-  const reel = allVideos.filter((v) => v.featured).slice(0, 3);
+  // Featured films lead; the rest follow so the strip always shows several films at once.
+  const reel = [...allVideos.filter((v) => v.featured), ...allVideos.filter((v) => !v.featured)].slice(0, 8);
   // The showreel takes slot 03 when it exists, so the section numbers after it shift by one.
   const n = (i: number) => String(i + (reel.length ? 1 : 0)).padStart(2, "0");
   return (
@@ -178,15 +179,7 @@ export default async function Home() {
               title="press play"
               aside={<><p>Commercials, UGC and digital humans, made as systems. Watch a few, or see them all.</p><Btn href="/videos">All videos</Btn></>}
             />
-            <div className="reel-videos">
-              {reel.map((v) => (
-                <article key={v.youtubeId} style={{ "--ar": v.orientation === "portrait" ? 0.5625 : 1.778 } as React.CSSProperties}>
-                  <VideoEmbed youtubeId={v.youtubeId} title={v.title} portrait={v.orientation === "portrait"} />
-                  <p className="vgrid__type">{v.type}</p>
-                  <h3 className="vgrid__title">{v.title}</h3>
-                </article>
-              ))}
-            </div>
+            <ReelRail items={reel.map((v) => ({ youtubeId: v.youtubeId, title: v.title, type: v.type, portrait: v.orientation === "portrait" }))} />
           </div>
         </section>
       )}

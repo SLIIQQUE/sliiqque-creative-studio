@@ -2603,12 +2603,8 @@ main [id^="rail-"] { scroll-margin-top: 110px; }
 .vgrid__type { margin-top: 14px; font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--text-2); }
 .vgrid__title { margin-top: 6px; font-size: 18px; line-height: 1.25; }
 .vgrid__desc { margin-top: 8px; font-size: 14px; line-height: 1.55; color: var(--text); max-width: 52ch; }
-.reel-videos { display: flex; gap: 20px; align-items: flex-start; }
-/* Each tile grows in proportion to its shape (--ar), so horizontal and vertical films stand at the same height. */
-.reel-videos > article { flex: var(--ar, 1.78) 1 0; min-width: 0; }
-.reel-videos .video--portrait { max-width: none; }
 @media (max-width: 900px) { .vgrid--tall { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 760px) { .vgrid--wide { grid-template-columns: 1fr; } .vgrid--tall { grid-template-columns: 1fr; max-width: none; } .reel-videos { flex-direction: column; align-items: stretch; } .reel-videos > article { flex: none; } .reel-videos .video--portrait { max-width: 280px; } }
+@media (max-width: 760px) { .vgrid--wide { grid-template-columns: 1fr; } .vgrid--tall { grid-template-columns: 1fr; max-width: none; } }
 
 /* ---------- Notice bar ---------- */
 .notice {
@@ -2721,3 +2717,23 @@ main [id^="rail-"] { scroll-margin-top: 110px; }
   .vblock--row .vfig { flex: none; }
   .vblock--row .vfig--tall { max-width: none; }
 }
+
+/* ---------- Homepage showreel filmstrip ---------- */
+.reel { --reel-h: clamp(250px, 32vw, 430px); }
+.reel__bar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
+.reel__count { font-size: 12px; font-weight: 700; letter-spacing: .16em; color: var(--text-2); }
+.reel__count strong { color: var(--ink); }
+.reel__nav { display: flex; gap: 8px; }
+.reel__btn { width: 44px; height: 44px; border: 1px solid var(--line-strong); border-radius: 50%; background: none; color: var(--ink); font: inherit; font-size: 18px; cursor: pointer; transition: background .25s, color .25s, border-color .25s, opacity .25s; }
+.reel__btn:hover:not(:disabled) { background: var(--ink); border-color: var(--ink); color: #fff; }
+.reel__btn:disabled { opacity: .3; cursor: default; }
+.reel__rail { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-bottom: 4px; outline-offset: 4px; overscroll-behavior-x: contain; }
+.reel__rail::-webkit-scrollbar { display: none; }
+.reel__card { flex: 0 0 auto; width: calc(var(--reel-h) * var(--ar)); scroll-snap-align: start; }
+.reel__media { position: relative; }
+.reel__media .video, .reel__media .video--portrait { width: 100%; max-width: none; aspect-ratio: var(--ar); }
+.reel__chip { position: absolute; left: 12px; top: 12px; padding: 6px 11px; border-radius: var(--radius-pill); background: rgba(10, 10, 15, .62); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); color: #fff; font-size: 10px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; pointer-events: none; }
+.reel__title { margin-top: 12px; font-size: 18px; line-height: 1.25; }
+.reel__card .video__icon { transition: transform .3s; }
+.reel__card:hover .video__icon { transform: scale(1.1); }
+@media (max-width: 760px) { .reel { --reel-h: 62vw; } .reel__card--tall { width: calc(var(--reel-h) * var(--ar) * 1.5); } .reel__card:not(.reel__card--tall) { width: 82vw; } .reel__btn { width: 40px; height: 40px; } }
