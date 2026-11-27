@@ -2736,4 +2736,9 @@ main [id^="rail-"] { scroll-margin-top: 110px; }
 .reel__title { margin-top: 12px; font-size: 18px; line-height: 1.25; }
 .reel__card .video__icon { transition: transform .3s; }
 .reel__card:hover .video__icon { transform: scale(1.1); }
-@media (max-width: 760px) { .reel { --reel-h: 62vw; } .reel__card--tall { width: calc(var(--reel-h) * var(--ar) * 1.5); } .reel__card:not(.reel__card--tall) { width: 82vw; } .reel__btn { width: 40px; height: 40px; } }
+/* Phones: stack the films one per row at full width, like the Videos page. No arrows or counter needed. */
+@media (max-width: 760px) {
+  .reel__bar { display: none; }
+  .reel__rail { flex-direction: column; overflow: visible; scroll-snap-type: none; gap: 28px; }
+  .reel__card, .reel__card--tall, .reel__card:not(.reel__card--tall) { width: 100%; }
+}
