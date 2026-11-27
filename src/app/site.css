@@ -2608,7 +2608,7 @@ main [id^="rail-"] { scroll-margin-top: 110px; }
 .reel-videos > article { flex: var(--ar, 1.78) 1 0; min-width: 0; }
 .reel-videos .video--portrait { max-width: none; }
 @media (max-width: 900px) { .vgrid--tall { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 760px) { .vgrid--wide { grid-template-columns: 1fr; } .reel-videos { flex-direction: column; align-items: stretch; } .reel-videos > article { flex: none; } .reel-videos .video--portrait { max-width: 280px; } }
+@media (max-width: 760px) { .vgrid--wide { grid-template-columns: 1fr; } .vgrid--tall { grid-template-columns: 1fr; max-width: none; } .reel-videos { flex-direction: column; align-items: stretch; } .reel-videos > article { flex: none; } .reel-videos .video--portrait { max-width: 280px; } }
 
 /* ---------- Notice bar ---------- */
 .notice {
@@ -2713,10 +2713,11 @@ main [id^="rail-"] { scroll-margin-top: 110px; }
   .vblock__tall { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: none; }
 }
 @media (max-width: 760px) {
-  /* Phones: every film on its own row. Vertical films keep a phone-like width instead of filling the screen. */
+  /* Phones: every film on its own row, vertical films stretched to the full width. */
   .vblock__wide { grid-template-columns: 1fr; }
-  .vblock__tall { grid-template-columns: 1fr; max-width: 300px; }
+  .vblock__tall { grid-template-columns: 1fr; max-width: none; }
+  .vblock--single .vfig--tall { max-width: none; }
   .vblock--row { flex-direction: column; align-items: stretch; gap: 24px; }
   .vblock--row .vfig { flex: none; }
-  .vblock--row .vfig--tall { max-width: 300px; }
+  .vblock--row .vfig--tall { max-width: none; }
 }
