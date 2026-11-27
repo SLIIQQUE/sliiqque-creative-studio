@@ -1,6 +1,6 @@
 import "server-only";
 import { cache } from "react";
-import { asc, eq } from "drizzle-orm";
+import { asc, desc, eq } from "drizzle-orm";
 import { db } from "@/db/client";
 import { videos } from "@/db/schema";
 import { VIDEOS } from "@/data/videos";
@@ -26,17 +26,20 @@ export const getVideos = cache(async (): Promise<VideoItem[]> => {
   if (journalSource() === "json") {
     return VIDEOS.map((v) => ({ ...v, type: "Commercial", orientation: "landscape" as const, featured: false }));
   }
-  const rows = await db.select().from(videos).where(eq(videos.published, true)).orderBy(asc(videos.sortOrder), asc(videos.createdAt));
+  const rows = await db.select().from(videos).where(eq(videos.published, true)).orderBy(asc(videos.sortOrder), desc(videos.createdAt));
   return rows.map((r) => ({
     youtubeId: r.youtubeId, title: r.title, description: r.description, type: r.type, orientation: r.orientation === "portrait" ? "portrait" : "landscape",
     duration: r.duration, uploadDate: r.uploadDate, pages: r.pages, featured: r.featured,
   }));
 });
 
+/** The homepage showreel: pinned (featured) films first, then the rest in list order (latest first), up to 8. */
+export const reelOf = (all: VideoItem[]) => [...all.filter((v) => v.featured), ...all.filter((v) => !v.featured)].slice(0, 8);
+
 export const videosForPath = async (path: string) => (await getVideos()).filter((v) => v.pages.includes(path));
 
 /** Admin rows, including hidden films. */
-export const listVideoRows = () => db.select().from(videos).orderBy(asc(videos.sortOrder), asc(videos.createdAt));
+export const listVideoRows = () => db.select().from(videos).orderBy(asc(videos.sortOrder), desc(videos.createdAt));
 
 /** schema.org VideoObject for a film. `pagePath` is the page it is shown on, so each page names itself and not always /videos. */
 export const videoSchema = (v: VideoItem, pagePath = "/videos") => ({

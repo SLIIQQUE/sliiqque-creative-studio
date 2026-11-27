@@ -16,7 +16,7 @@ import { HOME_FAQ } from "@/data/services";
 import { getJournalCards } from "@/lib/journal";
 import { getHeroFrames } from "@/lib/hero";
 import { getWorkEntries, workTuple } from "@/lib/works";
-import { getVideos, videoSchema } from "@/lib/videos";
+import { getVideos, reelOf, videoSchema } from "@/lib/videos";
 import { countWord } from "@/lib/site-facts";
 import JsonLd from "./JsonLd";
 import { CONTENT_UPDATED, PRODUCT_ENGINEERING, displayDate } from "@/lib/seo";
@@ -45,8 +45,7 @@ const STRIP = ["AI commercials", "AI UGC", "Digital humans", "AI photography", "
 
 export default async function Home() {
   const [{ cards }, heroFrames, workEntries, allVideos] = await Promise.all([getJournalCards(), getHeroFrames(), getWorkEntries(), getVideos()]);
-  // Featured films lead; the rest follow so the strip always shows several films at once.
-  const reel = [...allVideos.filter((v) => v.featured), ...allVideos.filter((v) => !v.featured)].slice(0, 8);
+  const reel = reelOf(allVideos);
   // The showreel takes slot 03 when it exists, so the section numbers after it shift by one.
   const n = (i: number) => String(i + (reel.length ? 1 : 0)).padStart(2, "0");
   return (

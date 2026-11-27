@@ -1,6 +1,6 @@
 import { isoToSeconds } from "@/lib/video-utils";
 import { abs } from "@/lib/seo";
-import { getVideos, type VideoItem } from "@/lib/videos";
+import { getVideos, reelOf, type VideoItem } from "@/lib/videos";
 
 // Built on every request for the same reason as sitemap.xml: a cached copy was not refreshed after a publish.
 export const dynamic = "force-dynamic";
@@ -12,7 +12,7 @@ export async function GET() {
   const videos = await getVideos();
   const byPage = new Map<string, VideoItem[]>();
   const add = (path: string, v: VideoItem) => byPage.set(path, [...(byPage.get(path) ?? []), v]);
-  const featured = videos.filter((v) => v.featured).slice(0, 3);
+  const featured = reelOf(videos);
   for (const v of videos) for (const path of new Set(["/videos", ...v.pages])) add(path, v);
   for (const v of featured) add("/", v);
 

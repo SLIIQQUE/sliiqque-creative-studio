@@ -2,7 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-import { asc, eq, max } from "drizzle-orm";
+import { asc, desc, eq, min } from "drizzle-orm";
 import { z } from "zod";
 import { db } from "@/db/client";
 import { videos } from "@/db/schema";
@@ -72,8 +72,9 @@ export async function saveVideo(_prev: VideoState, formData: FormData): Promise<
     } else {
       const [dupe] = await db.select({ id: videos.id }).from(videos).where(eq(videos.youtubeId, fields.youtubeId)).limit(1);
       if (dupe) return { error: "That YouTube video is already in the list" };
-      const [{ top }] = await db.select({ top: max(videos.sortOrder) }).from(videos);
-      const [row] = await db.insert(videos).values({ ...fields, sortOrder: (top ?? -1) + 1 }).returning({ id: videos.id });
+      // New films go to the top of the list, so the latest shows first. Drag them in the admin to change that.
+      const [{ first }] = await db.select({ first: min(videos.sortOrder) }).from(videos);
+      const [row] = await db.insert(videos).values({ ...fields, sortOrder: (first ?? 1) - 1 }).returning({ id: videos.id });
       await audit(user, "create", "video", row.id, { youtubeId: fields.youtubeId });
     }
     refresh([...fields.pages, ...previous]);
@@ -87,7 +88,7 @@ export async function moveVideo(videoId: string, direction: "up" | "down"): Prom
   try {
     const user = await authorize();
     const vid = uuid.parse(videoId);
-    const rows = await db.select({ id: videos.id }).from(videos).orderBy(asc(videos.sortOrder), asc(videos.createdAt));
+    const rows = await db.select({ id: videos.id }).from(videos).orderBy(asc(videos.sortOrder), desc(videos.createdAt));
     const from = rows.findIndex((r) => r.id === vid);
     const to = direction === "up" ? from - 1 : from + 1;
     if (from < 0 || to < 0 || to >= rows.length) return undefined;

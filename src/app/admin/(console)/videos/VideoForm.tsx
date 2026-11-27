@@ -89,7 +89,7 @@ export default function VideoForm({ initial, services, works }: { initial?: Vide
           <p className="adm-kicker" style={{ marginBottom: 8 }}>Where it shows</p>
           <p className="adm-card__note" style={{ marginBottom: 10 }}>Always on the Videos page. Tick more places:</p>
           <div style={{ display: "grid", gap: 14 }}>
-            <label className="adm-row" style={{ gap: 6 }}><input type="checkbox" name="featured" defaultChecked={initial?.featured} /> Homepage showreel (the first 3 featured films show)</label>
+            <label className="adm-row" style={{ gap: 6 }}><input type="checkbox" name="featured" defaultChecked={initial?.featured} /> Pin to the front of the homepage showreel (otherwise the latest films show first)</label>
             {group("Service pages", services)}
             {group("Work pages", works)}
             <div className="adm-field" style={{ marginBottom: 0 }}>
