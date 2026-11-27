@@ -1,3 +1,4 @@
+import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
 import VideoGrid from "@/components/VideoGrid";
 import { PageHero, Btn } from "@/components/ui";
@@ -35,7 +36,8 @@ export default async function VideosPage() {
           ) : (
             <p>New films are on the way. In the meantime, see the <a href="/works">concept work</a>.</p>
           )}
-          <p className="services-note">Want a film like these for your brand? <Btn href="/contact">Start a project</Btn></p>
+          <p className="services-note">Want a film like these for your brand? See <Link href="/pricing">pricing</Link> or the <Link href="/faq">FAQ</Link>.</p>
+          <div className="center-btn"><Btn href="/contact">Start a project</Btn></div>
         </div>
       </section>
     </>
