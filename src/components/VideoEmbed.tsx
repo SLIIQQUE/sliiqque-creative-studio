@@ -17,7 +17,7 @@ export default function VideoEmbed({ youtubeId, title, portrait = false }: { you
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={`https://i.ytimg.com/vi/${youtubeId}/${thumb}.jpg`}
-            alt=""
+            alt={`${title}: video thumbnail`}
             loading="lazy"
             width={portrait ? 360 : 640}
             height={portrait ? 640 : 360}

@@ -32,7 +32,7 @@ export default async function VideoBlock({ path }: { path: string }) {
 
   return (
     <>
-      <JsonLd data={videos.map(videoSchema)} />
+      <JsonLd data={videos.map((v) => videoSchema(v, path))} />
       <Reveal className="split">
         <h2 className="t-h4">Watch</h2>
         {mode === "single" ? (

@@ -41,3 +41,11 @@ export function isoToClock(iso: string): string {
   const [, h, min = "0", s = "0"] = m;
   return `${h ? `${h}:${min.padStart(2, "0")}` : min}:${s.padStart(2, "0")}`;
 }
+
+/** ISO 8601 duration ("PT1H2M3S") to whole seconds, as the video sitemap wants. Null when it is not a duration or is zero. */
+export function isoToSeconds(iso: string): number | null {
+  const m = iso.match(/^PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?$/);
+  if (!m) return null;
+  const total = Number(m[1] ?? 0) * 3600 + Number(m[2] ?? 0) * 60 + Number(m[3] ?? 0);
+  return total > 0 ? total : null;
+}

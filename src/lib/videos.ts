@@ -38,8 +38,8 @@ export const videosForPath = async (path: string) => (await getVideos()).filter(
 /** Admin rows, including hidden films. */
 export const listVideoRows = () => db.select().from(videos).orderBy(asc(videos.sortOrder), asc(videos.createdAt));
 
-/** schema.org VideoObject for a film. */
-export const videoSchema = (v: VideoItem) => ({
+/** schema.org VideoObject for a film. `pagePath` is the page it is shown on, so each page names itself and not always /videos. */
+export const videoSchema = (v: VideoItem, pagePath = "/videos") => ({
   "@context": "https://schema.org",
   "@type": "VideoObject",
   name: v.title,
@@ -51,5 +51,5 @@ export const videoSchema = (v: VideoItem) => ({
   contentUrl: `https://www.youtube.com/watch?v=${v.youtubeId}`,
   publisher: { "@id": ORG_ID },
   inLanguage: "en-NG",
-  url: abs("/videos"),
+  url: abs(pagePath),
 });

@@ -23,7 +23,7 @@ export default async function VideosPage() {
       <JsonLd
         data={[
           { "@context": "https://schema.org", "@type": "CollectionPage", name: "SLIIQQUE Studio videos", url: abs("/videos") },
-          ...videos.map(videoSchema),
+          ...videos.map((v) => videoSchema(v, "/videos")),
           breadcrumbSchema(BREADCRUMB),
         ]}
       />

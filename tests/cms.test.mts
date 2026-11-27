@@ -171,3 +171,13 @@ test("noticeVersion changes with the text and is stable otherwise", () => {
   assert.notEqual(noticeVersion("a", "/x", "go"), noticeVersion("b", "/x", "go"));
   assert.notEqual(noticeVersion("ab", "", ""), noticeVersion("a", "b", ""));
 });
+
+import { isoToSeconds } from "../src/lib/video-utils.ts";
+
+test("isoToSeconds turns an ISO duration into whole seconds", () => {
+  assert.equal(isoToSeconds("PT0M22S"), 22);
+  assert.equal(isoToSeconds("PT8M5S"), 485);
+  assert.equal(isoToSeconds("PT1H2M3S"), 3723);
+  assert.equal(isoToSeconds("PT0M0S"), null);
+  assert.equal(isoToSeconds("22"), null);
+});

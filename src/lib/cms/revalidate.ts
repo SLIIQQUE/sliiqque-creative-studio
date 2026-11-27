@@ -8,5 +8,5 @@ import { revalidatePath } from "next/cache";
  */
 export function revalidateSite(): void {
   revalidatePath("/", "layout");
-  for (const p of ["/sitemap.xml", "/llms.txt", "/llms-full.txt", "/feed.xml"]) revalidatePath(p);
+  for (const p of ["/sitemap.xml", "/video-sitemap.xml", "/llms.txt", "/llms-full.txt", "/feed.xml"]) revalidatePath(p);
 }

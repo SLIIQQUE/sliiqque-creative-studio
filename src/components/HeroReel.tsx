@@ -24,7 +24,7 @@ function Row({ frames, reverse, offset, first }: { frames: HeroFrame[]; reverse?
             data-cursor="View"
             aria-label={`${f.label}. Open ${f.href.startsWith("/works") ? "the concept case" : "the page"}`}
           >
-            <Img id={f.src} w={300} h={375} alt={clone ? "" : f.alt} sizes="(max-width: 767px) 46vw, 300px" eager={first && n === 0} preload />
+            <Img id={f.src} w={300} h={375} alt={f.alt} sizes="(max-width: 767px) 46vw, 300px" eager={first && n === 0} preload />
             <span className="showcase__cap">{String((n % ordered.length) + offset).padStart(2, "0")} / {f.label}</span>
           </Link>
         );

@@ -171,7 +171,7 @@ export default async function Home() {
 
       {reel.length > 0 && (
         <section className="sec" id="showreel">
-          <JsonLd data={reel.map(videoSchema)} />
+          <JsonLd data={reel.map((v) => videoSchema(v, "/"))} />
           <div className="container">
             <SecHead
               index="03 / Showreel"

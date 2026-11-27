@@ -8,7 +8,7 @@ export default function robots(): MetadataRoute.Robots {
   return {
     // The contact form endpoint is not a page, and the journal admin is private; keep every crawler out of both.
     rules: [{ userAgent: "*", allow: "/", disallow: ["/api/", "/admin"] }, ...AI_BOTS.map((userAgent) => ({ userAgent, allow: "/", disallow: ["/api/", "/admin"] }))],
-    sitemap: `${SITE_URL}/sitemap.xml`,
+    sitemap: [`${SITE_URL}/sitemap.xml`, `${SITE_URL}/video-sitemap.xml`],
     host: SITE_URL,
   };
 }
